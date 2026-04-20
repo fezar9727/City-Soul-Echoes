@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>City Soul Echoes | Arte, Cultura Underground y Bienestar en Cali</title>
     
+    <!-- ==== Bootstrap 5 ==== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ==== Bootstrap Icons ==== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- ==== Google Fonts (ciberpunk + urbana) ==== -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&family=Creepster&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="icon" href="img/LOGO-City-Soul-Echoes.png" type="image/png">
 </head>
+
 <body>
-    
+    <!-- ==== Navbar – The Skyline ==== -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 cyber-title" href="#">CITY SOUL ECHOES</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio"><i class="bi bi-house-door-fill me-1"></i>Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#vault"><i class="bi bi-safe2-fill me-1"></i>The Vault</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#artistas"><i class="bi bi-palette-fill me-1"></i>Artistas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#soul-station"><i class="bi bi-music-note-beamed me-1"></i>Soul Station</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bienestar"><i class="bi bi-heart-pulse-fill me-1"></i>Bienestar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#eventos"><i class="bi bi-calendar-event-fill me-1"></i>Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#aprendizaje"><i class="bi bi-book-fill me-1"></i>Aprendizaje</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#noticias"><i class="bi bi-newspaper me-1"></i>Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre-creador"><i class="bi bi-person-fill me-1"></i>Sobre mí</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==== Hero Section – Psycho Entry ==== -->
+    <header id="inicio" class="hero-section d-flex align-items-center justify-content-center text-center">
+        <video autoplay muted loop class="hero-video" id="hero-video">
+            <source src="video/psicodelico-abstracto.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content position-relative z-3">
+            <h1 class="display-1 fw-bold mb-3 cyber-title">CITY SOUL ECHOES</h1>
+            <p class="lead fs-3 mb-4">"El pulso artístico vive aquí"</p>
+            <a href="#vault" class="btn btn-explore">EXPLORAR</a>
+            
+            <div class="mt-5">
+                <i class="bi bi-chevron-down fs-1 text-white opacity-75"></i>
+            </div>
+        </div>
+
+        <audio id="ambient-audio" loop>
+            <source src="audio/air-on-the-g-string-usaf-band.mp3" type="audio/mpeg">
+        </audio>
+    </header>
+
 </body>
 </html>
+
+
