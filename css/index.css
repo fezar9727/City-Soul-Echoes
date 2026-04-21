@@ -1,0 +1,411 @@
+/* ====================== CITY SOUL ECHOES - index.css ====================== */
+
+:root {
+    --bg-main: #0a0a0a;
+    --bg-alt: #1a1a1a;
+    --card-bg: #2a2a2a;
+    --accent-green: #00ff9d;
+    --accent-purple: #c300ff;
+    --accent-ocre: #ffcc00;
+    --text-light: #f5f5f5;
+    --text-muted: #cccccc;
+}
+
+/* ====================== GENERAL ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-light) !important;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    line-height: 1.7;
+}
+
+/* ====================== NAVBAR - CORREGIDO ====================== */
+.navbar {
+    background-color: rgba(10, 10, 10, 0.98) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--accent-green);
+    min-height: 68px;
+    padding: 12px 0;
+}
+
+.navbar .container {
+    max-width: 94%;
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.35rem;           /* Logo más pequeño */
+    letter-spacing: 3px;
+    color: var(--accent-green) !important;
+    text-shadow: 0 0 18px var(--accent-green);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.navbar-nav {
+    gap: 1.2rem;                  /* Más espacio entre los enlaces */
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    font-size: 0.92rem;           /* Enlaces más pequeños */
+    padding: 0.35rem 0.7rem;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--accent-green) !important;
+}
+
+/* Hamburguesa más limpia */
+.navbar-toggler {
+    border-color: var(--accent-green);
+    padding: 6px 10px;
+}
+
+/* ====================== HERO ====================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(10,10,10,0.93));
+    z-index: -1;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.8rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-shadow: 0 0 40px var(--accent-green),
+                0 0 70px var(--accent-purple);
+    color: #ffffff !important;
+}
+
+.hero-content p {
+    font-size: 1.7rem;
+    color: #eeeeee !important;
+    margin-bottom: 2.5rem;
+}
+
+.btn-explore {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple)) !important;
+    color: #000 !important;
+    font-weight: 700;
+    padding: 18px 70px;
+    font-size: 1.4rem;
+    border: none;
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.7);
+    transition: all 0.4s ease;
+}
+
+.btn-explore:hover {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 0 60px rgba(195, 0, 255, 0.9);
+}
+
+/* ====================== SECTIONS ====================== */
+section {
+    padding: 110px 0;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.3rem;
+    color: var(--accent-green) !important;
+    text-align: center;
+    margin-bottom: 3.8rem;
+    text-shadow: 0 0 35px var(--accent-green);
+    letter-spacing: 3px;
+}
+
+/* Fondo alterno para mejor legibilidad */
+#vault, #soul-station, #eventos, #aprendizaje, #noticias, #bienestar, #artistas {
+    background-color: var(--bg-alt) !important;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid #555 !important;
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+}
+
+.card h5, .card-title {
+    color: #ffffff !important;
+}
+
+.card p, .card .small, .card-text {
+    color: var(--text-muted) !important;
+}
+
+/* Forzar visibilidad de textos Bootstrap */
+.text-muted, .text-info, .text-warning, .text-secondary {
+    color: #cccccc !important;
+}
+
+/* Sobre el Creador */
+#sobre-creador {
+    background-color: #1a1a1a !important;
+}
+
+#sobre-creador .card {
+    background-color: #2a2a2a !important;
+    border: 1px solid var(--accent-ocre) !important;
+}
+
+#sobre-creador p {
+    color: #e8e8e8 !important;
+    font-size: 1.15rem;
+}
+
+/* Footer */
+.cyber-footer {
+    background-color: #050505 !important;
+    border-top: 2px solid var(--accent-purple);
+    padding: 60px 0 20px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.footer-top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-brand .tagline {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons i {
+    font-size: 1.2rem;
+    color: var(--accent-green);
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px var(--accent-purple);
+}
+
+.footer-links {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer-links h6 {
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.link-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px 30px;
+    justify-content: end;
+}
+
+.link-grid a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: 0.3s;
+    text-align: right;
+}
+
+.link-grid a:hover {
+    color: var(--accent-green);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 40px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+    section {
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+        letter-spacing: 3px;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+        margin-bottom: 2.5rem;
+    }
+
+    .footer-top-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-logo-center {
+        order: -1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .footer-icon {
+        width: 70px;
+    }
+
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .footer-links {
+        align-items: center;
+        width: 100%;
+    }
+
+    .link-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .link-grid a {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Efectos extras */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ====================== DIVISORES ====================== */
+.section-divider {
+    height: 3px;
+    border: none;
+    margin: 2rem auto;
+    width: 80%;
+    opacity: 0.7;
+    background: linear-gradient(90deg, transparent, #555, transparent);
+}
+
+.divider-green {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+    box-shadow: 0 0 15px var(--accent-green);
+    opacity: 0.5;
+}
+
+.divider-purple {
+    height: 1px;
+    background: transparent;
+    border-top: 2px dashed var(--accent-purple);
+    box-shadow: 0 0 10px var(--accent-purple);
+    opacity: 0.4;
+    width: 60%;
+}
+
+/* ====================== FOOTER LOGO ====================== */
+.footer-logo-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+}
+
+.footer-icon {
+    width: 90px;
+    height: auto;
+    filter: drop-shadow(0 0 10px var(--accent-purple));
+    transition: 0.4s ease;
+}
+
+.footer-icon:hover {
+    filter: drop-shadow(0 0 15px var(--accent-green));
+    transform: scale(1.1);
+}
