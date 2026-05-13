@@ -1,13 +1,10 @@
-/* ==============CITY SOUL ECHOES - index.css ============== */
+/* ============================================ CITY SOUL ECHOES - index.css =========================================== */
 
 /* ====================== 1. VARIABLES & CONFIG ====================== */
 :root {
     --bg-main: #0a0a0a;
-    --bg-alt: #1a1a1a;
-    --card-bg: #2a2a2a;
     --accent-green: #00ff9d;
     --accent-purple: #c300ff;
-    --accent-ocre: #ffcc00;
     --text-light: #f5f5f5;
     --text-muted: #cccccc;
     --font-main: 'Space Grotesk', system-ui, sans-serif;
@@ -15,7 +12,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
+    scroll-padding-top: 80px; 
 }
 
 * {
@@ -28,26 +26,14 @@ body {
     background-color: var(--bg-main);
     color: var(--text-light);
     font-family: var(--font-main);
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
-/* ---- FORZAR VISIBILIDAD DE TEXTOS ---- */
-body .text-muted, body .card-text, body p {
-    color: var(--text-muted) !important;
-    opacity: 1 !important;
-}
 
-body h1, body h2, body h3, body h4, body h5, body .card-title {
-    color: var(--text-light) !important;
-}
-
-.text-muted, .text-info, .text-warning, .text-secondary {
-    color: #cccccc !important;
-}
 
 /* ====================== 2. ELEMENTOS GLOBALES (SECCIONES, CARDS, DIVISORES) ====================== */
 section {
-    padding: 120px 4% !important; 
+    padding: 120px 4%;
     position: relative;
     max-width: 100%;
     overflow: hidden; 
@@ -56,32 +42,34 @@ section {
 .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 3.3rem;
-    color: var(--accent-green) !important;
+    color: var(--accent-green);
     text-align: center;
     margin-bottom: 3.8rem;
     text-shadow: 0 0 35px var(--accent-green);
     letter-spacing: 3px;
 }
 
+/* ---- TÍTULOS DE SECCIÓN (CYBER STYLE) ---- */
+.cyber-subtitle {
+    font-family: var(--font-cyber);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 .card {
-    background-color: var(--card-bg) !important;
-    border: 1px solid #555 !important;
     transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    border-color: var(--accent-green) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+.card-body {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
 }
 
-.card h5, .card-title {
-    color: #ffffff !important;
-}
-
-.card p, .card .small, .card-text {
-    color: var(--text-muted) !important;
-}
 
 /* --- AJUSTE DE IMÁGENES EN CARDS --- */
 .card-img-top {
@@ -91,7 +79,6 @@ section {
     object-position: center; 
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 
 #vault .card-img-top {
     object-fit: contain; 
@@ -125,150 +112,196 @@ section {
     width: 60%;
 }
 
-/* ====================== 3. NAVBAR ====================== */
-.navbar {
-    background-color: rgba(10, 10, 10, 0.98) !important;
+
+
+/* ====================== 3. Section Navbar – The Skyline ====================== */
+nav.main-nav-custom {
+    background-color: rgba(10, 10, 10, 0.85); 
     backdrop-filter: blur(12px);
-    border-bottom: 2px solid var(--accent-green);
-    min-height: 60px; 
-    padding: 15px 0;  
-    margin-bottom: 20px; 
+    border-bottom: 1px solid var(--accent-green); 
+    padding: 10px 0;
+    transition: all 0.3s ease;
 }
 
-.navbar .container {
-    max-width: 96%; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+.main-nav-custom .container {
+    max-width: 96%;
 }
 
-.navbar-brand {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1rem;           
+.main-nav-custom .navbar-brand {
+    font-family: var(--font-cyber);
+    font-size: 1.2rem;
     letter-spacing: 2px;
-    color: var(--accent-green) !important;
-    text-shadow: 0 0 10px var(--accent-green); 
-    margin-right: auto;          
+    color: var(--accent-green);
+    text-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
 }
 
-.navbar-nav {
+
+.main-nav-custom .navbar-nav {
+    gap: 1.2rem; 
+}
+
+.main-nav-custom .nav-link {
+    color: var(--text-light);
+    font-size: 0.57rem; 
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 0.5rem 0; 
+    transition: all 0.3s ease;
     display: flex;
-    flex-direction: row;
-    gap: 2rem;                   
     align-items: center;
 }
 
-.nav-link {
-    color: var(--text-light) !important;
-    font-weight: 400;            
-    font-size: 0.85rem;          
-    text-transform: none;        
-    padding: 0 !important;
-    transition: 0.3s;
-}
-
-.nav-link:hover {
-    color: var(--accent-green) !important;
-    transform: translateY(-2px); 
-}
-
-.nav-link i {
-    font-size: 0.8rem;
-    margin-right: 5px;
-}
-
-.navbar-toggler {
-    border: 1px solid var(--accent-green);
+.main-nav-custom .nav-link:hover {
     color: var(--accent-green);
+    text-shadow: 0 0 5px var(--accent-green);
+    transform: translateY(-1px);
 }
 
-/* ====================== 4. HERO SECTION (INICIO) ====================== */
-.hero-section {
+.main-nav-custom .nav-link i {
+    font-size: 0.75rem;
+    margin-right: 6px;
+}
+
+/* Botón hamburguesa (Móvil) */
+.main-nav-custom .navbar-toggler {
+    border: 1px solid var(--accent-green);
+    padding: 4px 8px;
+}
+
+.main-nav-custom .navbar-toggler-icon {
+    filter: invert(62%) sepia(98%) saturate(350%) hue-rotate(105deg) brightness(100%) contrast(105%);
+}
+
+
+
+/* ====================== 4. Section Hero – Psycho Entry ====================== */
+header.hero-section {
     position: relative; 
     height: 100vh;
+    overflow: hidden; 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
+    flex-direction: column;
 }
 
-.hero-video-bg {
+header.hero-section .hero-video-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: 1;
 }
 
-.hero-overlay {
+header.hero-section .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-main));
-    z-index: -1;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.2) 50%, 
+        var(--bg-main) 95%);
+    z-index: 2;
 }
 
-.hero-content h1 {
+header.hero-section .hero-content {
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    margin-top: auto; 
+    padding-bottom: 1rem; 
+}
+
+header.hero-section .cyber-title {
     font-family: var(--font-cyber);
-    font-size: clamp(2.5rem, 8vw, 4.8rem);
-    text-shadow: 0 0 30px var(--accent-green), 0 0 60px var(--accent-purple);
+    font-size: clamp(2rem, 6vw, 4rem);
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 
+                 0 0 40px rgba(195, 0, 255, 0.4);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
 }
 
-.btn-explore {
-    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple)) !important;
-    color: #000 !important;
-    font-weight: 700;
-    padding: 18px 70px;
-    font-size: 1.4rem;
+header.hero-section .btn-explore {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+    color: #000;
+    font-weight: 800;
+    padding: 12px 45px; 
+    font-size: 1rem;
     border: none;
-    box-shadow: 0 0 40px rgba(0, 255, 157, 0.7);
-    transition: all 0.4s ease;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
 }
 
-.btn-explore:hover {
-    transform: translateY(-6px) scale(1.06);
-    box-shadow: 0 0 60px rgba(195, 0, 255, 0.9);
+
+header.hero-section .btn-explore:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(0, 255, 157, 0.7), 
+                0 0 60px rgba(195, 0, 255, 0.4);
+    filter: brightness(1.2);
+}
+
+
+/* ---- INTERACCIÓN DE AUDIO ---- */
+header.hero-section .icon-scroll-to-audio {
+    display: inline-block;
+    animation: bounce-arrow 2s infinite ease-in-out;
+}
+
+@keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(5px); opacity: 1; }
 }
 
 /* ---- AUDIO TRIGGER ZONE ---- */
-.audio-trigger-zone {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    opacity: 0; 
-    transition: all 0.6s ease;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 50px; 
+header.hero-section .audio-trigger-zone {
+    margin: 2px auto 0 auto; 
+    width: 80px; 
+    height: 40px;   
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50px; 
+    cursor: pointer; 
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.audio-trigger-zone:hover {
+header.hero-section .audio-trigger-zone:hover,
+header.hero-section .audio-trigger-zone:focus-within {
+    width: 260px; 
+    background: rgba(10, 10, 10, 0.9); 
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+header.hero-section .audio-trigger-zone audio {
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.4s ease;
+    height: 28px;
+    width: 230px; 
+    filter: invert(1) hue-rotate(180deg) brightness(1.2);
+}
+
+header.hero-section .audio-trigger-zone:hover audio,
+header.hero-section .audio-trigger-zone:focus-within audio {
     opacity: 1;
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px var(--accent-green);
+    visibility: visible;
 }
 
-.audio-hint {
-    color: #00ffcc; 
-    font-family: var(--font-cyber); 
-    margin: 0;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+
+header.hero-section .audio-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
 }
 
-.audio-trigger-zone audio {
-    height: 30px;
-    width: 200px;
-    filter: invert(1) hue-rotate(180deg) brightness(1.5); 
-}
 
-/* ====================== 5. THE VAULT ====================== */
+
+/* ====================== 5. Section The vault ====================== */
 #vault {
     background-color: #0a0a0a; 
     background-image: 
@@ -280,560 +313,827 @@ section {
     background-attachment: fixed;
 }
 
-#vault h4 {
-    color: #ccff00 !important; 
-    text-shadow: 0 0 10px rgba(204, 255, 0, 0.6);
-    font-family: var(--font-cyber);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+/* 1. TÍTULOS Y SUBTÍTULOS AMARILLO NEÓN */
+#vault h2.cyber-subtitle,
+#vault h4.text-warning-neon {
+    color: #ccff00; 
+    text-shadow: 0 0 25px rgba(204, 255, 0, 0.8);
 }
 
-/* ====================== 6. MURO DE ARTISTAS ====================== */
+/* 2. TARJETAS - ESTADO INICIAL (Borde suave) */
+#vault .card.border-warning-neon {
+    background-color: rgba(15, 15, 15, 0.9);
+    border: 1px solid rgba(204, 255, 0, 0.3); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2.1 TARJETAS - ESTADO HOVER (Incandescencia total) */
+#vault .card.border-warning-neon:hover {
+    transform: translateY(-12px);
+    border: 2px solid rgba(204, 255, 0, 1); 
+    box-shadow: 0 0 40px rgba(204, 255, 0, 0.6), 
+                0 0 15px rgba(204, 255, 0, 0.3);
+}
+
+/* 3. TEXTOS INTERNOS - SIEMPRE BLANCOS */
+#vault .card-body h5.card-title,
+#vault .card-body .card-text,
+#vault .card-body .small,
+#vault .card-body h5.text-warning-neon {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+/* 4. BOTÓN CONTACTAR (TEXTO NEGRO EN HOVER) */
+#vault .btn-outline-info {
+    color: #00e5ff;
+    border-color: #00e5ff;
+    transition: all 0.3s ease;
+}
+
+#vault .btn-outline-info:hover {
+    background-color: #00e5ff;
+    color: #000000; 
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+/* 5. BOTÓN COMPRAR (VERDE NEÓN) */
+#vault .btn-success {
+    background-color: #00ff9d; 
+    border: none;
+    color: #000;
+    font-weight: 700;
+}
+
+#vault .btn-success:hover {
+    background-color: #00ffb3;
+    box-shadow: 0 0 25px #00ff9d;
+}
+
+/* Botón Ver detalles (Outline Amarillo) */
+#vault .btn-outline-warning {
+    color: #ccff00;
+    border-color: #ccff00;
+}
+
+#vault .btn-outline-warning:hover {
+    background-color: #ccff00;
+    color: #000;
+}
+
+
+
+/* ====================== 6. section Muro de Artistas ====================== */
 #artistas {
     background-color: #0a0a0a;
     background-image: 
-        linear-gradient(rgba(10, 10, 10, 0.65), rgba(10, 10, 10, 0.65)), 
+        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
         url('../img/muro-de-artistas-2-css.avif'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 100px 0 !important;
+    padding: 100px 0;
 }
 
-
-#artistas .section-title {
-    color: var(--accent-purple) !important; 
+/* 1. TÍTULO PURPLE NEÓN */
+#artistas h2.cyber-subtitle {
+    color: var(--accent-purple); 
     text-shadow: 0 0 25px var(--accent-purple);
-    text-align: center;
-    margin-bottom: 4rem;
 }
 
-
+/* 1.1 CENTRADO DE FILA */
 #artistas .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
+    justify-content: center; 
 }
 
-
-#artistas .card {
-    background: rgba(20, 20, 20, 0.85) !important; 
+/* 2. TARJETAS - FONDO OSCURO Y BORDE SUAVE */
+#artistas .card.border-purple-neon {
+    background-color: #0f0f0f; 
     backdrop-filter: blur(10px); 
-    border: 1px solid rgba(195, 0, 255, 0.4) !important; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    transition: all 0.4s ease;
+    border: 1px solid rgba(195, 0, 255, 0.3); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
-#artistas .card:hover {
+/* 2.1 TARJETAS - HOVER */
+#artistas .card.border-purple-neon:hover {
     transform: translateY(-12px);
-    border-color: var(--accent-purple) !important; 
-    border-width: 2px; 
+    border: 2px solid rgba(195, 0, 255, 1); 
     box-shadow: 0 0 35px var(--accent-purple); 
 }
 
+/* 3. AVATAR DEL ARTISTA */
+#artistas .artist-avatar {
+    width: 240px;  
+    height: 240px; 
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 35% 35% 40% 40%; 
+    border: 3px solid rgba(195, 0, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
 
-#artistas .btn-outline-light, 
-#artistas .btn-registrarme,
-#artistas .btn {
-    border: 2px solid var(--accent-purple) !important;
-    color: var(--accent-purple) !important;
-    background: transparent !important;
+/* 4. BOTONES PURPLE NEÓN */
+#artistas .btn-outline-purple-neon {
+    border: 2px solid var(--accent-purple);
+    color: var(--accent-purple);
+    background: transparent;
     text-transform: uppercase;
     font-weight: 700;
     transition: all 0.3s ease;
-    margin: 10px auto;
-    display: inline-block;
-    padding: 10px 25px;
+    padding: 10px 20px;
 }
 
-#artistas .btn:hover,
-#artistas .btn-registrarme:hover {
-    background: var(--accent-purple) !important;
-    color: #000 !important;
-    box-shadow: 0 0 20px var(--accent-purple);
+#artistas .btn-outline-purple-neon:hover {
+    background: var(--accent-purple);
+    color: #000000; 
+    box-shadow: 0 0 25px var(--accent-purple);
+}
+
+/* 5. TEXTOS INTERNOS */
+#artistas .card-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+#artistas .card-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
 }
 
 
-.btn-container-center {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
 
-/* ====================== 7. SOUL STATION ====================== */
+/* ====================== 7. section Soul Station ====================== */
 #soul-station {
-    background-color: #050505; 
+    background-color: #050505;
+    padding: 100px 0;
 }
 
-
-#soul-station .row {
-    display: flex;
-    align-items: stretch; 
+/* 1. TÍTULO VERDE NEÓN */
+#soul-station h2.cyber-subtitle {
+    color: var(--accent-green);
+    text-shadow: 0 0 25px var(--accent-green);
 }
 
-.soul-transmission-card {
-    background: rgba(15, 15, 15, 0.95) !important;
-    border: 1px solid var(--accent-green) !important;
-    border-radius: 12px;
+/* 2. CAJA DE TRANSMISIÓN (Izquierda) */
+#soul-station .transmission-box {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(0, 255, 157, 0.2); 
     padding: 30px;
-    height: 100%;
-    box-shadow: inset 0 0 20px rgba(0, 255, 157, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    transition: border 0.3s ease;
 }
 
-.soul-transmission-card h4 {
-    color: var(--accent-green) !important;
+#soul-station .transmission-box:hover {
+    border-color: var(--accent-green);
+}
+
+#soul-station .transmission-title {
+    color: var(--text-light);
     font-family: var(--font-cyber);
-    font-size: 1.2rem;
-    margin-bottom: 20px;
     text-transform: uppercase;
-}
-
-.embed-placeholder {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-    padding: 40px;
-    text-align: center;
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-.viernes-culturales-card {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00ff9d 100%) !important;
-    border-radius: 12px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-    transition: transform 0.3s ease;
-    border: none !important;
-}
-
-.viernes-culturales-card:hover {
-    transform: scale(1.02);
-}
-
-.viernes-culturales-card h3 {
-    color: #000 !important;
-    font-family: var(--font-cyber);
-    font-weight: 800;
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.viernes-culturales-card p {
-    color: #000 !important;
-    font-weight: 600;
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.badge-proximo {
-    background-color: #000 !important;
-    color: #ffffff !important; 
-    border: 1px solid var(--accent-green);
-    padding: 8px 15px;
-    font-size: 0.75rem;
+#soul-station .audio-placeholder {
+    background: #0a0a0a;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+}
+
+/* 3. VIERNES CULTURALES (Tarjeta Gradiente Derecha) */
+#soul-station .viernes-culturales-card {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00ff9d 100%);
+    border-radius: 20px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#soul-station .viernes-culturales-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(37, 117, 252, 0.4);
+}
+
+#soul-station .viernes-culturales-card h2 {
+    color: #0a0a0a; 
+    font-family: var(--font-main);
+    font-weight: 800;
+}
+
+/* 4. BADGE "PRÓXIMO ENCUENTRO" */
+#soul-station .badge-status-dark {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 0.7rem;
     font-family: var(--font-cyber);
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     border-radius: 4px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 255, 157, 0.4);
-    text-transform: uppercase;
+    display: inline-block;
 }
 
-
-.btn-unirme {
-    background-color: #000 !important;
-    color: #fff !important;
-    border: 1px solid #fff !important;
-    padding: 12px 35px;
-    font-family: var(--font-cyber);
-    font-size: 0.9rem;
+/* 5. BOTÓN ACCIÓN NEGRO */
+#soul-station .btn-dark-action {
+    background-color: #0a0a0a;
+    color: #00ff9d; 
+    border: none;
     transition: all 0.3s ease;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+#soul-station .btn-dark-action:hover {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 6. ICONO PULSANTE */
+.icon-pulse {
+    color: var(--accent-green);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { opacity: 1; text-shadow: 0 0 5px var(--accent-green); }
+    50% { opacity: 0.5; text-shadow: 0 0 15px var(--accent-green); }
+    100% { opacity: 1; text-shadow: 0 0 5px var(--accent-green); }
+}
+
+
+
+/* ====================== 8. section Eventos ====================== */
+/* 1. FONDO Y ESPACIADO DE SECCIÓN */
+#eventos {
+    background-color: var(--bg-main);
+    padding: 100px 0;
+}
+
+/* 2. TÍTULO AZUL NEÓN */
+#eventos h2.cyber-subtitle {
+    color: #00d4ff;
+    text-shadow: 0 0 25px rgba(0, 212, 255, 0.8),
+                 0 0 10px rgba(0, 212, 255, 0.4);
+    letter-spacing: 3px;
+}
+
+/* 3. TARJETA DE EVENTO (GLASSMORPHISM URBANO) */
+#eventos .event-card {
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#eventos .event-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+/* 4. TEXTOS INTERNOS */
+#eventos .card-title {
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+
+#eventos .card-text {
+    color: var(--text-muted);
+}
+
+/* 5. BOTÓN DE ACCIÓN NEÓN */
+#eventos .btn-outline-info-neon {
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
+    background: transparent;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
     border-radius: 4px;
 }
 
-.btn-unirme:hover {
-    background-color: #fff !important;
-    color: #000 !important;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-}
-
-/* ====================== 8. EVENTOS (VIERNES CULTURALES) ====================== */
-#eventos {
-    background-color: #050505; 
-    padding: 80px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;   
-}
-
-#eventos .section-title {
-    color: #00d4ff !important; 
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
-    margin-bottom: 40px;
-    font-family: var(--font-cyber); 
-}
-
-#eventos .card {
-    border: 1px solid rgba(0, 212, 255, 0.3) !important;
-    background: rgba(15, 15, 15, 0.9) !important;
-    margin: 0 auto; 
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-#eventos .card:hover {
-    border-color: #00d4ff !important;
-    transform: translateY(-5px); 
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+#eventos .btn-outline-info-neon:hover {
+    background-color: #00d4ff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+    transform: scale(1.05);
 }
 
 
-#eventos .row {
-    justify-content: center;
-    width: 100%;
+
+/* ====================== 9. Section Bienestar ====================== */
+/* 1. TÍTULO SECCIÓN */
+#bienestar .cyber-subtitle {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-
-/* ====================== 9. BIENESTAR ====================== */
-#bienestar .section-title {
-    color: #e0ffff !important; 
-    text-shadow: 0 0 15px rgba(224, 255, 255, 0.8), 0 0 30px rgba(224, 255, 255, 0.4);
-}
-
+/* 2. TARJETAS DE BIENESTAR */
 #bienestar .card {
-    border: 1px solid rgba(224, 255, 255, 0.2) !important;
-    background: rgba(30, 30, 30, 0.6) !important;
+    background-color: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s ease-in-out;
 }
 
 #bienestar .card:hover {
-    border-color: #e0ffff !important;
-    box-shadow: 0 0 20px rgba(224, 255, 255, 0.3);
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px); 
 }
 
-#bienestar .btn-outline-light {
-    border-color: #e0ffff !important;
-    color: #e0ffff !important;
+/* 3. IMÁGENES */
+#bienestar .card-img-top {
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+    height: 220px; 
+    object-fit: cover;
 }
 
-/* ====================== 10. APRENDIZAJE ====================== */
+#bienestar .card:hover .card-img-top {
+    filter: grayscale(0%);
+}
+
+/* 4. BOTÓN NEÓN BLANCO */
+#bienestar .btn-outline-light-neon {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+#bienestar .btn-outline-light-neon:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* 5. TEXTOS */
+#bienestar .card-title {
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+#bienestar .card-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/* ====================== 10. Section Aprendizaje ====================== */
 #aprendizaje {
-    
     background-color: #050505;
     background-image: 
-        linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), 
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), 
         url('../img/aprendizaje-css.avif'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
-#aprendizaje .section-title {
-    color: #ffaa00 !important;
-    text-shadow: 0 0 20px rgba(255, 170, 0, 0.6);
+/* TÍTULO ROSA NEÓN CLARO */
+#aprendizaje .cyber-subtitle {
+    color: #ff66cc;
+    text-shadow: 0 0 15px rgba(255, 102, 204, 0.8),
+                 0 0 30px rgba(255, 102, 204, 0.4);
 }
 
+/* TARJETAS - BORDE ROSA SUAVE */
 #aprendizaje .card {
-    border-color: rgba(255, 170, 0, 0.3) !important;
-    background: rgba(20, 20, 20, 0.9) !important; 
+    background-color: #0f0f0f;
+    border: 1px solid rgba(255, 102, 204, 0.3); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #aprendizaje .card:hover {
-    border-color: #ffb41f !important;
-    box-shadow: 0 0 20px rgba(255, 170, 0, 0.3);
+    border-color: #ff66cc; 
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 102, 204, 0.3);
+}
+
+/* BOTÓN UNIFICADO PINK NEON */
+#aprendizaje .btn-outline-pink-neon {
+    color: #ff66cc;
+    border: 2px solid #ff66cc;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+#aprendizaje .btn-outline-pink-neon:hover {
+    background-color: #ff66cc;
+    color: #000000; 
+    box-shadow: 0 0 20px rgba(255, 102, 204, 0.5);
+}
+
+#aprendizaje .card-title {
+    color: #ffffff;
+}
+
+#aprendizaje .lead {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 
-.btn-explorar {
-    white-space: nowrap !important;
-}
 
-/* ====================== 11. NOTICIAS (Explora el contenido) ====================== */
+/* ====================== 11. Section Articulos ====================== */
+/* 1. CONFIGURACIÓN DE SECCIÓN */
 #noticias {
     background-color: #050505;
     background-image: 
         linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), 
-        url('../img/Noticias-2-css.avif'); 
-    
+        url('../img/noticias-2-css.avif'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 100px 0;
 }
 
-#noticias .section-title {
-    color: #cf4040 !important;
-    text-shadow: 0 0 20px rgba(255, 49, 49, 0.6);
-    text-align: center;
-    margin-bottom: 50px;
+/* 2. TÍTULO PRINCIPAL CON TU ROJO ESPECÍFICO */
+#noticias .cyber-subtitle {
+    color: #cf4040; 
+    text-shadow: 0 0 15px rgba(207, 64, 64, 0.8),
+                 0 0 30px rgba(207, 64, 64, 0.4);
 }
 
-#noticias .card {
-    background: rgba(15, 15, 15, 0.9) !important;
-    border: 1px solid rgba(255, 107, 49, 0.3) !important;
-    transition: all 0.3s ease;
+/* 3. TÍTULOS DE CATEGORÍA (Con margen extra y transición) */
+#noticias .cyber-glow-text-red {
+    color: #cf4040;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(207, 64, 64, 0.5);
+    margin-bottom: 1.8rem; 
+    transition: transform 0.4s ease; 
 }
 
-#noticias .card:hover {
-    border-color: #ff3131 !important;
-    box-shadow: 0 0 20px rgba(255, 49, 49, 0.3);
+#noticias .news-wrapper:hover .cyber-glow-text-red {
     transform: translateY(-5px);
 }
 
-/* ====================== 12. SOBRE EL CREADOR ====================== */
+/* 4. TARJETAS Y WRAPPERS */
+#noticias .news-wrapper {
+    max-width: 400px;
+    width: 100%;
+}
+
+#noticias .card {
+    background-color: #0f0f0f;
+    border: 1px solid rgba(207, 64, 64, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+/* 5. BORDES NEÓN ESPECÍFICOS CON TU COLOR */
+#noticias .border-left-neon { border-left: 4px solid #cf4040; }
+#noticias .border-bottom-neon { border-bottom: 4px solid #cf4040; }
+#noticias .border-right-neon { border-right: 4px solid #cf4040; }
+
+/* 6. EFECTO HOVER DE LA CARD */
+#noticias .card:hover {
+    border-color: #cf4040;
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 0 30px rgba(207, 64, 64, 0.4);
+}
+
+/* 7. ELEMENTOS INTERNOS */
+#noticias .card-img-top {
+    filter: grayscale(30%) contrast(1.1);
+    transition: filter 0.3s ease;
+}
+
+#noticias .card:hover .card-img-top {
+    filter: grayscale(0%);
+}
+
+#noticias .card-body hr {
+    border-color: #cf4040;
+    opacity: 0.5;
+}
+
+
+
+/* ====================== 12. section Bio ====================== */
+/* 1. CONFIGURACIÓN DE SECCIÓN */
 #sobre-creador {
-    background-color: #1a1a1a;
+    background-color: #0a0a0a;
     background-image: 
-        linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), 
-        url('../img/FONDO-SOBRE-MI-2.avif'); 
-    
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), 
+        url('../img/fondo-sobre-mi-2.avif'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 100px 0;
 }
 
-#sobre-creador .card {
-    background-color: #2a2a2a !important; 
-    border: 1px solid var(--accent-ocre) !important;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+/* 2. TÍTULO VERDE  */
+#sobre-creador .cyber-subtitle {
+    color:  #00FF9D; 
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
 }
 
+/* 3. LA TARJETA  */
+#sobre-creador .profile-card {
+    background: rgba(20, 20, 20, 0.8); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(218, 165, 32, 0.4); 
+    border-radius: 12px;
+    padding: 20px; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: border-color 0.3s ease;
+}
+
+#sobre-creador .profile-card:hover {
+    border-color: rgba(218, 165, 32, 0.8); 
+}
+
+/* 4. TIPOGRAFÍA Y TEXTOS */
 #sobre-creador p {
-    color: #e8e8e8 !important;
-    font-size: 1.15rem;
-    line-height: 1.8;
+    color: #f0f0f0; 
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    text-align: center; 
 }
 
-/* ====================== 13. FOOTER ====================== */
+/* Resalte de nombres y marcas */
+#sobre-creador p strong {
+    color: #daa520; 
+    font-weight: 600;
+}
+
+#sobre-creador .lead {
+    font-size: 1.25rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* Toque especial para el párrafo final (City Soul Echoes) */
+#sobre-creador .bio-closing {
+    border-top: 1px solid rgba(218, 165, 32, 0.2);
+    padding-top: 20px;
+}
+
+
+
+/* ====================== 13. section footer ====================== */
+
 .cyber-footer {
-    background-color: #050505 !important;
+    background-color: #050505;
     border-top: 2px solid var(--accent-purple);
-    padding: 80px 5% 40px; 
+    padding: 60px 0 30px;
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.footer-top-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 40px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+/* Títulos y Identidad */
+.footer-brand .navbar-brand, 
+.text-purple-neon {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-.footer-brand {
-    flex: 1;
-    min-width: 250px;
+.footer-brand .navbar-brand {
+    color: var(--accent-green);
+    text-shadow: 0 0 15px var(--accent-green);
 }
 
 .footer-brand .tagline {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 10px;
+    color: #ffffff; 
+    font-size: 0.95rem;
 }
 
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons i {
-    font-size: 1.2rem;
-    color: var(--accent-green);
-    transition: 0.3s;
-}
-
-.social-icons i:hover {
+.text-purple-neon {
     color: var(--accent-purple);
-    text-shadow: 0 0 10px var(--accent-purple);
+    text-shadow: 0 0 15px var(--accent-purple);
+    display: block;
 }
 
-.footer-links {
-    flex: 1;
-    min-width: 250px;
+/* Enlaces del Mapa */
+.footer-links-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
-}
-
-.footer-links h6 {
-    color: var(--accent-purple);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-    width: 320px; 
-    text-align: left; 
-    padding-right: 0; 
+    align-items: flex-end;
 }
 
 .link-grid {
-    list-style: none;
-    padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, 150px); 
-    gap: 12px 20px;
-    justify-content: end;
+    grid-template-columns: repeat(2, auto);
+    gap: 8px 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .link-grid a {
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    color: var(--text-muted);
     font-size: 0.95rem;
-    transition: 0.3s;
-    text-align: left; 
+    transition: all 0.3s ease;
     display: block;
+    text-align: right;
 }
 
 .link-grid a:hover {
     color: var(--accent-green);
-    transform: translateX(5px);
+    text-shadow: 0 0 8px var(--accent-green);
+    transform: translateX(-5px);
 }
 
-.footer-logo-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 120px;
+/* === LOGO WRAPPER: RESPLANDOR + LÁSER === */
+.footer-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .footer-icon {
-    width: 90px;
+    width: 95px;
     height: auto;
-    filter: drop-shadow(0 0 10px var(--accent-purple));
-    transition: 0.4s ease;
+    filter: drop-shadow(0 0 8px var(--accent-purple));
+    transition: filter 0.6s ease, brightness 0.6s ease;
+    display: block;
 }
 
-.footer-icon:hover {
-    filter: drop-shadow(0 0 15px var(--accent-green));
+/* El Rayo Láser */
+.footer-logo-wrapper::after {
+    content: "";
+    position: absolute;  /* ojo con esto  */
+    top: -50%;
+    left: -150%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 204, 0.2) 10%,
+        rgba(255, 255, 255, 0.9) 50%, 
+        rgba(0, 255, 204, 0.2) 90%,
+        transparent
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+}
+
+.footer-logo-wrapper:hover::after {
+    left: 200%;
+    transition: left 1.5s ease-in-out;
+}
+
+.footer-logo-wrapper:hover .footer-icon {
+    filter: drop-shadow(0 0 10px var(--accent-green)) 
+            drop-shadow(0 0 20px var(--accent-green))
+            brightness(1.4); 
+}
+
+.footer-logo-wrapper:hover {
     transform: scale(1.1);
 }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 40px;
+/* Redes Sociales */
+.social-icons a i {
+    color: var(--accent-green);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover i {
+    color: var(--accent-purple);
+    filter: drop-shadow(0 0 12px var(--accent-purple)) brightness(1.3);
+}
+
+/* Copyright y Divider */
+.footer-bottom hr {
+    border-color: rgba(255, 255, 255, 0.3); 
 }
 
 .footer-bottom p {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    opacity: 0.7;
+    letter-spacing: 0.5px;
 }
 
-/* ====================== 14. RESPONSIVE (POST-FOOTER) ====================== */
+
+
+/* ====================== 14. RESPONSIVE UNIFICADO ====================== */
 @media (max-width: 768px) {
+
+    /* --- NAVBAR MÓVIL --- */
+    .main-nav-custom .navbar-brand {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .main-nav-custom .navbar-toggler {
+        padding: 2px 6px;
+        transform: scale(0.8);
+        margin-right: 5px;
+    }
+
+    .main-nav-custom .navbar-nav {
+        padding: 1.5rem 0;
+        gap: 0.7rem;
+    }
+
+    /* --- SECCIONES GENERALES --- */
     section {
-        padding: 80px 20px !important;
-        text-align: center !important;
+        padding: 60px 15px;
+        text-align: center;
     }
 
     .section-title {
-        font-size: 2rem !important;
-        margin-bottom: 2.5rem;
-        text-align: center !important;
-        width: 100% !important;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        width: 100%;
     }
 
     .row {
-        justify-content: center !important;
-        text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        justify-content: center;
+        text-align: center;
     }
 
-    #noticias h3, #noticias h4, #noticias h5, #noticias span {
-        text-align: center !important;
-        width: 100% !important;
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+    /* --- BOTONES GENERALES --- */
+    .card-body .btn,
+    .text-center .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto;
+        display: inline-block;
     }
 
-    #noticias, 
-    #noticias .container,
-    #noticias .row,
-    #noticias .col-md-4,
+    /* --- ARTÍCULOS (ZONA ROJA) --- */
+    #noticias .news-wrapper {
+        max-width: 100%;
+    }
+
     #noticias .card,
     #noticias .card-body,
     #noticias .card-title,
     #noticias .card-text {
-        text-align: center !important;
-        align-items: center !important;
-        justify-content: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border-width: 1px;
     }
 
-    .footer-top-content {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        gap: 30px;
+    #noticias h3, #noticias h4, #noticias h5, #noticias span {
+        display: block;
+        margin: 10px auto;
     }
 
-    .footer-brand, .footer-links, .footer-logo-center {
-        width: 100% !important;
-        align-items: center !important;
-        text-align: center !important;
+    /* --- BIO --- */
+    #sobre-creador {
+        padding: 60px 0;
     }
 
-    .footer-links h6 {
-        width: 100% !important;
-        text-align: center !important;
-        padding-right: 0;
+    #sobre-creador p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* --- FOOTER --- */
+    .footer-brand,
+    .footer-links-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footer-brand .navbar-brand,
+    .text-purple-neon {
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-links-container {
+        align-items: center;
     }
 
     .link-grid {
-        grid-template-columns: 1fr !important;
-        justify-content: center !important;
-        width: fit-content !important;
-        margin: 0 auto !important;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        width: 100%;
+        gap: 12px;
     }
 
     .link-grid a {
-        text-align: center !important;
+        text-align: center;
+        transform: none;
     }
 
     .social-icons {
-        justify-content: center !important;
-        margin-top: 15px;
+        justify-content: center;
+        margin: 15px 0;
     }
 
-    .btn, .btn-explorar, .btn-unirme, .btn-registrarme, .btn-participar {
-        width: 100% !important;
-        max-width: 300px !important;
-        margin: 10px auto !important;
-        display: inline-block !important;
+    .footer-icon {
+        margin: 0 auto;
     }
 }
+
+
