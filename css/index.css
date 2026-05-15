@@ -2,18 +2,30 @@
 
 /* ====================== 1. VARIABLES & CONFIG ====================== */
 :root {
+    /* Fondos y textos */
     --bg-main: #0a0a0a;
-    --accent-green: #00ff9d;
-    --accent-purple: #c300ff;
     --text-light: #f5f5f5;
     --text-muted: #cccccc;
+
+    /* Tipografías */
     --font-main: 'Space Grotesk', system-ui, sans-serif;
     --font-cyber: 'Orbitron', sans-serif;
+
+    /* Colores de acento */
+    --accent-green: #00ff9d;
+    --accent-purple: #c300ff;
+    --accent-yellow: #ccff00;
+    --accent-blue: #00d4ff;
+    --accent-pink: #ff66cc;
+    --accent-red: #cf4040;
+    --accent-gold: #fab60c;
+    --accent-white: #ffffff;
 }
 
+
 html {
-    scroll-behavior: smooth; 
-    scroll-padding-top: 80px; 
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 * {
@@ -36,7 +48,7 @@ section {
     padding: 120px 4%;
     position: relative;
     max-width: 100%;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .section-title {
@@ -64,26 +76,26 @@ section {
 }
 
 .card-body {
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 
 /* --- AJUSTE DE IMÁGENES EN CARDS --- */
 .card-img-top {
     width: 100%;
-    height: 280px; 
-    object-fit: cover; 
-    object-position: center; 
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #vault .card-img-top {
-    object-fit: contain; 
-    background-color: #151515; 
-    padding: 15px; 
+    object-fit: contain;
+    background-color: #151515;
+    padding: 15px;
 }
 
 /* ---- DIVISORES ---- */
@@ -116,9 +128,9 @@ section {
 
 /* ====================== 3. Section Navbar – The Skyline ====================== */
 nav.main-nav-custom {
-    background-color: rgba(10, 10, 10, 0.85); 
+    background-color: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--accent-green); 
+    border-bottom: 1px solid var(--accent-green);
     padding: 10px 0;
     transition: all 0.3s ease;
 }
@@ -137,25 +149,95 @@ nav.main-nav-custom {
 
 
 .main-nav-custom .navbar-nav {
-    gap: 1.2rem; 
+    gap: 1.2rem;
 }
 
 .main-nav-custom .nav-link {
     color: var(--text-light);
-    font-size: 0.57rem; 
+    font-size: 0.57rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    padding: 0.5rem 0; 
+    padding: 0.5rem 0;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
 }
 
-.main-nav-custom .nav-link:hover {
+
+/* ---- COLORES ESPECÍFICOS POR SECCIÓN (HOVER) ---- */
+
+/* Inicio - Efecto Arcoíris Unificado — font-weight: 800 intencional, es el ancla del sitio */
+.main-nav-custom .nav-link[href="#inicio"]:hover {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text; 
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    text-shadow: none; 
+    font-weight: 800;
+}
+
+/* El icono hereda el gradiente del padre */
+.main-nav-custom .nav-link[href="#inicio"]:hover i {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+}
+
+
+/* The Vault - Amarillo Neón */
+.main-nav-custom .nav-link[href="#vault"]:hover {
+    color: var(--accent-yellow);
+    text-shadow: 0 0 8px rgba(204, 255, 0, 0.7);
+}
+
+/* Muro de Artistas - Púrpura Neón */
+.main-nav-custom .nav-link[href="#artistas"]:hover {
+    color: var(--accent-purple);
+    text-shadow: 0 0 8px var(--accent-purple);
+}
+
+/* Soul Station - Verde Neón */
+.main-nav-custom .nav-link[href="#soul-station"]:hover {
     color: var(--accent-green);
-    text-shadow: 0 0 5px var(--accent-green);
-    transform: translateY(-1px);
+    text-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Eventos - Azul Neón */
+.main-nav-custom .nav-link[href="#eventos"]:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 8px var(--accent-blue);
+}
+
+/* Bienestar - Blanco Puro */
+.main-nav-custom .nav-link[href="#bienestar"]:hover {
+    color: var(--accent-white);
+    text-shadow: 0 0 8px var(--accent-white);
+}
+
+/* Aprendizaje - Rosa Neón */
+.main-nav-custom .nav-link[href="#aprendizaje"]:hover {
+    color: var(--accent-pink);
+    text-shadow: 0 0 8px var(--accent-pink);
+}
+
+/* Artículos - Rojo */
+.main-nav-custom .nav-link[href="#noticias"]:hover {
+    color: var(--accent-red);
+    text-shadow: 0 0 8px var(--accent-red);
+}
+
+/* Bio - Dorado/Ámbar */
+.main-nav-custom .nav-link[href="#sobre-creador"]:hover {
+    color: var(--accent-gold);
+    text-shadow: 0 0 8px var(--accent-gold);
+}
+
+
+
+/* Efecto común de movimiento para todos */
+.main-nav-custom .nav-link:hover {
+    transform: translateY(-2px);
 }
 
 .main-nav-custom .nav-link i {
@@ -177,9 +259,9 @@ nav.main-nav-custom {
 
 /* ====================== 4. Section Hero – Psycho Entry ====================== */
 header.hero-section {
-    position: relative; 
+    position: relative;
     height: 100vh;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -196,9 +278,9 @@ header.hero-section .hero-video-bg {
 header.hero-section .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, 
-        rgba(0,0,0,0) 0%, 
-        rgba(0,0,0,0.2) 50%, 
+    background: linear-gradient(to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.2) 50%,
         var(--bg-main) 95%);
     z-index: 2;
 }
@@ -207,14 +289,14 @@ header.hero-section .hero-content {
     z-index: 3;
     position: relative;
     width: 100%;
-    margin-top: auto; 
-    padding-bottom: 1rem; 
+    margin-top: auto;
+    padding-bottom: 1rem;
 }
 
 header.hero-section .cyber-title {
     font-family: var(--font-cyber);
     font-size: clamp(2rem, 6vw, 4rem);
-    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6),
                  0 0 40px rgba(195, 0, 255, 0.4);
     letter-spacing: 4px;
     margin-bottom: 0.5rem;
@@ -224,7 +306,7 @@ header.hero-section .btn-explore {
     background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
     color: #000;
     font-weight: 800;
-    padding: 12px 45px; 
+    padding: 12px 45px;
     font-size: 1rem;
     border: none;
     border-radius: 8px;
@@ -237,7 +319,7 @@ header.hero-section .btn-explore {
 
 header.hero-section .btn-explore:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 35px rgba(0, 255, 157, 0.7), 
+    box-shadow: 0 0 35px rgba(0, 255, 157, 0.7),
                 0 0 60px rgba(195, 0, 255, 0.4);
     filter: brightness(1.2);
 }
@@ -256,34 +338,34 @@ header.hero-section .icon-scroll-to-audio {
 
 /* ---- AUDIO TRIGGER ZONE ---- */
 header.hero-section .audio-trigger-zone {
-    margin: 2px auto 0 auto; 
-    width: 80px; 
-    height: 40px;   
+    margin: 2px auto 0 auto;
+    width: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     border: 1px solid transparent;
-    border-radius: 50px; 
-    cursor: pointer; 
+    border-radius: 50px;
+    cursor: pointer;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header.hero-section .audio-trigger-zone:hover,
 header.hero-section .audio-trigger-zone:focus-within {
-    width: 260px; 
-    background: rgba(10, 10, 10, 0.9); 
+    width: 260px;
+    background: rgba(10, 10, 10, 0.9);
     border: 1px solid var(--accent-green);
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
 }
 
 header.hero-section .audio-trigger-zone audio {
     opacity: 0;
-    visibility: hidden; 
+    visibility: hidden;
     transition: opacity 0.4s ease;
     height: 28px;
-    width: 230px; 
+    width: 230px;
     filter: invert(1) hue-rotate(180deg) brightness(1.2);
 }
 
@@ -303,12 +385,12 @@ header.hero-section .audio-label {
 
 /* ====================== 5. Section The vault ====================== */
 #vault {
-    background-color: #0a0a0a; 
-    background-image: 
-        linear-gradient(to right, rgba(10, 10, 10, 1) 30%, rgba(10, 10, 10, 0.2) 100%), 
-        url('../img/fondo-vault-3-css.jpg'); 
+    background-color: #0a0a0a;
+    background-image:
+        linear-gradient(to right, rgba(10, 10, 10, 1) 30%, rgba(10, 10, 10, 0.2) 100%),
+        url('../img/fondo-vault-3-css.jpg');
     background-size: cover;
-    background-position: right center; 
+    background-position: right center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -316,14 +398,14 @@ header.hero-section .audio-label {
 /* 1. TÍTULOS Y SUBTÍTULOS AMARILLO NEÓN */
 #vault h2.cyber-subtitle,
 #vault h4.text-warning-neon {
-    color: #ccff00; 
+    color: #ccff00;
     text-shadow: 0 0 25px rgba(204, 255, 0, 0.8);
 }
 
 /* 2. TARJETAS - ESTADO INICIAL (Borde suave) */
 #vault .card.border-warning-neon {
     background-color: rgba(15, 15, 15, 0.9);
-    border: 1px solid rgba(204, 255, 0, 0.3); 
+    border: 1px solid rgba(204, 255, 0, 0.3);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -331,8 +413,8 @@ header.hero-section .audio-label {
 /* 2.1 TARJETAS - ESTADO HOVER (Incandescencia total) */
 #vault .card.border-warning-neon:hover {
     transform: translateY(-12px);
-    border: 2px solid rgba(204, 255, 0, 1); 
-    box-shadow: 0 0 40px rgba(204, 255, 0, 0.6), 
+    border: 2px solid rgba(204, 255, 0, 1);
+    box-shadow: 0 0 40px rgba(204, 255, 0, 0.6),
                 0 0 15px rgba(204, 255, 0, 0.3);
 }
 
@@ -354,13 +436,13 @@ header.hero-section .audio-label {
 
 #vault .btn-outline-info:hover {
     background-color: #00e5ff;
-    color: #000000; 
+    color: #000000;
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
 }
 
 /* 5. BOTÓN COMPRAR (VERDE NEÓN) */
 #vault .btn-success {
-    background-color: #00ff9d; 
+    background-color: #00ff9d;
     border: none;
     color: #000;
     font-weight: 700;
@@ -387,9 +469,9 @@ header.hero-section .audio-label {
 /* ====================== 6. section Muro de Artistas ====================== */
 #artistas {
     background-color: #0a0a0a;
-    background-image: 
-        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
-        url('../img/muro-de-artistas-2-css.avif'); 
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+        url('../img/muro-de-artistas-2-css.avif');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -398,21 +480,21 @@ header.hero-section .audio-label {
 
 /* 1. TÍTULO PURPLE NEÓN */
 #artistas h2.cyber-subtitle {
-    color: var(--accent-purple); 
+    color: var(--accent-purple);
     text-shadow: 0 0 25px var(--accent-purple);
 }
 
 /* 1.1 CENTRADO DE FILA */
 #artistas .row {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 /* 2. TARJETAS - FONDO OSCURO Y BORDE SUAVE */
 #artistas .card.border-purple-neon {
-    background-color: #0f0f0f; 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(195, 0, 255, 0.3); 
+    background-color: #0f0f0f;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(195, 0, 255, 0.3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -420,18 +502,18 @@ header.hero-section .audio-label {
 /* 2.1 TARJETAS - HOVER */
 #artistas .card.border-purple-neon:hover {
     transform: translateY(-12px);
-    border: 2px solid rgba(195, 0, 255, 1); 
-    box-shadow: 0 0 35px var(--accent-purple); 
+    border: 2px solid rgba(195, 0, 255, 1);
+    box-shadow: 0 0 35px var(--accent-purple);
 }
 
 /* 3. AVATAR DEL ARTISTA */
 #artistas .artist-avatar {
-    width: 240px;  
-    height: 240px; 
+    width: 240px;
+    height: 240px;
     object-fit: cover;
     display: block;
     margin: 20px auto;
-    border-radius: 35% 35% 40% 40%; 
+    border-radius: 35% 35% 40% 40%;
     border: 3px solid rgba(195, 0, 255, 0.2);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
@@ -449,7 +531,7 @@ header.hero-section .audio-label {
 
 #artistas .btn-outline-purple-neon:hover {
     background: var(--accent-purple);
-    color: #000000; 
+    color: #000000;
     box-shadow: 0 0 25px var(--accent-purple);
 }
 
@@ -482,7 +564,7 @@ header.hero-section .audio-label {
 /* 2. CAJA DE TRANSMISIÓN (Izquierda) */
 #soul-station .transmission-box {
     background: rgba(15, 15, 15, 0.95);
-    border: 1px solid rgba(0, 255, 157, 0.2); 
+    border: 1px solid rgba(0, 255, 157, 0.2);
     padding: 30px;
     transition: border 0.3s ease;
 }
@@ -508,7 +590,7 @@ header.hero-section .audio-label {
 /* 3. VIERNES CULTURALES (Tarjeta Gradiente Derecha) */
 #soul-station .viernes-culturales-card {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00ff9d 100%);
-    border-radius: 20px; 
+    border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -518,7 +600,7 @@ header.hero-section .audio-label {
 }
 
 #soul-station .viernes-culturales-card h2 {
-    color: #0a0a0a; 
+    color: #0a0a0a;
     font-family: var(--font-main);
     font-weight: 800;
 }
@@ -538,7 +620,7 @@ header.hero-section .audio-label {
 /* 5. BOTÓN ACCIÓN NEGRO */
 #soul-station .btn-dark-action {
     background-color: #0a0a0a;
-    color: #00ff9d; 
+    color: #00ff9d;
     border: none;
     transition: all 0.3s ease;
     letter-spacing: 1px;
@@ -629,7 +711,7 @@ header.hero-section .audio-label {
 /* 1. TÍTULO SECCIÓN */
 #bienestar .cyber-subtitle {
     color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
                  0 0 30px rgba(255, 255, 255, 0.3);
 }
 
@@ -643,14 +725,14 @@ header.hero-section .audio-label {
 #bienestar .card:hover {
     border-color: #ffffff;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transform: translateY(-10px); 
+    transform: translateY(-10px);
 }
 
 /* 3. IMÁGENES */
 #bienestar .card-img-top {
     filter: grayscale(20%);
     transition: filter 0.3s ease;
-    height: 220px; 
+    height: 220px;
     object-fit: cover;
 }
 
@@ -687,9 +769,9 @@ header.hero-section .audio-label {
 /* ====================== 10. Section Aprendizaje ====================== */
 #aprendizaje {
     background-color: #050505;
-    background-image: 
-        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), 
-        url('../img/aprendizaje-css.avif'); 
+    background-image:
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)),
+        url('../img/aprendizaje-css.avif');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -706,12 +788,12 @@ header.hero-section .audio-label {
 /* TARJETAS - BORDE ROSA SUAVE */
 #aprendizaje .card {
     background-color: #0f0f0f;
-    border: 1px solid rgba(255, 102, 204, 0.3); 
+    border: 1px solid rgba(255, 102, 204, 0.3);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #aprendizaje .card:hover {
-    border-color: #ff66cc; 
+    border-color: #ff66cc;
     transform: translateY(-10px);
     box-shadow: 0 0 25px rgba(255, 102, 204, 0.3);
 }
@@ -726,7 +808,7 @@ header.hero-section .audio-label {
 
 #aprendizaje .btn-outline-pink-neon:hover {
     background-color: #ff66cc;
-    color: #000000; 
+    color: #000000;
     box-shadow: 0 0 20px rgba(255, 102, 204, 0.5);
 }
 
@@ -744,9 +826,9 @@ header.hero-section .audio-label {
 /* 1. CONFIGURACIÓN DE SECCIÓN */
 #noticias {
     background-color: #050505;
-    background-image: 
-        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), 
-        url('../img/noticias-2-css.avif'); 
+    background-image:
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)),
+        url('../img/noticias-2-css.avif');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -755,7 +837,7 @@ header.hero-section .audio-label {
 
 /* 2. TÍTULO PRINCIPAL CON TU ROJO ESPECÍFICO */
 #noticias .cyber-subtitle {
-    color: #cf4040; 
+    color: #cf4040;
     text-shadow: 0 0 15px rgba(207, 64, 64, 0.8),
                  0 0 30px rgba(207, 64, 64, 0.4);
 }
@@ -765,8 +847,8 @@ header.hero-section .audio-label {
     color: #cf4040;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(207, 64, 64, 0.5);
-    margin-bottom: 1.8rem; 
-    transition: transform 0.4s ease; 
+    margin-bottom: 1.8rem;
+    transition: transform 0.4s ease;
 }
 
 #noticias .news-wrapper:hover .cyber-glow-text-red {
@@ -794,7 +876,7 @@ header.hero-section .audio-label {
 /* 6. EFECTO HOVER DE LA CARD */
 #noticias .card:hover {
     border-color: #cf4040;
-    transform: translateY(-8px) scale(1.02); 
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 0 30px rgba(207, 64, 64, 0.4);
 }
 
@@ -819,48 +901,48 @@ header.hero-section .audio-label {
 /* 1. CONFIGURACIÓN DE SECCIÓN */
 #sobre-creador {
     background-color: #0a0a0a;
-    background-image: 
-        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), 
-        url('../img/fondo-sobre-mi-2.avif'); 
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        url('../img/fondo-sobre-mi-2.avif');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 100px 0;
 }
 
-/* 2. TÍTULO VERDE  */
+/* 2. TÍTULO DORADO/ÁMBAR */
 #sobre-creador .cyber-subtitle {
-    color:  #00FF9D; 
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+    color: var(--accent-gold);
+    text-shadow: 0 0 15px rgba(250, 182, 12, 0.6);
 }
 
 /* 3. LA TARJETA  */
 #sobre-creador .profile-card {
-    background: rgba(20, 20, 20, 0.8); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(218, 165, 32, 0.4); 
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(218, 165, 32, 0.4);
     border-radius: 12px;
-    padding: 20px; 
+    padding: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     transition: border-color 0.3s ease;
 }
 
 #sobre-creador .profile-card:hover {
-    border-color: rgba(218, 165, 32, 0.8); 
+    border-color: rgba(218, 165, 32, 0.8);
 }
 
 /* 4. TIPOGRAFÍA Y TEXTOS */
 #sobre-creador p {
-    color: #f0f0f0; 
+    color: #f0f0f0;
     font-size: 1.1rem;
     line-height: 1.9;
     margin-bottom: 1.5rem;
-    text-align: center; 
+    text-align: center;
 }
 
 /* Resalte de nombres y marcas */
 #sobre-creador p strong {
-    color: #daa520; 
+    color: #daa520;
     font-weight: 600;
 }
 
@@ -890,7 +972,7 @@ header.hero-section .audio-label {
 }
 
 /* Títulos y Identidad */
-.footer-brand .navbar-brand, 
+.footer-brand .navbar-brand,
 .text-purple-neon {
     font-size: 1.2rem;
     letter-spacing: 2px;
@@ -905,7 +987,7 @@ header.hero-section .audio-label {
 }
 
 .footer-brand .tagline {
-    color: #ffffff; 
+    color: #ffffff;
     font-size: 0.95rem;
 }
 
@@ -975,7 +1057,7 @@ header.hero-section .audio-label {
         to right,
         transparent,
         rgba(0, 255, 204, 0.2) 10%,
-        rgba(255, 255, 255, 0.9) 50%, 
+        rgba(255, 255, 255, 0.9) 50%,
         rgba(0, 255, 204, 0.2) 90%,
         transparent
     );
@@ -989,9 +1071,9 @@ header.hero-section .audio-label {
 }
 
 .footer-logo-wrapper:hover .footer-icon {
-    filter: drop-shadow(0 0 10px var(--accent-green)) 
+    filter: drop-shadow(0 0 10px var(--accent-green))
             drop-shadow(0 0 20px var(--accent-green))
-            brightness(1.4); 
+            brightness(1.4);
 }
 
 .footer-logo-wrapper:hover {
@@ -1011,7 +1093,7 @@ header.hero-section .audio-label {
 
 /* Copyright y Divider */
 .footer-bottom hr {
-    border-color: rgba(255, 255, 255, 0.3); 
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .footer-bottom p {
