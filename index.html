@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CAMBIO 1 — meta description para SEO -->
+    <meta name="description" content="City Soul Echoes — plataforma cultural de Cali dedicada al arte underground, emprendimiento consciente y bienestar. Esculturas, eventos, artistas locales y más.">
 
     <title>City Soul Echoes | Arte, Cultura Underground y Bienestar en Cali</title>
     <link rel="icon" href="img/logo-city-soul-echoes.png" type="image/png">
@@ -10,15 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700&family=Creepster&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    
-    
-    <link rel="stylesheet" href="css/index.css">
-    
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -27,8 +26,8 @@
     <!-- ==== Section Navbar – The Skyline ==== -->
     <nav class="navbar navbar-expand-lg fixed-top main-nav-custom">
         <div class="container">
-            <a class="navbar-brand fw-bold cyber-title" href="#inicio">CITY SOUL ECHOES</a> 
-            
+            <a class="navbar-brand fw-bold cyber-title" href="#inicio">CITY SOUL ECHOES</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,379 +54,433 @@
         <video autoplay muted loop playsinline class="hero-video-bg">
             <source src="video/mar-psicodelico-video.mp4" type="video/mp4">
         </video>
-        
+
         <div class="hero-overlay"></div>
         <div class="container h-100 d-flex flex-column justify-content-end align-items-center text-center hero-content position-relative z-3">
 
-            <div class="pb-4"> 
+            <div class="pb-4">
                 <h1 class="display-1 fw-bold mb-2 cyber-title">CITY SOUL ECHOES</h1>
                 <p class="lead fs-3 mb-4">"El pulso artístico vive aquí"</p>
-                <a href="#vault" class="btn btn-explore mb-5">EXPLORAR</a>  
+                <a href="#vault" class="btn btn-explore mb-5">EXPLORAR</a>
                 <div class="d-flex flex-column align-items-center">
 
                     <div>
                         <p id="label-audio" class="text-white opacity-50 small mb-1 audio-label">AMBIENT SOUND</p>
                         <div>
-                            <i class="bi bi-chevron-compact-down fs-1 text-white opacity-75 icon-scroll-to-audio" aria-hidden="true"></i> 
+                            <i class="bi bi-chevron-compact-down fs-1 text-white opacity-75 icon-scroll-to-audio" aria-hidden="true"></i>
                         </div>
                     </div>
 
                     <div class="audio-trigger-zone" role="region" aria-labelledby="label-audio">
-                        <audio id="ambient-audio" loop controls> 
-                            <source src="audio/Bach-Orchestral-Suite-no.-3-in-D-major-BWV-1068-Download-free-sheet-music(chosic.com).mp3" type="audio/mpeg">   
+                        <audio id="ambient-audio" loop controls>
+                            <source src="audio/Bach-Orchestral-Suite-no.-3-in-D-major-BWV-1068-Download-free-sheet-music(chosic.com).mp3" type="audio/mpeg">
+                            <!-- CAMBIO 3 — fallback para navegadores sin soporte de audio -->
+                            <p>Tu navegador no soporta el elemento de audio.</p>
                         </audio>
                     </div>
 
                 </div>
             </div>
-            
+
         </div>
     </header>
 
 
-    <!-- ==== Section The vault ==== -->
-    <section class="py-5" id="vault">   
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">THE VAULT</h2>   
-            
-            <!-- ==== Showroom ==== -->
-            <div class="mb-5">
-                <h4 class="text-warning-neon mb-4">Showroom • Obras de Oscar Fernando</h4>   
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <article class="card h-100 bg-dark border-warning-neon shadow-lg">  
-                            <img src="img/duende-principal-1.jpg" class="card-img-top" alt="Escultura de Oscar Salazar en porcelanicrón" title="Haz clic para ver la galería completa" loading="lazy"> 
-                            <div class="card-body d-flex flex-column"> 
-                                <h5 class="card-title text-warning-neon">Mis Obras</h5>    
-                                <p class="card-text small opacity-75">Porcelanicrón y arcilla</p>    
-                                <div class="mt-auto"> 
-                                    <a href="#galeria-obras" class="btn btn-outline-warning w-100">Ver detalles</a> 
+    <!-- CAMBIO 2 — <main> wrapeando todas las secciones entre header y footer (WCAG) -->
+    <main>
+
+        <!-- ==== Section The vault ==== -->
+        <section class="py-5 reveal" id="vault">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">THE VAULT</h2>
+
+                <!-- ==== Showroom ==== -->
+                <div class="mb-5">
+                    <h4 class="text-warning-neon mb-4">Showroom • Obras de Oscar Fernando</h4>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="card h-100 bg-dark border-warning-neon shadow-lg reveal-card"
+                                data-lightbox="true"
+                                data-obras='[
+                                                {"src":"img/img-mis-obras/duende-principal-1.webp","titulo":"Duende Yoguista I (The Yogi Goblin I)","desc":"Escultura sobre base reciclada con estructura interna de alambre. El duende meditando fusiona la mitología elemental con el equilibrio espiritual del yoga, modelado íntegramente a mano en porcelanicrón.","serie":"Serie Yoguista"},
+                                                {"src":"img/img-mis-obras/duende-principal-2.webp","titulo":"Duende Yoguista II (The Yogi Goblin II)","desc":"La misma pieza fotografiada en mano para mostrar escala real y acabado. Se aprecian el detalle del rostro, la textura del cuerpo y los símbolos tallados en la base.","serie":"Serie Yoguista"},
+                                                {"src":"img/img-mis-obras/duende-1.webp","titulo":"Duende de la Suerte I (Lucky Goblin I)","desc":"Guardián de la prosperidad fotografiado antes del acabado polícromo. La pieza ya tiene su forma final en porcelanicrón crudo, mostrando el volumen y los detalles del modelado antes de recibir la pintura.","serie":"Serie Duende"},
+                                                {"src":"img/img-mis-obras/duende-2.webp","titulo":"Duende de la Suerte II (Lucky Goblin II)","desc":"La misma figura vista desde otro ángulo en su estado natural sin pintar. Una ventana al proceso artístico que revela la precisión del modelado a mano antes de la policromía final.","serie":"Serie Duende"},
+                                                {"src":"img/img-mis-obras/duende-3.webp","titulo":"Duende Flautista (The Flutist Goblin)","desc":"Elemental músico con flauta, construido mediante técnica mixta. La flauta simboliza la armonía de los bosques, inspirada en relatos folclóricos de la música feérica. Acabado polícromo en tonos azul y morado.","serie":"Serie Duende"},
+                                                {"src":"img/img-mis-obras/duende-4.webp","titulo":"Duende Demonio (The Demon Goblin)","desc":"Fusión original entre duende y demonio, criatura única que vive entre dos naturalezas. Estructura de alambrismo sobre base reciclada, recubierta en porcelanicrón policromado con acabado expresivo y detallado.","serie":"Serie Duende"},
+                                                {"src":"img/img-mis-obras/duende-5.webp","titulo":"Duende Yoguista III (The Yogi Goblin III)","desc":"Tercer duende yoguista, una pieza diferente a las anteriores que explora una nueva postura: el arco de espalda. Criatura independiente modelada en porcelanicrón sobre base reciclada con acabado polícromo propio.","serie":"Serie Yoguista"},
+                                                {"src":"img/img-mis-obras/demonio-1.webp","titulo":"Vacío Interior I (Inner Void I)","desc":"Obra surrealista de gran detalle técnico. Representa un ente que extrae su propio cráneo, simbolizando la introspección y el vaciamiento interior. Modelado polícromo sobre estructura metálica y reciclada.","serie":"Serie Vacío"},
+                                                {"src":"img/img-mis-obras/demonio-2.webp","titulo":"Vacío Interior II (Inner Void II)","desc":"Segunda vista del mismo ser desde otro ángulo. Un estudio anatómico fantástico sobre la fragilidad del ser, donde el porcelanicrón permite un acabado detallado de la osamenta y la musculatura expuesta.","serie":"Serie Vacío"},
+                                                {"src":"img/img-mis-obras/dragon-europeo.webp","titulo":"Dragón Europeo (European Dragon)","desc":"Criatura alada de inspiración heráldica medieval, construida con esqueleto de alambre para garantizar estabilidad en cada extremidad. Recubierta de porcelana pintada a mano con pigmentos acrílicos.","serie":"Criaturas"},
+                                                {"src":"img/img-mis-obras/elefante-1.webp","titulo":"Elefante de la Abundancia I (Elephant of Abundance I)","desc":"Tótem de protección fotografiado sobre superficie plana, mostrando el perfil completo de la pieza. Inspirado en la iconografía oriental, con trompa alzada como símbolo de buena fortuna. Ornamentación detallada pintada a mano en porcelanicrón.","serie":"Criaturas"},
+                                                {"src":"img/img-mis-obras/elefante-2.webp","titulo":"Elefante de la Abundancia II (Elephant of Abundance II)","desc":"La misma pieza fotografiada en mano desde arriba, mostrando la decoración del lomo y la parte superior. Detalle del ornamento policromado que cubre toda la superficie con motivos coloridos.","serie":"Criaturas"},
+                                                {"src":"img/img-mis-obras/espantapajaros.webp","titulo":"El Espantapájaros (The Scarecrow)","desc":"Guardián de las cosechas basado en el folclore rural colombiano. Fotografiado en mano para mostrar su estructura esbelta de alambrismo, que evoca la mística del campo y la frontera entre lo cotidiano y lo fantástico.","serie":"Criaturas"},
+                                                {"src":"img/img-mis-obras/Jack-1.webp","titulo":"El Señor de la Noche I (Lord of the Night I)","desc":"Escultura terminada en porcelanicrón policromado, fotografiada sobre una superficie de colores que resalta el contraste del acabado en blanco y negro. Tributo personal a la estética gótica de animación, reinterpretado con identidad propia.","serie":"El Señor de la Noche"},
+                                                {"src":"img/img-mis-obras/Jack-2.webp","titulo":"El Señor de la Noche II (Lord of the Night II)","desc":"La misma escultura fotografiada de cuerpo completo en las escaleras, acompañada de su perrito fantasma, también elaborado en porcelanicrón. Acabado a mano en blanco y negro sobre base ligera de material reciclado.","serie":"El Señor de la Noche"},
+                                                {"src":"img/img-mis-obras/todas-las-figuras-1.webp","titulo":"Antología Fantástica I (Full Collection I)","desc":"Reunión de figuras simbólicas de creación propia, distintas de las esculturas de la colección principal. Piezas únicas que exploran formas, máscaras y criaturas del universo creativo personal, modeladas en arcilla y porcelanicrón.","serie":"Colección"},
+                                                {"src":"img/img-mis-obras/todas-las-figuras-2.webp","titulo":"Antología Fantástica II (Full Collection II)","desc":"Reunión completa de la colección principal: los duendes, el espantapájaros, el elefante, el dragón y todas las criaturas juntas. Una vista panorámica de todo el universo escultórico construido con alambre, material reciclado y porcelana polícroma.","serie":"Colección"}
+                                            ]'>
+                                <img src="img/img-mis-obras/duende-p.webp" class="card-img-top"
+                                    alt="Escultura de Oscar Salazar en porcelanicrón"
+                                    title="Clic para ver la galería completa" loading="lazy">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-warning-neon">Mis Obras</h5>
+                                    <p class="card-text small opacity-75">Porcelanicrón y arcilla • 17 piezas</p>
+                                    <div class="mt-auto">
+                                        <button type="button" class="btn btn-outline-warning w-100 btn-abrir-lightbox">
+                                            <i class="bi bi-images me-2"></i>Ver Galería
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ==== Marketplace ==== -->
-            <div class="mt-5">
-                <h4 class="text-warning-neon mb-4">Marketplace Comunitario</h4>     
+                <!-- ==== Marketplace ==== -->
+                <div class="mt-5">
+                    <h4 class="text-warning-neon mb-4">Marketplace Comunitario</h4>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="card h-100 bg-dark border-warning-neon shadow-lg reveal-card">
+                                <span class="badge rounded-pill bg-danger position-absolute top-0 end-0 m-2">NUEVO</span>
+                                <img src="img/img-cards-secciones/productos-locales.webp" class="card-img-top" alt="Vista previa del Producto artesanal" loading="lazy">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Artículo en venta</h5>
+                                    <p class="card-text">$XX.XXX</p>
+                                    <div class="d-grid gap-2">
+                                        <button type="button" class="btn btn-success">Comprar</button>
+                                        <button type="button" class="btn btn-outline-info">Contactar</button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="section-divider divider-purple">
+
+
+        <!-- ==== section Muro de Artistas ==== -->
+        <section class="py-5 reveal" id="artistas">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">MURO DE ARTISTAS</h2>
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <article class="card h-100 bg-dark border-warning-neon shadow-lg"> 
-                            <span class="badge rounded-pill bg-danger position-absolute top-0 end-0 m-2">NUEVO</span> 
-                            <img src="img/productos-locales.jpg" class="card-img-top" alt="Vista previa del Producto artesanal" loading="lazy">
+                        <article class="card h-100 text-center border-purple-neon shadow-lg reveal-card">
+                            <img src="img/img-cards-secciones/artista-de-incognito.webp" class="card-img-top rounded-circle mx-auto mt-3 artist-avatar" alt="Retrato de artista local" loading="lazy">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Artículo en venta</h5>  
-                                <p class="card-text">$XX.XXX</p>  
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-success">Comprar</button>   
-                                    <button class="btn btn-outline-info">Contactar</button>  
+                                <h5 class="card-title fw-bold">Nombre del Artista</h5>
+                                <p class="card-text small opacity-75">Especialista en Muralismo / Graffiti / etc...</p>
+                                <div class="mt-auto">
+                                    <a href="#contacto-comision" class="btn btn-outline-purple-neon w-100 mt-2">Pedir comisión</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <!-- CAMBIO 6 — aria-haspopup="dialog" es el valor correcto para un modal -->
+                    <button type="button" class="btn btn-outline-purple-neon btn-lg" data-bs-toggle="modal" data-bs-target="#registroModal" aria-haspopup="dialog" aria-expanded="false">
+                        Registrarme como Artista
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+
+        <!-- ==== section Soul Station ==== -->
+        <section class="py-5 reveal" id="soul-station">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">SOUL STATION</h2>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="p-4 rounded transmission-box h-100 d-flex flex-column justify-content-center">
+                            <h5 class="transmission-title mb-4"><i class="bi bi-broadcast me-2 icon-pulse"></i>Soul Transmission</h5>
+                            <div class="audio-placeholder bg-dark p-5 text-center border border-secondary rounded">
+                                <p class="mb-0 fs-6 opacity-50">
+                                    Reproductor embebido (próximamente con música libre de derechos)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <article class="p-4 viernes-culturales-card h-100 d-flex flex-column justify-content-center align-items-center shadow-lg rounded-4 text-center border-0">
+                            <div class="w-100">
+                                <h2 class="fw-bold mb-4 display-6">Viernes Culturales</h2>
+                                <div class="badge-status-dark mb-2">PRÓXIMO ENCUENTRO</div>
+                                <p class="mb-4 fw-bold text-dark">Este viernes • 8:00 PM</p>
+                                <a href="#unirme-soul" class="btn btn-dark-action w-100 py-3 fw-bold rounded-3">UNIRME A LA ESTACIÓN</a>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider divider-green">
+
+
+        <!-- ==== section Eventos ==== -->
+        <section class="py-5 reveal" id="eventos">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">EVENTOS</h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-8 col-lg-6">
+                        <article class="card h-100 bg-dark shadow-lg event-card reveal-card">
+                            <div class="card-body d-flex flex-column text-center p-5">
+                                <h4 class="card-title fw-bold mb-3">Encuentro de Artistas Emergentes</h4>
+                                <p class="small mb-4">Viernes 25 de abril • 7:00 PM</p>
+                                <p class="card-text opacity-75 mb-4">Conversatorio + presentaciones en vivo</p>
+                                <div class="mt-auto">
+                                    <a href="#registro-evento" class="btn btn-outline-info-neon px-4 py-2 fw-bold">Participar</a>
                                 </div>
                             </div>
                         </article>
                     </div>
                 </div>
             </div>
-            
-        </div>
-    </section>
+        </section>
 
-    <hr class="section-divider divider-purple">
+        <hr class="section-divider divider-purple">
 
 
-    <!-- ==== section Muro de Artistas ==== -->
-    <section class="py-5" id="artistas"> 
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">MURO DE ARTISTAS</h2>   
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <article class="card h-100 text-center border-purple-neon shadow-lg"> 
-                        <img src="img/artista-de-incognito.jpg" class="card-img-top rounded-circle mx-auto mt-3 artist-avatar" alt="Retrato de artista local" loading="lazy"> 
-                        <div class="card-body d-flex flex-column"> 
-                            <h5 class="card-title fw-bold">Nombre del Artista</h5>
-                            <p class="card-text small opacity-75">Especialista en Muralismo / Graffiti / etc...</p>
-                            <div class="mt-auto"> 
-                                <a href="#contacto-comision" class="btn btn-outline-purple-neon w-100 mt-2">Pedir comisión</a>
+        <!-- ==== Section Bienestar ==== -->
+        <section class="py-5 reveal" id="bienestar">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">BIENESTAR</h2>
+
+                <div class="row g-4 justify-content-between">
+
+                    <div class="col-md-4">
+                        <article class="card h-100 border-light-neon shadow-sm">
+                            <img src="img/img-cards-secciones/veganismo-muchos-platos.webp" class="card-img-top" alt="Platos veganos en lugares de Cali" loading="lazy">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="card-title fw-bold">Ruta Vegana en Cali</h5>
+                                <p class="card-text small opacity-75">Lugares recomendados para comer consciente</p>
+                                <div class="mt-auto">
+                                    <a href="#ruta-vegana" class="btn btn-outline-light-neon w-100 fw-bold">Ver guía</a>
+                                </div>
                             </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="card h-100 border-light-neon shadow-sm">
+                            <img src="img/img-cards-secciones/moda.webp" class="card-img-top" alt="Moda inclusiva y diversidad" loading="lazy">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="card-title fw-bold">Moda Inclusiva</h5>
+                                <p class="card-text small opacity-75">Expresión libre y aceptación del cuerpo</p>
+                                <div class="mt-auto">
+                                    <a href="#moda-inclusiva" class="btn btn-outline-light-neon w-100 fw-bold">Explorar</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4 offset-md-4 mt-5">
+                        <article class="card h-100 border-light-neon shadow-sm">
+                            <img src="img/img-cards-secciones/alta-gracia-yoga-ashram-cali.webp" class="card-img-top" alt="Reflexión y salud mental" loading="lazy">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="card-title fw-bold">Salud Mental</h5>
+                                <p class="card-text small opacity-75">Consejos, reflexiones y herramientas diarias</p>
+                                <div class="mt-auto">
+                                    <a href="#salud-mental" class="btn btn-outline-light-neon w-100 fw-bold">Leer más</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="section-divider divider-green">
+
+
+        <!-- ==== Section Aprendizaje ==== -->
+        <section class="py-5 reveal" id="aprendizaje">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">APRENDIZAJE</h2>
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-md-5">
+                        <article class="card h-100 shadow-lg reveal-card">
+                            <div class="card-body d-flex flex-column justify-content-center text-center p-5">
+                                <h3 class="card-title fw-bold mb-3 h5">Cursos</h3>
+                                <p class="lead opacity-75">Arte, escultura digital y emprendimiento</p>
+                                <div class="mt-auto">
+                                    <a href="#cursos" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold">Explorar</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-5">
+                        <article class="card h-100 shadow-lg reveal-card">
+                            <div class="card-body d-flex flex-column justify-content-center text-center p-5">
+                                <h3 class="card-title fw-bold mb-3 h5">Enseñar</h3>
+                                <p class="lead opacity-75">Comparte tu conocimiento con la comunidad</p>
+                                <div class="mt-auto">
+                                    <a href="#registro-docente" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold">Registrarme</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-purple-neon btn-lg" data-bs-toggle="modal" data-bs-target="#registroModal" aria-haspopup="true" aria-expanded="false">
-                    Registrarme como Artista
-                </button>
+        </section>
+
+        <hr class="section-divider divider-purple">
+
+
+        <!-- ==== Section Articulos ==== -->
+        <section class="py-5 reveal" id="noticias">
+            <div class="container">
+                <h2 class="section-title text-center mb-5 cyber-subtitle">ARTÍCULOS</h2>
+                <div class="row g-5">
+
+                    <div class="col-12 d-flex justify-content-center justify-content-md-start mb-4">
+                        <article class="news-wrapper text-center text-md-start">
+                            <header>
+                                <h3 class="mb-3 cyber-glow-text-red h5">NOTICIAS</h3>
+                            </header>
+                            <div class="card bg-dark shadow-lg border-left-neon">
+                                <img src="img/img-cards-secciones/arte-de-mi-ciudad.webp" class="card-img-top" alt="Exposiciones de arte en Cali" loading="lazy">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title text-white h5">Arte Local</h4>
+                                    <hr class="border-info opacity-50">
+                                    <p class="mb-0 text-white-50">Últimas exposiciones y procesos creativos en la región.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center mb-4">
+                        <article class="news-wrapper text-center reveal-card">
+                            <header>
+                                <h3 class="mb-3 cyber-glow-text-red h5">CULTURA</h3>
+                            </header>
+                            <div class="card bg-dark shadow-lg border-bottom-neon">
+                                <img src="img/img-cards-secciones/cultura-cali.webp" class="card-img-top" alt="Cultura Caleña" loading="lazy">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title text-white h5">Cultura Caleña</h4>
+                                    <hr class="border-info opacity-50">
+                                    <p class="mb-0 text-white-50">Eventos, movimientos e identidad local que mueven la ciudad.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center justify-content-md-end mb-5">
+                        <article class="news-wrapper text-center text-md-end reveal-card">
+                            <header>
+                                <h3 class="mb-3 cyber-glow-text-red h5">VIDEOJUEGOS</h3>
+                            </header>
+                            <div class="card bg-dark shadow-lg border-right-neon">
+                                <img src="img/img-cards-secciones/represent-cultura-gamer.webp" class="card-img-top" alt="Gaming e influencia estética" loading="lazy">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title text-white h5">Gaming Hub</h4>
+                                    <hr class="border-info opacity-50">
+                                    <p class="mb-0 text-white-50">Influencia de GTA y FFVII en la estética urbana moderna.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </section>
-
-    <hr class="section-divider">
+        </section>
 
 
-    <!-- ==== section Soul Station ==== -->
-    <section class="py-5" id="soul-station">
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">SOUL STATION</h2>   
-            
-            <div class="row g-4"> 
-                <div class="col-lg-8">
-                    <div class="p-4 rounded transmission-box h-100 d-flex flex-column justify-content-center"> 
-                        <h5 class="transmission-title mb-4"><i class="bi bi-broadcast me-2 icon-pulse"></i>Soul Transmission</h5>
-                        <div class="audio-placeholder bg-dark p-5 text-center border border-secondary rounded"> 
-                            <p class="mb-0 fs-6 opacity-50"> 
-                                Reproductor embebido (próximamente con música libre de derechos)
-                            </p>
+        <hr class="section-divider">
+
+
+        <!-- ==== section Bio ==== -->
+        <section class="py-5 reveal" id="sobre-creador">
+            <div class="container">
+                
+                <div class="bio-title-wrapper">
+                    <h2 class="section-title btn-trigger-bio" id="btn-toggle-bio" role="button" tabindex="0" aria-expanded="false" aria-controls="quantum-bio-content">
+                        BIO
+                    </h2>
+                </div>
+
+                <audio id="hologram-sound" preload="auto" loop>
+                    <source src="audio/audio-bio/digital-static.mp3.mp3" type="audio/mpeg">
+                </audio>
+
+                <div class="quantum-bio-wrapper" id="quantum-bio-content">
+                    <div class="card profile-card hologram-panel">
+                        <div class="scanlines-bg"></div>
+                        
+                        <div class="card-body p-4 text-center">
+                            
+                            <div class="cyber-loader" id="bio-loader" aria-hidden="true">
+                                <span class="loader-text">&gt; ESTABLISHING CONNECTION...</span>
+                                <div class="loader-bar-container">
+                                    <div class="loader-bar"></div>
+                                </div>
+                            </div>
+
+                            <div class="bio-content-real is-hidden" id="bio-real-text">
+                                <p class="lead delay-p1">
+                                    Mi nombre es <strong>Oscar Fernando Salazar Toro</strong>.
+                                    Tengo 28 años y mi vida ha sido un constante viaje de transformación a través de la geografía colombiana.
+                                </p>
+                                <p class="delay-p2">
+                                    Originario de Ipiales, Nariño, crecí en el corregimiento de José María Hernández,
+                                    rodeado del color y la música de los Carnavales de Negros y Blancos.
+                                    Desde pequeño el arte formó parte de mí: lo que empezó con dibujos y figuras de plastilina,
+                                    evolucionó hacia la escultura en porcelanicrón y arcilla.
+                                </p>
+                                <p class="delay-p3">
+                                    Graduado de la Institución Educativa Los Héroes (Promoción 2015), recorrí ciudades como Bogotá,
+                                    Medellín y Pereira hasta llegar a Cali hace cinco años, donde hoy considero mi hogar.
+                                    Aquí me desempeñé como auxiliar de cocina,
+                                    aprendiendo disciplina y precisión en la comida rápida, el ramen, el sushi y los asados.
+                                </p>
+                                <p class="delay-p4">
+                                    Actualmente soy estudiante de Tecnología en Análisis y Desarrollo de Software
+                                    y participo en un bootcamp intensivo enfocado en tecnologías modernas.
+                                </p>
+                                <p class="mt-4 bio-closing delay-p5">
+                                    <strong>City Soul Echoes</strong> nace precisamente de esa convergencia: mis raíces artísticas,
+                                    la disciplina forjada en la cocina y mi pasión por construir herramientas digitales que impulso al arte,
+                                    el emprendimiento consciente y el bienestar en la comunidad.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <article class="p-4 viernes-culturales-card h-100 d-flex flex-column justify-content-center align-items-center shadow-lg rounded-4 text-center border-0"> 
-                        <div class="w-100"> 
-                            <h2 class="fw-bold mb-4 display-6">Viernes Culturales</h2> 
-                            <div class="badge-status-dark mb-2">PRÓXIMO ENCUENTRO</div>    
-                            <p class="mb-4 fw-bold text-dark">Este viernes • 8:00 PM</p>    
-                            <a href="#unirme-soul" class="btn btn-dark-action w-100 py-3 fw-bold rounded-3">UNIRME A LA ESTACIÓN</a>   
-                        </div>
-                    </article>
-                </div>
-
-            </div> 
-        </div> 
-    </section>
-
-    <hr class="section-divider divider-green">
-
-
-    <!-- ==== section Eventos ==== -->
-    <section class="py-5" id="eventos">
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">EVENTOS</h2>   
-            <div class="row g-4 justify-content-center"> 
-                <div class="col-md-8 col-lg-6"> 
-                    <article class="card h-100 bg-dark shadow-lg event-card"> 
-                        <div class="card-body d-flex flex-column text-center p-5"> 
-                            <h4 class="card-title fw-bold mb-3">Encuentro de Artistas Emergentes</h4> 
-                            <p class="small mb-4">Viernes 25 de abril • 7:00 PM</p>
-                            <p class="card-text opacity-75 mb-4">Conversatorio + presentaciones en vivo</p>
-                            <div class="mt-auto"> 
-                                <a href="#registro-evento" class="btn btn-outline-info-neon px-4 py-2 fw-bold">Participar</a>   
-                            </div>
-                        </div>
-                    </article>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <hr class="section-divider divider-purple">
-    
-
-    <!-- ==== Section Bienestar ==== -->
-    <section class="py-5" id="bienestar"> 
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">BIENESTAR</h2>  
-            
-            <div class="row g-4 justify-content-between">
-
-                <div class="col-md-4">
-                    <article class="card h-100 border-light-neon shadow-sm">
-                        <img src="img/veganismo-muchos-platos.jpg" class="card-img-top" alt="Platos veganos en lugares de Cali" loading="lazy">
-                        <div class="card-body d-flex flex-column text-center"> 
-                            <h5 class="card-title fw-bold">Ruta Vegana en Cali</h5>
-                            <p class="card-text small opacity-75">Lugares recomendados para comer consciente</p>
-                            <div class="mt-auto">
-                                <a href="#ruta-vegana" class="btn btn-outline-light-neon w-100 fw-bold">Ver guía</a>   
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-4">
-                    <article class="card h-100 border-light-neon shadow-sm">
-                        <img src="img/moda.jpg" class="card-img-top" alt="Moda inclusiva y diversidad" loading="lazy">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title fw-bold">Moda Inclusiva</h5>
-                            <p class="card-text small opacity-75">Expresión libre y aceptación del cuerpo</p>
-                            <div class="mt-auto">
-                                <a href="#moda-inclusiva" class="btn btn-outline-light-neon w-100 fw-bold">Explorar</a>  
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-4 offset-md-4 mt-5">
-                    <article class="card h-100 border-light-neon shadow-sm">
-                        <img src="img/alta-gracia-yoga-ashram-cali.jpg" class="card-img-top" alt="Reflexión y salud mental" loading="lazy">
-                        <div class="card-body d-flex flex-column text-center">
-                            <h5 class="card-title fw-bold">Salud Mental</h5>
-                            <p class="card-text small opacity-75">Consejos, reflexiones y herramientas diarias</p>
-                            <div class="mt-auto">
-                                <a href="#salud-mental" class="btn btn-outline-light-neon w-100 fw-bold">Leer más</a>  
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                
-            </div>
-            
-        </div>
-    </section>
-
-    <hr class="section-divider divider-green">
-
-
-    <!-- ==== Section Aprendizaje ==== -->
-    <section class="py-5" id="aprendizaje">
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">APRENDIZAJE</h2>   
-            <div class="row g-4 justify-content-center"> 
-                
-                <div class="col-md-5">
-                    <article class="card h-100 shadow-lg"> 
-                        <div class="card-body d-flex flex-column justify-content-center text-center p-5">
-                            <h3 class="card-title fw-bold mb-3 h5">Minicursos</h3> 
-                            <p class="lead opacity-75">Arte, escultura digital y emprendimiento</p>
-                            <div class="mt-auto"> 
-                                <a href="#cursos" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold">Explorar</a>    
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-5">
-                    <article class="card h-100 shadow-lg">
-                        <div class="card-body d-flex flex-column justify-content-center text-center p-5">
-                            <h3 class="card-title fw-bold mb-3 h5">Enseñar</h3>
-                            <p class="lead opacity-75">Comparte tu conocimiento con la comunidad</p>
-                            <div class="mt-auto">
-                                <a href="#registro-docente" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold">Registrarme</a>  
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <hr class="section-divider divider-purple">
-
-
-    <!-- ==== Section Articulos ==== -->
-    <section class="py-5" id="noticias"> 
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">ARTÍCULOS</h2>    
-            <div class="row g-5">
-                
-                <div class="col-12 d-flex justify-content-center justify-content-md-start mb-4">
-                    <article class="news-wrapper text-center text-md-start">  
-                        <header>
-                            <h3 class="mb-3 cyber-glow-text-red h5">NOTICIAS</h3>  
-                        </header>
-                        <div class="card bg-dark shadow-lg border-left-neon">   
-                            <img src="img/arte-de-mi-ciudad.jpg" class="card-img-top" alt="Exposiciones de arte en Cali" loading="lazy">
-                            <div class="card-body p-4">
-                                <h4 class="card-title text-white h5">Arte Local</h4>  
-                                <hr class="border-info opacity-50">  
-                                <p class="mb-0 text-white-50">Últimas exposiciones y procesos creativos en la región.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 d-flex justify-content-center mb-4">
-                    <article class="news-wrapper text-center">
-                        <header>
-                            <h3 class="mb-3 cyber-glow-text-red h5">CULTURA</h3>
-                        </header>
-                        <div class="card bg-dark shadow-lg border-bottom-neon">   
-                            <img src="img/cultura-cali.jpg" class="card-img-top" alt="Cultura Caleña" loading="lazy">
-                            <div class="card-body p-4">
-                                <h4 class="card-title text-white h5">Cultura Caleña</h4>
-                                <hr class="border-info opacity-50">
-                                <p class="mb-0 text-white-50">Eventos, movimientos e identidad local que mueven la ciudad.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 d-flex justify-content-center justify-content-md-end mb-5">
-                    <article class="news-wrapper text-center text-md-end">
-                        <header>
-                            <h3 class="mb-3 cyber-glow-text-red h5">VIDEOJUEGOS</h3>
-                        </header>
-                        <div class="card bg-dark shadow-lg border-right-neon">   
-                            <img src="img/represent-cultura-gamer.jpg" class="card-img-top" alt="Gaming e influencia estética" loading="lazy">
-                            <div class="card-body p-4">
-                                <h4 class="card-title text-white h5">Gaming Hub</h4>
-                                <hr class="border-info opacity-50">
-                                <p class="mb-0 text-white-50">Influencia de GTA y FFVII en la estética urbana moderna.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-            </div>
-        </div>
-    </section> 
-
-
-    <hr class="section-divider">
-
-
-    <!-- ==== section Bio ==== -->
-    <section class="py-5" id="sobre-creador">
-        <div class="container">
-            <h2 class="section-title text-center mb-5 cyber-subtitle">BIO</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card profile-card shadow-lg">    
-                        <div class="card-body p-4 text-center"> 
-                            <p class="lead">
-                                Mi nombre es <strong>Oscar Fernando Salazar Toro</strong>.
-                                Tengo 28 años y mi vida ha sido un constante viaje de transformación a través de la geografía colombiana.
-                            </p>
-                            <p>
-                                Originario de Ipiales, Nariño, crecí en el corregimiento de José María Hernández, 
-                                rodeado del color y la música de los Carnavales de Negros y Blancos. 
-                                Desde pequeño el arte formó parte de mí: lo que empezó con dibujos y figuras de plastilina,
-                                evolucionó hacia la escultura en porcelanicrón y arcilla.
-                            </p>
-                            <p>
-                                Graduado de la Institución Educativa Los Héroes (Promoción 2015), recorrí ciudades como Bogotá, 
-                                Medellín y Pereira hasta llegar a Cali hace cinco años, donde hoy considero mi hogar. 
-                                Aquí me desempeñé como auxiliar de cocina, 
-                                aprendiendo disciplina y precisión en la comida rápida, el ramen, el sushi y los asados.
-                            </p>
-                            <p>
-                                A los 25 años decidí seguir un nuevo sueño: convertirme en Desarrollador Web Full Stack.
-                                Actualmente soy estudiante de Tecnología en Análisis y Desarrollo de Software en el SENA (graduación prevista para 2027) 
-                                y participo en un bootcamp intensivo en BIT, en convenio con la Universidad Iberoamericana.
-                            </p>
-                            <p class="mt-4 bio-closing">
-                                <strong>City Soul Echoes</strong> nace precisamente de esa convergencia: mis raíces artísticas, 
-                                la disciplina forjada en la cocina y mi pasión por construir herramientas digitales que impulsen el arte, 
-                                el emprendimiento consciente y el bienestar en la comunidad caleña.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
+    <!-- fin CAMBIO 2 -->
 
 
     <!-- ==== section footer ==== -->
     <footer class="cyber-footer py-5" role="contentinfo">
         <div class="container">
             <div class="row align-items-center">
-                
+
                 <div class="col-md-5 text-center text-md-start">
                     <div class="footer-brand">
                         <h5 class="navbar-brand mb-2">CITY SOUL ECHOES</h5>
-                        <p class="tagline mb-3">El pulso artístico vive aquí <br> 
+                        <p class="tagline mb-3">El pulso artístico vive aquí <br>
                             <span class="text-white opacity-75">Cali, 2026</span>
                         </p>
                         <div class="social-icons d-flex gap-3 justify-content-center justify-content-md-start">
@@ -445,7 +498,7 @@
                 </div>
 
                 <div class="col-md-2 text-center my-4 my-md-0">
-                    <div class="footer-logo-wrapper"> 
+                    <div class="footer-logo-wrapper">
                         <img src="img/logo-city-soul-echoes.png" alt="Logotipo de City Soul Echoes" class="img-fluid footer-icon" loading="lazy">
                     </div>
                 </div>
@@ -454,12 +507,14 @@
                     <div class="footer-links-container">
                         <h6 class="text-purple-neon mb-3">EXPLORAR EL MAPA</h6>
                         <ul class="list-unstyled link-grid">
-                            <li><a href="#vault" class="text-decoration-none">The Vault</a></li>
-                            <li><a href="#artistas" class="text-decoration-none">Artistas</a></li>
-                            <li><a href="#soul-station" class="text-decoration-none">Soul Station</a></li>
-                            <li><a href="#bienestar" class="text-decoration-none">Bienestar</a></li>
-                            <li><a href="#eventos" class="text-decoration-none">Eventos</a></li>
-                            <li><a href="#aprendizaje" class="text-decoration-none">Aprendizaje</a></li>
+                            <li><a href="#vault" aria-label="The Vault"><i class="bi bi-safe2-fill fs-4"></i></a></li>
+                            <li><a href="#artistas" aria-label="Muro de Artistas"><i class="bi bi-palette-fill fs-4"></i></a></li>
+                            <li><a href="#soul-station" aria-label="Soul Station"><i class="bi bi-music-note-beamed fs-4"></i></a></li>
+                            <li><a href="#eventos" aria-label="Eventos"><i class="bi bi-calendar-event-fill fs-4"></i></a></li>
+                            <li><a href="#bienestar" aria-label="Bienestar"><i class="bi bi-heart-pulse-fill fs-4"></i></a></li>
+                            <li><a href="#aprendizaje" aria-label="Aprendizaje"><i class="bi bi-book-fill fs-4"></i></a></li>
+                            <li><a href="#noticias" aria-label="Artículos"><i class="bi bi-newspaper fs-4"></i></a></li>
+                            <li><a href="#sobre-creador" aria-label="Bio"><i class="bi bi-person-fill fs-4"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -468,35 +523,153 @@
 
             <div class="footer-bottom mt-5">
                 <hr class="border-info opacity-25">
+
                 <p class="text-center text-white-50 small mb-0">
                     © 2026 Oscar Fernando Salazar Toro. Todos los derechos reservados.
                 </p>
+
+                <p class="footer-autoria-texto">
+                    Todas las obras expuestas en este espacio son creaciones originales protegidas por derechos de autor. 
+                    Si bien el proceso creativo se nutre de diversas fuentes de inspiración e influencias artísticas generales, 
+                    cada pieza es el resultado de un desarrollo intelectual propio. Dada la inmensidad del catálogo artístico global, 
+                    cualquier similitud formal con obras existentes constituye una coincidencia inevitable dentro de las posibilidades del lenguaje visual, mas no una réplica.
+                </p>
+                
             </div>
         </div>
     </footer>
-    
 
-    <!-- ==== SECCIÓN DE MODALES (CONTENIDO INVISIBLE) ====: Ubicado al final para mantener el HTML limpio. 
-    Este modal se activa solo bajo demanda del usuario y permite  seleccionar el tipo de cuenta (Usuario o Artista). de la seccion Muro de Artistas -->
+
+    <!-- ==== SECCIÓN DE MODALES (CONTENIDO INVISIBLE) ====
+        Ubicado al final para mantener el HTML limpio.
+        Se activa bajo demanda del usuario para seleccionar tipo de cuenta. -->
     <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="tituloRegistro" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tituloRegistro">¿Eres artista?</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>    
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <p>Elige tu tipo de cuenta:</p>
-                    <button class="btn btn-outline-light w-100 mb-3">Usuario normal</button>
-                    <button class="btn btn-outline-info w-100">Usuario Artista</button>
+                    <!-- CAMBIO 5 — type="button" evita submit accidental -->
+                    <button type="button" class="btn btn-outline-light w-100 mb-3">Usuario normal</button>
+                    <button type="button" class="btn btn-outline-info w-100">Usuario Artista</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ==== LIGHTBOX GALERÍA DE OBRAS ==== -->
+    <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galería de obras" tabindex="-1">
+        <button type="button" id="lightbox-cerrar" aria-label="Cerrar galería"><i class="bi bi-x-lg"></i></button>
+        <button type="button" id="lightbox-prev" aria-label="Obra anterior"><i class="bi bi-chevron-left"></i></button>
+        <button type="button" id="lightbox-next" aria-label="Obra siguiente"><i class="bi bi-chevron-right"></i></button>
+
+        <div id="lightbox-wrapper-total">
+            <div id="lightbox-imagen-wrapper">
+                <img id="lightbox-img" src="" alt="">
+                <div id="lightbox-barra-progreso"><div id="lightbox-barra-fill"></div></div>
+            </div>
+            <div id="lightbox-info">
+                <p id="lightbox-contador" class="small opacity-50 mb-2"></p>
+                <h3 id="lightbox-titulo"></h3>
+                <p id="lightbox-desc"></p>
+                <div id="lightbox-miniaturas"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==== MINI-MAPA LATERAL ==== -->
+    <nav id="minimapa" aria-label="Navegación por secciones">
+
+        <!-- ☀️ Inicio — Sol -->
+        <a href="#inicio" class="minimapa-punto" data-seccion="inicio" aria-label="Inicio">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="19.78" y1="4.22" x2="17.66" y2="6.34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="6.34" y1="17.66" x2="4.22" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+
+        <!-- 🪐 The Vault — Saturno -->
+        <a href="#vault" class="minimapa-punto" data-seccion="vault" aria-label="The Vault">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="5" fill="currentColor"/>
+                <ellipse cx="12" cy="12" rx="11" ry="4" stroke="currentColor" stroke-width="1.5" fill="none" transform="rotate(-20 12 12)"/>
+            </svg>
+        </a>
+
+        <!-- 🌕 Artistas — Luna -->
+        <a href="#artistas" class="minimapa-punto" data-seccion="artistas" aria-label="Muro Artistas">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+        </a>
+
+        <!-- ✨ Soul Station — Estrella de 4 puntas -->
+        <a href="#soul-station" class="minimapa-punto" data-seccion="soul-station" aria-label="Soul Station">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z"/>
+            </svg>
+        </a>
+
+    <!-- ☄️ Eventos — Cometa -->
+        <a href="#eventos" class="minimapa-punto" data-seccion="eventos" aria-label="Eventos">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Cuerpo del cometa como rombo rotado -->
+                <path d="M20 4 L17 9 L12 12 L7 14 L10 9 L15 6 Z"/>
+                <!-- Cola como triángulo difuso -->
+                <path d="M12 12 L3 19 L9 15 Z" opacity="0.6"/>
+                <path d="M10 13 L3 21 L7 17 Z" opacity="0.3"/>
+            </svg>
+        </a>
+
+        <!-- 🌍 Bienestar — Planeta con continentes -->
+        <a href="#bienestar" class="minimapa-punto" data-seccion="bienestar" aria-label="Bienestar">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M2 12 Q6 8 10 12 Q14 16 18 12 Q20 10 22 12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M12 2 Q14 6 12 10 Q10 14 12 22" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+        </a>
+
+        <!-- 🔭 Aprendizaje — Telescopio -->
+        <a href="#aprendizaje" class="minimapa-punto" data-seccion="aprendizaje" aria-label="Aprendizaje">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <line x1="2" y1="6" x2="14" y2="10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="6" y1="6" x2="18" y2="2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="11" y1="10" x2="9" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="20" x2="6" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="9" y1="20" x2="12" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+
+        <!-- 🪨 Artículos — Asteroide -->
+        <a href="#noticias" class="minimapa-punto" data-seccion="noticias" aria-label="Artículos">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 3 L16 7 L20 9 L18 14 L14 18 L9 17 L5 13 L6 8 L10 5 Z"/>
+            </svg>
+        </a>
+
+        <!-- 🌟 Bio — Estrella fugaz -->
+        <a href="#sobre-creador" class="minimapa-punto" data-seccion="sobre-creador" aria-label="Bio">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polygon points="12,2 14.5,9 22,9 16,13.5 18.5,21 12,16.5 5.5,21 8,13.5 2,9 9.5,9"/>
+                <line x1="18" y1="6" x2="22" y2="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </a>
+
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
+    <script src="js/index.js"></script>
 </body>
 </html>
-
