@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/settings.json
+dist/
+build/
