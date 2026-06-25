@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const Usuario = require('../models/Usuario');
+const { enviarCorreoVerificacion } = require('../services/email.service');
 
 const generarToken = (usuario) => {
     return jwt.sign(
@@ -25,8 +27,14 @@ const registrarUsuario = async (req, res) => {
         }
 
         const usuario = await Usuario.create({ nombreCompleto, correo, password, telefono, ciudad, rol: 'usuario' });
-        const token = generarToken(usuario);
 
+        const tokenVerificacion = crypto.randomBytes(32).toString('hex');
+        usuario.verificacionToken = tokenVerificacion;
+        usuario.verificacionExpira = Date.now() + 24 * 60 * 60 * 1000;
+        await usuario.save();
+        await enviarCorreoVerificacion(usuario.correo, usuario.nombreCompleto, tokenVerificacion);
+
+        const token = generarToken(usuario);
         res.status(201).json({ ok: true, token, usuario: limpiarUsuario(usuario) });
     } catch (error) {
         console.error('Error en registrarUsuario:', error.message);
@@ -44,8 +52,14 @@ const registrarArtista = async (req, res) => {
         }
 
         const usuario = await Usuario.create({ nombreCompleto, correo, password, telefono, ciudad, rol: 'artista', perfilArtista });
-        const token = generarToken(usuario);
 
+        const tokenVerificacion = crypto.randomBytes(32).toString('hex');
+        usuario.verificacionToken = tokenVerificacion;
+        usuario.verificacionExpira = Date.now() + 24 * 60 * 60 * 1000;
+        await usuario.save();
+        await enviarCorreoVerificacion(usuario.correo, usuario.nombreCompleto, tokenVerificacion);
+
+        const token = generarToken(usuario);
         res.status(201).json({ ok: true, token, usuario: limpiarUsuario(usuario) });
     } catch (error) {
         console.error('Error en registrarArtista:', error.message);
@@ -63,8 +77,14 @@ const registrarDocente = async (req, res) => {
         }
 
         const usuario = await Usuario.create({ nombreCompleto, correo, password, telefono, ciudad, rol: 'docente', perfilDocente });
-        const token = generarToken(usuario);
 
+        const tokenVerificacion = crypto.randomBytes(32).toString('hex');
+        usuario.verificacionToken = tokenVerificacion;
+        usuario.verificacionExpira = Date.now() + 24 * 60 * 60 * 1000;
+        await usuario.save();
+        await enviarCorreoVerificacion(usuario.correo, usuario.nombreCompleto, tokenVerificacion);
+
+        const token = generarToken(usuario);
         res.status(201).json({ ok: true, token, usuario: limpiarUsuario(usuario) });
     } catch (error) {
         console.error('Error en registrarDocente:', error.message);

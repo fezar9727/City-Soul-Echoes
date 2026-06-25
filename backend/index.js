@@ -6,8 +6,10 @@ const helmet        = require('helmet');
 const morgan        = require('morgan');
 const rateLimit     = require('express-rate-limit');
 
+
 const conectarDB  = require('./config/db');
 const authRoutes  = require('./routes/auth.routes');
+const usuarioRoutes = require('./routes/usuario.routes');
 
 const app = express();
 
@@ -20,6 +22,21 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json({ limit: '10kb' }));
+
+app.use((req, res, next) => {
+    const sanitize = (obj) => {
+        if (obj && typeof obj === 'object') {
+            Object.keys(obj).forEach(key => {
+                if (key.startsWith('$')) delete obj[key];
+                else sanitize(obj[key]);
+            });
+        }
+    };
+    sanitize(req.body);
+    sanitize(req.query);
+    next();
+});
+
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
@@ -43,6 +60,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ ok: false, mensaje: `Ruta no encontrada: ${req.method} ${req.originalUrl}` });

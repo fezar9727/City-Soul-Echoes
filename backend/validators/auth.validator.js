@@ -29,8 +29,30 @@ const validarRegistroArtista = [
         .withMessage('Debes seleccionar al menos una disciplina'),
     body('perfilArtista.disciplinas.*')
         .isIn(['pintura', 'escultura', 'musica', 'digital', 'fotografia', 'otro'])
-        .withMessage('Disciplina no válida')
+        .withMessage('Disciplina no válida'),
+
+    body('perfilArtista.redes.instagram')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El Instagram del artista debe ser una URL válida'),
+
+    body('perfilArtista.redes.tiktok')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El TikTok del artista debe ser una URL válida'),
+
+    body('perfilArtista.redes.facebook')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El Facebook del artista debe ser una URL válida'),
+
+    body('perfilArtista.redes.portafolioExterno')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El portafolio externo del artista debe ser una URL válida'),
 ];
+
+
 
 const validarRegistroDocente = [
     ...validarRegistroUsuario,
@@ -45,7 +67,27 @@ const validarRegistroDocente = [
     body('perfilDocente.modalidad')
         .optional()
         .isIn(['virtual', 'presencial', 'mixta'])
-        .withMessage('La modalidad debe ser: virtual, presencial o mixta')
+        .withMessage('La modalidad debe ser: virtual, presencial o mixta'),
+
+    body('perfilDocente.redes.instagram')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El Instagram del docente debe ser una URL válida'),
+
+    body('perfilDocente.redes.tiktok')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El TikTok del docente debe ser una URL válida'),
+
+    body('perfilDocente.redes.facebook')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El Facebook del docente debe ser una URL válida'),
+
+    body('perfilDocente.redes.portafolioExterno')
+        .optional({ checkFalsy: true })
+        .isURL()
+        .withMessage('El portafolio externo del docente debe ser una URL válida'),
 ];
 
 const validarLogin = [
