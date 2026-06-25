@@ -10,8 +10,8 @@ const Usuario  = require('../models/Usuario');
         const correoAdmin   = process.env.ADMIN_EMAIL;
         const passwordAdmin = process.env.ADMIN_PASSWORD;
 
-        if (!correoAdmin || !passwordAdmin) {
-            console.error('❌ Faltan ADMIN_EMAIL o ADMIN_PASSWORD en el .env');
+        if (!correoAdmin || !passwordAdmin || !process.env.ADMIN_NAME) {
+            console.error('❌ Faltan ADMIN_EMAIL, ADMIN_PASSWORD o ADMIN_NAME en el .env');
             process.exit(1);
         }
 
@@ -22,7 +22,7 @@ const Usuario  = require('../models/Usuario');
         }
 
         await Usuario.create({
-            nombreCompleto: 'Oscar Fernando Salazar Toro',
+            nombreCompleto: process.env.ADMIN_NAME,
             correo:         correoAdmin,
             password:       passwordAdmin,
             rol:            'admin'

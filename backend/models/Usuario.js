@@ -56,7 +56,12 @@ const usuarioSchema = new mongoose.Schema({
     },
     activo: { type: Boolean, default: true },
     perfilArtista: perfilArtistaSchema,
-    perfilDocente: perfilDocenteSchema
+    perfilDocente: perfilDocenteSchema,
+    correoVerificado: { type: Boolean, default: false },
+    verificacionToken: { type: String },
+    verificacionExpira: { type: Date },
+    resetPasswordToken: { type: String },
+    resetPasswordExpira: { type: Date },
 }, { timestamps: true });
 
 usuarioSchema.pre('save', async function () {
