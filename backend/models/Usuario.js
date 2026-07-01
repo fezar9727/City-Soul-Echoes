@@ -58,6 +58,7 @@ const usuarioSchema = new mongoose.Schema({
     perfilArtista: perfilArtistaSchema,
     perfilDocente: perfilDocenteSchema,
     correoVerificado: { type: Boolean, default: false },
+    puedeVender: { type: Boolean, default: false },
     verificacionToken: { type: String },
     verificacionExpira: { type: Date },
     resetPasswordToken: { type: String },

@@ -17,6 +17,7 @@ const cursoRoutes = require('./routes/curso.routes');
 const productoRoutes = require('./routes/producto.routes');
 const publicacionRoutes = require('./routes/publicacion.routes');
 const soulstationRoutes = require('./routes/soulstation.routes');
+const solicitudVendedorRoutes = require('./routes/solicitudVendedor.routes');
 
 const app = express();
 
@@ -69,7 +70,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 
-// y aqui lo nuevo tambien ??
+
 
 app.use('/api/obras', obraRoutes);
 app.use('/api/eventos', eventoRoutes);
@@ -77,6 +78,7 @@ app.use('/api/cursos', cursoRoutes);
 app.use('/api/productos', productoRoutes);
 app.use('/api/publicaciones', publicacionRoutes);
 app.use('/api/soul-station', soulstationRoutes);
+app.use('/api/solicitudes-vendedor', solicitudVendedorRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ ok: false, mensaje: `Ruta no encontrada: ${req.method} ${req.originalUrl}` });
