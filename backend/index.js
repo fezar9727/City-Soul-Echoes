@@ -19,6 +19,7 @@ const publicacionRoutes = require('./routes/publicacion.routes');
 const soulstationRoutes = require('./routes/soulstation.routes');
 const solicitudVendedorRoutes = require('./routes/solicitudVendedor.routes');
 const pagoRoutes = require('./routes/pago.routes');
+const noticiaRoutes = require('./routes/noticiaCache.routes');
 
 const app = express();
 
@@ -81,6 +82,8 @@ app.use('/api/publicaciones', publicacionRoutes);
 app.use('/api/soul-station', soulstationRoutes);
 app.use('/api/solicitudes-vendedor', solicitudVendedorRoutes);
 app.use('/api/pagos', pagoRoutes);
+app.use('/api/noticias', noticiaRoutes);
+
 
 app.use((req, res) => {
     res.status(404).json({ ok: false, mensaje: `Ruta no encontrada: ${req.method} ${req.originalUrl}` });
