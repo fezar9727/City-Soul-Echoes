@@ -20,6 +20,7 @@ const soulstationRoutes = require('./routes/soulstation.routes');
 const solicitudVendedorRoutes = require('./routes/solicitudVendedor.routes');
 const pagoRoutes = require('./routes/pago.routes');
 const noticiaRoutes = require('./routes/noticiaCache.routes');
+const imagenRoutes = require('./routes/imagen.routes');
 
 const app = express();
 
@@ -83,6 +84,7 @@ app.use('/api/soul-station', soulstationRoutes);
 app.use('/api/solicitudes-vendedor', solicitudVendedorRoutes);
 app.use('/api/pagos', pagoRoutes);
 app.use('/api/noticias', noticiaRoutes);
+app.use('/api/imagenes', imagenRoutes);
 
 
 app.use((req, res) => {
