@@ -1,0 +1,11 @@
+# Imágenes de prueba usadas para verificar la integración de Cloudinary (Fase 7.1)
+# Subidas manualmente via Postman para probar los endpoints /api/imagenes/*
+# No son parte de las 17 obras reales ni de datos de producción — no se suben al repo
+img/curso-gratis.png
+img/duende-flautitas.jpg
+img/familia-1-duendes.jpg
+img/familia-2-duendes.jpg
+img/familia-3-duendes.jpg
+img/familia-4-duendes.webp
+img/familia-5-duendes.webp
+img/producto-artesania.png
