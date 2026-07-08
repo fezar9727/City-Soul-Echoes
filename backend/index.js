@@ -22,6 +22,10 @@ const pagoRoutes = require('./routes/pago.routes');
 const noticiaRoutes = require('./routes/noticiaCache.routes');
 const imagenRoutes = require('./routes/imagen.routes');
 
+const bienestarRoutes = require('./routes/bienestar.routes');
+
+
+
 const app = express();
 
 conectarDB();
@@ -85,6 +89,9 @@ app.use('/api/solicitudes-vendedor', solicitudVendedorRoutes);
 app.use('/api/pagos', pagoRoutes);
 app.use('/api/noticias', noticiaRoutes);
 app.use('/api/imagenes', imagenRoutes);
+
+app.use('/api/bienestar', bienestarRoutes);
+
 
 
 app.use((req, res) => {
