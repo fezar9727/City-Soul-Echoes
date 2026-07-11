@@ -1,14 +1,11 @@
-const axios = require('axios');
+
 const crypto = require('crypto');
 const Pago = require('../models/Pago');
 const Suscripcion = require('../models/Suscripcion');
-
-const WOMPI_API = 'https://sandbox.wompi.co/v1';
-
-const generarReferencia = () => {
-    return `CSE-${Date.now()}-${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
-};
-
+const Usuario = require('../models/Usuario');
+const verificarFirmaWompi = require('../utils/verificarFirmaWompi');
+const { enviarCorreoActualizacionPlan } = require('../services/email.service');
+const generarReferencia = require('../utils/generarReferenciaPago');
 const iniciarPago = async (req, res) => {
     try {
         const { concepto, conceptoId, monto } = req.body;
@@ -48,10 +45,18 @@ const iniciarPago = async (req, res) => {
 
 const webhookWompi = async (req, res) => {
     try {
-        const { event, data, signature } = req.body;
+        const { event, data } = req.body;
 
         if (!event || !data) {
             return res.status(400).json({ ok: false, mensaje: 'Datos de webhook inválidos' });
+        }
+
+        // CAPA DE SEGURIDAD 1: verificar que el webhook realmente viene de Wompi
+        // y no fue falsificado por un tercero. Se rechaza sin procesar nada
+        // si la firma no coincide.
+        const firmaValida = verificarFirmaWompi(req.body);
+        if (!firmaValida) {
+            return res.status(401).json({ ok: false, mensaje: 'Firma de webhook inválida' });
         }
 
         if (event === 'transaction.updated') {
@@ -61,6 +66,14 @@ const webhookWompi = async (req, res) => {
             const pago = await Pago.findOne({ referencia });
             if (!pago) {
                 return res.status(404).json({ ok: false, mensaje: 'Pago no encontrado' });
+            }
+
+            // CAPA DE SEGURIDAD 2: idempotencia. Wompi puede reenviar el mismo
+            // webhook mas de una vez (reintentos por timeout de red). Si este
+            // pago ya fue procesado como aprobado antes, no se vuelve a procesar
+            // para evitar activar suscripciones o cobros duplicados.
+            if (pago.estado === 'aprobado') {
+                return res.status(200).json({ ok: true, mensaje: 'Evento ya procesado anteriormente, ignorado' });
             }
 
             const estadoMap = {
@@ -88,6 +101,40 @@ const webhookWompi = async (req, res) => {
                     },
                     { upsert: true, new: true }
                 );
+            }
+
+            // Caso nuevo de la Fase 7.4: pago del excedente por cambio de plan
+            // (usuario aprobado como vendedor). Recien aca, con el pago
+            // confirmado por Wompi, se activa puedeVender y se actualiza el plan.
+            if (pago.estado === 'aprobado' && pago.concepto === 'actualizacion_plan') {
+                const suscripcion = await Suscripcion.findById(pago.conceptoId);
+
+                if (suscripcion) {
+                    const fechaVencimiento = new Date();
+                    fechaVencimiento.setMonth(fechaVencimiento.getMonth() + 1);
+
+                    suscripcion.plan = pago.planDestino;
+                    suscripcion.precio = pago.precioPlanDestino;
+                    suscripcion.fechaVencimiento = fechaVencimiento;
+                    suscripcion.ultimoPago = pago._id;
+                    await suscripcion.save();
+
+                    if (pago.planDestino === 'vendedor') {
+                        await Usuario.findByIdAndUpdate(pago.usuario, { puedeVender: true });
+                    }
+
+                    const usuarioActualizado = await Usuario.findById(pago.usuario);
+                    if (usuarioActualizado) {
+                        await enviarCorreoActualizacionPlan(
+                            usuarioActualizado.correo,
+                            usuarioActualizado.nombreCompleto,
+                            'pendiente de pago',
+                            pago.planDestino,
+                            pago.precioPlanDestino,
+                            0
+                        );
+                    }
+                }
             }
         }
 

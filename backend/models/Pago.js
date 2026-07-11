@@ -14,7 +14,7 @@ const pagoSchema = new mongoose.Schema({
     concepto: {
         type: String,
         enum: {
-            values: ['producto', 'suscripcion'],
+            values: ['producto', 'suscripcion', 'actualizacion_plan'],
             message: '{VALUE} no es un concepto válido'
         },
         required: true
@@ -51,7 +51,18 @@ const pagoSchema = new mongoose.Schema({
     wompiRespuesta: {
         type: mongoose.Schema.Types.Mixed,
         default: {}
-    }
+    },
+    
+    planDestino: {
+        type: String,
+        enum: ['basico', 'vendedor', 'artista', 'docente'],
+        default: null
+    },
+    precioPlanDestino: {
+        type: Number,
+        default: null
+    },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Pago', pagoSchema);
