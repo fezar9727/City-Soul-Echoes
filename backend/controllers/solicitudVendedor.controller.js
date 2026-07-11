@@ -1,5 +1,12 @@
 const SolicitudVendedor = require('../models/SolicitudVendedor');
 const Usuario = require('../models/Usuario');
+const Suscripcion = require('../models/Suscripcion');
+const Pago = require('../models/Pago');
+const crypto = require('crypto');
+const PRECIOS_PLANES = require('../config/planes');
+const calcularProrrateo = require('../utils/calcularProrrateo');
+const generarReferenciaPago = require('../utils/generarReferenciaPago');
+const { enviarCorreoActualizacionPlan } = require('../services/email.service');
 
 const crearSolicitud = async (req, res) => {
     try {
@@ -72,14 +79,92 @@ const aprobarSolicitud = async (req, res) => {
             return res.status(409).json({ ok: false, mensaje: `Esta solicitud ya fue ${solicitud.estado}` });
         }
 
+        const suscripcionActual = await Suscripcion.findOne({ usuario: solicitud.usuario });
+
+        if (!suscripcionActual) {
+            return res.status(409).json({ ok: false, mensaje: 'El usuario no tiene una suscripción activa, no se puede procesar la actualización de plan' });
+        }
+
+        if (suscripcionActual.plan === 'vendedor') {
+            return res.status(409).json({ ok: false, mensaje: 'El usuario ya tiene el plan vendedor' });
+        }
+
+        const planAnterior = suscripcionActual.plan;
+        // Nota: puedeVender NO se activa aca todavia. Solo se activa cuando
+        // Wompi confirme el pago del excedente, via webhookWompi en pago.controller.js.
+
+        const precioPlanNuevo = PRECIOS_PLANES.vendedor;
+
+        const { montoAPagar } = calcularProrrateo({
+            precioPlanActual: suscripcionActual.precio,
+            precioPlanNuevo,
+            fechaVencimientoActual: suscripcionActual.fechaVencimiento
+        });
+
         solicitud.estado = 'aprobada';
         solicitud.revisadaPor = req.usuario._id;
         solicitud.fechaRevision = Date.now();
         await solicitud.save();
 
-        await Usuario.findByIdAndUpdate(solicitud.usuario, { puedeVender: true });
+        let pagoExcedente = null;
 
-        res.status(200).json({ ok: true, mensaje: 'Solicitud aprobada — el usuario ya puede vender', solicitud });
+        if (montoAPagar > 0) {
+            const referencia = generarReferenciaPago();
+
+            pagoExcedente = await Pago.create({
+                referencia,
+                usuario: solicitud.usuario,
+                concepto: 'actualizacion_plan',
+                conceptoId: suscripcionActual._id,
+                conceptoModel: 'Suscripcion',
+                monto: montoAPagar,
+                planDestino: 'vendedor',
+                precioPlanDestino: precioPlanNuevo
+            });
+
+            const montoEnCentavos = montoAPagar * 100;
+            const cadenaIntegridad = `${referencia}${montoEnCentavos}COP${process.env.WOMPI_INTEGRITY_SECRET}`;
+            const firma = crypto.createHash('sha256').update(cadenaIntegridad).digest('hex');
+
+            pagoExcedente = {
+                ...pagoExcedente.toObject(),
+                wompi: {
+                    publicKey: process.env.WOMPI_PUBLIC_KEY,
+                    currency: 'COP',
+                    amountInCents: montoEnCentavos,
+                    reference: referencia,
+                    signature: firma,
+                    redirectUrl: `${process.env.CLIENT_URL}/pago-completado`
+                }
+            };
+        } else {
+            // Si el excedente calculado es 0 (por ejemplo, aprobado el ultimo dia del ciclo),
+            // se activa el plan directamente sin necesidad de cobrar nada.
+            suscripcionActual.plan = 'vendedor';
+            suscripcionActual.precio = precioPlanNuevo;
+            await suscripcionActual.save();
+            await Usuario.findByIdAndUpdate(solicitud.usuario, { puedeVender: true });
+        }
+
+        const usuarioAprobado = await Usuario.findById(solicitud.usuario);
+
+        await enviarCorreoActualizacionPlan(
+            usuarioAprobado.correo,
+            usuarioAprobado.nombreCompleto,
+            planAnterior,
+            'vendedor',
+            precioPlanNuevo,
+            montoAPagar
+        );
+
+        res.status(200).json({
+            ok: true,
+            mensaje: montoAPagar > 0
+                ? 'Solicitud aprobada — se generó el pago del excedente, el usuario podrá vender apenas se confirme'
+                : 'Solicitud aprobada — plan actualizado directamente, el usuario ya puede vender',
+            solicitud,
+            pagoExcedente
+        });
     } catch (error) {
         res.status(500).json({ ok: false, mensaje: 'Error al aprobar la solicitud', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
     }

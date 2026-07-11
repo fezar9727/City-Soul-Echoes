@@ -10,7 +10,7 @@ const suscripcionSchema = new mongoose.Schema({
     plan: {
         type: String,
         enum: {
-            values: ['basico', 'artista', 'docente'],
+            values: ['basico', 'vendedor', 'artista', 'docente'],
             message: '{VALUE} no es un plan válido'
         },
         required: true

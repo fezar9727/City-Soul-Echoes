@@ -41,7 +41,26 @@ const enviarCorreoRecuperacion = async (correo, nombre, token) => {
     });
 };
 
+
+
+const enviarCorreoActualizacionPlan = async (correo, nombre, planAnterior, planNuevo, precioNuevo, montoExcedente) => {
+    await transporter.sendMail({
+        from: `"City Soul Echoes" <${process.env.EMAIL_USER}>`,
+        to: correo,
+        subject: 'Tu plan de suscripción fue actualizado — City Soul Echoes',
+        html: `
+            <h2>Hola ${nombre}</h2>
+            <p>Tu solicitud para convertirte en vendedor fue aprobada.</p>
+            <p>Tu plan de suscripción cambió de <strong>${planAnterior}</strong> a <strong>${planNuevo}</strong>.</p>
+            <p>Para activar tu nuevo plan, debes pagar el excedente correspondiente al tiempo restante de tu ciclo actual: <strong>$${montoExcedente} COP</strong>.</p>
+            <p>Desde tu próximo ciclo de facturación, el valor mensual de tu plan será de <strong>$${precioNuevo} COP</strong>.</p>
+            <p>Podrás publicar y vender productos apenas se confirme el pago del excedente.</p>
+        `
+    });
+};
+
 module.exports = {
     enviarCorreoVerificacion,
-    enviarCorreoRecuperacion
+    enviarCorreoRecuperacion,
+    enviarCorreoActualizacionPlan
 };
