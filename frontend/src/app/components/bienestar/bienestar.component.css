@@ -1,0 +1,121 @@
+::ng-deep #bienestarModal .card-title { color: #f1f1f1; }
+::ng-deep #bienestarModal .card-text { color: rgba(255, 255, 255, 0.75); }
+
+.bienestar-intro { max-width: 640px; }
+
+.bienestar-item-sin-imagen {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.bienestar-item-sin-imagen--vegana { background: radial-gradient(circle, #1a2e1a 0%, #0d150d 100%); color: #6fbf73; }
+.bienestar-item-sin-imagen--moda-instagram { background: radial-gradient(circle, #3a1a2a 0%, #1f0d15 100%); color: #e754a0; }
+.bienestar-item-sin-imagen--moda-facebook { background: radial-gradient(circle, #10203a 0%, #0a1220 100%); color: #4f8fff; }
+.bienestar-item-sin-imagen--moda-web { background: radial-gradient(circle, #3a3610 0%, #1f1c08 100%); color: #e8ff5a; }
+.bienestar-item-sin-imagen--moda-fuente { background: radial-gradient(circle, #1a2a3a 0%, #0d151f 100%); color: #8fa8ff; }
+.bienestar-item-sin-imagen--moda-bio { background: radial-gradient(circle, #1a2a3a 0%, #0d151f 100%); color: #8fa8ff; }
+.bienestar-item-sin-imagen--hablar-ya { background: radial-gradient(circle, #3a2010 0%, #1f130a 100%); color: #ff9a5a; }
+.bienestar-item-sin-imagen--apoyo-especifico { background: radial-gradient(circle, #2a1a3a 0%, #150d1f 100%); color: #b98fff; }
+.bienestar-item-sin-imagen--autocuidado { background: radial-gradient(circle, #10302a 0%, #081a17 100%); color: #5adfc4; }
+
+
+/* Estilos para el borde animado */
+.bienestar-card--vegana::before,
+.bienestar-card--moda::before,
+.bienestar-card--salud::before {
+  content: '';
+  display: block;
+  height: 6px;
+  width: 100%;
+  background-size: 300% 100%;
+  animation: bienestarBordeMovimiento 8s linear infinite;
+  margin-bottom: 0;
+}
+.bienestar-card--vegana::before { background-image: linear-gradient(90deg, #6fbf73, #a8e6a1, #6fbf73, #a8e6a1, #6fbf73); }
+.bienestar-card--moda::before { background-image: linear-gradient(90deg, #e754a0, #b98fff, #8fa8ff, #e754a0, #b98fff); }
+.bienestar-card--salud::before { background-image: linear-gradient(90deg, #ff9a5a, #5adfc4, #ff9a5a, #5adfc4, #ff9a5a); }
+
+@keyframes bienestarBordeMovimiento {
+  from { background-position: 0% 0; }
+  to { background-position: -300% 0; }
+}
+
+.filtro-salud-mental {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.75);
+}
+.filtro-salud-mental.active {
+  background: #ff9a5a;
+  border-color: #ff9a5a;
+  color: #1f130a;
+  font-weight: bold;
+}
+
+/* Overlay de pantalla completa */
+.bienestar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.92);
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.bienestar-overlay-contenido {
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #111318;
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  color: #f1f1f1;
+}
+.bienestar-overlay-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  font-size: 1.3rem;
+}
+.bienestar-overlay-texto {
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-top: 1rem;
+  white-space: pre-line;
+}
+
+/* Fondos sutiles del overlay — basados en país real (bandera) o en la técnica misma,
+   nunca en datos personales inventados. */
+.bienestar-overlay-pais-colombia {
+  background: linear-gradient(160deg, #111318 60%, #2a2410 100%);
+}
+.bienestar-overlay-pais-wayuu {
+  background: linear-gradient(160deg, #111318 60%, #2a1010 100%);
+}
+.bienestar-overlay-pais-reino-unido {
+  background: linear-gradient(160deg, #111318 60%, #10152a 100%);
+}
+.bienestar-overlay-pais-canada {
+  background: linear-gradient(160deg, #111318 60%, #2a1010 100%);
+}
+.bienestar-overlay-pais-eeuu {
+  background: linear-gradient(160deg, #111318 60%, #10152a 100%);
+}
+.bienestar-overlay-autocuidado-0 {
+  background: linear-gradient(160deg, #111318 60%, #0f2a24 100%);
+}
+.bienestar-overlay-autocuidado-1 {
+  background: linear-gradient(160deg, #111318 60%, #1a1230 100%);
+}
+.bienestar-overlay-autocuidado-2 {
+  background: linear-gradient(160deg, #111318 60%, #14202f 100%);
+}
+

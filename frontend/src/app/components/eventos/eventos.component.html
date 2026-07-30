@@ -1,0 +1,30 @@
+<section class="py-5 reveal" id="eventos" appReveal>
+  <div class="container">
+    <h2 class="section-title text-center mb-5 cyber-subtitle">EVENTOS</h2>
+
+    <div *ngIf="cargando" class="text-center opacity-50 py-5">Cargando eventos...</div>
+    <div *ngIf="error" class="text-center opacity-50 py-5">No se pudieron cargar los eventos.</div>
+    <div *ngIf="!cargando && !error && eventos.length === 0" class="text-center opacity-50 py-5">
+      No hay eventos programados por el momento.
+    </div>
+
+    <div class="row g-4 justify-content-center" *ngIf="!cargando && !error && eventos.length > 0">
+      <div class="col-md-8 col-lg-6" *ngFor="let evento of eventos">
+        <article class="card h-100 bg-dark shadow-lg event-card reveal-card" appReveal>
+          <img *ngIf="evento.imagenPortada" [src]="evento.imagenPortada" [alt]="evento.titulo" class="card-img-top" loading="lazy">
+          <div class="card-body d-flex flex-column text-center p-5">
+            <h4 class="card-title fw-bold mb-3">{{ evento.titulo }}</h4>
+            <p class="small mb-4 text-capitalize">{{ formatearFecha(evento.fecha) }} • {{ evento.hora }}</p>
+            <p class="card-text opacity-75 mb-4">{{ evento.descripcion }}</p>
+            <div class="mt-auto">
+              <a *ngIf="evento.linkSala" [href]="evento.linkSala" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info-neon px-4 py-2 fw-bold">
+                Participar
+              </a>
+              <span *ngIf="!evento.linkSala" class="badge bg-secondary px-3 py-2">Cupos: {{ evento.cupos }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

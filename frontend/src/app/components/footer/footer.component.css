@@ -1,0 +1,4 @@
+/* Footer hereda 100% del estilo global (.cyber-footer, .footer-brand,
+   .footer-logo-wrapper, .link-grid, etc. en styles.css) — no requiere
+   overrides propios. Este archivo queda como placeholder de la
+   arquitectura, mismo patrón que vault.component.css. */

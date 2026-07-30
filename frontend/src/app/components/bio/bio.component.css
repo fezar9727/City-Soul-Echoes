@@ -1,0 +1,8 @@
+.loader-bar {
+  width: 0%;
+  transition: width 2.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loader-bar.is-loading {
+  width: 100%;
+}

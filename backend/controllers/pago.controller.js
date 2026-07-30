@@ -99,7 +99,7 @@ const webhookWompi = async (req, res) => {
                         fechaVencimiento,
                         ultimoPago: pago._id
                     },
-                    { upsert: true, new: true }
+                    { upsert: true, returnDocument: 'after' }
                 );
             }
 

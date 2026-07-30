@@ -1,0 +1,73 @@
+<section class="py-5 reveal" id="soul-station" appReveal>
+  <div class="container">
+    <h2 class="section-title text-center mb-5 cyber-subtitle">SOUL STATION</h2>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="p-4 rounded transmission-box h-100 d-flex flex-column">
+          <h5 class="transmission-title mb-4">
+            <i class="bi bi-broadcast me-2 icon-pulse"></i>Soul Transmission
+          </h5>
+
+          <div *ngIf="cargando" class="text-center opacity-50 py-5">
+            Cargando estación...
+          </div>
+
+          <div *ngIf="error" class="text-center opacity-50 py-5">
+            No se pudo cargar Soul Station. Intentalo más tarde.
+          </div>
+
+          <ng-container *ngIf="!cargando && !error && pistaActual">
+            <audio
+              #audioPlayer
+              (ended)="alTerminarPista()"
+              class="d-none">
+            </audio>
+
+            <div class="bg-dark p-4 border border-secondary rounded mb-3 text-center">
+              <p class="mb-1 fw-bold">{{ pistaActual.titulo }}</p>
+              <p class="mb-3 small opacity-75">{{ pistaActual.artista }}</p>
+
+              <div class="d-flex justify-content-center align-items-center gap-3">
+                <button type="button" class="btn btn-outline-warning btn-sm" (click)="pistaAnterior()">
+                  <i class="bi bi-skip-start-fill"></i>
+                </button>
+                <button type="button" class="btn btn-warning" (click)="togglePlayPause()">
+                  <i class="bi" [class.bi-play-fill]="!reproduciendo" [class.bi-pause-fill]="reproduciendo"></i>
+                </button>
+                <button type="button" class="btn btn-outline-warning btn-sm" (click)="pistaSiguiente()">
+                  <i class="bi bi-skip-end-fill"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="playlist-scroll" style="max-height: 240px; overflow-y: auto;">
+              <ul class="list-unstyled mb-0">
+                <li
+                  *ngFor="let pista of playlist; let i = index"
+                  class="d-flex justify-content-between align-items-center px-3 py-2 rounded playlist-item"
+                  [class.bg-secondary]="i === indiceActual"
+                  style="cursor: pointer;"
+                  (click)="seleccionarPista(i)">
+                  <span class="small">{{ pista.titulo }} — {{ pista.artista }}</span>
+                  <span class="small opacity-50">{{ formatearDuracion(pista.duracionSegundos) }}</span>
+                </li>
+              </ul>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <article class="p-4 viernes-culturales-card h-100 d-flex flex-column justify-content-center align-items-center shadow-lg rounded-4 text-center border-0">
+          <div class="w-100">
+            <h2 class="fw-bold mb-4 display-6">Viernes Culturales</h2>
+            <div class="badge-status-dark mb-2">PRÓXIMO ENCUENTRO</div>
+            <p class="mb-4 fw-bold text-dark">Este viernes • 8:00 PM</p>
+            <a href="#unirme-soul" class="btn btn-dark-action w-100 py-3 fw-bold rounded-3">UNIRME A LA ESTACIÓN</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

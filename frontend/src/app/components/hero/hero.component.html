@@ -1,0 +1,33 @@
+<header class="hero-section" id="inicio">
+    <video #videoFondo autoplay muted loop playsinline class="hero-video-bg">
+        <source src="/video/mar-psicodelico-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+    <div class="container h-100 d-flex flex-column justify-content-end align-items-center text-center hero-content position-relative z-3">
+
+        <div class="pb-4">
+            <h1 class="display-1 fw-bold mb-2 cyber-title">CITY SOUL ECHOES</h1>
+            <p class="lead fs-3 mb-4">"El pulso artístico vive aquí"</p>
+            <a href="#vault" class="btn btn-explore mb-5">EXPLORAR</a>
+            <div class="d-flex flex-column align-items-center">
+
+                <div>
+                    <p id="label-audio" class="text-white opacity-50 small mb-1 audio-label">AMBIENT SOUND</p>
+                    <div>
+                        <i class="bi bi-chevron-compact-down fs-1 text-white opacity-75 icon-scroll-to-audio" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="audio-trigger-zone" role="region" aria-labelledby="label-audio">
+                    <audio id="ambient-audio" loop controls>
+                        <source src="/audio/Bach-Orchestral-Suite-no.-3-in-D-major-BWV-1068-Download-free-sheet-music(chosic.com).mp3" type="audio/mpeg">
+                        <p>Tu navegador no soporta el elemento de audio.</p>
+                    </audio>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</header>

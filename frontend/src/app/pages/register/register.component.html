@@ -1,0 +1,128 @@
+<div class="container py-5" style="max-width: 480px;">
+  <h2 class="text-center mb-4 cyber-subtitle">CREAR CUENTA</h2>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nombreCompleto" class="form-label">Nombre completo</label>
+      <input
+        type="text"
+        id="nombreCompleto"
+        class="form-control"
+        formControlName="nombreCompleto"
+        (blur)="formulario.get('nombreCompleto')?.markAsTouched()">
+      <div class="form-text">Ingresá tu nombre y apellido, mínimo 3 caracteres.</div>
+      <div class="text-danger small mt-1" *ngIf="formulario.get('nombreCompleto')?.invalid && formulario.get('nombreCompleto')?.touched">
+        El nombre completo es obligatorio.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo electrónico</label>
+      <input
+        type="email"
+        id="correo"
+        class="form-control"
+        formControlName="correo"
+        (blur)="formulario.get('correo')?.markAsTouched()">
+      <div class="form-text">Ejemplo: nombre&#64;correo.com</div>
+      <div class="text-danger small mt-1" *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched">
+        Ingresá un correo válido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <div class="input-group">
+        <input
+          [type]="mostrarPassword ? 'text' : 'password'"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          (blur)="formulario.get('password')?.markAsTouched()">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="toggleMostrarPassword()"
+          [attr.aria-label]="mostrarPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
+          <i class="bi" [class.bi-eye]="!mostrarPassword" [class.bi-eye-slash]="mostrarPassword"></i>
+        </button>
+      </div>
+
+      <div class="form-text">Debe contener mayúsculas, minúsculas, números y símbolos o caracteres especiales.</div>
+
+      <div class="row row-cols-2 g-1 mt-1">
+        <div class="col">
+          <span class="password-check-item" [class.text-success]="tieneMinLength" [class.text-white-50]="!tieneMinLength">
+            <i class="bi" [class.bi-check-circle-fill]="tieneMinLength" [class.bi-circle]="!tieneMinLength"></i>
+            8+ caracteres
+          </span>
+        </div>
+        <div class="col">
+          <span class="password-check-item" [class.text-success]="tieneMayuscula" [class.text-white-50]="!tieneMayuscula">
+            <i class="bi" [class.bi-check-circle-fill]="tieneMayuscula" [class.bi-circle]="!tieneMayuscula"></i>
+            Mayúsculas
+          </span>
+        </div>
+        <div class="col">
+          <span class="password-check-item" [class.text-success]="tieneMinuscula" [class.text-white-50]="!tieneMinuscula">
+            <i class="bi" [class.bi-check-circle-fill]="tieneMinuscula" [class.bi-circle]="!tieneMinuscula"></i>
+            Minúsculas
+          </span>
+        </div>
+        <div class="col">
+          <span class="password-check-item" [class.text-success]="tieneNumero" [class.text-white-50]="!tieneNumero">
+            <i class="bi" [class.bi-check-circle-fill]="tieneNumero" [class.bi-circle]="!tieneNumero"></i>
+            Números
+          </span>
+        </div>
+        <div class="col">
+          <span class="password-check-item" [class.text-success]="tieneCaracterEspecial" [class.text-white-50]="!tieneCaracterEspecial">
+            <i class="bi" [class.bi-check-circle-fill]="tieneCaracterEspecial" [class.bi-circle]="!tieneCaracterEspecial"></i>
+            Símbolos o caracteres especiales
+          </span>
+        </div>
+      </div>
+
+      <div class="text-danger small mt-2" *ngIf="formulario.get('password')?.invalid && formulario.get('password')?.touched">
+        Falta al menos una mayúscula, una minúscula, un número y un símbolo o caracter especial.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Teléfono (opcional)</label>
+      <div class="input-group">
+        <span class="input-group-text">+57</span>
+        <input
+          type="tel"
+          id="telefono"
+          class="form-control"
+          formControlName="telefono"
+          placeholder="3001234567"
+          maxlength="10"
+          (blur)="formulario.get('telefono')?.markAsTouched()">
+      </div>
+      <div class="form-text">10 dígitos, sin el +57 (ej: 3181234567).</div>
+      <div class="text-danger small mt-1" *ngIf="formulario.get('telefono')?.invalid && formulario.get('telefono')?.touched">
+        Ingresá los 10 dígitos de tu celular, empezando en 3.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="ciudad" class="form-label">Municipio <span class="text-white-50">(opcional, solo Valle del Cauca)</span></label>
+      <select id="ciudad" class="form-select" formControlName="ciudad">
+        <option value="">Seleccioná tu municipio</option>
+        <option *ngFor="let municipio of municipiosValleDelCauca" [value]="municipio">
+          {{ municipio }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100" [disabled]="cargando">
+      {{ cargando ? 'Creando cuenta...' : 'Registrarme' }}
+    </button>
+
+    <p class="text-center mt-3 small">
+      ¿Ya tenés cuenta? <a routerLink="/login">Iniciá sesión</a>
+    </p>
+  </form>
+</div>

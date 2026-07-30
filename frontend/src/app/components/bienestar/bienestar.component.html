@@ -1,0 +1,135 @@
+<section class="py-5 reveal" id="bienestar" appReveal>
+    <div class="container">
+        <h2 class="section-title text-center mb-5 cyber-subtitle">BIENESTAR</h2>
+        <div class="row g-4 justify-content-between">
+            <div class="col-md-4">
+                <article class="card h-100 border-light-neon shadow-sm bienestar-card bienestar-card--vegana" appReveal>
+                    <img src="/img/img-cards-secciones/veganismo-muchos-platos.webp" class="card-img-top" alt="Platos veganos en lugares de Cali" loading="lazy">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold">Ruta Vegana en Cali</h5>
+                        <p class="card-text small opacity-75">11 restaurantes y cafés veganos reales, con dirección y cómo llegar</p>
+                        <div class="mt-auto">
+                            <button type="button" class="btn btn-outline-light-neon w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#bienestarModal" (click)="abrirCategoria('vegana')">
+                                {{ cargandoVegana ? 'Cargando...' : 'Ver guía' }}
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="card h-100 border-light-neon shadow-sm bienestar-card bienestar-card--moda" appReveal>
+                    <img src="/img/img-cards-secciones/moda.webp" class="card-img-top" alt="Moda inclusiva y diversidad" loading="lazy">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold">Moda Inclusiva</h5>
+                        <p class="card-text small opacity-75">16 voces y marcas que redefinen la moda sin moldes únicos</p>
+                        <div class="mt-auto">
+                            <button type="button" class="btn btn-outline-light-neon w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#bienestarModal" (click)="abrirCategoria('moda-inclusiva')">
+                                {{ cargandoModa ? 'Cargando...' : 'Explorar' }}
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 offset-md-4 mt-5">
+                <article class="card h-100 border-light-neon shadow-sm bienestar-card bienestar-card--salud" appReveal>
+                    <img src="/img/img-cards-secciones/alta-gracia-yoga-ashram-cali.webp" class="card-img-top" alt="Reflexión y salud mental" loading="lazy">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold">Salud Mental</h5>
+                        <p class="card-text small opacity-75">Líneas de atención reales y herramientas guiadas de autocuidado</p>
+                        <div class="mt-auto">
+                            <button type="button" class="btn btn-outline-light-neon w-100 fw-bold" data-bs-toggle="modal" data-bs-target="#bienestarModal" (click)="abrirCategoria('salud-mental')">
+                                {{ cargandoSaludMental ? 'Cargando...' : 'Leer más' }}
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="bienestarModal" tabindex="-1" aria-labelledby="tituloBienestarModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloBienestarModal">{{ tituloDeCategoriaAbierta }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" (click)="cerrarCategoria()"></button>
+            </div>
+            <div class="modal-body">
+                <p class="small opacity-50 mb-3" *ngIf="categoriaAbierta === 'vegana'">
+                    Información recopilada de directorios públicos. Verificá horarios antes de visitar.
+                </p>
+                <div class="mb-4" *ngIf="categoriaAbierta === 'salud-mental'">
+                    <p class="small opacity-75 mb-2">¿Qué necesitás ahora?</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-sm filtro-salud-mental" [class.active]="filtroSaludMentalActivo === 'todos'" (click)="aplicarFiltroSaludMental('todos')">Ver todo</button>
+                        <button type="button" class="btn btn-sm filtro-salud-mental" [class.active]="filtroSaludMentalActivo === 'hablar-ya'" (click)="aplicarFiltroSaludMental('hablar-ya')">Hablar con alguien ya</button>
+                        <button type="button" class="btn btn-sm filtro-salud-mental" [class.active]="filtroSaludMentalActivo === 'apoyo-especifico'" (click)="aplicarFiltroSaludMental('apoyo-especifico')">Apoyo específico</button>
+                        <button type="button" class="btn btn-sm filtro-salud-mental" [class.active]="filtroSaludMentalActivo === 'autocuidado'" (click)="aplicarFiltroSaludMental('autocuidado')">Herramientas del día a día</button>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6" *ngFor="let item of itemsDeCategoriaAbierta">
+                        <div class="card bg-secondary bg-opacity-10 h-100">
+                            <img *ngIf="item.imagenUrl" [src]="item.imagenUrl" [alt]="item.titulo" class="card-img-top" loading="lazy">
+                            <div *ngIf="!item.imagenUrl" class="bienestar-item-sin-imagen bg-dark" [ngClass]="claseIconoFondo(item)">
+                                <i class="bi" [ngClass]="iconoDeItem(item)"></i>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">{{ item.titulo }}</h6>
+                                <p class="card-text small opacity-75">{{ item.descripcion }}</p>
+                                <p class="card-text small opacity-50 d-flex align-items-center gap-1" *ngIf="item.pais">
+                                    <i class="bi" [ngClass]="iconoDeItem(item)"></i>{{ item.pais }}
+                                </p>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a *ngIf="categoriaAbierta === 'vegana'" [href]="enlaceMapaDe(item)" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success">
+                                        <i class="bi bi-geo-alt me-1"></i>Cómo llegar
+                                    </a>
+                                    <a *ngIf="item.enlaceOficial" [href]="enlaceOficialConUtm(item)" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info">
+                                        <i class="bi me-1" [ngClass]="iconoEnlaceOficialDe(item)"></i>Ver perfil
+                                    </a>
+                                    <a *ngIf="item.telefono" [href]="enlaceLlamarDe(item)" class="btn btn-sm btn-outline-warning">
+                                        <i class="bi bi-telephone-fill me-1"></i>Llamar
+                                    </a>
+                                    <a *ngIf="item.whatsapp" [href]="enlaceWhatsappDe(item)" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success">
+                                        <i class="bi bi-whatsapp me-1"></i>WhatsApp
+                                    </a>
+                                    <button *ngIf="item.detalleCompleto" type="button" class="btn btn-sm btn-outline-light" (click)="abrirDetalleCompleto(item)">
+                                        Ver más
+                                    </button>
+                                    <a *ngIf="(categoriaAbierta === 'moda-inclusiva' && item.youtubeSearch) || (categoriaAbierta === 'salud-mental' && item.etiqueta === 'autocuidado')" [href]="enlaceYoutubeDe(item)" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-youtube me-1"></i>Buscar en YouTube
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center small opacity-50 mt-4 mb-0">
+                    Contenido editorial e independiente. Ninguna marca o persona mencionada aquí patrocina ni está afiliada a City Soul Echoes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Overlay de pantalla completa — mismo patrón que el lightbox de Vault -->
+<div class="bienestar-overlay" *ngIf="itemEnPantallaCompleta" (click)="cerrarDetalleCompleto()">
+    <div class="bienestar-overlay-contenido" (click)="$event.stopPropagation()">
+        <button type="button" class="bienestar-overlay-cerrar" (click)="cerrarDetalleCompleto()" aria-label="Cerrar">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h3>{{ itemEnPantallaCompleta.titulo }}</h3>
+        <p class="opacity-50 small" *ngIf="itemEnPantallaCompleta.pais">{{ itemEnPantallaCompleta.pais }}</p>
+        <p class="bienestar-overlay-texto">{{ itemEnPantallaCompleta.detalleCompleto }}</p>
+        <a *ngIf="itemEnPantallaCompleta.enlaceProfundizar" [href]="itemEnPantallaCompleta.enlaceProfundizar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-info mt-3">
+            Fuente oficial <i class="bi bi-box-arrow-up-right ms-1"></i>
+        </a>
+        <div class="mt-3" *ngIf="itemEnPantallaCompleta.enlacesReferencia && itemEnPantallaCompleta.enlacesReferencia.length > 0">
+            <p class="small opacity-50 mb-2">Profundizar más:</p>
+            <a *ngFor="let ref of itemEnPantallaCompleta.enlacesReferencia" [href]="ref.url" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-info me-2 mb-2">
+                {{ ref.nombre }}
+            </a>
+        </div>
+    </div>
+</div>

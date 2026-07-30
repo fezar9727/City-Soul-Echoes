@@ -31,7 +31,7 @@ const obraSchema = new mongoose.Schema({
     precio: {
         type: Number,
         required: [true, 'El precio es obligatorio'],
-        min: [0, 'El precio no puede ser negativo']
+        min: [1, 'El precio debe ser mayor a 0']
     },
     categoria: {
         type: String,
@@ -43,7 +43,7 @@ const obraSchema = new mongoose.Schema({
     },
     imagenPortada: {
         type: String,
-        default: ''
+        required: [true, 'La imagen de portada es obligatoria']
     },
     imagenes: {
         type: [imagenSchema],
@@ -61,6 +61,18 @@ const obraSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true
+    }, 
+    eliminada: {
+        type: Boolean,
+        default: false
+    },
+    fechaEliminacion: {
+        type: Date,
+        default: null
+    },
+    imagenPortadaPublicId: {
+        type: String,
+        default: ''
     }
 }, { timestamps: true });
 

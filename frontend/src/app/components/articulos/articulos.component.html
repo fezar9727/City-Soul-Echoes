@@ -1,0 +1,122 @@
+<section class="py-5 reveal" id="noticias" appReveal>
+    <div class="container">
+        <h2 class="section-title text-center mb-5 cyber-subtitle">ARTÍCULOS</h2>
+        <div class="row g-5">
+            <div class="col-12 d-flex justify-content-center justify-content-md-start mb-4">
+                <article class="news-wrapper text-center text-md-start reveal-card" appReveal>
+                    <header>
+                        <h3 class="mb-3 cyber-glow-text-red h5">NOTICIAS</h3>
+                    </header>
+                    <div *ngIf="cargandoNoticias" class="text-center opacity-50 py-4">Cargando...</div>
+                    <div *ngIf="!cargandoNoticias && articulosNoticias.length === 0" class="text-center opacity-50 py-4">
+                        No hay noticias disponibles por el momento.
+                    </div>
+                    <div *ngIf="articuloDestacado('noticias') as destacado" class="card bg-dark shadow-lg border-left-neon articulo-card-clicable" (click)="abrirCategoria('noticias')" data-bs-toggle="modal" data-bs-target="#articulosModal">
+                        <img *ngIf="!imagenNoDisponible(destacado)" [src]="destacado.urlImagen" class="card-img-top" [alt]="destacado.titulo" loading="lazy" (error)="marcarImagenRota(destacado.urlImagen)">
+                        <div *ngIf="imagenNoDisponible(destacado)" class="articulo-imagen-fallback" [ngClass]="claseFallbackDe('noticias')">
+                            <i class="bi" [ngClass]="iconoFallbackDe('noticias')"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-white h5">{{ destacado.titulo }}</h4>
+                            <hr class="border-info opacity-50">
+                            <p class="mb-0 text-white-50">{{ descripcionCorta(destacado.descripcion) }}</p>
+                            <p class="mb-0 mt-2 small text-info">Ver todas las noticias →</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center mb-4">
+                <article class="news-wrapper text-center reveal-card" appReveal>
+                    <header>
+                        <h3 class="mb-3 cyber-glow-text-red h5">CULTURA</h3>
+                    </header>
+                    <div *ngIf="cargandoCultura" class="text-center opacity-50 py-4">Cargando...</div>
+                    <div *ngIf="!cargandoCultura && articulosCultura.length === 0" class="text-center opacity-50 py-4">
+                        No hay artículos de cultura disponibles por el momento.
+                    </div>
+                    <div *ngIf="articuloDestacado('cultura') as destacado" class="card bg-dark shadow-lg border-bottom-neon articulo-card-clicable" (click)="abrirCategoria('cultura')" data-bs-toggle="modal" data-bs-target="#articulosModal">
+                        <img *ngIf="!imagenNoDisponible(destacado)" [src]="destacado.urlImagen" class="card-img-top" [alt]="destacado.titulo" loading="lazy" (error)="marcarImagenRota(destacado.urlImagen)">
+                        <div *ngIf="imagenNoDisponible(destacado)" class="articulo-imagen-fallback" [ngClass]="claseFallbackDe('cultura')">
+                            <i class="bi" [ngClass]="iconoFallbackDe('cultura')"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-white h5">{{ destacado.titulo }}</h4>
+                            <hr class="border-info opacity-50">
+                            <p class="mb-0 text-white-50">{{ descripcionCorta(destacado.descripcion) }}</p>
+                            <p class="mb-0 mt-2 small text-info">Ver todos los artículos de cultura →</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-12 d-flex justify-content-center justify-content-md-end mb-5">
+                <article class="news-wrapper text-center text-md-end reveal-card" appReveal>
+                    <header>
+                        <h3 class="mb-3 cyber-glow-text-red h5">VIDEOJUEGOS</h3>
+                    </header>
+                    <div *ngIf="cargandoVideojuegos" class="text-center opacity-50 py-4">Cargando...</div>
+                    <div *ngIf="!cargandoVideojuegos && articulosVideojuegos.length === 0" class="text-center opacity-50 py-4">
+                        No hay artículos de videojuegos disponibles por el momento.
+                    </div>
+                    <div *ngIf="articuloDestacado('videojuegos') as destacado" class="card bg-dark shadow-lg border-right-neon articulo-card-clicable" (click)="abrirCategoria('videojuegos')" data-bs-toggle="modal" data-bs-target="#articulosModal">
+                        <img *ngIf="!imagenNoDisponible(destacado)" [src]="destacado.urlImagen" class="card-img-top" [alt]="destacado.titulo" loading="lazy" (error)="marcarImagenRota(destacado.urlImagen)">
+                        <div *ngIf="imagenNoDisponible(destacado)" class="articulo-imagen-fallback" [ngClass]="claseFallbackDe('videojuegos')">
+                            <i class="bi" [ngClass]="iconoFallbackDe('videojuegos')"></i>
+                        </div>
+                        <div class="card-body p-4">
+                            <h4 class="card-title text-white h5">{{ destacado.titulo }}</h4>
+                            <hr class="border-info opacity-50">
+                            <p class="mb-0 text-white-50">{{ descripcionCorta(destacado.descripcion) }}</p>
+                            <p class="mb-0 mt-2 small text-info">Ver todos los artículos de videojuegos →</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal genérico de Artículos — misma lógica de fallback e imagen que las cards destacadas -->
+<div class="modal fade" id="articulosModal" tabindex="-1" aria-labelledby="tituloArticulosModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloArticulosModal">{{ tituloDeCategoriaAbierta }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" (click)="cerrarCategoria()"></button>
+            </div>
+            <div class="modal-body">
+                <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Buscar por título o descripción..."
+                    [(ngModel)]="textoBusqueda">
+
+                <p class="small opacity-50" *ngIf="articulosFiltrados.length === 0">
+                    No se encontraron artículos con ese criterio.
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-md-6" *ngFor="let articulo of articulosFiltrados">
+                        <a [href]="articulo.url" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                            <div class="card bg-secondary bg-opacity-10 h-100">
+                                <img *ngIf="!imagenNoDisponible(articulo)" [src]="articulo.urlImagen" [alt]="articulo.titulo" class="card-img-top" loading="lazy" (error)="marcarImagenRota(articulo.urlImagen)">
+                                <div *ngIf="imagenNoDisponible(articulo)" class="articulo-imagen-fallback articulo-imagen-fallback--pequena" [ngClass]="claseFallbackDe(categoriaAbierta!)">
+                                    <i class="bi" [ngClass]="iconoFallbackDe(categoriaAbierta!)"></i>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title text-white">{{ articulo.titulo }}</h6>
+                                    <p class="card-text small text-white-50">{{ descripcionCorta(articulo.descripcion) }}</p>
+                                    <p class="card-text small text-info mb-0" *ngIf="articulo.fuente">{{ articulo.fuente }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-center small opacity-50 mt-4 mb-0">
+                    Contenido informativo obtenido de fuentes externas mediante NewsData.io. City Soul Echoes no participa en su redacción, edición ni verificación, y no percibe ningún beneficio económico por estos enlaces.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

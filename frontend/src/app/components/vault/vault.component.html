@@ -1,0 +1,70 @@
+<section class="py-5 reveal" id="vault" appReveal>
+    <div class="container">
+        <h2 class="section-title text-center mb-5 cyber-subtitle">THE VAULT</h2>
+
+        <!-- ==== Showroom ==== -->
+        <div class="mb-5">
+            <h4 class="text-warning-neon mb-4">Showroom • Obras de Oscar Fernando</h4>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <article class="card h-100 bg-dark border-warning-neon shadow-lg reveal-card" appReveal>
+                        <img src="/img/img-mis-obras/duende-p.webp" class="card-img-top"
+                            alt="Escultura de Oscar Salazar en porcelanicrón"
+                            title="Clic para ver la galería completa" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-warning-neon">Mis Obras</h5>
+                            <p class="card-text small opacity-75">Porcelanicrón y arcilla • {{ obras.length }} piezas</p>
+                            <div class="mt-auto">
+                                <button type="button" class="btn btn-outline-warning w-100" (click)="abrirLightbox(0)">
+                                    <i class="bi bi-images me-2"></i>Ver Galería
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==== Marketplace ==== -->
+        <div class="mt-5">
+            <h4 class="text-warning-neon mb-4">Marketplace Comunitario</h4>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <article class="card h-100 bg-dark border-warning-neon shadow-lg reveal-card" appReveal>
+                        <span class="badge rounded-pill bg-danger position-absolute top-0 end-0 m-2">NUEVO</span>
+                        <img src="/img/img-cards-secciones/productos-locales.webp" class="card-img-top" alt="Vista previa del Producto artesanal" loading="lazy">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Artículo en venta</h5>
+                            <p class="card-text">$XX.XXX</p>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-success">Comprar</button>
+                                <button type="button" class="btn btn-outline-info">Contactar</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==== LIGHTBOX GALERÍA DE OBRAS ==== -->
+<div id="lightbox-overlay" [class.activo]="lightboxAbierto" role="dialog" aria-modal="true" aria-label="Galería de obras" tabindex="-1">
+    <button type="button" id="lightbox-cerrar" aria-label="Cerrar galería" (click)="cerrarLightbox()"><i class="bi bi-x-lg"></i></button>
+    <button type="button" id="lightbox-prev" aria-label="Obra anterior" (click)="irAnterior()"><i class="bi bi-chevron-left"></i></button>
+    <button type="button" id="lightbox-next" aria-label="Obra siguiente" (click)="irSiguiente()"><i class="bi bi-chevron-right"></i></button>
+
+    <div id="lightbox-wrapper-total">
+        <div id="lightbox-imagen-wrapper">
+            <img id="lightbox-img" [src]="obraActual?.imagenPortada" [alt]="obraActual?.titulo">
+        </div>
+        <div id="lightbox-info">
+            <p id="lightbox-contador" class="small opacity-50 mb-2">{{ indiceActual + 1 }} / {{ obras.length }}</p>
+            <h3 id="lightbox-titulo">
+                {{ obraActual?.titulo }}
+                <span class="lightbox-titulo-en">{{ obraActual?.tituloEn }}</span>
+            </h3>
+            <p id="lightbox-desc">{{ obraActual?.descripcion }}</p>
+        </div>
+    </div>
+</div>
