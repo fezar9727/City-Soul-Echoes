@@ -1,0 +1,33 @@
+.articulo-card-clicable {
+  cursor: pointer;
+}
+
+.articulo-imagen-fallback {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+}
+
+.articulo-imagen-fallback--noticias {
+  background: radial-gradient(circle, #2a1010 0%, #150a0a 100%);
+  color: rgba(255, 100, 100, 0.5);
+}
+
+.articulo-imagen-fallback--cultura {
+  background: radial-gradient(circle, #2a1a3a 0%, #150d1f 100%);
+  color: rgba(185, 143, 255, 0.5);
+}
+
+.articulo-imagen-fallback--videojuegos {
+  background: radial-gradient(circle, #10302a 0%, #081a17 100%);
+  color: rgba(90, 223, 196, 0.5);
+}
+
+.articulo-imagen-fallback--pequena {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  font-size: clamp(2rem, 10vw, 3.5rem);
+}

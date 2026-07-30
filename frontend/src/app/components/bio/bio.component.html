@@ -1,0 +1,34 @@
+<section class="py-5 reveal" id="sobre-creador" appReveal>
+    <div class="container">
+        <audio #sonidoHologram preload="auto">
+            <source src="/audio/audio-bio/digital-static.mp3.mp3" type="audio/mpeg">
+        </audio>
+        <div class="bio-title-wrapper">
+            <h2 class="section-title btn-trigger-bio" role="button" tabindex="0" [attr.aria-expanded]="abierto" (click)="toggleBio()" (keydown.enter)="toggleBio()" (keydown.space)="toggleBio()">
+                BIO
+            </h2>
+        </div>
+
+        <div class="quantum-bio-wrapper" [class.is-open]="abierto">
+            <div class="card profile-card hologram-panel">
+                <div class="scanlines-bg"></div>
+                <div class="card-body p-4 text-center">
+
+                    <div class="cyber-loader" *ngIf="mostrandoLoader">
+                        <span class="loader-text">&gt; ESTABLISHING CONNECTION...</span>
+                        <div class="loader-bar-container">
+                            <div class="loader-bar" [class.is-loading]="animarBarra"></div>
+                        </div>
+                    </div>
+
+                    <div class="bio-content-real" *ngIf="mostrandoTexto">
+                        <p *ngFor="let parrafo of parrafos; let i = index" [class]="'delay-p' + (i + 1)">
+                            {{ parrafo.texto }}
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

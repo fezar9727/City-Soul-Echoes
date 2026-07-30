@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { RespuestaSoulStation } from '../models/soul-station.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SoulStationService {
+  private readonly apiUrl = 'http://localhost:4000/api/soul-station';
+
+  constructor(private http: HttpClient) {}
+
+  obtenerEstacion(): Observable<RespuestaSoulStation> {
+    return this.http.get<RespuestaSoulStation>(this.apiUrl);
+  }
+}

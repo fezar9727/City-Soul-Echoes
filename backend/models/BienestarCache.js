@@ -1,51 +1,34 @@
 const mongoose = require('mongoose');
 
-// Sub-esquema reutilizable para un solo elemento dentro de cualquier categoría de Bienestar.
-// Un solo esquema flexible cubre las 3 categorías (receta vegana, frase de salud mental,
-// perfil de diseñador) en vez de crear 3 esquemas separados — mismo patrón de reutilización
-// que ya usamos en NoticiaCache.js.
 const itemBienestarSchema = new mongoose.Schema({
-    titulo: {
+    titulo: { type: String, required: true, trim: true },
+    descripcion: { type: String, default: '' },
+    detalleCompleto: { type: String, default: '' },
+    enlaceProfundizar: { type: String, default: '' },
+    youtubeSearch: { type: String, default: '' },
+    enlacesReferencia: { type: [{ nombre: String, url: String }], default: [] },
+    imagenUrl: { type: String, default: '' },
+    enlaceOficial: { type: String, default: '' },
+    tipoEnlaceOficial: {
         type: String,
-        required: true,
-        trim: true
+        enum: { values: ['instagram', 'facebook', 'web', 'fuente'], message: '{VALUE} no es un tipoEnlaceOficial válido' },
+        default: undefined
     },
-    descripcion: {
-        type: String,
-        default: ''
-    },
-    imagenUrl: {
-        type: String,
-        default: ''
-    },
-    enlaceOficial: {
-        type: String,
-        default: ''
-    },
-    pais: {
-        type: String,
-        default: ''
-    }
+    pais: { type: String, default: '' },
+    etiqueta: { type: String, default: '' },
+    telefono: { type: String, default: '' },
+    whatsapp: { type: String, default: '' }
 }, { _id: false });
 
 const bienestarCacheSchema = new mongoose.Schema({
     categoria: {
         type: String,
-        enum: {
-            values: ['vegana', 'salud-mental', 'moda-inclusiva'],
-            message: '{VALUE} no es una categoría válida de Bienestar'
-        },
+        enum: { values: ['vegana', 'salud-mental', 'moda-inclusiva'], message: '{VALUE} no es una categoría válida de Bienestar' },
         required: true,
         unique: true
     },
-    items: {
-        type: [itemBienestarSchema],
-        default: []
-    },
-    fechaActualizacion: {
-        type: Date,
-        default: Date.now
-    }
+    items: { type: [itemBienestarSchema], default: [] },
+    fechaActualizacion: { type: Date, default: Date.now }
 }, { timestamps: true });
 
 module.exports = mongoose.model('BienestarCache', bienestarCacheSchema);

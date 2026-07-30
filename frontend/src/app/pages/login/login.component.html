@@ -1,0 +1,50 @@
+<div class="container py-5" style="max-width: 480px;">
+  <h2 class="text-center mb-4 cyber-subtitle">INICIAR SESIÓN</h2>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo electrónico</label>
+      <input
+        type="email"
+        id="correo"
+        class="form-control"
+        formControlName="correo"
+        (blur)="formulario.get('correo')?.markAsTouched()">
+      <div class="form-text">Ejemplo: nombre&#64;correo.com</div>
+      <div class="text-danger small mt-1" *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched">
+        Ingresá un correo válido.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <div class="input-group">
+        <input
+          [type]="mostrarPassword ? 'text' : 'password'"
+          id="password"
+          class="form-control"
+          formControlName="password"
+          (blur)="formulario.get('password')?.markAsTouched()">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="toggleMostrarPassword()"
+          [attr.aria-label]="mostrarPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
+          <i class="bi" [class.bi-eye]="!mostrarPassword" [class.bi-eye-slash]="mostrarPassword"></i>
+        </button>
+      </div>
+      <div class="form-text">Ingresá tu contraseña.</div>
+      <div class="text-danger small mt-1" *ngIf="formulario.get('password')?.invalid && formulario.get('password')?.touched">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100" [disabled]="cargando">
+      {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+
+    <p class="text-center mt-3 small">
+      ¿No tenés cuenta? <a routerLink="/register">Registrate acá</a>
+    </p>
+  </form>
+</div>

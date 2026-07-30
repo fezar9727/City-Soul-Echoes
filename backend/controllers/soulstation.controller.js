@@ -46,7 +46,7 @@ const actualizarEstacion = async (req, res) => {
         const estacionActualizada = await SoulStation.findByIdAndUpdate(
             estacion._id,
             req.body,
-            { new: true, runValidators: true }
+            { returnDocument: 'after', runValidators: true }
         );
 
         res.status(200).json({ ok: true, estacion: estacionActualizada });

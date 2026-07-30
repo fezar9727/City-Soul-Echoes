@@ -47,6 +47,10 @@ const cursoSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
+    imagenPortadaPublicId: {
+        type: String,
+        default: ''
+    },
     lecciones: {
         type: [leccionSchema],
         default: []

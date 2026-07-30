@@ -9,21 +9,40 @@ const NEWSDATA_BASE_URL = 'https://newsdata.io/api/1/news';
 // Configuración de cada categoría — su query específica para NewsData.io
 const CONFIG_CATEGORIAS = {
     noticias: {
-        params: { language: 'es', category: 'top' }
+        variantes: [
+            { language: 'es', category: 'top' },
+            { language: 'es', category: 'world' }
+        ]
     },
     cultura: {
-        params: { country: 'co', language: 'es', category: 'entertainment', q: 'arte OR cultura' }
+        variantes: [
+            { country: 'co', language: 'es', category: 'entertainment', q: 'arte OR cultura' },
+            { language: 'es', category: 'entertainment', q: 'música OR cine OR literatura' }
+        ]
     },
     videojuegos: {
-        params: {
-            language: 'es',
-            category: 'technology',
-            qInTitle: 'videojuego OR gaming OR PlayStation OR Xbox OR Nintendo OR "GTA 6" OR Switch'
-        }
+        variantes: [
+            { language: 'es', category: 'technology', qInTitle: 'videojuego OR gaming OR "PlayStation" OR "Xbox" OR "Nintendo Switch"' },
+            { language: 'es', category: 'technology', qInTitle: '"GTA 6" OR "Resident Evil" OR "Final Fantasy" OR "Call of Duty" OR esports' },
+            { language: 'es', category: 'technology', qInTitle: '"Steam" OR "PC gaming" OR "juego indie" OR eSports' }
+        ]
     }
 };
 
 // Normaliza la respuesta de NewsData.io hacia el formato de nuestro articuloSchema
+// Reduce un título a una forma "esqueleto" para comparar similitud real:
+// minúsculas, sin comillas/tildes de puntuación, sin espacios dobles.
+// Así "decirle no" y "contradecir" en el mismo titular no engañan al
+// deduplicador — solo cambia lo accesorio, la estructura de fondo es igual.
+const normalizarTituloParaComparar = (titulo) => {
+    return titulo
+        .toLowerCase()
+        .replace(/["'"]/g, '')
+        .replace(/[¿?¡!.,]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+};
+
 const normalizarArticulos = (resultados) => {
     const articulos = resultados.map((articulo) => ({
         titulo: articulo.title,
@@ -34,11 +53,14 @@ const normalizarArticulos = (resultados) => {
         fechaPublicacion: articulo.pubDate
     }));
 
-    // Elimina duplicados — se queda con el primero que aparece por cada título repetido
+    // Elimina duplicados comparando la versión normalizada del título,
+    // no el texto exacto — así detecta variantes del mismo titular
+    // (mismo medio republicando con una palabra distinta).
     const titulosVistos = new Set();
     return articulos.filter((articulo) => {
-        if (titulosVistos.has(articulo.titulo)) return false;
-        titulosVistos.add(articulo.titulo);
+        const clave = normalizarTituloParaComparar(articulo.titulo);
+        if (titulosVistos.has(clave)) return false;
+        titulosVistos.add(clave);
         return true;
     });
 };
@@ -47,44 +69,60 @@ const normalizarArticulos = (resultados) => {
 const consultarNewsData = async (categoria) => {
     const config = CONFIG_CATEGORIAS[categoria];
 
-    const respuesta = await axios.get(NEWSDATA_BASE_URL, {
-        params: {
-            apikey: process.env.NEWS_API_KEY,
-            ...config.params
-        }
-    });
+    // Ejecuta todas las variantes de consulta en paralelo. Si una falla
+    // (por ejemplo, por límite de la API), se ignora esa sola llamada
+    // en vez de tumbar la categoría entera.
+    const resultadosPorVariante = await Promise.all(
+        config.variantes.map((params) =>
+            axios.get(NEWSDATA_BASE_URL, {
+                params: { apikey: process.env.NEWS_API_KEY, ...params }
+            })
+                .then((respuesta) => respuesta.data.results || [])
+                .catch(() => [])
+        )
+    );
 
-    return normalizarArticulos(respuesta.data.results || []);
+    const articulosCombinados = resultadosPorVariante.flat();
+    return normalizarArticulos(articulosCombinados);
 };
 
 // Lógica central de cache-aside — reutilizable para las 3 categorías
+// Evita que un mismo artículo (por título) aparezca en dos categorías
+// distintas a la vez — por ejemplo, una noticia sobre Nintendo Switch
+// que ya salió en "videojuegos" no debería repetirse en "cultura".
+const filtrarRepetidosDeOtrasCategorias = async (categoriaActual, articulos) => {
+    const otrasCategorias = Object.keys(CONFIG_CATEGORIAS).filter((c) => c !== categoriaActual);
+    const cachesDeOtras = await NoticiaCache.find({ categoria: { $in: otrasCategorias } });
+
+    const titulosEnOtrasCategorias = new Set();
+    cachesDeOtras.forEach((cache) => {
+        cache.articulos.forEach((articulo) => titulosEnOtrasCategorias.add(articulo.titulo));
+    });
+
+    return articulos.filter((articulo) => !titulosEnOtrasCategorias.has(articulo.titulo));
+};
+
 const obtenerNoticiasPorCategoria = async (categoria) => {
     const cacheExistente = await NoticiaCache.findOne({ categoria });
-
     const cacheVencido = !cacheExistente ||
         (Date.now() - cacheExistente.fechaActualizacion.getTime() > DURACION_CACHE_MS);
-
     if (!cacheVencido) {
         return cacheExistente;
     }
-
     try {
         const articulosFrescos = await consultarNewsData(categoria);
-
+        const articulosSinRepetir = await filtrarRepetidosDeOtrasCategorias(categoria, articulosFrescos);
         const cacheActualizado = await NoticiaCache.findOneAndUpdate(
             { categoria },
             {
                 categoria,
-                articulos: articulosFrescos,
+                articulos: articulosSinRepetir,
                 fechaActualizacion: Date.now()
             },
             { returnDocument: 'after', upsert: true, runValidators: true }
         );
-
         return cacheActualizado;
     } catch (error) {
-        // Si NewsData.io falla pero ya teníamos caché (aunque vencido), lo servimos igual
-        // en vez de dejar la sección vacía — mejor mostrar algo desactualizado que nada
         if (cacheExistente) {
             return cacheExistente;
         }

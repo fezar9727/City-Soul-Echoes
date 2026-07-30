@@ -1,5 +1,5 @@
 /* ============================================
-    CITY SOUL ECHOES - index.js
+    CITY SOUL ECHOES - script.js
    ============================================ */
 
 'use strict';

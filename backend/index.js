@@ -21,9 +21,8 @@ const solicitudVendedorRoutes = require('./routes/solicitudVendedor.routes');
 const pagoRoutes = require('./routes/pago.routes');
 const noticiaRoutes = require('./routes/noticiaCache.routes');
 const imagenRoutes = require('./routes/imagen.routes');
-
 const bienestarRoutes = require('./routes/bienestar.routes');
-
+const biografiaRoutes = require('./routes/biografia.routes');
 
 
 const app = express();
@@ -89,10 +88,8 @@ app.use('/api/solicitudes-vendedor', solicitudVendedorRoutes);
 app.use('/api/pagos', pagoRoutes);
 app.use('/api/noticias', noticiaRoutes);
 app.use('/api/imagenes', imagenRoutes);
-
 app.use('/api/bienestar', bienestarRoutes);
-
-
+app.use('/api/biografia', biografiaRoutes);
 
 app.use((req, res) => {
     res.status(404).json({ ok: false, mensaje: `Ruta no encontrada: ${req.method} ${req.originalUrl}` });

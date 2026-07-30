@@ -11,11 +11,32 @@ const validarRegistroUsuario = [
         .normalizeEmail(),
     body('password')
         .isLength({ min: 8 })
-        .withMessage('La contraseña debe tener al menos 8 caracteres'),
+        .withMessage('La contraseña debe tener al menos 8 caracteres')
+        .matches(/[a-z]/)
+        .withMessage('La contraseña debe incluir al menos una minúscula')
+        .matches(/[A-Z]/)
+        .withMessage('La contraseña debe incluir al menos una mayúscula')
+        .matches(/\d/)
+        .withMessage('La contraseña debe incluir al menos un número')
+        .matches(/[^A-Za-z0-9]/)
+        .withMessage('La contraseña debe incluir al menos un carácter especial'),
     body('telefono')
         .optional({ checkFalsy: true })
         .isMobilePhone('es-CO')
-        .withMessage('El teléfono no es válido para Colombia')
+        .withMessage('El teléfono no es válido para Colombia'),
+    body('ciudad')
+        .optional({ checkFalsy: true })
+        .isIn([
+            'Cali', 'Palmira', 'Buenaventura', 'Tuluá', 'Cartago', 'Buga',
+            'Jamundí', 'Yumbo', 'Candelaria', 'Florida', 'Pradera', 'El Cerrito',
+            'Ginebra', 'Guacarí', 'San Pedro', 'Andalucía', 'Bugalagrande',
+            'Zarzal', 'La Victoria', 'Roldanillo', 'La Unión', 'Toro', 'Ansermanuevo',
+            'Ulloa', 'Alcalá', 'Sevilla', 'Caicedonia', 'Trujillo',
+            'Riofrío', 'Restrepo', 'Vijes', 'Dagua', 'La Cumbre', 'Yotoco',
+            'Calima (Darién)', 'Argelia', 'El Águila', 'El Cairo', 'Versalles',
+            'El Dovio', 'Obando'
+        ])
+        .withMessage('Selecciona un municipio del Valle del Cauca')
 ];
 
 const validarRegistroArtista = [

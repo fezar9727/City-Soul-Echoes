@@ -1,0 +1,38 @@
+/* Corrige el contraste de texto dentro del formulario sobre fondo oscuro (.card.bg-dark) */
+::ng-deep .card.bg-dark .form-label {
+  color: #f1f1f1;
+}
+
+::ng-deep .card.bg-dark .form-check-label {
+  color: #f1f1f1;
+}
+
+::ng-deep .card.bg-dark .btn-outline-secondary {
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+::ng-deep .card.bg-dark .btn-outline-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+::ng-deep .card.bg-dark h4 {
+  color: #f1f1f1;
+}
+
+.admin-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.admin-preview-img {
+  max-width: 160px;
+  border-radius: 8px;
+}
+
+.admin-btn-eliminar-def {
+  cursor: pointer;
+}

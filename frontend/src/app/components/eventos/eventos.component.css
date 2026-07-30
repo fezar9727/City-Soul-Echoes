@@ -1,0 +1,6 @@
+.event-card .card-img-top {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: top;
+}

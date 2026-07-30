@@ -1,0 +1,49 @@
+.aprendizaje-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.92);
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.aprendizaje-overlay-contenido {
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #111318;
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  color: #f1f1f1;
+}
+.aprendizaje-overlay-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  font-size: 1.3rem;
+}
+.aprendizaje-lista-lecciones {
+  padding-left: 1.2rem;
+}
+.aprendizaje-lista-lecciones li {
+  margin-bottom: 0.75rem;
+}
+
+.aprendizaje-precio {
+  color: #f1f1f1;
+}
+.aprendizaje-docente-info {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#aprendizaje .card-img-top {
+  object-fit: contain;
+  background-color: #151515;
+  padding: 10px;
+}

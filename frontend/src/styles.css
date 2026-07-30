@@ -1,0 +1,2002 @@
+/* ============================================ CITY SOUL ECHOES - style.css =========================================== */
+
+/* ====================== 1. VARIABLES & CONFIG ====================== */
+:root {
+    /* Fondos y textos */
+    --bg-main: #0a0a0a;
+    --text-light: #f5f5f5;
+    --text-muted: #cccccc;
+ 
+    /* Tipografías */
+    --font-main: 'Space Grotesk', system-ui, sans-serif;
+    --font-cyber: 'Orbitron', sans-serif;
+ 
+    /* Colores de acento */
+    --accent-green: #00ff9d;
+    --accent-purple: #c300ff;
+    --accent-yellow: #ccff00;
+    --accent-blue: #00d4ff;
+    --accent-pink: #ff66cc;
+    --accent-red: #cf4040;
+    --accent-gold: #fab60c;
+    --accent-white: #ffffff;
+}
+ 
+ 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    font-family: var(--font-main);
+    line-height: 1.5;
+}
+ 
+ 
+ 
+/* ====================== 2. ELEMENTOS GLOBALES (SECCIONES, CARDS, DIVISORES) ====================== */
+section {
+    padding: 120px 4%;
+    position: relative;
+    max-width: 100%;
+    overflow: visible;
+}
+ 
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.3rem;
+    color: var(--accent-green);
+    text-align: center;
+    margin-bottom: 3.8rem;
+    text-shadow: 0 0 35px var(--accent-green);
+    letter-spacing: 3px;
+}
+ 
+/* Compensa la altura del navbar fijo al hacer scroll a una sección
+   por ancla — más confiable que scroll-padding-top cuando el scroll
+   lo dispara el Router de Angular en vez del navegador directamente. */
+section[id],
+header[id] {
+  scroll-margin-top: 90px;
+}
+
+
+/* ---- TÍTULOS DE SECCIÓN (CYBER STYLE) ---- */
+.cyber-subtitle {
+    font-family: var(--font-cyber);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+ 
+.card {
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ 
+ 
+/* --- AJUSTE DE IMÁGENES EN CARDS --- */
+.card-img-top {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+ 
+#vault .card-img-top {
+    object-fit: contain;
+    background-color: #151515;
+    padding: 15px;
+}
+ 
+/* ---- DIVISORES ---- */
+.section-divider {
+    height: 3px;
+    border: none;
+    margin: 2rem auto;
+    width: 80%;
+    opacity: 0.4; /* era 0.7 — lo bajamos para que no corte tanto */
+    background: linear-gradient(90deg, transparent, #555, transparent);
+}
+
+.divider-green {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+    box-shadow: 0 0 15px var(--accent-green);
+    opacity: 0.3; /* era 0.5 */
+}
+
+.divider-purple {
+    height: 1px;
+    background: transparent;
+    border-top: 2px dashed var(--accent-purple);
+    box-shadow: 0 0 10px var(--accent-purple);
+    opacity: 0.25; /* era 0.4 */
+    width: 60%;
+}
+ 
+/* ---- REVEAL SCROLL ANIMATIONS ---- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+ 
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+ 
+.reveal-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+ 
+.reveal-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+ 
+
+/* ---- DEGRADADOS DE TRANSICIÓN ENTRE SECCIONES ---- */
+section::before,
+section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+    z-index: -1; /* debajo del contenido, encima del fondo */
+    --fade-color: var(--bg-main);
+}
+
+section::before {
+    top: 0;
+    background: linear-gradient(to top, transparent, var(--fade-color));
+}
+
+section::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, var(--fade-color));
+}
+
+/* Secciones con fondo #050505 */
+#soul-station,
+#aprendizaje,
+#noticias {
+    --fade-color: #050505;
+}
+
+ 
+ 
+/* ====================== 3. Section Navbar – The Skyline ====================== */
+nav.main-nav-custom {
+    background-color: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-green);
+    padding: 10px 0;
+    transition: all 0.3s ease;
+}
+ 
+.main-nav-custom .container {
+    max-width: 96%;
+}
+ 
+.main-nav-custom .navbar-brand {
+    font-family: var(--font-cyber);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--accent-green);
+    text-shadow: 0 0 8px rgba(0, 255, 157, 0.5);
+}
+ 
+ 
+.main-nav-custom .navbar-nav {
+    gap: 1.2rem;
+}
+.main-nav-custom .nav-link {
+    color: var(--text-light);
+    font-size: 0.50rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+ 
+ 
+/* ---- COLORES ESPECÍFICOS POR SECCIÓN (HOVER) ---- */
+ 
+/* Inicio - Efecto Arcoíris Unificado — font-weight: 800 intencional, es el ancla del sitio */
+.main-nav-custom .nav-link--inicio:hover {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text; 
+    color: transparent; 
+    -webkit-text-fill-color: transparent;
+    text-shadow: none; 
+    font-weight: 800;
+}
+
+/* El icono hereda el gradiente del padre */
+.main-nav-custom .nav-link--inicio:hover i {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+}
+
+
+/* The Vault - Amarillo Neón */
+.main-nav-custom .nav-link--vault:hover {
+    color: var(--accent-yellow);
+    text-shadow: 0 0 8px rgba(204, 255, 0, 0.7);
+}
+
+/* Muro de Artistas - Púrpura Neón */
+.main-nav-custom .nav-link--artistas:hover {
+    color: var(--accent-purple);
+    text-shadow: 0 0 8px var(--accent-purple);
+}
+
+/* Soul Station - Verde Neón */
+.main-nav-custom .nav-link--soul-station:hover {
+    color: var(--accent-green);
+    text-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Eventos - Azul Neón */
+.main-nav-custom .nav-link--eventos:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 8px var(--accent-blue);
+}
+
+/* Bienestar - Blanco Puro */
+.main-nav-custom .nav-link--bienestar:hover {
+    color: var(--accent-white);
+    text-shadow: 0 0 8px var(--accent-white);
+}
+
+/* Aprendizaje - Rosa Neón */
+.main-nav-custom .nav-link--aprendizaje:hover {
+    color: var(--accent-pink);
+    text-shadow: 0 0 8px var(--accent-pink);
+}
+
+/* Artículos - Rojo */
+.main-nav-custom .nav-link--noticias:hover {
+    color: var(--accent-red);
+    text-shadow: 0 0 8px var(--accent-red);
+}
+
+/* Bio - Dorado/Ámbar */
+.main-nav-custom .nav-link--bio:hover {
+    color: var(--accent-gold);
+    text-shadow: 0 0 8px var(--accent-gold);
+}
+ 
+ 
+ 
+/* Efecto común de movimiento para todos */
+.main-nav-custom .nav-link:hover {
+    transform: translateY(-2px);
+}
+ 
+.main-nav-custom .nav-link i {
+    font-size: 0.75rem;
+    margin-right: 6px;
+}
+ 
+/* Botón hamburguesa (Móvil) */
+.main-nav-custom .navbar-toggler {
+    border: 1px solid var(--accent-green);
+    padding: 4px 8px;
+}
+ 
+.main-nav-custom .navbar-toggler-icon {
+    filter: invert(62%) sepia(98%) saturate(350%) hue-rotate(105deg) brightness(100%) contrast(105%);
+}
+ 
+ 
+ 
+/* ====================== 4. Section Hero – Psycho Entry ====================== */
+header.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+ 
+header.hero-section .hero-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+ 
+header.hero-section .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.2) 50%,
+        var(--bg-main) 95%);
+    z-index: 2;
+}
+ 
+header.hero-section .hero-content {
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 1rem;
+}
+ 
+header.hero-section .cyber-title {
+    font-family: var(--font-cyber);
+    font-size: clamp(2rem, 6vw, 4rem);
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6),
+                 0 0 40px rgba(195, 0, 255, 0.4);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+ 
+header.hero-section .btn-explore {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-purple));
+    color: #000;
+    font-weight: 800;
+    padding: 12px 45px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: inline-block;
+}
+ 
+ 
+header.hero-section .btn-explore:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(0, 255, 157, 0.7),
+                0 0 60px rgba(195, 0, 255, 0.4);
+    filter: brightness(1.2);
+}
+ 
+ 
+/* ---- INTERACCIÓN DE AUDIO ---- */
+header.hero-section .icon-scroll-to-audio {
+    display: inline-block;
+    animation: bounce-arrow 2s infinite ease-in-out;
+}
+ 
+@keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(5px); opacity: 1; }
+}
+ 
+/* ---- AUDIO TRIGGER ZONE ---- */
+header.hero-section .audio-trigger-zone {
+    margin: 2px auto 0 auto;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ 
+header.hero-section .audio-trigger-zone:hover,
+header.hero-section .audio-trigger-zone:focus-within {
+    width: 260px;
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+ 
+header.hero-section .audio-trigger-zone audio {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    height: 28px;
+    width: 230px;
+    filter: invert(1) hue-rotate(180deg) brightness(1.2);
+}
+ 
+header.hero-section .audio-trigger-zone:hover audio,
+header.hero-section .audio-trigger-zone:focus-within audio {
+    opacity: 1;
+    visibility: visible;
+}
+ 
+ 
+header.hero-section .audio-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+ 
+ 
+ 
+/* ====================== 5. Section The vault ====================== */
+#vault {
+    background-color: #0a0a0a;
+    background-image:
+        linear-gradient(to right, rgba(10, 10, 10, 1) 30%, rgba(10, 10, 10, 0.2) 100%),
+        url('/img/img-fondos/fondo-vault-3-css.webp');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ 
+/* 1. TÍTULOS Y SUBTÍTULOS AMARILLO NEÓN */
+#vault h2.cyber-subtitle,
+#vault h4.text-warning-neon {
+    color: var(--accent-yellow);
+    text-shadow: 0 0 25px rgba(204, 255, 0, 0.8);
+}
+ 
+/* 2. TARJETAS - ESTADO INICIAL (Borde suave) */
+#vault .card.border-warning-neon {
+    background-color: rgba(15, 15, 15, 0.9);
+    border: 1px solid rgba(204, 255, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ 
+/* 2.1 TARJETAS - ESTADO HOVER (Incandescencia total) */
+#vault .card.border-warning-neon:hover {
+    transform: translateY(-12px);
+    border: 2px solid rgba(204, 255, 0, 1);
+    box-shadow: 0 0 40px rgba(204, 255, 0, 0.6),
+                0 0 15px rgba(204, 255, 0, 0.3);
+}
+ 
+/* 3. TEXTOS INTERNOS - SIEMPRE BLANCOS */
+#vault .card-body h5.card-title,
+#vault .card-body .card-text,
+#vault .card-body .small,
+#vault .card-body h5.text-warning-neon {
+    color: #ffffff;
+    text-shadow: none;
+}
+ 
+/* 4. BOTÓN CONTACTAR (TEXTO NEGRO EN HOVER) */
+#vault .btn-outline-info {
+    color: #00e5ff;
+    border-color: #00e5ff;
+    transition: all 0.3s ease;
+}
+ 
+#vault .btn-outline-info:hover {
+    background-color: #00e5ff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+ 
+/* 5. BOTÓN COMPRAR (VERDE NEÓN) */
+#vault .btn-success {
+    background-color: var(--accent-green);
+    border: none;
+    color: #000;
+    font-weight: 700;
+}
+ 
+#vault .btn-success:hover {
+    background-color: #00ffb3;
+    box-shadow: 0 0 25px var(--accent-green);
+}
+ 
+/* Botón Ver detalles (Outline Amarillo) */
+#vault .btn-outline-warning {
+    color: var(--accent-yellow);
+    border-color: var(--accent-yellow);
+}
+ 
+#vault .btn-outline-warning:hover {
+    background-color: var(--accent-yellow);
+    color: #000;
+}
+ 
+ 
+ 
+/* ====================== 6. section Muro de Artistas ====================== */
+#artistas {
+    background-color: #0a0a0a;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+        url('/img/img-fondos/muro-de-artistas-2-css.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+ 
+/* 1. TÍTULO PURPLE NEÓN */
+#artistas h2.cyber-subtitle {
+    color: var(--accent-purple);
+    text-shadow: 0 0 25px var(--accent-purple);
+}
+ 
+/* 1.1 CENTRADO DE FILA */
+#artistas .row {
+    display: flex;
+    justify-content: center;
+}
+ 
+/* 2. TARJETAS - FONDO OSCURO Y BORDE SUAVE */
+#artistas .card.border-purple-neon {
+    background-color: #0f0f0f;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(195, 0, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ 
+/* 2.1 TARJETAS - HOVER */
+#artistas .card.border-purple-neon:hover {
+    transform: translateY(-12px);
+    border: 2px solid rgba(195, 0, 255, 1);
+    box-shadow: 0 0 35px var(--accent-purple);
+}
+ 
+/* 3. AVATAR DEL ARTISTA */
+#artistas .artist-avatar {
+    width: 200px;
+    max-width: 60%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 3px solid rgba(195, 0, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+ 
+/* 4. BOTONES PURPLE NEÓN */
+#artistas .btn-outline-purple-neon {
+    border: 2px solid var(--accent-purple);
+    color: var(--accent-purple);
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+}
+ 
+#artistas .btn-outline-purple-neon:hover {
+    background: var(--accent-purple);
+    color: #000000;
+    box-shadow: 0 0 25px var(--accent-purple);
+}
+ 
+/* 5. TEXTOS INTERNOS */
+#artistas .card-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+ 
+#artistas .card-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+}
+ 
+ 
+ 
+/* ====================== 7. section Soul Station ====================== */
+#soul-station {
+    background-color: #050505;
+    padding: 100px 0;
+}
+ 
+/* 1. TÍTULO VERDE NEÓN */
+#soul-station h2.cyber-subtitle {
+    color: var(--accent-green);
+    text-shadow: 0 0 25px var(--accent-green);
+}
+ 
+/* 2. CAJA DE TRANSMISIÓN (Izquierda) */
+#soul-station .transmission-box {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    padding: 30px;
+    transition: border 0.3s ease;
+}
+ 
+#soul-station .transmission-box:hover {
+    border-color: var(--accent-green);
+}
+ 
+#soul-station .transmission-title {
+    color: var(--text-light);
+    font-family: var(--font-cyber);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+ 
+#soul-station .audio-placeholder {
+    background: #0a0a0a;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+}
+ 
+/* 3. VIERNES CULTURALES (Tarjeta Gradiente Derecha) */
+#soul-station .viernes-culturales-card {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00ff9d 100%);
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+#soul-station .viernes-culturales-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(37, 117, 252, 0.4);
+}
+ 
+#soul-station .viernes-culturales-card h2 {
+    color: #0a0a0a;
+    font-family: var(--font-main);
+    font-weight: 800;
+}
+ 
+/* 4. BADGE "PRÓXIMO ENCUENTRO" */
+#soul-station .badge-status-dark {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    font-family: var(--font-cyber);
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    display: inline-block;
+}
+ 
+/* 5. BOTÓN ACCIÓN NEGRO */
+#soul-station .btn-dark-action {
+    background-color: #0a0a0a;
+    color: #00ff9d;
+    border: none;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+ 
+#soul-station .btn-dark-action:hover {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+ 
+/* 6. ICONO PULSANTE */
+.icon-pulse {
+    color: var(--accent-green);
+    animation: pulse-green 2s infinite;
+}
+ 
+@keyframes pulse-green {
+    0% { opacity: 1; text-shadow: 0 0 5px var(--accent-green); }
+    50% { opacity: 0.5; text-shadow: 0 0 15px var(--accent-green); }
+    100% { opacity: 1; text-shadow: 0 0 5px var(--accent-green); }
+}
+ 
+ 
+ 
+/* ====================== 8. section Eventos ====================== */
+/* 1. FONDO Y ESPACIADO DE SECCIÓN */
+#eventos {
+    background-color: var(--bg-main);
+    padding: 100px 0;
+}
+ 
+/* 2. TÍTULO AZUL NEÓN */
+#eventos h2.cyber-subtitle {
+    color: var(--accent-blue);
+    text-shadow: 0 0 25px rgba(0, 212, 255, 0.8),
+                 0 0 10px rgba(0, 212, 255, 0.4);
+    letter-spacing: 3px;
+}
+ 
+/* 3. TARJETA DE EVENTO (GLASSMORPHISM URBANO) */
+#eventos .event-card {
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ 
+#eventos .event-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+ 
+/* 4. TEXTOS INTERNOS */
+#eventos .card-title {
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+ 
+#eventos .card-text {
+    color: var(--text-muted);
+}
+ 
+/* 5. BOTÓN DE ACCIÓN NEÓN */
+#eventos .btn-outline-info-neon {
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+    background: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+ 
+#eventos .btn-outline-info-neon:hover {
+    background-color: var(--accent-blue);
+    color: #000000;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+    transform: scale(1.05);
+}
+ 
+ 
+ 
+/* ====================== 9. Section Bienestar ====================== */
+/* 1. TÍTULO SECCIÓN */
+#bienestar .cyber-subtitle {
+    color: var(--accent-white);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+}
+ 
+/* 2. TARJETAS DE BIENESTAR */
+#bienestar .card {
+    background-color: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.4s ease-in-out;
+}
+ 
+#bienestar .card:hover {
+    border-color: var(--accent-white);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+}
+ 
+/* 3. IMÁGENES */
+#bienestar .card-img-top {
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+    height: 220px;
+    object-fit: cover;
+}
+ 
+#bienestar .card:hover .card-img-top {
+    filter: grayscale(0%);
+}
+ 
+/* 4. BOTÓN NEÓN BLANCO */
+#bienestar .btn-outline-light-neon {
+    color: var(--accent-white);
+    border: 1px solid var(--accent-white);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+ 
+#bienestar .btn-outline-light-neon:hover {
+    background-color: var(--accent-white);
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+ 
+/* 5. TEXTOS */
+#bienestar .card-title {
+    color: var(--accent-white);
+    margin-top: 10px;
+}
+ 
+#bienestar .card-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+ 
+ 
+ 
+/* ====================== 10. Section Aprendizaje ====================== */
+#aprendizaje {
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)),
+        url('/img/img-fondos/aprendizaje-css.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+ 
+/* TÍTULO ROSA NEÓN CLARO */
+#aprendizaje .cyber-subtitle {
+    color: var(--accent-pink);
+    text-shadow: 0 0 15px rgba(255, 102, 204, 0.8),
+                 0 0 30px rgba(255, 102, 204, 0.4);
+}
+ 
+/* TARJETAS - BORDE ROSA SUAVE */
+#aprendizaje .card {
+    background-color: #0f0f0f;
+    border: 1px solid rgba(255, 102, 204, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ 
+#aprendizaje .card:hover {
+    border-color: var(--accent-pink);
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 102, 204, 0.3);
+}
+ 
+/* BOTÓN UNIFICADO PINK NEON */
+#aprendizaje .btn-outline-pink-neon {
+    color: var(--accent-pink);
+    border: 2px solid var(--accent-pink);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+ 
+#aprendizaje .btn-outline-pink-neon:hover {
+    background-color: var(--accent-pink);
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 102, 204, 0.5);
+}
+ 
+#aprendizaje .card-title {
+    color: #ffffff;
+}
+ 
+#aprendizaje .lead {
+    color: rgba(255, 255, 255, 0.85);
+}
+ 
+ 
+ 
+/* ====================== 11. Section Articulos ====================== */
+/* 1. CONFIGURACIÓN DE SECCIÓN */
+#noticias {
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)),
+        url('/img/img-fondos/noticias-2-css.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+ 
+/* 2. TÍTULO PRINCIPAL */
+#noticias .cyber-subtitle {
+    color: var(--accent-red);
+    text-shadow: 0 0 15px rgba(207, 64, 64, 0.8),
+                 0 0 30px rgba(207, 64, 64, 0.4);
+}
+ 
+/* 3. TÍTULOS DE CATEGORÍA */
+#noticias .cyber-glow-text-red {
+    color: var(--accent-red);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(207, 64, 64, 0.5);
+    margin-bottom: 1.8rem;
+    transition: transform 0.4s ease;
+}
+ 
+#noticias .news-wrapper:hover .cyber-glow-text-red {
+    transform: translateY(-5px);
+}
+ 
+/* 4. TARJETAS Y WRAPPERS */
+#noticias .news-wrapper {
+    max-width: 400px;
+    width: 100%;
+}
+ 
+#noticias .card {
+    background-color: #0f0f0f;
+    border: 1px solid rgba(207, 64, 64, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+ 
+/* 5. BORDES NEÓN ESPECÍFICOS */
+#noticias .border-left-neon { border-left: 4px solid var(--accent-red); }
+#noticias .border-bottom-neon { border-bottom: 4px solid var(--accent-red); }
+#noticias .border-right-neon { border-right: 4px solid var(--accent-red); }
+ 
+/* 6. EFECTO HOVER DE LA CARD */
+#noticias .card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 30px rgba(207, 64, 64, 0.4);
+}
+ 
+/* 7. ELEMENTOS INTERNOS */
+#noticias .card-img-top {
+    filter: grayscale(30%) contrast(1.1);
+    transition: filter 0.3s ease;
+}
+ 
+#noticias .card:hover .card-img-top {
+    filter: grayscale(0%);
+}
+ 
+#noticias .card-body hr {
+    border-color: var(--accent-red);
+    opacity: 0.5;
+}
+ 
+ 
+ 
+/* ====================== 12. section Bio ====================== */
+/* 1. CONFIGURACIÓN DE SECCIÓN */
+#sobre-creador {
+    background-color: #0a0a0a;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        url('/img/img-fondos/fondo-sobre-mi-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 100px 0;
+}
+ 
+/* 2. TÍTULO DORADO/ÁMBAR */
+#sobre-creador .cyber-subtitle {
+    color: var(--accent-gold);
+    text-shadow: 0 0 15px rgba(250, 182, 12, 0.6);
+}
+ 
+/* 3. LA TARJETA  */
+#sobre-creador .profile-card {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(218, 165, 32, 0.4);
+    border-radius: 12px;
+    padding: 20px 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: border-color 0.3s ease;
+}
+ 
+#sobre-creador .profile-card:hover {
+    border-color: rgba(218, 165, 32, 0.8);
+}
+ 
+/* 4. TIPOGRAFÍA Y TEXTOS */
+#sobre-creador p {
+    color: #f0f0f0;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+ 
+/* Resalte de nombres y marcas */
+#sobre-creador p strong {
+    color: #daa520;
+    font-weight: 600;
+}
+ 
+#sobre-creador .lead {
+    font-size: 1.25rem;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+ 
+/* Toque especial para el párrafo final (City Soul Echoes) */
+#sobre-creador .bio-closing {
+    border-top: 1px solid rgba(218, 165, 32, 0.2);
+    padding-top: 20px;
+}
+ 
+ 
+ 
+/* ====================== 13. section footer ====================== */
+ 
+.cyber-footer {
+    background-color: #050505;
+    border-top: 2px solid var(--accent-purple);
+    padding: 60px 0 30px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Especificidad limpia para la sección de autoría con retoques estéticos */
+.cyber-footer .footer-autoria-texto {
+    font-family: var(--font-main);        /* Hereda tu fuente global de manera limpia */
+    font-size: 0.72rem;                   /* Tamaño calibrado para legibilidad */
+    color: rgba(255, 255, 255, 0.35);    /* Opacidad nativa en el color (evita recalculado de capas) */
+    text-align: center;
+    line-height: 1.7;                     
+    letter-spacing: 0.03em;               
+    max-width: 780px;                     
+    margin: 35px auto 0 auto;             
+    padding: 0 20px;
+    overflow-wrap: break-word;
+    text-wrap: pretty;                    
+}
+ 
+/* Títulos y Identidad */
+.footer-brand .navbar-brand,
+.text-purple-neon {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+ 
+.footer-brand .navbar-brand {
+    color: var(--accent-green);
+    text-shadow: 0 0 15px var(--accent-green);
+}
+ 
+.footer-brand .tagline {
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+ 
+.text-purple-neon {
+    color: var(--accent-purple);
+    text-shadow: 0 0 15px var(--accent-purple);
+    display: block;
+}
+ 
+/* Enlaces del Mapa */
+.footer-links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+ 
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 16px 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ 
+.link-grid a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+}
+ 
+/* Hover con color por sección */
+.link-grid a[href="#vault"]:hover { color: var(--accent-yellow); text-shadow: 0 0 8px rgba(204, 255, 0, 0.7); }
+.link-grid a[href="#artistas"]:hover { color: var(--accent-purple); text-shadow: 0 0 8px var(--accent-purple); }
+.link-grid a[href="#soul-station"]:hover { color: var(--accent-green); text-shadow: 0 0 8px var(--accent-green); }
+.link-grid a[href="#eventos"]:hover { color: var(--accent-blue); text-shadow: 0 0 8px var(--accent-blue); }
+.link-grid a[href="#bienestar"]:hover { color: var(--accent-white); text-shadow: 0 0 8px var(--accent-white); }
+.link-grid a[href="#aprendizaje"]:hover { color: var(--accent-pink); text-shadow: 0 0 8px var(--accent-pink); }
+.link-grid a[href="#noticias"]:hover { color: var(--accent-red); text-shadow: 0 0 8px var(--accent-red); }
+.link-grid a[href="#sobre-creador"]:hover { color: var(--accent-gold); text-shadow: 0 0 8px var(--accent-gold); }
+ 
+/* Tooltip base */
+.link-grid a::after {
+    content: attr(aria-label);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+    background: rgba(10, 10, 10, 0.95);
+    color: var(--accent-green);
+    border: 1px solid var(--accent-green);
+}
+ 
+/* Tooltip color por sección */
+.link-grid a[href="#vault"]::after { color: var(--accent-yellow); border-color: var(--accent-yellow); }
+.link-grid a[href="#artistas"]::after { color: var(--accent-purple); border-color: var(--accent-purple); }
+.link-grid a[href="#soul-station"]::after { color: var(--accent-green); border-color: var(--accent-green); }
+.link-grid a[href="#eventos"]::after { color: var(--accent-blue); border-color: var(--accent-blue); }
+.link-grid a[href="#bienestar"]::after { color: var(--accent-white); border-color: var(--accent-white); }
+.link-grid a[href="#aprendizaje"]::after { color: var(--accent-pink); border-color: var(--accent-pink); }
+.link-grid a[href="#noticias"]::after { color: var(--accent-red); border-color: var(--accent-red); }
+.link-grid a[href="#sobre-creador"]::after { color: var(--accent-gold); border-color: var(--accent-gold); }
+ 
+.link-grid a:hover::after {
+    opacity: 1;
+}
+ 
+/* === LOGO WRAPPER: RESPLANDOR + LÁSER === */
+.footer-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50%;     /* wrapper también circular */
+    overflow: hidden;       /* contiene el láser */
+    isolation: isolate; /* garantiza el stacking context sin conflictos */
+}
+
+.footer-icon {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: filter 0.6s ease;
+    
+    /* BUENAS PRÁCTICAS: Neón calibrado de alta definición, nítido y elegante */
+    filter: drop-shadow(0 0 5px var(--accent-purple)) 
+            drop-shadow(0 0 10px var(--accent-purple));
+}
+
+/* Rayo Láser — se mueve sobre la imagen circular */
+.footer-logo-wrapper::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 204, 0.2) 10%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(0, 255, 204, 0.2) 90%,
+        transparent
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+.footer-logo-wrapper:hover::after {
+    left: 200%;
+    transition: left 4s ease-in-out;
+}
+
+/* Glow circular en hover — usando box-shadow sobre el wrapper circular */
+.footer-logo-wrapper:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 8px  var(--accent-green),
+        0 0 18px var(--accent-green),
+        0 0 35px var(--accent-green);
+}
+
+.footer-logo-wrapper:hover .footer-icon {
+    filter: brightness(1.3);
+}
+ 
+
+/* Redes Sociales */
+.social-icons a i {
+    color: var(--accent-green);
+    transition: all 0.3s ease;
+}
+ 
+.social-icons a:hover i {
+    color: var(--accent-purple);
+    filter: drop-shadow(0 0 12px var(--accent-purple)) brightness(1.3);
+}
+ 
+/* Copyright y Divider */
+.footer-bottom hr {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+ 
+.footer-bottom p {
+    letter-spacing: 0.5px;
+}
+ 
+ 
+/* ====================== 14. RESPONSIVE UNIFICADO ====================== */
+@media (max-width: 768px) {
+ 
+    /* --- NAVBAR MÓVIL --- */
+    .main-nav-custom .navbar-brand {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+ 
+    .main-nav-custom .navbar-toggler {
+        padding: 2px 6px;
+        transform: scale(0.8);
+        margin-right: 5px;
+    }
+ 
+    .main-nav-custom .navbar-nav {
+        padding: 1.5rem 0;
+        gap: 0.7rem;
+    }
+ 
+    /* --- SECCIONES GENERALES --- */
+    section {
+        padding: 60px 15px;
+        text-align: center;
+    }
+ 
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+ 
+    .row {
+        justify-content: center;
+        text-align: center;
+    }
+ 
+    /* --- BOTONES GENERALES --- */
+    .card-body .btn,
+    .text-center .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto;
+        display: inline-block;
+    }
+ 
+    /* --- ARTÍCULOS (ZONA ROJA) --- */
+    #noticias .news-wrapper {
+        max-width: 100%;
+    }
+ 
+    #noticias .card,
+    #noticias .card-body,
+    #noticias .card-title,
+    #noticias .card-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border-width: 1px;
+    }
+ 
+    #noticias h3, #noticias h4, #noticias h5, #noticias span {
+        display: block;
+        margin: 10px auto;
+    }
+ 
+    /* --- BIO --- */
+    #sobre-creador {
+        padding: 60px 0;
+    }
+ 
+    #sobre-creador p {
+        font-size: 1rem;
+        text-align: center;
+    }
+ 
+    /* --- FOOTER --- */
+    .footer-brand,
+    .footer-links-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+ 
+    .footer-brand .navbar-brand,
+    .text-purple-neon {
+        text-align: center;
+        width: 100%;
+    }
+ 
+    .footer-links-container {
+        align-items: center;
+    }
+ 
+    .link-grid {
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+        width: auto;
+        gap: 16px 28px;
+    }
+ 
+    .link-grid a {
+        text-align: center;
+        transform: none;
+    }
+ 
+    .social-icons {
+        justify-content: center;
+        margin: 15px 0;
+    }
+ 
+    .footer-icon {
+        margin: 0 auto;
+    }
+}
+ 
+ 
+/* ====================== 15. LIGHTBOX GALERÍA DE OBRAS ====================== */
+ 
+#lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    animation: lightbox-fade-in 0.3s ease;
+}
+ 
+#lightbox-overlay.activo {
+    display: flex;
+    padding: 40px 60px;
+}
+ 
+@keyframes lightbox-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+ 
+ 
+#lightbox-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+}
+ 
+ 
+#lightbox-wrapper-total {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 75px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+}
+ 
+ 
+#lightbox-miniaturas {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 280px;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 8px 0;
+    margin-top: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-yellow) transparent;
+}
+ 
+ 
+#lightbox-imagen-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+ 
+#lightbox-img {
+    max-width: 60vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(204, 255, 0, 0.2);
+    animation: lightbox-zoom-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ 
+@keyframes lightbox-zoom-in {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+ 
+ 
+#lightbox-info {
+    max-width: 280px;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+ 
+ 
+#lightbox-contador {
+    color: var(--accent-yellow);
+    font-family: var(--font-cyber);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+ 
+#lightbox-titulo {
+    color: var(--accent-yellow);
+    font-family: var(--font-cyber);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(204, 255, 0, 0.5);
+}
+ 
+.lightbox-titulo-en {
+    display: block;
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(204, 255, 0, 0.4);
+    letter-spacing: 1px;
+    margin-top: 4px;
+    text-shadow: none;
+}
+ 
+#lightbox-desc {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+ 
+/* ---- Botones de navegación ---- */
+#lightbox-cerrar,
+#lightbox-prev,
+#lightbox-next {
+    position: fixed;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid rgba(204, 255, 0, 0.3);
+    color: var(--accent-yellow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+ 
+/* CAMBIO 4 — focus-visible para accesibilidad por teclado */
+#lightbox-cerrar:focus-visible,
+#lightbox-prev:focus-visible,
+#lightbox-next:focus-visible {
+    outline: 2px solid var(--accent-yellow);
+    outline-offset: 3px;
+}
+ 
+#lightbox-cerrar {
+    top: 20px;
+    right: 20px;
+}
+ 
+#lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+ 
+#lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+ 
+#lightbox-cerrar:hover,
+#lightbox-prev:hover,
+#lightbox-next:hover {
+    background: var(--accent-yellow);
+    color: #000;
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.5);
+}
+ 
+
+/* ---- Canvas de desintegración (se activa por JS) ---- */
+#lightbox-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+#lightbox-img.desintegrando {
+    opacity: 0;
+}
+
+
+
+/* ---- Responsive lightbox ---- */
+@media (max-width: 768px) {
+ 
+    #lightbox-overlay.activo {
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        overflow-y: auto;
+    }
+ 
+    #lightbox-wrapper-total {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        max-width: 100%;
+        max-height: none;
+        width: 100%;
+        padding: 55px 0 20px 0;
+    }
+ 
+    #lightbox-imagen-wrapper {
+        width: 86%;
+        position: relative;
+        margin-bottom: 60px;
+    }
+ 
+    #lightbox-img {
+        max-width: 100%;
+        width: 100%;
+        height: 68vw;
+        object-fit: contain;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+    }
+ 
+    #lightbox-barra-progreso {
+        border-radius: 0 0 8px 8px;
+    }
+ 
+    #lightbox-info {
+        max-width: 100%;
+        width: 86%;
+        text-align: left;
+    }
+ 
+    #lightbox-titulo {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+ 
+    #lightbox-desc {
+        font-size: 0.73rem;
+        line-height: 1.5;
+    }
+ 
+    #lightbox-miniaturas {
+        max-width: 100%;
+        width: 86%;
+        max-height: 64px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 6px 0;
+        margin-top: 4px;
+        justify-content: flex-start; 
+        margin-inline: auto;    
+    }
+ 
+    #lightbox-prev {
+        position: fixed;
+        left: 16px;
+        top: calc(68vw + 55px + 100px);
+        transform: none;
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+ 
+    #lightbox-next {
+        position: fixed;
+        right: 16px;
+        top: calc(68vw + 55px + 100px);
+        transform: none;
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+ 
+    #lightbox-cerrar {
+        top: 10px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+}
+ 
+ 
+/* ---- Barra de progreso ---- */
+#lightbox-barra-progreso {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 12px;
+    flex-shrink: 0;
+}
+ 
+#lightbox-barra-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-yellow);
+    box-shadow: 0 0 8px var(--accent-yellow);
+    transition: width linear;
+}
+ 
+ 
+/* ---- Miniaturas (CAMBIO 1 — declaración única fusionada) ---- */
+.lightbox-thumb {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.4;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+ 
+.lightbox-thumb:hover {
+    opacity: 0.8;
+    border-color: rgba(204, 255, 0, 0.5);
+}
+ 
+.lightbox-thumb.activa {
+    opacity: 1;
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+}
+ 
+
+
+/* ====================== 16. SCROLLBAR ====================== */
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444444;
+    border-radius: 10px;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #444444 #111111;
+}
+
+
+/* ====================== 17. MINI-MAPA LATERAL ====================== */
+
+#minimapa {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.minimapa-punto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    text-decoration: none;
+    position: relative;
+    color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* El SVG ocupa todo el espacio del enlace */
+.minimapa-punto svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tooltip al hover */
+.minimapa-punto::before {
+    content: attr(aria-label);
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.95);
+    color: #ffffff;
+    font-family: var(--font-cyber);
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.minimapa-punto:hover::before {
+    opacity: 1;
+}
+
+.minimapa-punto:hover {
+    color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.3);
+}
+
+/* Estado activo — color neón por sección */
+.minimapa-punto.activo {
+    transform: scale(1.5);
+}
+
+.minimapa-punto.activo[data-seccion="inicio"]        { color: #00ff9d; filter: drop-shadow(0 0 4px #00ff9d); }
+.minimapa-punto.activo[data-seccion="vault"]         { color: #ccff00; filter: drop-shadow(0 0 4px #ccff00); }
+.minimapa-punto.activo[data-seccion="artistas"]      { color: #c300ff; filter: drop-shadow(0 0 4px #c300ff); }
+.minimapa-punto.activo[data-seccion="soul-station"]  { color: #00ff9d; filter: drop-shadow(0 0 4px #00ff9d); }
+.minimapa-punto.activo[data-seccion="eventos"]       { color: #00d4ff; filter: drop-shadow(0 0 4px #00d4ff); }
+.minimapa-punto.activo[data-seccion="bienestar"]     { color: #ffffff; filter: drop-shadow(0 0 4px #ffffff); }
+.minimapa-punto.activo[data-seccion="aprendizaje"]   { color: #ff66cc; filter: drop-shadow(0 0 4px #ff66cc); }
+.minimapa-punto.activo[data-seccion="noticias"]      { color: #cf4040; filter: drop-shadow(0 0 4px #cf4040); }
+.minimapa-punto.activo[data-seccion="sobre-creador"] { color: #fab60c; filter: drop-shadow(0 0 4px #fab60c); }
+
+/* Ocultar en móvil */
+@media (max-width: 768px) {
+    #minimapa { display: none; }
+}
+
+
+/* ====================== 18. ACCESIBILIDAD — MOVIMIENTO REDUCIDO ====================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        transition-duration: 0.01ms;
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ==========================================================================
+   MÓDULO: BIOGRAFÍA INTERACTIVA (EDICIÓN REVELADO CUÁNTICO)
+   ========================================================================== */
+
+/* --- ENVOLTORIO DEL DISPARADOR --- */
+#sobre-creador .bio-title-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Aplicación estética pura sobre el H2 sin mutaciones ni líneas de fondo */
+.btn-trigger-bio {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.3rem;
+    color: var(--accent-gold);
+    text-align: center;
+    letter-spacing: 3px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 auto 3.8rem auto;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    
+    /* Brillo de neón Gold unificado */
+    text-shadow: 0 0 35px var(--accent-gold);
+    
+    /* Animación orgánica sutil */
+    animation: quantumGlowBreathe 4s infinite ease-in-out;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Anulación limpia de pseudoelementos por especificidad (Remueve líneas cruzadas del framework) */
+#sobre-creador .bio-title-wrapper::before,
+#sobre-creador .bio-title-wrapper::after,
+#sobre-creador .btn-trigger-bio::before,
+#sobre-creador .btn-trigger-bio::after {
+    content: none;
+    display: none;
+}
+
+/* Animación de respiración lumínica */
+@keyframes quantumGlowBreathe {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(250, 182, 12, 0.3);
+        opacity: 0.9;
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(250, 182, 12, 0.75), 0 0 60px rgba(250, 182, 12, 0.3);
+        opacity: 1;
+    }
+}
+
+/* Hover controlado sobre la misma gama Gold */
+.btn-trigger-bio:hover {
+    animation: none;
+    color: var(--accent-gold);
+    text-shadow: 0 0 25px var(--accent-gold), 0 0 50px var(--accent-gold);
+    transform: scale(1.02);
+}
+
+/* --- CONTENEDOR DESPLEGABLE INTERNO --- */
+#sobre-creador .quantum-bio-wrapper {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transform: scale(0.99);
+    transition: max-height 0.6s ease-in-out, 
+                opacity 0.5s ease-in-out, 
+                transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Estado abierto inyectado mediante JS */
+#sobre-creador .quantum-bio-wrapper.is-open {
+    opacity: 1;
+    visibility: visible;
+    max-height: 2000px;
+    transform: scale(1);
+}
+
+/* --- PANEL HOLOGRÁFICO --- */
+#sobre-creador .quantum-bio-wrapper .hologram-panel {
+    background: rgba(10, 12, 18, 0.98);
+    border: 1px solid var(--accent-gold);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(250, 182, 12, 0.15);
+}
+
+#sobre-creador .scanlines-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.4) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#sobre-creador .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- TERMINAL DE CARGA (CYBER LOADER) --- */
+#sobre-creador .cyber-loader {
+    padding: 45px 0;
+    font-family: var(--font-cyber);
+    color: var(--accent-gold);
+    text-align: left;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+#sobre-creador .loader-text {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px rgba(250, 182, 12, 0.4); 
+}
+
+#sobre-creador .loader-bar-container {
+    width: 100%;
+    height: 5px;
+    background: rgba(250, 182, 12, 0.05);
+    border: 1px solid rgba(250, 182, 12, 0.3);
+    padding: 1px;
+    border-radius: 1px;
+}
+
+#sobre-creador .loader-bar {
+    height: 100%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 12px var(--accent-gold);
+}
+
+
+/* --- TRANSICIONES DE TEXTO (REVELADO FLUIDO) --- */
+#sobre-creador .bio-content-real p {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visualización de párrafos al remover .is-hidden */
+#sobre-creador .bio-content-real:not(.is-hidden) p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retardos secuenciales sin solapamientos */
+#sobre-creador .bio-content-real p.delay-p1 { transition-delay: 0.0s; }
+#sobre-creador .bio-content-real p.delay-p2 { transition-delay: 0.15s; }
+#sobre-creador .bio-content-real p.delay-p3 { transition-delay: 0.3s; }
+#sobre-creador .bio-content-real p.delay-p4 { transition-delay: 0.45s; }
+#sobre-creador .bio-content-real p.delay-p5 { transition-delay: 0.6s; }
+
+#sobre-creador .bio-content-real.is-hidden {
+    display: none;
+}
+
+
+/* ============================================
+   OVERRIDES DE VARIABLES DE BOOTSTRAP (Angular)
+   Ajusta el color de texto secundario (.form-text)
+   para que tenga contraste real sobre fondo oscuro
+   ============================================ */
+:root {
+  --bs-secondary-color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* LO SGTE ES NUEVO: 2024-06-15
+Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
+   al final, sin romper el layout de ninguna card. Se usa agregando
+   la clase directamente en cualquier <p> de descripción. */
+.texto-truncado-movil {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .texto-truncado-movil {
+    -webkit-line-clamp: 2;
+  }
+}

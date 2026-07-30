@@ -331,7 +331,7 @@
                                 <h3 class="card-title fw-bold mb-3 h5">Enseñar</h3>
                                 <p class="lead opacity-75">Comparte tu conocimiento con la comunidad</p>
                                 <div class="mt-auto">
-                                    <a href="#registro-docente" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold">Registrarme</a>
+                                    <button type="button" class="btn btn-outline-pink-neon px-5 mt-3 fw-bold" data-bs-toggle="modal" data-bs-target="#registroDocenteModal">Registrarme</button>
                                 </div>
                             </div>
                         </article>
@@ -543,6 +543,8 @@
     <!-- ==== SECCIÓN DE MODALES (CONTENIDO INVISIBLE) ====
         Ubicado al final para mantener el HTML limpio.
         Se activa bajo demanda del usuario para seleccionar tipo de cuenta. -->
+
+    <!-- Modal de artistas-->
     <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="tituloRegistro" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-white">
@@ -555,6 +557,24 @@
                     <!-- type="button" evita submit accidental -->
                     <button type="button" class="btn btn-outline-light w-100 mb-3">Usuario normal</button>
                     <button type="button" class="btn btn-outline-info w-100">Usuario Artista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de docentes-->
+    <div class="modal fade" id="registroDocenteModal" tabindex="-1" aria-labelledby="tituloRegistroDocente" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloRegistroDocente">¿Eres docente?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Elige tu tipo de cuenta:</p>
+                    <button type="button" class="btn btn-outline-light w-100 mb-3">Usuario normal</button>
+                    <button type="button" class="btn btn-outline-info w-100">Usuario Docente</button>
                 </div>
             </div>
         </div>

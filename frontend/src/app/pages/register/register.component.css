@@ -1,0 +1,10 @@
+.password-check-item {
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.password-check-item i {
+  font-size: 0.85rem;
+}

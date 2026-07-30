@@ -43,6 +43,14 @@ const eventoSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    imagenPortada: {
+        type: String,
+        default: ''
+    },
+    imagenPortadaPublicId: {
+        type: String,
+        default: ''
+    },
     creador: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',
