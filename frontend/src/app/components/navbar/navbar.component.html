@@ -33,11 +33,21 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                         <li><span class="dropdown-item-text small opacity-75">{{ usuarioActual.correo }}</span></li>
                         <li *ngIf="usuarioActual.rol === 'admin'"><hr class="dropdown-divider"></li>
-                        <li *ngIf="usuarioActual.rol === 'admin'">
-                        <a class="dropdown-item" routerLink="/admin/obras">
-                            <i class="bi bi-kanban me-1"></i>Panel Admin
-                        </a>
-                        </li>
+                            <li *ngIf="usuarioActual.rol === 'admin'">
+                                <a class="dropdown-item" routerLink="/admin/obras">
+                                    <i class="bi bi-kanban me-1"></i>Panel Admin — Obras
+                                </a>
+                            </li>
+                            <li *ngIf="usuarioActual.rol === 'admin'">
+                                <a class="dropdown-item" routerLink="/admin/eventos">
+                                    <i class="bi bi-calendar-event me-1"></i>Panel Admin — Eventos
+                                </a>
+                                </li>
+                            <li *ngIf="usuarioActual.rol === 'admin'">
+                                <a class="dropdown-item" routerLink="/admin/cursos">
+                                    <i class="bi bi-mortarboard me-1"></i>Panel Admin — Cursos
+                                </a>
+                            </li>
                         <li><hr class="dropdown-divider"></li>
                         <li><button type="button" class="dropdown-item" (click)="cerrarSesion()">Cerrar sesión</button></li>
                     </ul>

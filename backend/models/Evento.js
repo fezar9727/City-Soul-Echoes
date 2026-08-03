@@ -43,6 +43,30 @@ const eventoSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    eliminada: {
+        type: Boolean,
+        default: false
+    },
+    fechaEliminacion: {
+        type: Date,
+        default: null
+    },
+    estadoModeracion: {
+        type: String,
+        enum: {
+            values: ['aprobado', 'pendiente', 'rechazado'],
+            message: '{VALUE} no es un estado de moderación válido'
+        },
+        default: 'pendiente'
+    },
+    motivoRechazo: {
+        type: String,
+        default: ''
+    },
+    esOficial: {
+        type: Boolean,
+        default: false
+    },
     imagenPortada: {
         type: String,
         default: ''

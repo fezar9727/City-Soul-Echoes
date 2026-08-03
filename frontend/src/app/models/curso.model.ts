@@ -1,20 +1,25 @@
-// Espejo exacto del modelo Curso.js de Mongoose (backend/models/Curso.js)
+export interface DocentePopulado {
+  _id: string;
+  nombreCompleto: string;
+  correo: string;
+  perfilDocente?: {
+    nombrePublico?: string;
+    especialidad?: string;
+    bio?: string;
+    metodoContacto?: 'correo' | 'instagram' | 'facebook' | 'whatsapp';
+    redes?: {
+      instagram?: string;
+      facebook?: string;
+      whatsapp?: string;
+    };
+  };
+}
+
 export interface Leccion {
   titulo: string;
   descripcion: string;
   duracionMinutos: number;
   orden: number;
-}
-
-// Representa el docente cuando el backend devuelve el documento poblado
-export interface DocentePopulado {
-  _id: string;
-  nombreCompleto: string;
-  perfilDocente?: {
-    nombrePublico?: string;
-    especialidad?: string;
-    bio?: string;
-  };
 }
 
 export interface Curso {
@@ -29,6 +34,8 @@ export interface Curso {
   imagenPortadaPublicId: string;
   lecciones: Leccion[];
   publicado: boolean;
+  eliminada: boolean;
+  fechaEliminacion: string | null;
   docente: string | DocentePopulado;
   createdAt: string;
   updatedAt: string;
@@ -43,4 +50,14 @@ export interface RespuestaCursos {
 export interface RespuestaCurso {
   ok: boolean;
   curso: Curso;
+}
+
+export interface CursoPapelera extends Curso {
+  diasRestantes: number;
+}
+
+export interface RespuestaPapeleraCursos {
+  ok: boolean;
+  total: number;
+  cursos: CursoPapelera[];
 }

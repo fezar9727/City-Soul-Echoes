@@ -9,18 +9,22 @@ const {
     obtenerCurso,
     actualizarCurso,
     eliminarCurso,
-    publicarCurso
+    publicarCurso,
+    obtenerPapelera,
+    restaurarCurso,
+    eliminarDefinitivo
 } = require('../controllers/curso.controller');
 
-// Reutiliza la misma fábrica de Multer ya usada en Obras y Eventos, con su
-// propia carpeta de Cloudinary: city-soul-echoes/cursos
 const uploadCurso = crearUploadMiddleware('cursos');
 
 router.get('/', obtenerCursos);
+router.get('/papelera', protegerRuta, verificarRol('admin'), obtenerPapelera);
 router.get('/:id', obtenerCurso);
-router.post('/', protegerRuta, verificarRol('docente', 'admin'), uploadCurso.single('imagenPortada'), crearCurso);
-router.put('/:id', protegerRuta, verificarRol('docente', 'admin'), uploadCurso.single('imagenPortada'), actualizarCurso);
-router.patch('/:id/publicar', protegerRuta, verificarRol('docente', 'admin'), publicarCurso);
-router.delete('/:id', protegerRuta, verificarRol('docente', 'admin'), eliminarCurso);
+router.post('/', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), crearCurso);
+router.put('/:id', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), actualizarCurso);
+router.patch('/:id/publicar', protegerRuta, verificarRol('admin'), publicarCurso);
+router.patch('/:id/restaurar', protegerRuta, verificarRol('admin'), restaurarCurso);
+router.delete('/:id', protegerRuta, verificarRol('admin'), eliminarCurso);
+router.delete('/:id/definitivo', protegerRuta, verificarRol('admin'), eliminarDefinitivo);
 
 module.exports = router;

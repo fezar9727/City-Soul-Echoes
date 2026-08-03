@@ -1,5 +1,3 @@
-// Espejo exacto del modelo Evento.js de Mongoose (backend/models/Evento.js)
-
 export interface Evento {
   _id: string;
   titulo: string;
@@ -11,11 +9,22 @@ export interface Evento {
   accesoPúblico: boolean;
   cupos: number;
   activo: boolean;
+  eliminada: boolean;
+  fechaEliminacion: string | null;
+  estadoModeracion: 'aprobado' | 'pendiente' | 'rechazado';
+  motivoRechazo: string;
+  esOficial: boolean;
   imagenPortada: string;
   imagenPortadaPublicId: string;
-  creador: string;
+  creador: string | { _id: string; nombreCompleto: string; correo?: string };
   createdAt: string;
   updatedAt: string;
+}
+
+export interface RespuestaModeracion {
+  ok: boolean;
+  mensaje: string;
+  evento: Evento;
 }
 
 export interface RespuestaEventos {
@@ -24,13 +33,17 @@ export interface RespuestaEventos {
   eventos: Evento[];
 }
 
-export interface RespuestaViernesCulturales {
-  ok: boolean;
-  total: number;
-  viernes: Evento[];
-}
-
 export interface RespuestaEvento {
   ok: boolean;
   evento: Evento;
+}
+
+export interface EventoPapelera extends Evento {
+  diasRestantes: number;
+}
+
+export interface RespuestaPapeleraEventos {
+  ok: boolean;
+  total: number;
+  eventos: EventoPapelera[];
 }

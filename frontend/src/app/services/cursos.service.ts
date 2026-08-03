@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Curso, RespuestaCursos, RespuestaCurso } from '../models/curso.model';
+import { RespuestaCursos, RespuestaCurso, RespuestaPapeleraCursos, Curso } from '../models/curso.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,9 @@ export class CursosService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerTodos(categoria?: string): Observable<RespuestaCursos> {
-    const url = categoria ? `${this.apiUrl}?categoria=${categoria}` : this.apiUrl;
-    return this.http.get<RespuestaCursos>(url);
+  obtenerTodos(docente?: string): Observable<RespuestaCursos> {
+    const query = docente ? `?docente=${docente}` : '';
+    return this.http.get<RespuestaCursos>(`${this.apiUrl}${query}`);
   }
 
   obtenerPorId(id: string): Observable<RespuestaCurso> {
@@ -28,11 +28,23 @@ export class CursosService {
     return this.http.put<RespuestaCurso>(`${this.apiUrl}/${id}`, datos);
   }
 
+  publicar(id: string): Observable<{ ok: boolean; mensaje: string; curso: Curso }> {
+    return this.http.patch<{ ok: boolean; mensaje: string; curso: Curso }>(`${this.apiUrl}/${id}/publicar`, {});
+  }
+
   eliminar(id: string): Observable<{ ok: boolean; mensaje: string }> {
     return this.http.delete<{ ok: boolean; mensaje: string }>(`${this.apiUrl}/${id}`);
   }
 
-  publicar(id: string): Observable<{ ok: boolean; mensaje: string; curso: Curso }> {
-    return this.http.patch<{ ok: boolean; mensaje: string; curso: Curso }>(`${this.apiUrl}/${id}/publicar`, {});
+  obtenerPapelera(): Observable<RespuestaPapeleraCursos> {
+    return this.http.get<RespuestaPapeleraCursos>(`${this.apiUrl}/papelera`);
+  }
+
+  restaurar(id: string): Observable<{ ok: boolean; mensaje: string; curso: Curso }> {
+    return this.http.patch<{ ok: boolean; mensaje: string; curso: Curso }>(`${this.apiUrl}/${id}/restaurar`, {});
+  }
+
+  eliminarDefinitivo(id: string): Observable<{ ok: boolean; mensaje: string }> {
+    return this.http.delete<{ ok: boolean; mensaje: string }>(`${this.apiUrl}/${id}/definitivo`);
   }
 }

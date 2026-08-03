@@ -1,28 +1,23 @@
 <section class="py-5 reveal" id="artistas" appReveal>
     <div class="container">
         <h2 class="section-title text-center mb-5 cyber-subtitle">MURO DE ARTISTAS</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <article class="card h-100 text-center border-purple-neon shadow-lg reveal-card" appReveal>
-                    <img src="/img/img-cards-secciones/artista-de-incognito.webp" class="card-img-top rounded-circle mx-auto mt-3 artist-avatar" alt="Retrato de artista local" loading="lazy">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">Nombre del Artista</h5>
-                        <p class="card-text small opacity-75">Especialista en Muralismo / Graffiti / etc...</p>
-                        <div class="mt-auto">
-                            <a href="#contacto-comision" class="btn btn-outline-purple-neon w-100 mt-2">Pedir comisión</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+        <div class="artistas-empty-state text-center py-5">
+            <i class="bi bi-palette artistas-empty-icono"></i>
+            <p class="lead opacity-75 mt-3 mb-0">Todavía no hay artistas registrados.</p>
+            <p class="small opacity-50">Sé el primero en formar parte de esta comunidad.</p>
         </div>
-        <div class="text-center mt-5">
-            <button type="button" class="btn btn-outline-purple-neon btn-lg" data-bs-toggle="modal" data-bs-target="#registroModal" aria-haspopup="dialog" aria-expanded="false">
-                Registrarme como Artista
+
+        <div class="artistas-cta-registro text-center mt-5 p-5 rounded-4" appParticulasFondo colorParticula="216, 120, 255" modo="constelacion">
+            <h3 class="fw-bold mb-3 cta-contenido-encima">¿Sos artista y querés mostrar tu talento?</h3>
+            <div class="cta-banner-marquee mb-4 cta-contenido-encima">
+                <p class="lead opacity-75 mb-0 cta-banner-marquee-texto">Compartí tu trabajo, conectá con la comunidad y recibí encargos directamente</p>
+            </div>
+            <button type="button" class="btn btn-outline-purple-neon btn-lg cta-contenido-encima" data-bs-toggle="modal" data-bs-target="#registroModal" aria-haspopup="dialog" aria-expanded="false">
+                <i class="bi bi-palette-fill me-2"></i>Registrarme como Artista
             </button>
         </div>
     </div>
 </section>
-
 <!-- Modal de registro — vive aquí porque es específico de esta sección -->
 <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="tituloRegistro" aria-hidden="true">
     <div class="modal-dialog">
