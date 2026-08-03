@@ -33,10 +33,12 @@ const crearObra = async (req, res) => {
 
 const obtenerObras = async (req, res) => {
     try {
-        const obras = await Obra.find({ disponible: true, eliminada: false })
+        const { autor } = req.query;
+        const filtro = { disponible: true, eliminada: false };
+        if (autor) filtro.autor = autor;
+        const obras = await Obra.find(filtro)
             .populate('autor', 'nombreCompleto perfilArtista.nombreArtistico')
             .sort({ createdAt: 1 });
-
         res.status(200).json({ ok: true, total: obras.length, obras });
     } catch (error) {
         res.status(500).json({ ok: false, mensaje: 'Error al obtener las obras', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });

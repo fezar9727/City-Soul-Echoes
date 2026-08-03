@@ -9,10 +9,19 @@ const perfilArtistaSchema = new mongoose.Schema({
         enum: { values: ['pintura', 'escultura', 'musica', 'digital', 'fotografia', 'otro'], message: '{VALUE} no es una disciplina válida' },
         default: []
     },
+    metodoContacto: {
+        type: String,
+        enum: {
+            values: ['correo', 'instagram', 'facebook', 'whatsapp'],
+            message: '{VALUE} no es un método de contacto válido'
+        },
+        default: 'correo'
+    },
     redes: {
         instagram: { type: String, default: '' },
         tiktok: { type: String, default: '' },
         facebook: { type: String, default: '' },
+        whatsapp: { type: String, default: '' },
         portafolioExterno: { type: String, default: '' }
     },
     datosPago: {
@@ -20,7 +29,6 @@ const perfilArtistaSchema = new mongoose.Schema({
         llavePublicaWompi: { type: String, default: '' }
     }
 }, { _id: false });
-
 const perfilDocenteSchema = new mongoose.Schema({
     nombrePublico: { type: String, trim: true, required: true },
     especialidad: { type: String, required: true, trim: true },
@@ -31,10 +39,19 @@ const perfilDocenteSchema = new mongoose.Schema({
         enum: { values: ['virtual', 'presencial', 'mixta'], message: '{VALUE} no es una modalidad válida' },
         default: 'virtual'
     },
+    metodoContacto: {
+        type: String,
+        enum: {
+            values: ['correo', 'instagram', 'facebook', 'whatsapp'],
+            message: '{VALUE} no es un método de contacto válido'
+        },
+        default: 'correo'
+    },
     redes: {
         instagram: { type: String, default: '' },
         tiktok: { type: String, default: '' },
         facebook: { type: String, default: '' },
+        whatsapp: { type: String, default: '' },
         portafolioExterno: { type: String, default: '' }
     },
     datosPago: {

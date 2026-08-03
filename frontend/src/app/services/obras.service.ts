@@ -11,8 +11,9 @@ export class ObrasService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerTodas(): Observable<{ ok: boolean; total: number; obras: Obra[] }> {
-    return this.http.get<{ ok: boolean; total: number; obras: Obra[] }>(this.apiUrl);
+  obtenerTodas(autor?: string): Observable<{ ok: boolean; total: number; obras: Obra[] }> {
+    const query = autor ? `?autor=${autor}` : '';
+    return this.http.get<{ ok: boolean; total: number; obras: Obra[] }>(`${this.apiUrl}${query}`);
   }
 
   obtenerMisObras(): Observable<{ ok: boolean; total: number; obras: Obra[] }> {

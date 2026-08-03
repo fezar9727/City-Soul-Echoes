@@ -59,6 +59,14 @@ const cursoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    eliminada: {
+        type: Boolean,
+        default: false
+    },
+    fechaEliminacion: {
+        type: Date,
+        default: null
+    },
     docente: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',

@@ -47,3 +47,10 @@
   background-color: #151515;
   padding: 10px;
 }
+
+/* lo nuevo */
+
+.aprendizaje-cta-enseñar {
+  background: rgba(255, 102, 204, 0.06);
+  border: 1px solid rgba(255, 102, 204, 0.25);
+}

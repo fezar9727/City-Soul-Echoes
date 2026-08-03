@@ -99,16 +99,13 @@ const resetPassword = async (req, res) => {
 const verificarCorreo = async (req, res) => {
     try {
         const { token } = req.body;
-
         const usuario = await Usuario.findOne({
             verificacionToken: token,
             verificacionExpira: { $gt: Date.now() }
         });
-
         if (!usuario) {
             return res.status(400).json({ ok: false, mensaje: 'Token inválido o expirado' });
         }
-
         usuario.correoVerificado = true;
         usuario.verificacionToken = undefined;
         usuario.verificacionExpira = undefined;
@@ -120,10 +117,28 @@ const verificarCorreo = async (req, res) => {
     }
 };
 
+// Ruta pública — cualquier visitante puede ver el perfil de un artista o
+// docente, sin necesidad de estar logueado. Solo expone datos pensados
+// para mostrarse públicamente, nunca correo/telefono/password crudos.
+const obtenerPerfilPublico = async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.params.id)
+            .select('nombreCompleto rol ciudad perfilArtista perfilDocente correo createdAt');
+        if (!usuario || (usuario.rol !== 'artista' && usuario.rol !== 'docente')) {
+            return res.status(404).json({ ok: false, mensaje: 'Perfil no encontrado' });
+        }
+        
+        res.status(200).json({ ok: true, usuario });
+    } catch (error) {
+        res.status(500).json({ ok: false, mensaje: 'Error al obtener el perfil', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
+    }
+};
+
 module.exports = {
     actualizarPerfil,
     cambiarRol,
     forgotPassword,
     resetPassword,
-    verificarCorreo
+    verificarCorreo,
+    obtenerPerfilPublico
 };

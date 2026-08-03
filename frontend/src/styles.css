@@ -588,7 +588,7 @@ header.hero-section .audio-label {
     color: var(--accent-purple);
     background: transparent;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     transition: all 0.3s ease;
     padding: 10px 20px;
 }
@@ -866,6 +866,7 @@ header.hero-section .audio-label {
     color: var(--accent-pink);
     border: 2px solid var(--accent-pink);
     background: transparent;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
  
@@ -1999,4 +2000,39 @@ Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
   .texto-truncado-movil {
     -webkit-line-clamp: 2;
   }
+}
+
+
+/* Utilidad reutilizable: texto que se desliza horizontalmente en loop,
+   tipo cartel LED — usada en los banners de invitación a Aprendizaje y Artistas. */
+.cta-banner-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.cta-banner-marquee-texto {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee-scroll 14s linear infinite;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Empty state reutilizable — se usa en Artistas y Aprendizaje cuando
+   todavía no hay contenido real cargado desde el backend. */
+.artistas-empty-state {
+  opacity: 0.85;
+}
+.artistas-empty-icono {
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+/* Fuerza el contenido de texto/botón a quedar por encima del canvas de
+   partículas — el canvas usa z-index: 0 desde la directiva, esto asegura
+   que nada del contenido real quede tapado. */
+.cta-contenido-encima {
+  position: relative;
+  z-index: 1;
 }

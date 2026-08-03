@@ -1,0 +1,63 @@
+<div class="container py-5" *ngIf="!cargando && perfil">
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <h2 class="perfil-nombre fw-bold mb-2">{{ nombrePublico }}</h2>
+      <p class="opacity-50 mb-4">
+        <span class="text-capitalize">{{ perfil.rol }}</span> · {{ perfil.ciudad }}
+      </p>
+      <p class="perfil-bio lead opacity-75">{{ bio || 'Este usuario todavía no agregó una biografía.' }}</p>
+
+      <div class="mt-5">
+        <div *ngIf="cargandoCatalogo" class="text-center opacity-50 py-4">Cargando catálogo...</div>
+
+        <!-- Catálogo de obras (artista) -->
+        <div *ngIf="!cargandoCatalogo && perfil.rol === 'artista'">
+          <h5 class="mb-3 opacity-75">Obras</h5>
+          <p *ngIf="obras.length === 0" class="small opacity-50">Este artista todavía no publicó ninguna obra.</p>
+          <div class="row g-3">
+            <div class="col-md-6" *ngFor="let obra of obras">
+              <div class="card bg-dark h-100">
+                <img [src]="obra.imagenPortada" [alt]="obra.titulo" class="card-img-top perfil-catalogo-img">
+                <div class="card-body">
+                  <h6 class="card-title">{{ obra.titulo }}</h6>
+                  <p class="card-text small opacity-75">{{ obra.serie || obra.categoria }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catálogo de cursos (docente) -->
+        <div *ngIf="!cargandoCatalogo && perfil.rol === 'docente'">
+          <h5 class="mb-3 opacity-75">Cursos</h5>
+          <p *ngIf="cursos.length === 0" class="small opacity-50">Este docente todavía no publicó ningún curso.</p>
+          <div class="row g-3">
+            <div class="col-md-6" *ngFor="let curso of cursos">
+              <div class="card bg-dark h-100">
+                <img [src]="curso.imagenPortada" [alt]="curso.titulo" class="card-img-top perfil-catalogo-img">
+                <div class="card-body">
+                  <h6 class="card-title">{{ curso.titulo }}</h6>
+                  <p class="card-text small opacity-75">{{ curso.categoria }} · {{ curso.modalidad }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="perfil-sidebar-contacto p-4 rounded-4">
+        <a *ngIf="enlaceContacto" [href]="enlaceContacto" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light w-100 fw-bold">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-5 text-center" *ngIf="cargando">
+  <p class="opacity-50">Cargando perfil...</p>
+</div>
+<div class="container py-5 text-center" *ngIf="error">
+  <p class="opacity-50">No pudimos encontrar este perfil.</p>
+</div>

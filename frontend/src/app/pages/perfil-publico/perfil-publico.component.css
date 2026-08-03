@@ -1,0 +1,11 @@
+.perfil-sidebar-contacto {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 100px;
+}
+
+.perfil-catalogo-img {
+  height: 160px;
+  object-fit: cover;
+}
