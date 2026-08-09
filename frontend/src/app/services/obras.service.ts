@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Obra } from '../models/obra.model';
+import { environment } from '../../environments/environment'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObrasService {
-  private readonly apiUrl = 'http://localhost:4000/api/obras';
+  private readonly apiUrl = `${environment.apiUrl}/obras`;
 
   constructor(private http: HttpClient) {}
 
