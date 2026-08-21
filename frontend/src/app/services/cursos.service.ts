@@ -12,9 +12,16 @@ export class CursosService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerTodos(docente?: string): Observable<RespuestaCursos> {
+    obtenerTodos(docente?: string): Observable<RespuestaCursos> {
     const query = docente ? `?docente=${docente}` : '';
     return this.http.get<RespuestaCursos>(`${this.apiUrl}${query}`);
+  }
+
+  // Exclusivo para el panel de administración — devuelve todos los
+  // cursos no eliminados (publicados o no), a diferencia de
+  // obtenerTodos(), que solo trae los publicados (uso público).
+  obtenerTodosAdmin(): Observable<RespuestaCursos> {
+    return this.http.get<RespuestaCursos>(`${this.apiUrl}/admin`);
   }
 
   obtenerPorId(id: string): Observable<RespuestaCurso> {

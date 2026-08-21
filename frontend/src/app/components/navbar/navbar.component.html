@@ -1,58 +1,62 @@
 <nav class="navbar navbar-expand-lg fixed-top main-nav-custom">
-    <div class="container">
-        <a class="navbar-brand fw-bold cyber-title" routerLink="/" fragment="inicio">CITY SOUL ECHOES</a>
+  <div class="container">
+    <a class="navbar-brand fw-bold cyber-title" routerLink="/" fragment="inicio">CITY SOUL ECHOES</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link nav-link--inicio" routerLink="/" fragment="inicio" data-bs-dismiss="collapse"><i class="bi bi-house-door-fill me-1"></i>INICIO</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--vault" routerLink="/" fragment="vault" data-bs-dismiss="collapse"><i class="bi bi-safe2-fill me-1"></i>THE VAULT</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--artistas" routerLink="/" fragment="artistas" data-bs-dismiss="collapse"><i class="bi bi-palette-fill me-1"></i>MURO DE ARTISTAS</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--soul-station" routerLink="/" fragment="soul-station" data-bs-dismiss="collapse"><i class="bi bi-music-note-beamed me-1"></i>SOUL STATION</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--eventos" routerLink="/" fragment="eventos" data-bs-dismiss="collapse"><i class="bi bi-calendar-event-fill me-1"></i>EVENTOS</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--bienestar" routerLink="/" fragment="bienestar" data-bs-dismiss="collapse"><i class="bi bi-heart-pulse-fill me-1"></i>BIENESTAR</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--aprendizaje" routerLink="/" fragment="aprendizaje" data-bs-dismiss="collapse"><i class="bi bi-book-fill me-1"></i>APRENDIZAJE</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--noticias" routerLink="/" fragment="noticias" data-bs-dismiss="collapse"><i class="bi bi-newspaper me-1"></i>ARTÍCULOS</a></li>
+        <li class="nav-item"><a class="nav-link nav-link--bio" routerLink="/" fragment="sobre-creador" data-bs-dismiss="collapse"><i class="bi bi-person-fill me-1"></i>BIO</a></li>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- Zona de sesión — separada visualmente del resto del menú -->
+        <li class="nav-item ms-lg-3" *ngIf="!usuarioActual">
+          <a class="btn btn-outline-warning btn-sm" routerLink="/login" data-bs-dismiss="collapse">Iniciar sesión</a>
+        </li>
+        <li class="nav-item ms-lg-2" *ngIf="!usuarioActual">
+          <a class="btn btn-warning btn-sm" routerLink="/register" data-bs-dismiss="collapse">Registrarme</a>
+        </li>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a class="nav-link nav-link--inicio" routerLink="/" fragment="inicio"><i class="bi bi-house-door-fill me-1"></i>INICIO</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--vault" routerLink="/" fragment="vault"><i class="bi bi-safe2-fill me-1"></i>THE VAULT</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--artistas" routerLink="/" fragment="artistas"><i class="bi bi-palette-fill me-1"></i>MURO DE ARTISTAS</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--soul-station" routerLink="/" fragment="soul-station"><i class="bi bi-music-note-beamed me-1"></i>SOUL STATION</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--eventos" routerLink="/" fragment="eventos"><i class="bi bi-calendar-event-fill me-1"></i>EVENTOS</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--bienestar" routerLink="/" fragment="bienestar"><i class="bi bi-heart-pulse-fill me-1"></i>BIENESTAR</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--aprendizaje" routerLink="/" fragment="aprendizaje"><i class="bi bi-book-fill me-1"></i>APRENDIZAJE</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--noticias" routerLink="/" fragment="noticias"><i class="bi bi-newspaper me-1"></i>ARTÍCULOS</a></li>
-                <li class="nav-item"><a class="nav-link nav-link--bio" routerLink="/" fragment="sobre-creador"><i class="bi bi-person-fill me-1"></i>BIO</a></li>
-
-                <!-- Zona de sesión — separada visualmente del resto del menú -->
-                <li class="nav-item ms-lg-3" *ngIf="!usuarioActual">
-                    <a class="btn btn-outline-warning btn-sm" routerLink="/login">Iniciar sesión</a>
-                </li>
-                <li class="nav-item ms-lg-2" *ngIf="!usuarioActual">
-                    <a class="btn btn-warning btn-sm" routerLink="/register">Registrarme</a>
-                </li>
-
-                <li class="nav-item dropdown ms-lg-3" *ngIf="usuarioActual">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [attr.aria-label]="'Cuenta de ' + usuarioActual.nombreCompleto">
-                        <i class="bi bi-person-circle fs-5"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                        <li><span class="dropdown-item-text small opacity-75">{{ usuarioActual.correo }}</span></li>
-                        <li *ngIf="usuarioActual.rol === 'admin'"><hr class="dropdown-divider"></li>
-                            <li *ngIf="usuarioActual.rol === 'admin'">
-                                <a class="dropdown-item" routerLink="/admin/obras">
-                                    <i class="bi bi-kanban me-1"></i>Panel Admin — Obras
-                                </a>
-                            </li>
-                            <li *ngIf="usuarioActual.rol === 'admin'">
-                                <a class="dropdown-item" routerLink="/admin/eventos">
-                                    <i class="bi bi-calendar-event me-1"></i>Panel Admin — Eventos
-                                </a>
-                                </li>
-                            <li *ngIf="usuarioActual.rol === 'admin'">
-                                <a class="dropdown-item" routerLink="/admin/cursos">
-                                    <i class="bi bi-mortarboard me-1"></i>Panel Admin — Cursos
-                                </a>
-                            </li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><button type="button" class="dropdown-item" (click)="cerrarSesion()">Cerrar sesión</button></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <li class="nav-item dropdown ms-lg-3" *ngIf="usuarioActual">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" [attr.aria-label]="'Cuenta de ' + usuarioActual.nombreCompleto">
+            <img *ngIf="usuarioActual.avatarUrl" [src]="usuarioActual.avatarUrl" alt="Avatar" class="navbar-avatar-img">
+            <i *ngIf="!usuarioActual.avatarUrl" class="bi bi-person-circle fs-5"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+            <li><span class="dropdown-item-text small opacity-75">{{ usuarioActual.correo }}</span></li>
+            <li>
+              <a class="dropdown-item" routerLink="/editar-perfil" data-bs-dismiss="collapse">
+                <i class="bi bi-pencil-square me-1"></i>Editar perfil
+              </a>
+            </li>
+            <li *ngIf="usuarioActual.rol === 'admin'"><hr class="dropdown-divider"></li>
+            <li *ngIf="usuarioActual.rol === 'admin'">
+              <a class="dropdown-item" routerLink="/admin/obras" data-bs-dismiss="collapse">
+                <i class="bi bi-kanban me-1"></i>Panel Admin — Obras
+              </a>
+            </li>
+            <li *ngIf="usuarioActual.rol === 'admin'">
+              <a class="dropdown-item" routerLink="/admin/eventos" data-bs-dismiss="collapse">
+                <i class="bi bi-calendar-event me-1"></i>Panel Admin — Eventos
+              </a>
+            </li>
+            <li *ngIf="usuarioActual.rol === 'admin'">
+              <a class="dropdown-item" routerLink="/admin/cursos" data-bs-dismiss="collapse">
+                <i class="bi bi-mortarboard me-1"></i>Panel Admin — Cursos
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button type="button" class="dropdown-item" data-bs-dismiss="collapse" (click)="cerrarSesion()">Cerrar sesión</button></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

@@ -6,6 +6,9 @@ import { AdminObrasComponent } from './pages/admin-obras/admin-obras.component';
 import { AdminEventosComponent } from './pages/admin-eventos/admin-eventos.component';
 import { AdminCursosComponent } from './pages/admin-cursos/admin-cursos.component';
 import { PerfilPublicoComponent } from './pages/perfil-publico/perfil-publico.component';
+import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
+import { ResetearPasswordComponent } from './pages/resetear-password/resetear-password.component';
+import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
@@ -16,5 +19,8 @@ export const routes: Routes = [
   { path: 'admin/eventos', component: AdminEventosComponent, canActivate: [adminGuard] },
   { path: 'admin/cursos', component: AdminCursosComponent, canActivate: [adminGuard] },
   { path: 'perfil/:id', component: PerfilPublicoComponent },
+  { path: 'recuperar-password', component: RecuperarPasswordComponent },
+  { path: 'reset-password', component: ResetearPasswordComponent },
+  { path: 'editar-perfil', component: EditarPerfilComponent },
   { path: '**', redirectTo: '' }
 ];

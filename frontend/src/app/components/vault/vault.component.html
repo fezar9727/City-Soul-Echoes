@@ -15,7 +15,7 @@
                             <h5 class="card-title text-warning-neon">Mis Obras</h5>
                             <p class="card-text small opacity-75">Porcelanicrón y arcilla • {{ obras.length }} piezas</p>
                             <div class="mt-auto">
-                                <button type="button" class="btn btn-outline-warning w-100" (click)="abrirLightbox(0)">
+                                <button type="button" class="btn btn-outline-warning w-100" (click)="abrirLightbox(0, $event)">
                                     <i class="bi bi-images me-2"></i>Ver Galería
                                 </button>
                             </div>
@@ -48,23 +48,48 @@
     </div>
 </section>
 
-<!-- ==== LIGHTBOX GALERÍA DE OBRAS ==== -->
-<div id="lightbox-overlay" [class.activo]="lightboxAbierto" role="dialog" aria-modal="true" aria-label="Galería de obras" tabindex="-1">
+<!-- ==== LIGHTBOX GALERÍA DE OBRAS — Efecto Janemba 3D ==== -->
+<div
+    id="lightbox-overlay"
+    #lightboxOverlayRef
+    [class.activo]="lightboxAbierto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Galería de obras"
+    tabindex="-1"
+    (click)="onOverlayClick($event)"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)">
+
     <button type="button" id="lightbox-cerrar" aria-label="Cerrar galería" (click)="cerrarLightbox()"><i class="bi bi-x-lg"></i></button>
     <button type="button" id="lightbox-prev" aria-label="Obra anterior" (click)="irAnterior()"><i class="bi bi-chevron-left"></i></button>
     <button type="button" id="lightbox-next" aria-label="Obra siguiente" (click)="irSiguiente()"><i class="bi bi-chevron-right"></i></button>
 
     <div id="lightbox-wrapper-total">
-        <div id="lightbox-imagen-wrapper">
-            <img id="lightbox-img" [src]="obraActual?.imagenPortada" [alt]="obraActual?.titulo">
+        <div id="lightbox-imagen-wrapper" (mouseenter)="pausarAutoplay()" (mouseleave)="reanudarAutoplay()">
+            <img id="lightbox-img" #lightboxImgRef [src]="srcImagenActual" [alt]="obraActual?.titulo">
+            <canvas id="lightbox-canvas" #lightboxCanvasRef></canvas>
+            <div id="lightbox-barra-progreso">
+                <div id="lightbox-barra-fill" #barraFillRef></div>
+            </div>
         </div>
         <div id="lightbox-info">
-            <p id="lightbox-contador" class="small opacity-50 mb-2">{{ indiceActual + 1 }} / {{ obras.length }}</p>
+          <app-control-sonido></app-control-sonido>
+          <p id="lightbox-contador" class="small opacity-50 mb-2">{{ indiceActual + 1 }} / {{ obras.length }}</p>
             <h3 id="lightbox-titulo">
                 {{ obraActual?.titulo }}
                 <span class="lightbox-titulo-en">{{ obraActual?.tituloEn }}</span>
             </h3>
             <p id="lightbox-desc">{{ obraActual?.descripcion }}</p>
+            <div id="lightbox-miniaturas" #miniaturasRef>
+                <img
+                    *ngFor="let obra of obras; let i = index"
+                    [src]="obra.imagenPortada"
+                    [alt]="obra.titulo"
+                    class="lightbox-thumb"
+                    [class.activa]="i === indiceActual"
+                    (click)="irAMiniatura(i)">
+            </div>
         </div>
     </div>
 </div>

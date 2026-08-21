@@ -1,0 +1,77 @@
+/* El track, el canvas y el thumb comparten exactamente el mismo ancho
+   (32px) y el mismo left — así el centro geométrico de los 3 elementos
+   coincide siempre, sin necesidad de compensar con números mágicos
+   cada vez que se ajusta un tamaño. Separado del borde (right: 24px)
+   para no quedar pegado a la ventana ni al minimapa. */
+#scroll-cohete-track {
+  position: fixed;
+  top: 0;
+  right: 6px;
+  width: 32px;
+  height: 100vh;
+  z-index: 998;
+  cursor: pointer;
+}
+
+.scroll-cohete-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  pointer-events: none;
+}
+
+.scroll-cohete-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 46px;
+  cursor: grab;
+  transition: transform 0.05s linear;
+}
+
+.scroll-cohete-thumb:active {
+  cursor: grabbing;
+}
+
+/* Micro-shake al soltar el arrastre: rebote breve en vez de parar en
+   seco, sensación de inercia. Vida corta (220ms, ver DURACION_ASENTAMIENTO_MS
+   en el .ts) — se combina con [style.transform] de Angular vía la propia
+   cascada CSS, ya que translateY se aplica inline y esta animación solo
+   toca scale/rotate, sin pisar la posición real del scroll. */
+.scroll-cohete-thumb.asentando svg {
+  animation: cohete-asentamiento 0.22s ease-out;
+}
+
+@keyframes cohete-asentamiento {
+  0% { transform: scale(1) translateY(0); }
+  35% { transform: scale(0.94, 1.06) translateY(2px); }
+  65% { transform: scale(1.03, 0.98) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.scroll-cohete-thumb svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  /* right bajado de 16px a 8px: acerca el cohete al borde real de la
+     pantalla, alejándolo del contenido de las cards en mobile — sin
+     pegarlo al borde exacto, donde en dispositivos con notch/bordes
+     redondeados podría quedar parcialmente cortado. */
+  #scroll-cohete-track {
+    width: 22px;
+    right: 3px;
+  }
+  .scroll-cohete-canvas {
+    width: 22px;
+  }
+  .scroll-cohete-thumb {
+    width: 22px;
+    height: 32px;
+  }
+}

@@ -1,0 +1,56 @@
+/* Mismo patrón "expandir al hover" que .audio-trigger-zone del Hero
+   (ver styles.css sección 4) — consistencia visual, sin inventar un
+   comportamiento nuevo para un control que hace algo muy similar. */
+.control-sonido-zona {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 997;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 50px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(0, 255, 157, 0.25);
+  overflow: hidden;
+  width: 40px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-sonido-zona:hover,
+.control-sonido-zona:focus-within {
+  width: 160px;
+  border-color: var(--accent-green, #00ff9d);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.control-sonido-boton {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--accent-green, #00ff9d);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-sonido-panel {
+  flex-grow: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.15s;
+  padding-right: 14px;
+}
+
+.control-sonido-zona:hover .control-sonido-panel,
+.control-sonido-zona:focus-within .control-sonido-panel {
+  opacity: 1;
+}
+
+.control-sonido-panel input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent-green, #00ff9d);
+}

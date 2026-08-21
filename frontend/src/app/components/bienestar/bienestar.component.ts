@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BienestarService } from '../../services/bienestar.service';
 import { ItemBienestar, CategoriaBienestar } from '../../models/bienestar.model';
 import { RevealDirective } from '../../directives/reveal.directive';
-
+import { SonidoZonaService } from '../../services/sonido-zona.service';
+import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
 type FiltroSaludMental = 'todos' | 'hablar-ya' | 'apoyo-especifico' | 'autocuidado';
-
 @Component({
   selector: 'app-bienestar',
-  imports: [CommonModule, RevealDirective],
+  imports: [CommonModule, RevealDirective, ControlSonidoComponent],
   templateUrl: './bienestar.component.html',
   styleUrl: './bienestar.component.css'
 })
@@ -16,16 +16,17 @@ export class BienestarComponent implements OnInit {
   itemsVegana: ItemBienestar[] = [];
   itemsModa: ItemBienestar[] = [];
   itemsSaludMental: ItemBienestar[] = [];
-
   cargandoVegana = true;
   cargandoModa = true;
   cargandoSaludMental = true;
-
   categoriaAbierta: CategoriaBienestar | null = null;
   filtroSaludMentalActivo: FiltroSaludMental = 'todos';
   itemEnPantallaCompleta: ItemBienestar | null = null;
 
-  constructor(private bienestarService: BienestarService) {}
+  constructor(
+    private bienestarService: BienestarService,
+    private sonidoService: SonidoZonaService
+  ) {}
 
   ngOnInit(): void {
     this.cargarCategoria('vegana');
@@ -51,10 +52,23 @@ export class BienestarComponent implements OnInit {
   abrirCategoria(categoria: CategoriaBienestar): void {
     this.categoriaAbierta = categoria;
     this.filtroSaludMentalActivo = 'todos';
+    if (categoria === 'vegana') this.sonidoService.reproducirZona('vegana');
+    else if (categoria === 'moda-inclusiva') this.sonidoService.reproducirZona('moda');
+    else if (categoria === 'salud-mental') this.sonidoService.reproducirZona('salud-mental');
   }
 
   cerrarCategoria(): void {
     this.categoriaAbierta = null;
+    this.sonidoService.detenerActual();
+  }
+  // Bootstrap dispara este evento en su modal sin importar cómo se
+  // cerró (botón X, click en el fondo oscuro, tecla Escape) — antes
+  // solo el botón X llamaba a cerrarCategoria(), por eso el sonido
+  // seguía sonando si cerrabas de otra forma. Documentado en la API
+  // oficial de eventos de Bootstrap 5 (hidden.bs.modal).
+  @HostListener('document:hidden.bs.modal')
+  onModalCerrado(): void {
+    this.cerrarCategoria();
   }
 
   aplicarFiltroSaludMental(filtro: FiltroSaludMental): void {

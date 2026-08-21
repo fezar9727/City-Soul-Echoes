@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormArray, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { CursosService } from '../../services/cursos.service';
 import { NotificacionService } from '../../services/notificacion.service';
 import { Curso, CursoPapelera } from '../../models/curso.model';
+import { SonidoZonaService } from '../../services/sonido-zona.service';
+import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-cursos',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ControlSonidoComponent],
   templateUrl: './admin-cursos.component.html',
   styleUrl: './admin-cursos.component.css'
 })
-export class AdminCursosComponent implements OnInit {
+export class AdminCursosComponent implements OnInit, OnDestroy {
   cursos: Curso[] = [];
   cargando = true;
   formularioVisible = false;
@@ -28,11 +31,15 @@ export class AdminCursosComponent implements OnInit {
   vistaActual: 'activos' | 'papelera' = 'activos';
   papelera: CursoPapelera[] = [];
   cargandoPapelera = false;
-
+  // Solo para mostrar el estado en el aviso informativo del formulario
+  // de edición — no participa en el submit, el toggle real vive en
+  // togglePublicar(), llamado únicamente desde el botón de la tabla.
+  cursoEnEdicionPublicado = false;
   constructor(
     private cursosService: CursosService,
     private notificacion: NotificacionService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sonidoService: SonidoZonaService
   ) {
     this.formulario = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
@@ -44,15 +51,16 @@ export class AdminCursosComponent implements OnInit {
       lecciones: this.fb.array([])
     });
   }
-
   ngOnInit(): void {
+    this.sonidoService.reproducirZona('panel-cursos');
     this.cargarCursos();
   }
-
+  ngOnDestroy(): void {
+    this.sonidoService.detenerActual();
+  }
   get lecciones(): FormArray {
     return this.formulario.get('lecciones') as FormArray;
   }
-
   crearLeccion(titulo = '', descripcion = '', duracionMinutos = 0): FormGroup {
     return this.fb.group({
       titulo: [titulo, Validators.required],
@@ -60,18 +68,15 @@ export class AdminCursosComponent implements OnInit {
       duracionMinutos: [duracionMinutos, Validators.min(0)]
     });
   }
-
   agregarLeccion(): void {
     this.lecciones.push(this.crearLeccion());
   }
-
   quitarLeccion(indice: number): void {
     this.lecciones.removeAt(indice);
   }
-
-  cargarCursos(): void {
+    cargarCursos(): void {
     this.cargando = true;
-    this.cursosService.obtenerTodos().subscribe({
+    this.cursosService.obtenerTodosAdmin().subscribe({
       next: (respuesta) => {
         this.cursos = respuesta.cursos;
         this.cargando = false;
@@ -82,7 +87,6 @@ export class AdminCursosComponent implements OnInit {
       }
     });
   }
-
   cambiarVista(vista: 'activos' | 'papelera'): void {
     this.vistaActual = vista;
     if (vista === 'papelera') {
@@ -103,7 +107,6 @@ export class AdminCursosComponent implements OnInit {
       }
     });
   }
-
   restaurarCurso(curso: CursoPapelera): void {
     this.cursosService.restaurar(curso._id).subscribe({
       next: () => {
@@ -116,7 +119,6 @@ export class AdminCursosComponent implements OnInit {
       }
     });
   }
-
   abrirFormularioNuevo(): void {
     this.modoEdicion = false;
     this.idEnEdicion = null;
@@ -127,13 +129,13 @@ export class AdminCursosComponent implements OnInit {
     this.formulario.reset({ categoria: 'digital', modalidad: 'virtual', precio: 0, duracionHoras: 0 });
     this.formularioVisible = true;
   }
-
   abrirFormularioEdicion(curso: Curso): void {
     this.modoEdicion = true;
     this.idEnEdicion = curso._id;
     this.archivoSeleccionado = null;
     this.previsualizacion = null;
     this.imagenActualEdicion = curso.imagenPortada;
+    this.cursoEnEdicionPublicado = curso.publicado;
     this.lecciones.clear();
     curso.lecciones.forEach((leccion) => {
       this.lecciones.push(this.crearLeccion(leccion.titulo, leccion.descripcion, leccion.duracionMinutos));
@@ -148,7 +150,6 @@ export class AdminCursosComponent implements OnInit {
     });
     this.formularioVisible = true;
   }
-
   cancelarFormulario(): void {
     this.formularioVisible = false;
     this.modoEdicion = false;
@@ -156,7 +157,6 @@ export class AdminCursosComponent implements OnInit {
     this.archivoSeleccionado = null;
     this.previsualizacion = null;
   }
-
   onArchivoSeleccionado(evento: Event): void {
     const input = evento.target as HTMLInputElement;
     const archivo = input.files?.[0] ?? null;
@@ -172,7 +172,6 @@ export class AdminCursosComponent implements OnInit {
     };
     lector.readAsDataURL(archivo);
   }
-
   guardar(): void {
     if (this.formulario.invalid) {
       this.formulario.markAllAsTouched();
@@ -219,7 +218,6 @@ export class AdminCursosComponent implements OnInit {
       }
     });
   }
-
   togglePublicar(curso: Curso): void {
     this.cursosService.publicar(curso._id).subscribe({
       next: (respuesta) => {
@@ -232,7 +230,6 @@ export class AdminCursosComponent implements OnInit {
       error: () => this.notificacion.error('No se pudo actualizar', 'Intentá de nuevo.')
     });
   }
-
   async confirmarEliminar(curso: Curso): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${curso.titulo}"?`,
@@ -257,7 +254,6 @@ export class AdminCursosComponent implements OnInit {
       }
     });
   }
-
   async confirmarEliminarDefinitivo(curso: CursoPapelera): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${curso.titulo}" para siempre?`,

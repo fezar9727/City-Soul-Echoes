@@ -55,14 +55,34 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
+// Límite general para todo /api — subido de 100 a 500 cada 15 min. Con
+// ~12 endpoints distintos consumidos en cada carga de la home, y el
+// recargado constante durante desarrollo (HMR), 100 se agotaba en
+// minutos y terminaba bloqueando hasta el login, que comparte el mismo
+// contador por vivir bajo /api. 500 sigue siendo un límite real de
+// protección, solo calibrado al uso real del sitio.
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
-    standardHeaders: true,
-    legacyHeaders: false,
-    message: { ok: false, mensaje: 'Demasiadas solicitudes — intenta de nuevo en 15 minutos' }
+windowMs: 15 * 60 * 1000,
+max: 500,
+standardHeaders: true,
+legacyHeaders: false,
+message: { ok: false, mensaje: 'Demasiadas solicitudes — intenta de nuevo en 15 minutos' }
 });
 app.use('/api', limiter);
+
+// Límite específico y más estricto para login y recuperación de
+// contraseña — son los endpoints realmente sensibles a fuerza bruta
+// y email-bombing (OWASP API4:2023), por eso quedan aparte del límite
+// general y no comparten contador con las lecturas normales del sitio.
+const limiterAuth = rateLimit({
+windowMs: 15 * 60 * 1000,
+max: 20,
+standardHeaders: true,
+legacyHeaders: false,
+message: { ok: false, mensaje: 'Demasiados intentos — intenta de nuevo en 15 minutos' }
+});
+app.use('/api/auth/login', limiterAuth);
+app.use('/api/usuarios/recuperar-password', limiterAuth);
 
 app.get('/', (req, res) => {
     res.status(200).json({

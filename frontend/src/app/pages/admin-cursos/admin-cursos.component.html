@@ -1,6 +1,7 @@
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="cyber-subtitle mb-0">PANEL ADMIN — CURSOS</h2>
+    <app-control-sonido></app-control-sonido>
     <button type="button" class="btn btn-warning" (click)="abrirFormularioNuevo()">
       <i class="bi bi-plus-lg me-1"></i>Nuevo curso
     </button>
@@ -43,9 +44,16 @@
             <td>${{ curso.precio | number }}</td>
             <td>{{ curso.lecciones.length }}</td>
             <td>
-              <button type="button" class="btn btn-sm" [class.btn-success]="curso.publicado" [class.btn-outline-secondary]="!curso.publicado" (click)="togglePublicar(curso)">
-                {{ curso.publicado ? 'Sí' : 'No' }}
-              </button>
+            <button
+              type="button"
+              class="btn btn-sm d-flex align-items-center gap-1"
+              [class.btn-success]="curso.publicado"
+              [class.btn-outline-secondary]="!curso.publicado"
+              [title]="curso.publicado ? 'Click para despublicar' : 'Click para publicar'"
+              (click)="togglePublicar(curso)">
+              <i class="bi" [class.bi-eye-fill]="curso.publicado" [class.bi-eye-slash]="!curso.publicado"></i>
+              {{ curso.publicado ? 'Publicado' : 'Sin publicar' }}
+            </button>
             </td>
             <td class="text-end">
               <button type="button" class="btn btn-sm btn-outline-info me-2" (click)="abrirFormularioEdicion(curso)">
@@ -64,6 +72,17 @@
     <div *ngIf="formularioVisible" class="card bg-dark border-warning mt-4 p-4">
       <h4 class="mb-3">{{ modoEdicion ? 'Editar curso' : 'Nuevo curso' }}</h4>
       <form [formGroup]="formulario" (ngSubmit)="guardar()">
+        <!-- Estado de publicación — solo informativo dentro del formulario,
+             el cambio real se hace desde el botón de la tabla (única fuente
+             de verdad para esta acción, evita 2 caminos distintos que
+             puedan desincronizarse entre sí). -->
+        <div class="alert d-flex align-items-center gap-2 mb-3" [class.alert-success]="modoEdicion && cursoEnEdicionPublicado" [class.alert-secondary]="modoEdicion && !cursoEnEdicionPublicado" *ngIf="modoEdicion">
+          <i class="bi" [class.bi-eye-fill]="cursoEnEdicionPublicado" [class.bi-eye-slash]="!cursoEnEdicionPublicado"></i>
+          <span>
+            Este curso está <strong>{{ cursoEnEdicionPublicado ? 'publicado' : 'sin publicar' }}</strong> —
+            para cambiarlo, usá el botón en la tabla, fuera de este formulario.
+          </span>
+        </div>
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label">Título</label>
@@ -185,4 +204,8 @@
       </tbody>
     </table>
   </div>
+
+  <p class="text-center mt-4 small">
+    <a routerLink="/">Volver al inicio</a>
+  </p>
 </div>

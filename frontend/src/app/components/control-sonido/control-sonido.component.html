@@ -1,0 +1,21 @@
+<div class="control-sonido-zona" role="group" aria-label="Control de sonido ambiente">
+  <button
+    type="button"
+    class="control-sonido-boton"
+    [attr.aria-label]="muteado ? 'Activar sonido' : 'Silenciar sonido'"
+    (click)="onToggleMute()">
+    <i class="bi" [class.bi-volume-up-fill]="!muteado" [class.bi-volume-mute-fill]="muteado"></i>
+  </button>
+
+  <div class="control-sonido-panel">
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.05"
+      [value]="volumen"
+      [disabled]="muteado"
+      (input)="onCambioVolumen($event)"
+      aria-label="Volumen del sonido ambiente">
+  </div>
+</div>

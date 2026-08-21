@@ -1,0 +1,98 @@
+<div class="container py-5" style="max-width: 640px;">
+  <h2 class="text-center mb-5 cyber-subtitle">MI PERFIL</h2>
+  <div class="text-center mb-3">
+    <app-control-sonido></app-control-sonido>
+  </div>
+
+  <!-- ===== CARD: AVATAR Y DATOS PERSONALES ===== -->
+  <div class="card bg-dark border-warning mb-4 p-4">
+    <h5 class="mb-4"><i class="bi bi-person-badge me-2"></i>Datos personales</h5>
+
+    <div class="d-flex flex-column align-items-center mb-4">
+      <div class="perfil-avatar-wrapper mb-3">
+        <img *ngIf="(previsualizacionAvatar || usuarioActual?.avatarUrl) && !eliminarAvatarSolicitado"
+             [src]="previsualizacionAvatar || usuarioActual?.avatarUrl"
+             alt="Foto de perfil"
+             class="perfil-avatar-img">
+        <div *ngIf="(!previsualizacionAvatar && !usuarioActual?.avatarUrl) || eliminarAvatarSolicitado" class="perfil-avatar-iniciales">
+          {{ inicialesAvatar }}
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <label for="avatarInput" class="btn btn-outline-warning btn-sm">
+          <i class="bi bi-camera-fill me-1"></i>Cambiar foto
+        </label>
+        <button type="button"
+                class="btn btn-outline-secondary btn-sm"
+                *ngIf="(usuarioActual?.avatarUrl || previsualizacionAvatar) && !eliminarAvatarSolicitado"
+                (click)="quitarFoto()">
+          <i class="bi bi-x-circle me-1"></i>Quitar foto
+        </button>
+      </div>
+      <input type="file" id="avatarInput" accept="image/png,image/jpeg,image/webp" class="d-none" (change)="onArchivoSeleccionado($event)">
+      <span class="form-text mt-1">JPG, PNG o WEBP, máximo 5MB.</span>
+    </div>
+
+    <form [formGroup]="formularioDatos" (ngSubmit)="guardarDatos()">
+      <div class="mb-3">
+        <label for="nombreCompleto" class="form-label">Nombre completo</label>
+        <input type="text" id="nombreCompleto" class="form-control" formControlName="nombreCompleto"
+               (blur)="formularioDatos.get('nombreCompleto')?.markAsTouched()">
+        <div class="text-danger small mt-1" *ngIf="formularioDatos.get('nombreCompleto')?.invalid && formularioDatos.get('nombreCompleto')?.touched">
+          Ingresá tu nombre completo.
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="tel" id="telefono" class="form-control" formControlName="telefono">
+        </div>
+        <div class="col-md-6">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" id="ciudad" class="form-control" formControlName="ciudad">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="bio" class="form-label">Biografía</label>
+        <textarea id="bio" class="form-control" rows="3" maxlength="300" formControlName="bio"
+                  placeholder="Una breve presentación para tu perfil público."></textarea>
+        <div class="form-text text-end">{{ formularioDatos.get('bio')?.value?.length || 0 }} / 300</div>
+      </div>
+
+      <button type="submit" class="btn btn-warning w-100" [disabled]="cargandoDatos">
+        {{ cargandoDatos ? 'Guardando...' : 'Guardar cambios' }}
+      </button>
+    </form>
+  </div>
+
+  <!-- ===== CARD: SEGURIDAD ===== -->
+  <div class="card bg-dark border-secondary mb-4 p-4">
+    <h5 class="mb-4"><i class="bi bi-shield-lock me-2"></i>Seguridad</h5>
+    <form [formGroup]="formularioPassword" (ngSubmit)="cambiarPassword()">
+      <div class="mb-3">
+        <label for="passwordActual" class="form-label">Contraseña actual</label>
+        <input type="password" id="passwordActual" class="form-control" formControlName="passwordActual">
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-md-6">
+          <label for="passwordNueva" class="form-label">Nueva contraseña</label>
+          <input type="password" id="passwordNueva" class="form-control" formControlName="passwordNueva">
+          <div class="form-text">Mínimo 8 caracteres.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="confirmarPasswordNueva" class="form-label">Confirmar nueva</label>
+          <input type="password" id="confirmarPasswordNueva" class="form-control" formControlName="confirmarPasswordNueva">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-warning w-100" [disabled]="cargandoPassword">
+        {{ cargandoPassword ? 'Actualizando...' : 'Cambiar contraseña' }}
+      </button>
+    </form>
+  </div>
+
+  <p class="text-center small">
+    <a routerLink="/">Volver al inicio</a>
+  </p>
+</div>
