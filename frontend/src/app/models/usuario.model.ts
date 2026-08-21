@@ -4,6 +4,8 @@ export interface Usuario {
   correo: string;
   telefono?: string;
   ciudad?: string;
+  bio?: string;
+  avatarUrl?: string;
   rol: 'usuario' | 'artista' | 'docente' | 'admin';
   activo: boolean;
   puedeVender?: boolean;

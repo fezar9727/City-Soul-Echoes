@@ -43,8 +43,29 @@ export class AuthService {
     localStorage.setItem(this.claveUsuario, JSON.stringify(respuesta.usuario));
     this.usuarioActualSubject.next(respuesta.usuario);
   }
+  
   private obtenerUsuarioGuardado(): Usuario | null {
     const datos = localStorage.getItem(this.claveUsuario);
     return datos ? JSON.parse(datos) : null;
+  }
+
+  actualizarPerfil(datos: FormData): Observable<{ ok: boolean; usuario: Usuario }> {
+    return this.http.put<{ ok: boolean; usuario: Usuario }>(`${environment.apiUrl}/usuarios/perfil`, datos).pipe(
+      tap((respuesta) => {
+        localStorage.setItem(this.claveUsuario, JSON.stringify(respuesta.usuario));
+        this.usuarioActualSubject.next(respuesta.usuario);
+      })
+    );
+  }
+
+  cambiarPassword(passwordActual: string, passwordNueva: string): Observable<{ ok: boolean; mensaje: string }> {
+    return this.http.patch<{ ok: boolean; mensaje: string }>(`${environment.apiUrl}/usuarios/cambiar-password`, { passwordActual, passwordNueva });
+  }
+
+  recuperarPassword(correo: string): Observable<{ ok: boolean; mensaje: string }> {
+    return this.http.post<{ ok: boolean; mensaje: string }>(`${environment.apiUrl}/usuarios/recuperar-password`, { correo });
+  }
+  resetearPassword(token: string, nuevaPassword: string): Observable<{ ok: boolean; mensaje: string }> {
+    return this.http.post<{ ok: boolean; mensaje: string }>(`${environment.apiUrl}/usuarios/resetear-password`, { token, nuevaPassword });
   }
 }

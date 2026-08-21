@@ -1,26 +1,69 @@
 const crypto = require('crypto');
 const Usuario = require('../models/Usuario');
+const cloudinary = require('../config/cloudinary');
 const { enviarCorreoVerificacion, enviarCorreoRecuperacion } = require('../services/email.service');
 
 const actualizarPerfil = async (req, res) => {
     try {
-        const { nombreCompleto, telefono, ciudad, perfilArtista, perfilDocente } = req.body;
+        const { nombreCompleto, telefono, ciudad, bio, perfilArtista, perfilDocente } = req.body;
         const usuario = await Usuario.findById(req.usuario._id);
-
         if (nombreCompleto) usuario.nombreCompleto = nombreCompleto;
-        if (telefono) usuario.telefono = telefono;
-        if (ciudad) usuario.ciudad = ciudad;
+        if (telefono !== undefined) usuario.telefono = telefono;
+        if (ciudad !== undefined) usuario.ciudad = ciudad;
+        if (bio !== undefined) usuario.bio = bio;
         if (perfilArtista && usuario.rol === 'artista') usuario.perfilArtista = { ...usuario.perfilArtista.toObject(), ...perfilArtista };
         if (perfilDocente && usuario.rol === 'docente') usuario.perfilDocente = { ...usuario.perfilDocente.toObject(), ...perfilDocente };
 
-        await usuario.save();
+        // Si llegó una imagen nueva, borra la anterior de Cloudinary antes de
+        // reemplazarla — evita acumular archivos huérfanos que nadie usa.
+        if (req.file) {
+            if (usuario.avatarPublicId) {
+                await cloudinary.uploader.destroy(usuario.avatarPublicId).catch(() => {});
+            }
+            usuario.avatarUrl = req.file.path;
+            usuario.avatarPublicId = req.file.filename;
+        }
 
+        // Permite volver al ícono de iniciales: si el front manda
+        // eliminarAvatar='true' (sin archivo nuevo), se borra la imagen
+        // actual de Cloudinary y se limpian los campos en Mongo.
+        if (!req.file && req.body.eliminarAvatar === 'true' && usuario.avatarPublicId) {
+            await cloudinary.uploader.destroy(usuario.avatarPublicId).catch(() => {});
+            usuario.avatarUrl = '';
+            usuario.avatarPublicId = '';
+        }
+
+        await usuario.save();
         const obj = usuario.toObject();
         delete obj.password;
-
         res.status(200).json({ ok: true, usuario: obj });
     } catch (error) {
         res.status(500).json({ ok: false, mensaje: 'Error al actualizar el perfil', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
+    }
+};
+
+// Cambio de contraseña para un usuario que YA sabe su contraseña actual
+// (distinto del flujo de "olvidé mi contraseña", que no la requiere).
+// Pide la actual para confirmar identidad antes de permitir el cambio.
+const cambiarPassword = async (req, res) => {
+    try {
+        const { passwordActual, passwordNueva } = req.body;
+        if (!passwordActual || !passwordNueva) {
+            return res.status(400).json({ ok: false, mensaje: 'Debés indicar la contraseña actual y la nueva' });
+        }
+        if (passwordNueva.length < 8) {
+            return res.status(400).json({ ok: false, mensaje: 'La nueva contraseña debe tener al menos 8 caracteres' });
+        }
+        const usuario = await Usuario.findById(req.usuario._id).select('+password');
+        const coincide = await usuario.compararPassword(passwordActual);
+        if (!coincide) {
+            return res.status(401).json({ ok: false, mensaje: 'La contraseña actual no es correcta' });
+        }
+        usuario.password = passwordNueva;
+        await usuario.save();
+        res.status(200).json({ ok: true, mensaje: 'Contraseña actualizada correctamente' });
+    } catch (error) {
+        res.status(500).json({ ok: false, mensaje: 'Error al cambiar la contraseña', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
     }
 };
 
@@ -136,6 +179,7 @@ const obtenerPerfilPublico = async (req, res) => {
 
 module.exports = {
     actualizarPerfil,
+    cambiarPassword,
     cambiarRol,
     forgotPassword,
     resetPassword,

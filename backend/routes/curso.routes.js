@@ -6,6 +6,7 @@ const crearUploadMiddleware = require('../middlewares/upload.middleware');
 const {
     crearCurso,
     obtenerCursos,
+    obtenerCursosAdmin,
     obtenerCurso,
     actualizarCurso,
     eliminarCurso,
@@ -18,6 +19,10 @@ const {
 const uploadCurso = crearUploadMiddleware('cursos');
 
 router.get('/', obtenerCursos);
+// Debe ir ANTES de /papelera y /:id — Express matchea rutas en orden,
+// y /admin como string fijo tiene que evaluarse antes que /:id, que
+// interpretaría "admin" como un ID de Mongo inválido.
+router.get('/admin', protegerRuta, verificarRol('admin'), obtenerCursosAdmin);
 router.get('/papelera', protegerRuta, verificarRol('admin'), obtenerPapelera);
 router.get('/:id', obtenerCurso);
 router.post('/', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), crearCurso);

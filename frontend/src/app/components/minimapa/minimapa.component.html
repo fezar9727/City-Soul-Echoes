@@ -1,0 +1,3 @@
+<nav id="minimapa" aria-label="Navegación por secciones">
+  <a *ngFor="let seccion of secciones" [href]="'#' + seccion.id" class="minimapa-punto" [class.activo]="seccion.id === seccionActivaId" [attr.data-seccion]="seccion.id" [attr.aria-label]="seccion.etiqueta" (click)="irASeccion(seccion.id, $event)" [innerHTML]="seccion.iconoSvg"></a>
+</nav>

@@ -1,0 +1,21 @@
+/* Respiración sutil en el punto activo del minimapa — deliberadamente
+   asimétrica (crece más lento de lo que decrece) para que se sienta
+   como un brillo orgánico, no como un latido de corazón. Los demás
+   puntos quedan estáticos, sin ningún elemento visual nuevo. El color
+   del glow ya viene del propio .minimapa-punto.activo (currentColor),
+   así que respeta automáticamente el color neón de cada sección. */
+.minimapa-punto.activo {
+  animation: minimapa-respiracion 3.4s ease-in-out infinite;
+}
+
+@keyframes minimapa-respiracion {
+  0% {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  55% {
+    filter: drop-shadow(0 0 11px currentColor) drop-shadow(0 0 4px currentColor);
+  }
+  100% {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+}

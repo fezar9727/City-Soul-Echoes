@@ -1,0 +1,20 @@
+.navbar-avatar-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffc107;
+}
+
+/* El dropdown de usuario (avatar/logout) podía quedar parcialmente
+   cortado por el borde del viewport en pantallas angostas, porque
+   Bootstrap posiciona el menú con position: absolute relativo a su
+   propio contenedor. max-width + overflow-y garantizan que, aunque
+   la pantalla sea muy chica, el menú completo (incluido "Cerrar
+   sesión" al final) siga siendo visible y scrolleable si hiciera
+   falta, en vez de recortarse silenciosamente fuera de vista. */
+.dropdown-menu {
+  max-width: calc(100vw - 24px);
+  max-height: 70vh;
+  overflow-y: auto;
+}

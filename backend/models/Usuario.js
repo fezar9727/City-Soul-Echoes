@@ -66,6 +66,9 @@ const usuarioSchema = new mongoose.Schema({
     password: { type: String, required: [true, 'La contraseña es obligatoria'], minlength: [8, 'La contraseña debe tener al menos 8 caracteres'], select: false },
     telefono: { type: String, default: '' },
     ciudad: { type: String, default: 'Cali' },
+    bio: { type: String, maxlength: [300, 'La biografía no puede superar los 300 caracteres'], default: '' },
+    avatarUrl: { type: String, default: '' },
+    avatarPublicId: { type: String, default: '' },
     rol: {
         type: String,
         enum: { values: ['usuario', 'artista', 'docente', 'admin'], message: '{VALUE} no es un rol válido' },

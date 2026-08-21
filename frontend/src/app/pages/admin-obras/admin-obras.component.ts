@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ObrasService } from '../../services/obras.service';
 import { NotificacionService } from '../../services/notificacion.service';
 import { Obra } from '../../models/obra.model';
+import { SonidoZonaService } from '../../services/sonido-zona.service';
+import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-obras',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ControlSonidoComponent],
   templateUrl: './admin-obras.component.html',
   styleUrl: './admin-obras.component.css'
 })
-export class AdminObrasComponent implements OnInit {
+export class AdminObrasComponent implements OnInit, OnDestroy {
   obras: Obra[] = [];
   cargando = true;
   formularioVisible = false;
@@ -24,15 +27,14 @@ export class AdminObrasComponent implements OnInit {
   previsualizacion: string | null = null;
   imagenActualEdicion: string | null = null;
   categorias = ['pintura', 'escultura', 'musica', 'digital', 'fotografia', 'otro'];
-
   vistaActual: 'activas' | 'papelera' = 'activas';
   papelera: (Obra & { diasRestantes: number })[] = [];
   cargandoPapelera = false;
-
   constructor(
     private obrasService: ObrasService,
     private notificacion: NotificacionService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sonidoService: SonidoZonaService
   ) {
     this.formulario = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
@@ -46,9 +48,12 @@ export class AdminObrasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sonidoService.reproducirZona('panel-obras');
     this.cargarObras();
   }
-
+  ngOnDestroy(): void {
+    this.sonidoService.detenerActual();
+  }
   cargarObras(): void {
     this.cargando = true;
     this.obrasService.obtenerTodas().subscribe({
@@ -62,14 +67,12 @@ export class AdminObrasComponent implements OnInit {
       }
     });
   }
-
   cambiarVista(vista: 'activas' | 'papelera'): void {
     this.vistaActual = vista;
     if (vista === 'papelera') {
       this.cargarPapelera();
     }
   }
-
   cargarPapelera(): void {
     this.cargandoPapelera = true;
     this.obrasService.obtenerPapelera().subscribe({
@@ -83,7 +86,6 @@ export class AdminObrasComponent implements OnInit {
       }
     });
   }
-
   restaurarObra(obra: Obra): void {
     this.obrasService.restaurar(obra._id).subscribe({
       next: () => {
@@ -106,7 +108,6 @@ export class AdminObrasComponent implements OnInit {
     this.formulario.reset({ precio: 0, categoria: 'escultura', enVenta: false });
     this.formularioVisible = true;
   }
-
   abrirFormularioEdicion(obra: Obra): void {
     this.modoEdicion = true;
     this.idEnEdicion = obra._id;
@@ -124,7 +125,6 @@ export class AdminObrasComponent implements OnInit {
     });
     this.formularioVisible = true;
   }
-
   cancelarFormulario(): void {
     this.formularioVisible = false;
     this.modoEdicion = false;
@@ -132,7 +132,6 @@ export class AdminObrasComponent implements OnInit {
     this.archivoSeleccionado = null;
     this.previsualizacion = null;
   }
-
   onArchivoSeleccionado(evento: Event): void {
     const input = evento.target as HTMLInputElement;
     const archivo = input.files?.[0] ?? null;
@@ -170,7 +169,6 @@ export class AdminObrasComponent implements OnInit {
     const peticion = this.modoEdicion && this.idEnEdicion
       ? this.obrasService.actualizar(this.idEnEdicion, formData)
       : this.obrasService.crear(formData);
-
     peticion.subscribe({
       next: () => {
         this.guardando = false;
@@ -188,7 +186,6 @@ export class AdminObrasComponent implements OnInit {
       }
     });
   }
-
   async confirmarEliminar(obra: Obra): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${obra.titulo}"?`,
@@ -202,9 +199,7 @@ export class AdminObrasComponent implements OnInit {
       background: '#111318',
       color: '#f1f1f1'
     });
-
     if (!resultado.isConfirmed) return;
-
     this.obrasService.eliminar(obra._id).subscribe({
       next: () => {
         this.notificacion.exito('Obra eliminada', `"${obra.titulo}" se movió a la papelera.`);
@@ -215,8 +210,6 @@ export class AdminObrasComponent implements OnInit {
       }
     });
   }
-
-  // ↓↓↓ MÉTODO NUEVO — se pega ACÁ, después del cierre } de confirmarEliminar, todavía dentro de la clase
   async confirmarEliminarDefinitivo(obra: Obra): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${obra.titulo}" para siempre?`,
@@ -238,4 +231,4 @@ export class AdminObrasComponent implements OnInit {
       error: () => this.notificacion.error('No se pudo eliminar', 'Intentá de nuevo.')
     });
   }
-}   // ← este es el cierre de TODA la clase AdminObrasComponent, no lo toques, ya existe
+}

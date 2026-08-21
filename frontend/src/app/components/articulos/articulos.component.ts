@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ArticulosService } from '../../services/articulos.service';
 import { Articulo, CategoriaArticulo } from '../../models/articulo.model';
 import { RevealDirective } from '../../directives/reveal.directive';
-
+import { SonidoZonaService } from '../../services/sonido-zona.service';
+import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
 @Component({
   selector: 'app-articulos',
-  imports: [CommonModule, FormsModule, RevealDirective],
+  imports: [CommonModule, FormsModule, RevealDirective, ControlSonidoComponent],
   templateUrl: './articulos.component.html',
   styleUrl: './articulos.component.css'
 })
@@ -27,7 +28,10 @@ export class ArticulosComponent implements OnInit {
   // ícono de reemplazo en vez del ícono roto del navegador.
   private imagenesRotas = new Set<string>();
 
-  constructor(private articulosService: ArticulosService) {}
+  constructor(
+    private articulosService: ArticulosService,
+    private sonidoService: SonidoZonaService
+  ) {}
 
   ngOnInit(): void {
     this.cargarCategoria('noticias');
@@ -71,10 +75,16 @@ export class ArticulosComponent implements OnInit {
   abrirCategoria(categoria: CategoriaArticulo): void {
     this.categoriaAbierta = categoria;
     this.textoBusqueda = '';
+    this.sonidoService.reproducirZona(categoria);
   }
 
   cerrarCategoria(): void {
     this.categoriaAbierta = null;
+    this.sonidoService.detenerActual();
+  }
+  @HostListener('document:hidden.bs.modal')
+  onModalCerrado(): void {
+    this.cerrarCategoria();
   }
 
   get tituloDeCategoriaAbierta(): string {

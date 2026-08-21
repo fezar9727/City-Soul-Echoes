@@ -1689,23 +1689,15 @@ header.hero-section .audio-label {
 
 
 /* ====================== 16. SCROLLBAR ====================== */
-
+/* El scrollbar nativo se oculta por completo: el componente
+   ScrollCoheteComponent lo reemplaza con una versión propia (cohete
+   con llama en Canvas), consistente en todos los navegadores en vez
+   de depender de las diferencias de estilo nativo entre ellos. */
 ::-webkit-scrollbar {
-    width: 4px;
+    display: none;
 }
-
-::-webkit-scrollbar-track {
-    background: #111111;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #444444;
-    border-radius: 10px;
-}
-
 html {
-    scrollbar-width: thin;
-    scrollbar-color: #444444 #111111;
+    scrollbar-width: none;
 }
 
 
@@ -1713,7 +1705,7 @@ html {
 
 #minimapa {
     position: fixed;
-    right: 14px;
+    right: 46px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 999;
@@ -2035,4 +2027,18 @@ Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
 .cta-contenido-encima {
   position: relative;
   z-index: 1;
+}
+
+/* ============================================
+   Contraste de texto dentro de .card con fondo
+   oscuro (bg-dark). Se apunta directo a los
+   elementos, sin tocar variables --bs-* globales
+   que afectan a componentes de Bootstrap no
+   relacionados (como las pestañas .nav-tabs).
+   ============================================ */
+.card.bg-dark .form-label,
+.card.bg-dark h4,
+.card.bg-dark h5,
+.card.bg-dark h6 {
+  color: var(--text-light);
 }

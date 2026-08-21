@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { EventosService } from '../../services/eventos.service';
 import { NotificacionService } from '../../services/notificacion.service';
 import { Evento, EventoPapelera } from '../../models/evento.model';
+import { SonidoZonaService } from '../../services/sonido-zona.service';
+import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-eventos',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ControlSonidoComponent],
   templateUrl: './admin-eventos.component.html',
   styleUrl: './admin-eventos.component.css'
 })
-export class AdminEventosComponent implements OnInit {
+export class AdminEventosComponent implements OnInit, OnDestroy {
   eventos: Evento[] = [];
   cargando = true;
   formularioVisible = false;
@@ -29,11 +32,11 @@ export class AdminEventosComponent implements OnInit {
   cargandoPapelera = false;
   pendientesModeracion: Evento[] = [];
   cargandoModeracion = false;
-
   constructor(
     private eventosService: EventosService,
     private notificacion: NotificacionService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sonidoService: SonidoZonaService
   ) {
     this.formulario = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(2)]],
@@ -46,11 +49,13 @@ export class AdminEventosComponent implements OnInit {
       cupos: [0]
     });
   }
-
   ngOnInit(): void {
+    this.sonidoService.reproducirZona('panel-eventos');
     this.cargarEventos();
   }
-
+  ngOnDestroy(): void {
+    this.sonidoService.detenerActual();
+  }
   cargarEventos(): void {
     this.cargando = true;
     this.eventosService.obtenerTodos().subscribe({
@@ -64,7 +69,6 @@ export class AdminEventosComponent implements OnInit {
       }
     });
   }
-
   cambiarVista(vista: 'activos' | 'papelera' | 'moderacion'): void {
     this.vistaActual = vista;
     if (vista === 'papelera') {
@@ -74,7 +78,6 @@ export class AdminEventosComponent implements OnInit {
       this.cargarModeracion();
     }
   }
-
   cargarModeracion(): void {
     this.cargandoModeracion = true;
     this.eventosService.obtenerPendientesModeracion().subscribe({
@@ -99,7 +102,6 @@ export class AdminEventosComponent implements OnInit {
       error: () => this.notificacion.error('No se pudo aprobar', 'Intentá de nuevo.')
     });
   }
-
   async rechazarEvento(evento: Evento): Promise<void> {
     const resultado = await Swal.fire({
       title: `Rechazar "${evento.titulo}"`,
@@ -123,7 +125,6 @@ export class AdminEventosComponent implements OnInit {
       error: () => this.notificacion.error('No se pudo rechazar', 'Intentá de nuevo.')
     });
   }
-
   cargarPapelera(): void {
     this.cargandoPapelera = true;
     this.eventosService.obtenerPapelera().subscribe({
@@ -137,7 +138,6 @@ export class AdminEventosComponent implements OnInit {
       }
     });
   }
-
   restaurarEvento(evento: EventoPapelera): void {
     this.eventosService.restaurar(evento._id).subscribe({
       next: () => {
@@ -160,7 +160,6 @@ export class AdminEventosComponent implements OnInit {
     this.formulario.reset({ tipo: 'evento', hora: '19:00', accesoPúblico: true, cupos: 0 });
     this.formularioVisible = true;
   }
-
   abrirFormularioEdicion(evento: Evento): void {
     this.modoEdicion = true;
     this.idEnEdicion = evento._id;
@@ -179,7 +178,6 @@ export class AdminEventosComponent implements OnInit {
     });
     this.formularioVisible = true;
   }
-
   cancelarFormulario(): void {
     this.formularioVisible = false;
     this.modoEdicion = false;
@@ -187,7 +185,6 @@ export class AdminEventosComponent implements OnInit {
     this.archivoSeleccionado = null;
     this.previsualizacion = null;
   }
-
   onArchivoSeleccionado(evento: Event): void {
     const input = evento.target as HTMLInputElement;
     const archivo = input.files?.[0] ?? null;
@@ -242,7 +239,6 @@ export class AdminEventosComponent implements OnInit {
       }
     });
   }
-
   async confirmarEliminar(evento: Evento): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${evento.titulo}"?`,
@@ -267,7 +263,6 @@ export class AdminEventosComponent implements OnInit {
       }
     });
   }
-
   async confirmarEliminarDefinitivo(evento: EventoPapelera): Promise<void> {
     const resultado = await Swal.fire({
       title: `¿Eliminar "${evento.titulo}" para siempre?`,
@@ -289,7 +284,6 @@ export class AdminEventosComponent implements OnInit {
       error: () => this.notificacion.error('No se pudo eliminar', 'Intentá de nuevo.')
     });
   }
-
   nombreCreadorDe(evento: Evento): string {
     if (typeof evento.creador === 'string') {
       return 'usuario';

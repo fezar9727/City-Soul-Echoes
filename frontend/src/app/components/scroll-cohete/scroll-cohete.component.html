@@ -1,0 +1,57 @@
+<div
+  id="scroll-cohete-track"
+  #trackRef
+  (pointerdown)="onTrackPointerDown($event)"
+  role="scrollbar"
+  aria-label="Barra de desplazamiento"
+  [attr.aria-valuenow]="posicionThumbPx"
+  tabindex="0">
+  <canvas #canvasRef class="scroll-cohete-canvas" aria-hidden="true"></canvas>
+    <div
+    class="scroll-cohete-thumb"
+    [style.transform]="'translateY(' + posicionThumbPx + 'px)'"
+    [style.opacity]="opacidad"
+    (pointerdown)="onThumbPointerDown($event)">
+        <svg viewBox="0 0 32 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" [style.transform]="'rotate(' + rotacionAcumulada + 'deg)'">
+      <defs>
+        <!-- Gradiente de cuerpo: simula luz viniendo de la izquierda,
+             sombra a la derecha — es la técnica estándar de ilustración
+             vectorial para dar sensación de cilindro 3D sin usar
+             renderizado real. -->
+        <linearGradient id="cuerpoGradiente" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="35%" stop-color="#e8e8ec"/>
+          <stop offset="75%" stop-color="#b8b8c0"/>
+          <stop offset="100%" stop-color="#8f8f98"/>
+        </linearGradient>
+        <linearGradient id="aletaGradiente" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#d8d8de"/>
+          <stop offset="100%" stop-color="#9c9ca4"/>
+        </linearGradient>
+        <radialGradient id="ventanaGradiente" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#bfe8ff"/>
+          <stop offset="60%" stop-color="#4a9fd6"/>
+          <stop offset="100%" stop-color="#1a2a3a"/>
+        </radialGradient>
+      </defs>
+      <!-- Cuerpo con gradiente cilíndrico -->
+      <path d="M16 1 C19.5 8, 20 24, 19 34 L13 34 C12 24, 12.5 8, 16 1 Z" fill="url(#cuerpoGradiente)"/>
+      <!-- Antena/sensor en la punta — detalle que faltaba arriba -->
+      <line x1="16" y1="1" x2="16" y2="-4" stroke="#c9c9cf" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="16" cy="-4" r="1.1" fill="#d21f1f"/>
+      <!-- Anillo estructural -->
+      <rect x="12.6" y="15.5" width="6.8" height="1.6" rx="0.8" fill="#7a7a82"/>
+      <rect x="12.6" y="15.5" width="6.8" height="0.6" rx="0.3" fill="#c9c9cf"/>
+      <!-- Ventana con gradiente radial (simula reflejo de vidrio) -->
+      <circle cx="16" cy="10" r="2.6" fill="url(#ventanaGradiente)"/>
+      <circle cx="15.2" cy="9.2" r="0.6" fill="#ffffff" opacity="0.8"/>
+      <!-- Franja roja -->
+      <path d="M13.6 27 L18.4 27 L17.8 32 L14.2 32 Z" fill="#d21f1f"/>
+      <!-- Aletas con gradiente propio, cerradas y angulosas -->
+      <path d="M13 30 L8 40 L13 37.5 Z" fill="url(#aletaGradiente)"/>
+      <path d="M19 30 L24 40 L19 37.5 Z" fill="url(#aletaGradiente)"/>
+      <path d="M13 30 L8 40 L13 37.5 Z" fill="none" stroke="#d21f1f" stroke-width="0.5"/>
+      <path d="M19 30 L24 40 L19 37.5 Z" fill="none" stroke="#d21f1f" stroke-width="0.5"/>
+    </svg>
+  </div>
+</div>

@@ -28,6 +28,22 @@ const crearCurso = async (req, res) => {
     }
 };
 
+// Endpoint exclusivo para el panel de administración: devuelve TODOS
+// los cursos no eliminados, publicados o no. obtenerCursos (la ruta
+// pública) siempre filtra publicado:true — si el panel admin usara
+// esa misma ruta, un curso despublicado desaparecería también de su
+// propia tabla de administración, sin forma de volver a publicarlo.
+const obtenerCursosAdmin = async (req, res) => {
+    try {
+        const cursos = await Curso.find({ eliminada: false })
+            .populate('docente', 'nombreCompleto correo')
+            .sort({ createdAt: -1 });
+        res.status(200).json({ ok: true, total: cursos.length, cursos });
+    } catch (error) {
+        res.status(500).json({ ok: false, mensaje: 'Error al obtener los cursos', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
+    }
+};
+
 const obtenerCursos = async (req, res) => {
     try {
         const { categoria, modalidad, docente } = req.query;
@@ -184,6 +200,7 @@ const eliminarDefinitivo = async (req, res) => {
 module.exports = {
     crearCurso,
     obtenerCursos,
+    obtenerCursosAdmin,
     obtenerCurso,
     actualizarCurso,
     eliminarCurso,
