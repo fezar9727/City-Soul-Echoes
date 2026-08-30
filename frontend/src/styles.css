@@ -2042,3 +2042,18 @@ Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
 .card.bg-dark h6 {
   color: var(--text-light);
 }
+
+/* ============================================
+   Contexto de apilamiento para EfectoFondoSutilComponent.
+   position: relative por sí solo NO crea un nuevo stacking context —
+   el z-index: -1 del canvas del efecto se escapaba fuera del
+   contenedor y terminaba pintado detrás de TODA la página (detrás
+   del propio fondo del body), por eso no se veía nada en ningún
+   lado. isolation: isolate fuerza un contexto propio y contenido,
+   sin tocar ningún z-index existente del resto del sitio.
+   Fuente: https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
+   ============================================ */
+.efecto-fondo-contenedor {
+  position: relative;
+  isolation: isolate;
+}

@@ -4,6 +4,7 @@ import { ObrasService } from '../../services/obras.service';
 import { Obra } from '../../models/obra.model';
 import { RevealDirective } from '../../directives/reveal.directive';
 import { ControlSonidoComponent } from '../control-sonido/control-sonido.component';
+import { EfectoFondoSutilComponent } from '../efecto-fondo-sutil/efecto-fondo-sutil.component';
 import { SonidoZonaService } from '../../services/sonido-zona.service';
 import { RouterLink } from '@angular/router';
 
@@ -25,7 +26,7 @@ const AUTOPLAY_SEG = 22;
 
 @Component({
   selector: 'app-vault',
-  imports: [CommonModule, RevealDirective, ControlSonidoComponent],
+    imports: [CommonModule, RevealDirective, ControlSonidoComponent, EfectoFondoSutilComponent],
   templateUrl: './vault.component.html',
   styleUrl: './vault.component.css'
 })

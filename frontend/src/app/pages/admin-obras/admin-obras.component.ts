@@ -7,11 +7,11 @@ import { NotificacionService } from '../../services/notificacion.service';
 import { Obra } from '../../models/obra.model';
 import { SonidoZonaService } from '../../services/sonido-zona.service';
 import { ControlSonidoComponent } from '../../components/control-sonido/control-sonido.component';
+import { EfectoFondoSutilComponent } from '../../components/efecto-fondo-sutil/efecto-fondo-sutil.component';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-admin-obras',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, ControlSonidoComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, ControlSonidoComponent, EfectoFondoSutilComponent],
   templateUrl: './admin-obras.component.html',
   styleUrl: './admin-obras.component.css'
 })
