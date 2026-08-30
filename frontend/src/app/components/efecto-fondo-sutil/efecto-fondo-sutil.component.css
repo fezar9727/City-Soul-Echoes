@@ -1,0 +1,23 @@
+/* Fijo a la ventana completa, siempre — nunca depende de medir la
+   altura del contenido (esa dependencia era la causa real de que se
+   cortara a la mitad: forzábamos una altura de contenido a un
+   elemento fijo a la pantalla, dos ideas contradictorias). Al ser
+   position:fixed con 100vw/100vh, cubre la ventana completa en
+   cualquier punto del scroll, sin cálculos. */
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+.efecto-fondo-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}

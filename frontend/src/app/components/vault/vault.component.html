@@ -57,10 +57,11 @@
     aria-modal="true"
     aria-label="Galería de obras"
     tabindex="-1"
+    class="efecto-fondo-contenedor"
     (click)="onOverlayClick($event)"
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)">
-
+    <app-efecto-fondo-sutil tipo="viento"></app-efecto-fondo-sutil>
     <button type="button" id="lightbox-cerrar" aria-label="Cerrar galería" (click)="cerrarLightbox()"><i class="bi bi-x-lg"></i></button>
     <button type="button" id="lightbox-prev" aria-label="Obra anterior" (click)="irAnterior()"><i class="bi bi-chevron-left"></i></button>
     <button type="button" id="lightbox-next" aria-label="Obra siguiente" (click)="irSiguiente()"><i class="bi bi-chevron-right"></i></button>
