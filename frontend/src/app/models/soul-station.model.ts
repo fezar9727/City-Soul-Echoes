@@ -2,6 +2,9 @@ export interface Pista {
   titulo: string;
   artista: string;
   url: string;
+  imagenAlbum: string;
+  categoria: string;
+  licencia: string;
   duracionSegundos: number;
   orden: number;
 }

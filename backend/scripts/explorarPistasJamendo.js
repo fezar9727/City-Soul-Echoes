@@ -53,13 +53,18 @@ const RESULTADOS_POR_PAGINA = 200;
 const DURACION_MINIMA_SEGUNDOS = 180;
 
 // Distribución acordada: 180 pistas totales (pool grande para rotación diaria futura)
+// Mismos 6 géneros ya elegidos (tus gustos definidos, sin agregar
+// ninguno nuevo) — solo se sube cantidadDeseada proporcionalmente
+// para llegar a ~500 en total, y paginasMaximas sube junto con eso
+// para que la API tenga margen real de encontrar suficientes tracks
+// válidos por categoría antes de rendirse.
 const CATEGORIAS = [
-  { nombre: 'post-punk-dark-wave', tag: 'darkwave gothic newwave synthpop postpunk', cantidadDeseada: 34, paginasMaximas: 8 },
-  { nombre: 'funk', tag: 'funk soul groove disco boogie fusion', cantidadDeseada: 30, paginasMaximas: 8 },
-  { nombre: 'psicodelico-experimental', tag: 'psychedelic experimental', cantidadDeseada: 32, paginasMaximas: 8 },
-  { nombre: 'rock', tag: 'rock alternative indierock hardrock classicrock', cantidadDeseada: 32, paginasMaximas: 8 },
-  { nombre: 'hip-hop-old-school', tag: 'hiphop oldschool', cantidadDeseada: 26, paginasMaximas: 8 },
-  { nombre: 'city-pop-andino', tag: 'citypop andean world', cantidadDeseada: 26, paginasMaximas: 8 },
+  { nombre: 'post-punk-dark-wave', tag: 'darkwave gothic newwave synthpop postpunk', cantidadDeseada: 90, paginasMaximas: 20 },
+  { nombre: 'funk', tag: 'funk soul groove disco boogie fusion', cantidadDeseada: 85, paginasMaximas: 20 },
+  { nombre: 'psicodelico-experimental', tag: 'psychedelic experimental', cantidadDeseada: 88, paginasMaximas: 20 },
+  { nombre: 'rock', tag: 'rock alternative indierock hardrock classicrock', cantidadDeseada: 88, paginasMaximas: 20 },
+  { nombre: 'hip-hop-old-school', tag: 'hiphop oldschool', cantidadDeseada: 75, paginasMaximas: 20 },
+  { nombre: 'city-pop-andino', tag: 'citypop andean world', cantidadDeseada: 74, paginasMaximas: 20 },
 ];
 
 function permiteUsoComercial(licenseCcurl) {
@@ -78,10 +83,13 @@ async function pedirPagina(categoria, offset) {
     limit: RESULTADOS_POR_PAGINA,
     offset,
     fuzzytags: categoria.tag,
+    // 'musicinfo' se mantiene; se agrega 'lyrics' NO — solo lo que
+    // hace falta. album_image viaja directo en cada track por
+    // defecto, no requiere un include extra según la documentación
+    // oficial de Jamendo (developer.jamendo.com/v3.0/tracks).
     include: 'musicinfo',
     audioformat: 'mp32',
   };
-
   const respuesta = await axios.get(JAMENDO_BASE_URL, { params });
   return respuesta.data.results || [];
 }
@@ -119,8 +127,14 @@ async function buscarPorGenero(categoria) {
         artista: track.artist_name,
         duracionSegundos: track.duration,
         url: track.audiodownload || track.audio,
+        imagenAlbum: track.album_image || track.image || '',
+        // categoria: el género real bajo el cual curamos esta canción
+        // (definido por nosotros al armar CATEGORIAS arriba) — dato
+        // real y verificable de cómo se organizó la búsqueda, no
+        // inventado. Antes se perdía al aplanar el array en
+        // cargarSoulStation.js; ahora viaja con cada candidato.
+        categoria: categoria.nombre,
         licencia: track.license_ccurl,
-        paginaJamendo: track.shareurl,
       });
 
       if (encontrados.length >= categoria.cantidadDeseada) break;

@@ -4,6 +4,9 @@ const pistaSchema = new mongoose.Schema({
     titulo: { type: String, required: true, trim: true },
     artista: { type: String, trim: true, default: '' },
     url: { type: String, required: true },
+    imagenAlbum: { type: String, trim: true, default: '' },
+    categoria: { type: String, trim: true, default: '' },
+    licencia: { type: String, trim: true, default: '' },
     duracionSegundos: { type: Number, default: 0 },
     orden: { type: Number, required: true }
 }, { _id: false });

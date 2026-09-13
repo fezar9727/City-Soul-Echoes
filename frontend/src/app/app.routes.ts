@@ -9,6 +9,7 @@ import { PerfilPublicoComponent } from './pages/perfil-publico/perfil-publico.co
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { ResetearPasswordComponent } from './pages/resetear-password/resetear-password.component';
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
+import { ReproductorLocalComponent } from './components/reproductor-local/reproductor-local.component';
 import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'recuperar-password', component: RecuperarPasswordComponent },
   { path: 'reset-password', component: ResetearPasswordComponent },
   { path: 'editar-perfil', component: EditarPerfilComponent },
+  { path: 'reproductor-local', component: ReproductorLocalComponent },
   { path: '**', redirectTo: '' }
 ];

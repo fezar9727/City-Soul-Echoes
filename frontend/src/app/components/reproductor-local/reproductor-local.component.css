@@ -1,0 +1,880 @@
+/* ============================================================
+   RACK DE AUDIO — reproductor de archivos locales del usuario.
+   Estética de equipo de sonido físico real (rack de componentes:
+   pantalla LCD, bandeja de carga, controles con relieve), distinta
+   a propósito del lenguaje visual PS1/SoundScope de Soul Station,
+   para diferenciar los 2 dominios (archivos locales vs. streaming).
+   ============================================================ */
+
+.rack-audio-seccion {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+}
+
+.rack-audio-carcasa {
+  max-width: 640px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #1c1c1e, #101012);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ---- 1. PANTALLA LCD + CARÁTULA ---- */
+.rack-lcd-fila {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.rack-caratula {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #1a1420, #2d1f3d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rack-caratula img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rack-caratula i {
+  color: #fab60c;
+  font-size: 1.6rem;
+}
+.rack-lcd {
+  flex: 1;
+  min-width: 0;
+  background: #0a0f0a;
+  border: 2px solid #1a2a1a;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 0;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+.rack-lcd-pantalla {
+  font-family: "Courier New", monospace;
+  color: #4dff88;
+  text-shadow: 0 0 6px rgba(77, 255, 136, 0.6);
+}
+.rack-lcd-titulo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rack-lcd-titulo--vacio {
+  opacity: 0.5;
+}
+.rack-lcd-artista {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rack-lcd-tiempo {
+  font-size: 0.68rem;
+  opacity: 0.6;
+  margin: 4px 0 0;
+}
+
+/* ---- 2. BANDEJA DE CARGA ---- */
+.rack-bandeja-carga {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 28px 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+.rack-bandeja-carga--arrastrando {
+  border-color: #4dff88;
+  background: rgba(77, 255, 136, 0.06);
+}
+.rack-bandeja-icono {
+  font-size: 2.2rem;
+  color: rgba(255, 255, 255, 0.35);
+  display: block;
+  margin-bottom: 8px;
+}
+.rack-bandeja-texto {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.rack-btn-cargar {
+  display: inline-block;
+  background: linear-gradient(180deg, #e8eaed 0%, #b8bcc4 45%, #8a8f99 100%);
+  border: 1px solid #6b7280;
+  color: #1a1d23;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.rack-bandeja-cargando {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #4dff88;
+}
+
+/* ---- 3. CONTROLES PRINCIPALES — identidad PROPIA bronce/cobre,
+   a tono con la pantalla LCD verde, distinta a propósito del
+   plateado de Soul Station (dominios visuales separados). ---- */
+.rack-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.rack-controles .btn {
+  background: linear-gradient(180deg, #d9a66b 0%, #a8703a 45%, #6b4623 100%);
+  border: 1px solid #4a2f18;
+  color: #1a0f05;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 220, 180, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+    0 3px 6px rgba(0, 0, 0, 0.5);
+}
+.rack-controles .btn:hover {
+  background: linear-gradient(180deg, #e8bb84 0%, #c08a52 45%, #7c5228 100%);
+}
+.rack-controles .btn.btn-warning,
+.rack-controles .btn:active {
+  background: linear-gradient(180deg, #6b4623 0%, #a8703a 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.rack-controles .btn i {
+  filter: drop-shadow(0 0 3px rgba(77, 255, 136, 0.4));
+}
+
+/* ---- 4. SLIDERS (volumen + boost) ---- */
+.rack-boost-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  margin-bottom: 20px;
+}
+.rack-boost-fila i {
+  color: #fab60c;
+  font-size: 0.9rem;
+}
+.rack-range {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  cursor: pointer;
+}
+/* Thumb "cinta" en vez de bolita: rectángulo redondeado angosto,
+   morado neón — referencia real de sliders modernos tipo mixer de
+   audio, distinto del punto amarillo genérico anterior. */
+/* Solo la barra de progreso general (.rack-range) usa la rueda de
+   casete — el volumen y el boost usan un thumb propio distinto,
+   ver más abajo. */
+/* Rotación continua + pulso de escala (hasta el tamaño actual, nunca
+   más grande) — animation real sobre el thumb, soportado en
+   navegadores basados en Chromium/WebKit (donde ya requerimos
+   soporte para showOpenFilePicker de todos modos). */
+/* rotate y scale como PROPIEDADES INDEPENDIENTES (CSS Transforms
+   Level 2, no transform: rotate()/scale()) — causa real del bug:
+   2 animaciones sobre la misma propiedad "transform" no se combinan,
+   solo aplica la última, por eso nunca giraba (solo pulsaba). Con
+   propiedades separadas, ambas corren en simultáneo sin conflicto.
+   Duración subida a 8s/4s — mucho más lento, como se pidió. */
+.rack-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #0a0a0a 0%, #0a0a0a 30%, transparent 31%),
+    conic-gradient(
+      #c300ff 0deg 60deg,
+      #2a1a33 60deg 90deg,
+      #c300ff 90deg 150deg,
+      #2a1a33 150deg 180deg,
+      #c300ff 180deg 240deg,
+      #2a1a33 240deg 270deg,
+      #c300ff 270deg 330deg,
+      #2a1a33 330deg 360deg
+    );
+  box-shadow: 0 0 6px rgba(195, 0, 255, 0.6);
+  cursor: pointer;
+  animation:
+    rack-carrete-girar 26s linear infinite,
+    rack-carrete-pulso 9s ease-in-out infinite;
+}
+.rack-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #0a0a0a 0%, #0a0a0a 30%, transparent 31%),
+    conic-gradient(
+      #c300ff 0deg 60deg,
+      #2a1a33 60deg 90deg,
+      #c300ff 90deg 150deg,
+      #2a1a33 150deg 180deg,
+      #c300ff 180deg 240deg,
+      #2a1a33 240deg 270deg,
+      #c300ff 270deg 330deg,
+      #2a1a33 330deg 360deg
+    );
+  box-shadow: 0 0 6px rgba(195, 0, 255, 0.6);
+  cursor: pointer;
+  animation:
+    rack-carrete-girar 14s linear infinite,
+    rack-carrete-pulso 5s ease-in-out infinite;
+}
+@keyframes rack-carrete-girar {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+/* Rango de escala ampliado (antes 0.78-1.0) para que el respiro se
+   note más — el tope 1.15 es el "agrandarse" pedido, se compensa
+   con margen visual real alrededor del thumb para que no se corte. */
+@keyframes rack-carrete-pulso {
+  0%,
+  100% {
+    scale: 1.35;
+  }
+  50% {
+    scale: 0.55;
+  }
+}
+/* Track con relleno morado real proporcional al progreso — técnica
+   real vía CSS var actualizada desde el input, misma que ya usamos
+   en Soul Station para la barra de progreso dorada. */
+/* Track = cinta física real: color marrón oscuro de cinta magnética
+   grabada (recorrido ya reproducido), y beige/transparente para lo
+   que falta (carrete vacío). */
+.rack-range--progreso {
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    #3a2a1a 0%,
+    #3a2a1a var(--progreso-pct, 0%),
+    rgba(200, 180, 150, 0.15) var(--progreso-pct, 0%)
+  );
+}
+.rack-boost-valor {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 40px;
+  text-align: right;
+}
+/* Zeppelín (cápsula alargada) con arcoíris en movimiento LENTO en
+   reposo (identidad propia antes de tocarlo), y "disco" (rotación
+   de matiz rápida, tipo luces de fiesta) mientras se arrastra —
+   activado vía clase .rack-discoteca agregada por JS al input. */
+/* Silueta REAL de zeppelín (cuerpo elipsoidal + aleta de cola)
+   como mask-image (CSS Masking, API estándar) — el arcoíris de
+   fondo se ve SOLO dentro de esa forma, no un óvalo genérico.
+   Clase explícita .rack-range--boost puesta directo en el <input>
+   (ver .html) — elimina cualquier ambigüedad de selector que
+   causaba que se viera el color por defecto (percibido "amarillo"). */
+/* Nariz redondeada (extremo derecho de la ellipse) apuntando a la
+   derecha, aleta de cola triangular en el extremo izquierdo —
+   orientación corregida respecto a la versión anterior. */
+/* clip-path puro (sin mask-image, elimina la dependencia del fill
+   SVG por defecto) — hexágono elongado: tail pinzada en x=0%
+   (izquierda), nariz en punta en x=100% (derecha) — silueta real de
+   dirigible, orientación garantizada matemáticamente. */
+/* clip-path simplificado a un octágono real (8 puntos en orden
+   estrictamente horario, sin cruces): cuerpo redondeado hacia la
+   derecha (nariz), extremo izquierdo cuadrado (cola) — geometría
+   verificada punto por punto para que el navegador nunca la
+   interprete retorcida. */
+/* Sin clip-path (nos falló 3 veces con polígonos) — border-radius
+   ASIMÉTRICO: lado izquierdo casi recto (valor bajo = cola cuadrada),
+   lado derecho totalmente redondeado (valor alto = nariz curva).
+   Es la forma más simple posible de garantizar dirección: no hay
+   coordenadas ni puntos que interpretar mal, solo 2 números. */
+/* Triángulo textbook estándar (mismo patrón que cualquier botón de
+   "play" real en la web) — 3 puntos: esquina sup-izq, punta central
+   en el eje derecho, esquina inf-izq. Geometría verificada, sin
+   ambigüedad posible de dirección. */
+.rack-range--boost::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 34px;
+  height: 20px;
+  border-radius: 0;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  background: linear-gradient(
+    90deg,
+    #ff2ec4,
+    #ffae00,
+    #f7ff00,
+    #4dff6e,
+    #00e5ff,
+    #7a5cff,
+    #ff2ec4
+  );
+  background-size: 250% 100%;
+  box-shadow: 0 0 8px rgba(255, 46, 196, 0.5);
+  cursor: pointer;
+  animation: rack-zeppelin-arcoiris 6s linear infinite;
+}
+.rack-range--boost::-moz-range-thumb {
+  width: 34px;
+  height: 20px;
+  border: none;
+  border-radius: 0;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  background: linear-gradient(
+    90deg,
+    #ff2ec4,
+    #ffae00,
+    #f7ff00,
+    #4dff6e,
+    #00e5ff,
+    #7a5cff,
+    #ff2ec4
+  );
+  background-size: 250% 100%;
+  box-shadow: 0 0 8px rgba(255, 46, 196, 0.5);
+  cursor: pointer;
+}
+@keyframes rack-zeppelin-arcoiris {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 250% 50%;
+  }
+}
+.rack-discoteca::-webkit-slider-thumb {
+  animation: rack-zeppelin-disco 0.4s linear infinite !important;
+  box-shadow:
+    0 0 14px rgba(255, 46, 196, 0.8),
+    0 0 20px rgba(0, 229, 255, 0.5) !important;
+}
+@keyframes rack-zeppelin-disco {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 400% 50%;
+  }
+}
+
+/* Boost oculto detrás de un ícono — se despliega solo al tocarlo */
+.rack-boost-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+/* Causa real confirmada: nunca había tocado este selector — solo
+   el thumb del slider, no el propio botón/ícono del rayo, que
+   seguía con el dorado original de Soul Station. */
+.rack-btn-boost-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid rgba(255, 46, 196, 0.35);
+  color: #ff2ec4;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+/* Ícono con relleno arcoíris real — background-clip:text (técnica
+   estándar CSS) recorta el gradiente con la forma exacta del glyph
+   del ícono de fuente, en vez de un solo color tintado plano. */
+.rack-btn-boost-toggle i {
+  background: linear-gradient(
+    90deg,
+    #ff2ec4,
+    #ffae00,
+    #f7ff00,
+    #4dff6e,
+    #00e5ff,
+    #7a5cff,
+    #ff2ec4
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rack-zeppelin-arcoiris 6s linear infinite;
+}
+.rack-boost-wrapper .rack-boost-fila {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.25s ease;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Selector combinado con MÁS especificidad que la regla de arriba
+   — causa real de que nunca se mostrara: la regla "oculto" (2
+   clases) ganaba siempre a "visible" (1 clase sola). */
+.rack-boost-wrapper .rack-boost-fila.rack-boost-fila--visible {
+  max-height: 40px !important;
+  opacity: 1 !important;
+  margin-top: 10px !important;
+}
+
+/* ---- 5. LISTAS PROPIAS DEL USUARIO ---- */
+.rack-listas-fila {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.rack-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.rack-chip--activo {
+  border-color: #4dff88;
+  color: #4dff88;
+}
+.rack-chip--nueva {
+  border-style: dashed;
+}
+
+/* ---- 6. LISTA DE PISTAS TIPO CASSETTE ---- */
+.rack-lista {
+  max-height: 280px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+}
+.rack-lista-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.rack-lista-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.rack-lista-item--activa {
+  background: rgba(77, 255, 136, 0.08);
+  border-left: 3px solid #4dff88;
+}
+.rack-lista-caratula {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #1a1420, #2d1f3d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rack-lista-caratula img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rack-lista-caratula i {
+  color: #fab60c;
+  font-size: 1.1rem;
+}
+.rack-lista-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.rack-lista-titulo {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rack-lista-artista {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- 7. BOTÓN "AGREGAR A LISTA" + MENÚ DESPLEGABLE ---- */
+.rack-btn-favorito {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  padding: 4px 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.rack-btn-favorito--activo {
+  color: #ff4d6a;
+}
+.rack-btn-favorito--activo i {
+  filter: drop-shadow(0 0 4px rgba(255, 77, 106, 0.6));
+}
+.rack-btn-agregar-lista {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.1rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.rack-btn-agregar-lista:hover {
+  color: #4dff88;
+}
+/* position:fixed real (no absolute) — escapa por completo del
+   overflow:auto de .rack-lista, causa real confirmada del bug. */
+.rack-menu-listas {
+  position: fixed;
+  z-index: 2000;
+  background: #1c1420;
+  border: 1px solid rgba(195, 0, 255, 0.35);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 170px;
+  box-shadow:
+    0 8px 24px rgba(195, 0, 255, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.rack-menu-listas-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.rack-menu-listas-item:hover {
+  background: rgba(195, 0, 255, 0.1);
+}
+.rack-menu-listas-crear {
+  width: 100%;
+  background: rgba(77, 255, 136, 0.1);
+  border: 1px dashed rgba(77, 255, 136, 0.4);
+  color: #4dff88;
+  font-size: 0.72rem;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .rack-audio-carcasa {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .rack-lcd-titulo {
+    font-size: 0.9rem;
+  }
+}
+
+.rack-progreso-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+.rack-progreso-tiempo {
+  font-family: "Courier New", monospace;
+  font-size: 0.68rem;
+  color: #c300ff;
+  min-width: 32px;
+  text-shadow: 0 0 4px rgba(195, 0, 255, 0.4);
+}
+
+/* Fila de volumen — cian/turquesa propio, distinto del morado de
+   progreso y del bronce de los controles: cada zona con su propia
+   identidad, como se pidió. */
+.rack-volumen-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+.rack-volumen-fila i {
+  color: #00e5cc;
+  font-size: 0.9rem;
+}
+.rack-volumen-valor {
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  color: #00e5cc;
+  min-width: 40px;
+  text-align: right;
+}
+/* Avión de papel real SIN SVG — 2 triángulos de border-CSS puros
+   (técnica ya validada como funcional: el triángulo simple de una
+   vuelta anterior SÍ se vio correctamente en pantalla). El cuerpo
+   principal apunta a la derecha (border-left sólido); el ala
+   inferior es un pseudo-elemento ::after más chico y más oscuro,
+   dando la sensación de pliegue de papel real sin usar SVG. */
+.rack-range--volumen::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  position: relative;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 22px solid #00e5cc;
+  background: none;
+  cursor: pointer;
+  animation: none;
+}
+.rack-range--volumen::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 22px solid #00e5cc;
+  background: none;
+  cursor: pointer;
+}
+.rack-range--volumen.rack-volando::-webkit-slider-thumb {
+  animation: rack-avion-volar 0.3s ease-in-out infinite;
+}
+@keyframes rack-avion-volar {
+  0%,
+  100% {
+    rotate: -6deg;
+    translate: -1px -1px;
+  }
+  50% {
+    rotate: 6deg;
+    translate: 1px -3px;
+  }
+}
+
+.rack-chip--con-borrar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.rack-chip-borrar {
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+.rack-chip-borrar:hover {
+  opacity: 1;
+  color: #ff4d6a;
+}
+
+
+/* ============================================================
+   CARÁTULA AMPLIADA — overlay de pantalla completa, diseño propio
+   del rack (paleta bronce/verde LCD), NO reutiliza el flip de Soul
+   Station (dominio visual separado, mismo criterio ya aplicado en
+   avión/zeppelín/rayo).
+   ============================================================ */
+.rack-caratula--clickeable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.rack-caratula--clickeable:hover {
+  transform: scale(1.05);
+}
+
+.rack-caratula-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 5, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.rack-caratula-overlay--visible {
+  display: flex;
+  animation: rack-overlay-aparece 0.25s ease;
+}
+@keyframes rack-overlay-aparece {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rack-caratula-flip {
+  width: min(80vw, 380px);
+  height: min(80vw, 380px);
+  perspective: 1200px;
+  cursor: pointer;
+}
+.rack-caratula-flip .rack-caratula-cara {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.rack-caratula-flip {
+  position: relative;
+}
+.rack-caratula-cara--frente {
+  background: linear-gradient(145deg, #1a1420, #2d1f3d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+.rack-caratula-cara--frente img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+.rack-caratula-cara--frente i {
+  font-size: 4rem;
+  color: #4dff88;
+}
+.rack-caratula-cara--respaldo {
+  transform: rotateY(180deg);
+  background-color: #0a0f0a;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(77, 255, 136, 0.04) 0px,
+    rgba(77, 255, 136, 0.04) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  border: 2px solid #1a2a1a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.rack-caratula-flip--volteada .rack-caratula-cara--frente {
+  transform: rotateY(180deg);
+}
+.rack-caratula-flip--volteada .rack-caratula-cara--respaldo {
+  transform: rotateY(360deg);
+}
+
+.rack-caratula-respaldo-titulo {
+  font-family: 'Courier New', monospace;
+  color: #4dff88;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(77, 255, 136, 0.5);
+  margin: 0 0 4px;
+}
+.rack-caratula-respaldo-artista {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  margin: 0 0 16px;
+}
+.rack-caratula-dato {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(77, 255, 136, 0.12);
+  font-size: 0.8rem;
+}
+.rack-caratula-dato strong {
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.5px;
+}
+.rack-caratula-dato span {
+  color: #fff;
+  text-align: right;
+}
+
+.rack-caratula-historia {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(77, 255, 136, 0.15);
+}
+.rack-caratula-historia-cargando {
+  font-size: 0.75rem;
+  color: rgba(77, 255, 136, 0.6);
+  font-style: italic;
+}
+.rack-caratula-historia-texto {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+.rack-caratula-historia-vacio {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+
+.rack-btn-cerrar-caratula {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.rack-btn-cerrar-caratula:hover {
+  border-color: #4dff88;
+  color: #4dff88;
+}
+
+@media (max-width: 576px) {
+  .rack-caratula-flip { width: min(85vw, 300px); height: min(85vw, 300px); }
+}

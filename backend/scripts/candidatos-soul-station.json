@@ -1,1478 +1,2745 @@
 [
   {
     "categoria": "post-punk-dark-wave",
-    "cantidadDeseada": 34,
+    "cantidadDeseada": 90,
     "candidatos": [
       {
-        "titulo": "Believe in destiny (2017 rmst)",
+        "titulo": "Cuz I love that song",
         "artista": "Prana Yama",
-        "duracionSegundos": 307,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1557320/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557320"
-      },
-      {
-        "titulo": "Neon road",
-        "artista": "Prana Yama",
-        "duracionSegundos": 268,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1557325/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557325"
-      },
-      {
-        "titulo": "Standing in the moonlight",
-        "artista": "Prana Yama",
-        "duracionSegundos": 288,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1557327/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557327"
+        "duracionSegundos": 199,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1557318/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557318",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Le meilleur reste à venir",
         "artista": "Prana Yama",
         "duracionSegundos": 291,
         "url": "https://prod-1.storage.jamendo.com/download/track/1557323/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557323"
-      },
-      {
-        "titulo": "Cuz I love that song",
-        "artista": "Prana Yama",
-        "duracionSegundos": 199,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1557318/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557318"
-      },
-      {
-        "titulo": "Final Theme Of A Demigodess",
-        "artista": "Captain Anger",
-        "duracionSegundos": 194,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1293965/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1293965"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557323",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Another aimless night (2017 rmst)",
         "artista": "Prana Yama",
         "duracionSegundos": 374,
         "url": "https://prod-1.storage.jamendo.com/download/track/1557322/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1557322"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557322",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Neon road",
+        "artista": "Prana Yama",
+        "duracionSegundos": 268,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1557325/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557325",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Believe in destiny (2017 rmst)",
+        "artista": "Prana Yama",
+        "duracionSegundos": 307,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1557320/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557320",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Final Theme Of A Demigodess",
+        "artista": "Captain Anger",
+        "duracionSegundos": 194,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1293965/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=154140&width=300&trackid=1293965",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Standing in the moonlight",
+        "artista": "Prana Yama",
+        "duracionSegundos": 288,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1557327/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177724&width=300&trackid=1557327",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "I WONT BE GOOD",
         "artista": "RUBBERDOLLIES",
         "duracionSegundos": 197,
         "url": "https://prod-1.storage.jamendo.com/download/track/1719942/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1719942"
-      },
-      {
-        "titulo": "8 - Time For Heroes",
-        "artista": "George Crys.t.al",
-        "duracionSegundos": 224,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1257029/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1257029"
-      },
-      {
-        "titulo": "moonligth",
-        "artista": "Giocol",
-        "duracionSegundos": 357,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1380076/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1380076"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=190405&width=300&trackid=1719942",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "2 - Hunting For Love",
         "artista": "George Crys.t.al",
         "duracionSegundos": 230,
         "url": "https://prod-1.storage.jamendo.com/download/track/1257024/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1257024"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=150329&width=300&trackid=1257024",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "moonligth",
+        "artista": "Giocol",
+        "duracionSegundos": 357,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1380076/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=391853&width=300&trackid=1380076",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "8 - Time For Heroes",
+        "artista": "George Crys.t.al",
+        "duracionSegundos": 224,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1257029/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=150329&width=300&trackid=1257029",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Neon city",
         "artista": "Gigatop Arthur",
         "duracionSegundos": 192,
         "url": "https://prod-1.storage.jamendo.com/download/track/1417062/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1417062"
-      },
-      {
-        "titulo": "Touch The Sky",
-        "artista": "The Deep Wave",
-        "duracionSegundos": 181,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1281275/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1281275"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=165395&width=300&trackid=1417062",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "La Guerra  Into  death  remix SystemmanC",
         "artista": "SystemmanC",
         "duracionSegundos": 251,
         "url": "https://prod-1.storage.jamendo.com/download/track/1732262/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1732262"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=0&width=300&trackid=1732262",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Touch The Sky",
+        "artista": "The Deep Wave",
+        "duracionSegundos": 181,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1281275/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=213163&width=300&trackid=1281275",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "03. Bradyon",
         "artista": "Pgcd",
         "duracionSegundos": 277,
         "url": "https://prod-1.storage.jamendo.com/download/track/1273174/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1273174"
-      },
-      {
-        "titulo": "Drowning In The Sea Of Shit",
-        "artista": "Captain Anger",
-        "duracionSegundos": 190,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1293967/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1293967"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=152009&width=300&trackid=1273174",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Ty Zdes",
         "artista": "maya",
         "duracionSegundos": 272,
         "url": "https://prod-1.storage.jamendo.com/download/track/1480357/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1480357"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=171225&width=300&trackid=1480357",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Drowning In The Sea Of Shit",
+        "artista": "Captain Anger",
+        "duracionSegundos": 190,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1293967/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=154140&width=300&trackid=1293967",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Aries Beats - Turbo Rush (80s Synthwave Space Retro Wave)",
         "artista": "Aries Beats",
         "duracionSegundos": 194,
         "url": "https://prod-1.storage.jamendo.com/download/track/1702654/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1702654"
-      },
-      {
-        "titulo": "02-Lusien Sagars-Kosmos (04012017)",
-        "artista": "Lusien Sagars",
-        "duracionSegundos": 402,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1438855/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1438855"
-      },
-      {
-        "titulo": "New Wave",
-        "artista": "Angel.F",
-        "duracionSegundos": 274,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1325812/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1325812"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=189139&width=300&trackid=1702654",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "dahomey kingdom of",
         "artista": "MRS.THIBEDAUX",
         "duracionSegundos": 231,
         "url": "https://prod-1.storage.jamendo.com/download/track/1101311/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1101311"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=131425&width=300&trackid=1101311",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Neo wave",
         "artista": "SYNTHESIC",
         "duracionSegundos": 304,
         "url": "https://prod-1.storage.jamendo.com/download/track/1307297/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1307297"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307297",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "New Wave",
+        "artista": "Angel.F",
+        "duracionSegundos": 274,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1325812/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=157000&width=300&trackid=1325812",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Project",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 231,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307298/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307298",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Damdam deo",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 214,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307292/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307292",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Northern Fever",
+        "artista": "The Deep Wave",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1281276/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=232997&width=300&trackid=1281276",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Night Life (Instrumental)",
         "artista": "Raresix",
         "duracionSegundos": 215,
         "url": "https://prod-1.storage.jamendo.com/download/track/1306580/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1306580"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=316129&width=300&trackid=1306580",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Espera de madrugada",
         "artista": "audioconfigurado",
         "duracionSegundos": 382,
         "url": "https://prod-1.storage.jamendo.com/download/track/2166470/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/2166470"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=564657&width=300&trackid=2166470",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "Clarity",
-        "artista": "Cam Hutch",
-        "duracionSegundos": 192,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1548847/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1548847"
+        "titulo": "Wandering Soul",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 553,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446231/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446231",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
-        "titulo": "Tuma_Sundara_Ho",
-        "artista": "Wicem Gindrey",
-        "duracionSegundos": 186,
-        "url": "https://prod-1.storage.jamendo.com/?trackid=1276735&format=mp32&from=K0RHmUGT4xFmwVDJ6R9Sxg%3D%3D%7CLWmkQvt5Rkv2hHASOZmspQ%3D%3D",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1276735"
+        "titulo": "AFFONDA",
+        "artista": "ANDREA PARDI \"GIUGGI\"",
+        "duracionSegundos": 271,
+        "url": "https://prod-1.storage.jamendo.com/download/track/157456/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=22627&width=300&trackid=157456",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "frenchy",
-        "artista": "SYNTHESIC",
-        "duracionSegundos": 243,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1307294/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1307294"
-      },
-      {
-        "titulo": "MKHLSDRV — Fabulous Night",
-        "artista": "MKHLSDRV",
-        "duracionSegundos": 261,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1904824/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1904824"
-      },
-      {
-        "titulo": "Siffle man",
-        "artista": "SYNTHESIC",
-        "duracionSegundos": 291,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1307299/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1307299"
-      },
-      {
-        "titulo": "Moonlight (2019 synthwave rmx)",
-        "artista": "Prana Yama",
-        "duracionSegundos": 322,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1743217/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1743217"
-      },
-      {
-        "titulo": "Suave como a Brisa",
-        "artista": "André Furlan",
-        "duracionSegundos": 189,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1370629/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1370629"
+        "titulo": "Sapphire Planet (Remix)",
+        "artista": "Tioben Neenot",
+        "duracionSegundos": 230,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1384422/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=162441&width=300&trackid=1384422",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Rhyvee - Rock Candy",
         "artista": "Rhyvee",
         "duracionSegundos": 374,
         "url": "https://prod-1.storage.jamendo.com/download/track/1375231/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1375231"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161690&width=300&trackid=1375231",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
-        "titulo": "2B",
-        "artista": "Gigatop Arthur",
-        "duracionSegundos": 264,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1933529/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1933529"
+        "titulo": "Keops",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 443,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307296/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307296",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Cintaku",
+        "artista": "Wicem Gindrey",
+        "duracionSegundos": 388,
+        "url": "https://prod-1.storage.jamendo.com/?trackid=1312358&format=mp32&from=CvhDgxiSbAbLiGRHtUqZdw%3D%3D%7CS%2FOUpFsbcqLOkktQSzO98w%3D%3D",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=281843&width=300&trackid=1312358",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Siffle man",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 291,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307299/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307299",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Affinity",
+        "artista": "Nestor del Rio",
+        "duracionSegundos": 269,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1513656/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=372403&width=300&trackid=1513656",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Moonlight (2019 synthwave rmx)",
+        "artista": "Prana Yama",
+        "duracionSegundos": 322,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743217/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743217",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Andoria",
         "artista": "Chronique",
         "duracionSegundos": 266,
         "url": "https://prod-1.storage.jamendo.com/download/track/174971/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/174971"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=25912&width=300&trackid=174971",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Elixir",
+        "artista": "EdSeGaMe",
+        "duracionSegundos": 352,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1370615/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161224&width=300&trackid=1370615",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Sered Polia Navesni (In The Field, In Springtime)",
+        "artista": "Viy",
+        "duracionSegundos": 227,
+        "url": "https://prod-1.storage.jamendo.com/download/track/265417/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37806&width=300&trackid=265417",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "the thought of the ordinary man",
+        "artista": "Giocol",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1519419/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=417818&width=300&trackid=1519419",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Delayed memories",
+        "artista": "Prana Yama",
+        "duracionSegundos": 240,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743221/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743221",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "best time",
+        "artista": "Giocol",
+        "duracionSegundos": 400,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1457772/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=411296&width=300&trackid=1457772",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "A New Rising Sun (For N.M.)",
+        "artista": "ORATRISM",
+        "duracionSegundos": 302,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1285738/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=153335&width=300&trackid=1285738",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Call of the Depths",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 278,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446229/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446229",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Speech To Deaf",
+        "artista": "C.A.L.M.",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/264799/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37732&width=300&trackid=264799",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Where is my world",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 371,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446232/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446232",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "the rift",
+        "artista": "Half a band",
+        "duracionSegundos": 296,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1301755/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=154912&width=300&trackid=1301755",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Right after sunset",
+        "artista": "Prana Yama",
+        "duracionSegundos": 257,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743219/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743219",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "vampire lesbian killers",
+        "artista": "MRS.THIBEDAUX",
+        "duracionSegundos": 263,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1208176/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=145093&width=300&trackid=1208176",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Suave como a Brisa",
+        "artista": "André Furlan",
+        "duracionSegundos": 189,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1370629/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=341100&width=300&trackid=1370629",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Winter road",
+        "artista": "Prana Yama",
+        "duracionSegundos": 318,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743224/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743224",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Vices of Passion",
+        "artista": "Dj Gazin's Shoot",
+        "duracionSegundos": 249,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1466069/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=257713&width=300&trackid=1466069",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Quiet Places IV - Clouds",
+        "artista": "Daniel Durwael aka Synthasy",
+        "duracionSegundos": 425,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1727024/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=190062&width=300&trackid=1727024",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Floating",
+        "artista": "Prana Yama",
+        "duracionSegundos": 236,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743225/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743225",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "A CASA PROTEGIDA",
+        "artista": "COELHO DE MORAES",
+        "duracionSegundos": 344,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1492636/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=172206&width=300&trackid=1492636",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Amrita",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 337,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446228/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446228",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Visiting the stars",
+        "artista": "Prana Yama",
+        "duracionSegundos": 263,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743222/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743222",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Alpha 1982",
+        "artista": "DecembreNoir",
+        "duracionSegundos": 195,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1150034/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=137903&width=300&trackid=1150034",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Losing",
+        "artista": "Agentorange",
+        "duracionSegundos": 218,
+        "url": "https://prod-1.storage.jamendo.com/download/track/220364/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=32506&width=300&trackid=220364",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Aude de là",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 382,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307291/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307291",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Meditation at the Full Moon",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 439,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446225/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446225",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "MKHLSDRV — Fabulous Night",
+        "artista": "MKHLSDRV",
+        "duracionSegundos": 261,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1904824/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=464410&width=300&trackid=1904824",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "jeffos_dream_small_things",
+        "artista": "Jeffo's Dream",
+        "duracionSegundos": 330,
+        "url": "https://prod-1.storage.jamendo.com/download/track/111894/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=14166&width=300&trackid=111894",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Insane (Burgundia)",
+        "artista": "C.A.L.M.",
+        "duracionSegundos": 248,
+        "url": "https://prod-1.storage.jamendo.com/download/track/264765/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37732&width=300&trackid=264765",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Tuma_Sundara_Ho",
+        "artista": "Wicem Gindrey",
+        "duracionSegundos": 186,
+        "url": "https://prod-1.storage.jamendo.com/?trackid=1276735&format=mp32&from=c3Ygj285GSKj3yWLA5WzyQ%3D%3D%7Cp00inOBiaq%2BU6ubKqnDoyQ%3D%3D",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=232894&width=300&trackid=1276735",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Many thoughts in mind.",
+        "artista": "Dinobi",
+        "duracionSegundos": 218,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1512261/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=249176&width=300&trackid=1512261",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Summer breeze",
+        "artista": "Prana Yama",
+        "duracionSegundos": 285,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743223/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743223",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "How real",
+        "artista": "Cam Hutch",
+        "duracionSegundos": 234,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1542114/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=272781&width=300&trackid=1542114",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "PASAJERO LUNAR",
+        "artista": "Ali greenfield",
+        "duracionSegundos": 342,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1172356/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=141192&width=300&trackid=1172356",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Asimov",
+        "artista": "Francisco Sánchez Lab",
+        "duracionSegundos": 920,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1988918/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=503760&width=300&trackid=1988918",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Superhero",
+        "artista": "Emanuele Mandelli",
+        "duracionSegundos": 305,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1495680/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=220548&width=300&trackid=1495680",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "house13",
+        "artista": "777",
+        "duracionSegundos": 202,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1233350/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=147896&width=300&trackid=1233350",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "E-radius",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 230,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307293/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307293",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "2B",
+        "artista": "Gigatop Arthur",
+        "duracionSegundos": 264,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1933529/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=477645&width=300&trackid=1933529",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Moon Light Blue (Remix)",
+        "artista": "Tioben Neenot",
+        "duracionSegundos": 407,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1384417/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=162441&width=300&trackid=1384417",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "SE DETUVO EL TIEMPO",
+        "artista": "Ali greenfield",
+        "duracionSegundos": 331,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1172320/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=141192&width=300&trackid=1172320",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Pressure Dries Up",
+        "artista": "iX-Acht",
+        "duracionSegundos": 211,
+        "url": "https://prod-1.storage.jamendo.com/download/track/790664/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=92806&width=300&trackid=790664",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "409am",
+        "artista": "Prana Yama",
+        "duracionSegundos": 293,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743226/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743226",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "time calm",
+        "artista": "Giocol",
+        "duracionSegundos": 244,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1504246/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=417200&width=300&trackid=1504246",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "frenchy",
+        "artista": "SYNTHESIC",
+        "duracionSegundos": 243,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1307294/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155392&width=300&trackid=1307294",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Cameras",
+        "artista": "тaтυтwιlιgнт",
+        "duracionSegundos": 182,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1210393/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=145385&width=300&trackid=1210393",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Il était une fois",
+        "artista": "Joel Rdy",
+        "duracionSegundos": 487,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1662494/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=185764&width=300&trackid=1662494",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "G",
+        "artista": "THE STONES PRIDE",
+        "duracionSegundos": 201,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1210452/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=210115&width=300&trackid=1210452",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Habibi",
+        "artista": "Wicem Gindrey",
+        "duracionSegundos": 238,
+        "url": "https://prod-1.storage.jamendo.com/?trackid=1278072&format=mp32&from=CAJFjC3RXNbiO5158WUnkg%3D%3D%7CGE%2FLMApC2kFpTJvc%2FBlPQQ%3D%3D",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=263363&width=300&trackid=1278072",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Brahma awakening",
+        "artista": "Mark Subbotin",
+        "duracionSegundos": 509,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1446226/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168162&width=300&trackid=1446226",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Clarity",
+        "artista": "Cam Hutch",
+        "duracionSegundos": 192,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1548847/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=177011&width=300&trackid=1548847",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Filitosa IV",
+        "artista": "Capitaine Cookie",
+        "duracionSegundos": 276,
+        "url": "https://prod-1.storage.jamendo.com/download/track/768668/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=90057&width=300&trackid=768668",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/"
+      },
+      {
+        "titulo": "Himno - esgm_feat_fl",
+        "artista": "EdSeGaMe",
+        "duracionSegundos": 274,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1523376/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=174959&width=300&trackid=1523376",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "This is the cloud I was talking about",
+        "artista": "Prana Yama",
+        "duracionSegundos": 300,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1743220/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=192135&width=300&trackid=1743220",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "M CLOSE",
+        "artista": "THE STONES PRIDE",
+        "duracionSegundos": 226,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1221394/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=310782&width=300&trackid=1221394",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "jeffos_dream_lakes_of_love",
+        "artista": "Jeffo's Dream",
+        "duracionSegundos": 328,
+        "url": "https://prod-1.storage.jamendo.com/download/track/111891/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=14166&width=300&trackid=111891",
+        "categoria": "post-punk-dark-wave",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       }
     ]
   },
   {
     "categoria": "funk",
-    "cantidadDeseada": 30,
-    "candidatos": [
-      {
-        "titulo": "Experit V2",
-        "artista": "GASNOPROD",
-        "duracionSegundos": 437,
-        "url": "https://prod-1.storage.jamendo.com/download/track/177869/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/177869"
-      },
-      {
-        "titulo": "Funk",
-        "artista": "Yukikaze",
-        "duracionSegundos": 206,
-        "url": "https://prod-1.storage.jamendo.com/download/track/266025/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/266025"
-      },
-      {
-        "titulo": "Some soft n mellow fellow",
-        "artista": "K4MMERER",
-        "duracionSegundos": 319,
-        "url": "https://prod-1.storage.jamendo.com/download/track/384089/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/384089"
-      },
-      {
-        "titulo": "Highway",
-        "artista": "Jahzzar",
-        "duracionSegundos": 277,
-        "url": "https://prod-1.storage.jamendo.com/download/track/606295/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/606295"
-      },
-      {
-        "titulo": "A MAN LIKE YOU",
-        "artista": "Sam leopard",
-        "duracionSegundos": 219,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1431786/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1431786"
-      },
-      {
-        "titulo": "P-F-M",
-        "artista": "FOXAPET",
-        "duracionSegundos": 425,
-        "url": "https://prod-1.storage.jamendo.com/download/track/3961/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.5/",
-        "paginaJamendo": "https://www.jamendo.com/track/3961"
-      },
-      {
-        "titulo": "FEEL THE GROOVE",
-        "artista": "FOXAPET",
-        "duracionSegundos": 315,
-        "url": "https://prod-1.storage.jamendo.com/download/track/3963/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.5/",
-        "paginaJamendo": "https://www.jamendo.com/track/3963"
-      },
-      {
-        "titulo": "Big C goes to L.A",
-        "artista": "Jahzzar",
-        "duracionSegundos": 228,
-        "url": "https://prod-1.storage.jamendo.com/download/track/397043/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/397043"
-      },
-      {
-        "titulo": "Metronom",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 316,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1181611/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1181611"
-      },
-      {
-        "titulo": "ALF",
-        "artista": "MounieR",
-        "duracionSegundos": 287,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1233183/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1233183"
-      },
-      {
-        "titulo": "Loop",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 277,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1181612/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1181612"
-      },
-      {
-        "titulo": "Acid Brown Sugar",
-        "artista": "LELE RAMBELLI",
-        "duracionSegundos": 273,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1223642/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1223642"
-      },
-      {
-        "titulo": "Bonus",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 323,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1189730/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1189730"
-      },
-      {
-        "titulo": "Bird",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 313,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1181645/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1181645"
-      },
-      {
-        "titulo": "SAGITAIRE",
-        "artista": "JPMOUNIER",
-        "duracionSegundos": 227,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1237300/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1237300"
-      },
-      {
-        "titulo": "Theia",
-        "artista": "Mark Wackens",
-        "duracionSegundos": 219,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1187733/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1187733"
-      },
-      {
-        "titulo": "Techno Mama",
-        "artista": "OMA•GASH ",
-        "duracionSegundos": 205,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1124513/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/2.5/it/",
-        "paginaJamendo": "https://www.jamendo.com/track/1124513"
-      },
-      {
-        "titulo": "Battles groove",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 299,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1253575/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1253575"
-      },
-      {
-        "titulo": "GROOVEE",
-        "artista": "Paul Frisina",
-        "duracionSegundos": 229,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1281426/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1281426"
-      },
-      {
-        "titulo": "Ensorceler",
-        "artista": "Marc Robberttson",
-        "duracionSegundos": 273,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1181647/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1181647"
-      },
-      {
-        "titulo": "Get That",
-        "artista": "Nada Funk",
-        "duracionSegundos": 233,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1360219/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1360219"
-      },
-      {
-        "titulo": "I&#039;m Gonna Say It Again",
-        "artista": "Fisher Lysol",
-        "duracionSegundos": 201,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1204493/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1204493"
-      },
-      {
-        "titulo": "Funk Piano (Track)",
-        "artista": "Dacroy",
-        "duracionSegundos": 183,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1038507/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/1038507"
-      },
-      {
-        "titulo": "JUST FUNKY",
-        "artista": "MounieR",
-        "duracionSegundos": 380,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1250148/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1250148"
-      },
-      {
-        "titulo": "Nono funkrien de rien",
-        "artista": "GASNOPROD",
-        "duracionSegundos": 224,
-        "url": "https://prod-1.storage.jamendo.com/download/track/178310/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/178310"
-      },
-      {
-        "titulo": "Speed zone",
-        "artista": "KZA",
-        "duracionSegundos": 234,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1299652/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1299652"
-      },
-      {
-        "titulo": "Novemnos",
-        "artista": "GASNOPROD",
-        "duracionSegundos": 191,
-        "url": "https://prod-1.storage.jamendo.com/download/track/178340/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/178340"
-      },
-      {
-        "titulo": "Bissexture vox",
-        "artista": "GASNOPROD",
-        "duracionSegundos": 296,
-        "url": "https://prod-1.storage.jamendo.com/download/track/173281/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/173281"
-      },
-      {
-        "titulo": "MUSIC",
-        "artista": "FOXAPET",
-        "duracionSegundos": 279,
-        "url": "https://prod-1.storage.jamendo.com/download/track/3964/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.5/",
-        "paginaJamendo": "https://www.jamendo.com/track/3964"
-      },
-      {
-        "titulo": "Do The Kangaroo",
-        "artista": "Juanitos",
-        "duracionSegundos": 197,
-        "url": "https://prod-1.storage.jamendo.com/?trackid=509665&format=mp32&from=R4JoVcn5WWXPWi8nyLO%2FNA%3D%3D%7CQ10Okf1c%2FAh59c5o%2FX630A%3D%3D",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/509665"
-      }
-    ]
+    "cantidadDeseada": 85,
+    "candidatos": []
   },
   {
     "categoria": "psicodelico-experimental",
-    "cantidadDeseada": 32,
+    "cantidadDeseada": 88,
     "candidatos": [
       {
         "titulo": "The Spider",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 219,
         "url": "https://prod-1.storage.jamendo.com/download/track/367891/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/367891"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=47352&width=300&trackid=367891",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "walk",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 314,
         "url": "https://prod-1.storage.jamendo.com/download/track/866520/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866520"
-      },
-      {
-        "titulo": "Myprog",
-        "artista": "Gilles LACAUD",
-        "duracionSegundos": 198,
-        "url": "https://prod-1.storage.jamendo.com/download/track/866511/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866511"
-      },
-      {
-        "titulo": "funky",
-        "artista": "Gilles LACAUD",
-        "duracionSegundos": 213,
-        "url": "https://prod-1.storage.jamendo.com/download/track/866515/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866515"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866520",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
         "titulo": "centaure",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 234,
         "url": "https://prod-1.storage.jamendo.com/download/track/866514/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866514"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866514",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
         "titulo": "Live",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 259,
         "url": "https://prod-1.storage.jamendo.com/download/track/367894/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/367894"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=47352&width=300&trackid=367894",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "Solar Night",
-        "artista": "UFO Sighting",
-        "duracionSegundos": 491,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1953340/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953340"
+        "titulo": "funky",
+        "artista": "Gilles LACAUD",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/866515/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866515",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
+      },
+      {
+        "titulo": "Myprog",
+        "artista": "Gilles LACAUD",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/866511/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866511",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
         "titulo": "NAPERO VOL.1",
         "artista": "Hijo Único",
         "duracionSegundos": 757,
         "url": "https://prod-1.storage.jamendo.com/download/track/1328241/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1328241"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=157205&width=300&trackid=1328241",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
-        "titulo": "Upside down",
-        "artista": "Gilles LACAUD",
-        "duracionSegundos": 282,
-        "url": "https://prod-1.storage.jamendo.com/download/track/866525/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866525"
-      },
-      {
-        "titulo": "darp",
-        "artista": "Gilles LACAUD",
-        "duracionSegundos": 230,
-        "url": "https://prod-1.storage.jamendo.com/download/track/866512/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866512"
-      },
-      {
-        "titulo": "the new one",
-        "artista": "Gilles LACAUD",
-        "duracionSegundos": 183,
-        "url": "https://prod-1.storage.jamendo.com/download/track/866513/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866513"
+        "titulo": "Solar Night",
+        "artista": "UFO Sighting",
+        "duracionSegundos": 491,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1953340/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953340",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "venus",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 285,
         "url": "https://prod-1.storage.jamendo.com/download/track/866518/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866518"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866518",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
+      },
+      {
+        "titulo": "Upside down",
+        "artista": "Gilles LACAUD",
+        "duracionSegundos": 282,
+        "url": "https://prod-1.storage.jamendo.com/download/track/866525/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866525",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
+      },
+      {
+        "titulo": "the new one",
+        "artista": "Gilles LACAUD",
+        "duracionSegundos": 183,
+        "url": "https://prod-1.storage.jamendo.com/download/track/866513/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866513",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
         "titulo": "my fantasy",
         "artista": "Gilles LACAUD",
         "duracionSegundos": 191,
         "url": "https://prod-1.storage.jamendo.com/download/track/866524/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/866524"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866524",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
-        "titulo": "Return to Earth",
-        "artista": "UFO Sighting",
-        "duracionSegundos": 591,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1953336/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953336"
-      },
-      {
-        "titulo": "Rabbit",
-        "artista": "Rabbit",
-        "duracionSegundos": 512,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1156402/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1156402"
-      },
-      {
-        "titulo": "Breaking the Wall of Light",
-        "artista": "UFO Sighting",
-        "duracionSegundos": 559,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1953341/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953341"
-      },
-      {
-        "titulo": "S2 Univers",
-        "artista": "CORDE",
-        "duracionSegundos": 315,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1383094/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1383094"
-      },
-      {
-        "titulo": "100 - V0latIllIum",
-        "artista": "schtixfnorD",
-        "duracionSegundos": 326,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1352303/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1352303"
+        "titulo": "darp",
+        "artista": "Gilles LACAUD",
+        "duracionSegundos": 230,
+        "url": "https://prod-1.storage.jamendo.com/download/track/866512/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=101557&width=300&trackid=866512",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/fr/"
       },
       {
         "titulo": "Filling a Black Hole",
         "artista": "UFO Sighting",
         "duracionSegundos": 546,
         "url": "https://prod-1.storage.jamendo.com/download/track/1953342/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953342"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953342",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "010 - 3ntr0p1a",
-        "artista": "schtixfnorD",
-        "duracionSegundos": 230,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1352327/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1352327"
+        "titulo": "Italialaisella Laivalla",
+        "artista": "LLAC",
+        "duracionSegundos": 306,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1244701/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=149129&width=300&trackid=1244701",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Medkit - Himalayan Blues",
+        "artista": "Tunguska Electronic Music Society",
+        "duracionSegundos": 260,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1325520/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=156955&width=300&trackid=1325520",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "S2 Univers",
+        "artista": "CORDE",
+        "duracionSegundos": 315,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1383094/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=0&width=300&trackid=1383094",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Slow Stream of Matter",
         "artista": "UFO Sighting",
         "duracionSegundos": 788,
         "url": "https://prod-1.storage.jamendo.com/download/track/1953337/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953337"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953337",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "Mercury Liftoff",
-        "artista": "UFO Sighting",
-        "duracionSegundos": 406,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1953338/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953338"
+        "titulo": "&eacute;l&eacute;ments",
+        "artista": "CORDE",
+        "duracionSegundos": 572,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1308063/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=0&width=300&trackid=1308063",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
-        "titulo": "000 - D1e Gl0ck3",
-        "artista": "schtixfnorD",
-        "duracionSegundos": 219,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1352301/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1352301"
-      },
-      {
-        "titulo": "Réquiem para um Cavalleiro do Lago",
-        "artista": "Léo Lago",
-        "duracionSegundos": 182,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1031066/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1031066"
-      },
-      {
-        "titulo": "011 - entAngleMEnTAL",
-        "artista": "schtixfnorD",
-        "duracionSegundos": 579,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1352302/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1352302"
-      },
-      {
-        "titulo": "Sin_Respiro",
-        "artista": "EdSeGaMe",
-        "duracionSegundos": 272,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1370616/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1370616"
-      },
-      {
-        "titulo": "Corporate Space Live 2023",
-        "artista": "UFO Sighting",
-        "duracionSegundos": 711,
-        "url": "https://prod-1.storage.jamendo.com/download/track/2039047/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/2039047"
+        "titulo": "R E T R O",
+        "artista": "CORDE",
+        "duracionSegundos": 236,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1392730/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=163240&width=300&trackid=1392730",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Space Drift",
         "artista": "UFO Sighting",
         "duracionSegundos": 671,
         "url": "https://prod-1.storage.jamendo.com/download/track/1953339/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1953339"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953339",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Corporate Space Live 2023",
+        "artista": "UFO Sighting",
+        "duracionSegundos": 711,
+        "url": "https://prod-1.storage.jamendo.com/download/track/2039047/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=524464&width=300&trackid=2039047",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Mercury Liftoff",
+        "artista": "UFO Sighting",
+        "duracionSegundos": 406,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1953338/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953338",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Return to Earth",
+        "artista": "UFO Sighting",
+        "duracionSegundos": 591,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1953336/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953336",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Rabbit",
+        "artista": "Rabbit",
+        "duracionSegundos": 512,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1156402/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=138754&width=300&trackid=1156402",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Sin_Respiro",
+        "artista": "EdSeGaMe",
+        "duracionSegundos": 272,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1370616/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161224&width=300&trackid=1370616",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Réquiem para um Cavalleiro do Lago",
+        "artista": "Léo Lago",
+        "duracionSegundos": 182,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1031066/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=121291&width=300&trackid=1031066",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "110 - h0dg3p0dg3tr0n1c",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 259,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352329/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352329",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "KraftiM - Daris",
         "artista": "KraftiM",
         "duracionSegundos": 359,
         "url": "https://prod-1.storage.jamendo.com/download/track/305512/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/305512"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=41537&width=300&trackid=305512",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "101 - pr0mptly",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 239,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352328/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352328",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "000 - D1e Gl0ck3",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 219,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352301/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352301",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "010 - 3ntr0p1a",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 230,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352327/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352327",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "001 - t1 kall15t1",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 227,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352326/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352326",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Breaking the Wall of Light",
+        "artista": "UFO Sighting",
+        "duracionSegundos": 559,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1953341/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=486476&width=300&trackid=1953341",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "100 - V0latIllIum",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 326,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352303/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352303",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "011 - entAngleMEnTAL",
+        "artista": "schtixfnorD",
+        "duracionSegundos": 579,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1352302/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=159442&width=300&trackid=1352302",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Space Soldiers - Fly",
         "artista": "Tunguska Electronic Music Society",
         "duracionSegundos": 228,
         "url": "https://prod-1.storage.jamendo.com/download/track/739846/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/739846"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=86437&width=300&trackid=739846",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Tulo",
         "artista": "KraftiM",
         "duracionSegundos": 434,
         "url": "https://prod-1.storage.jamendo.com/download/track/214221/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/214221"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=31538&width=300&trackid=214221",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
-        "titulo": "Crossing the Styx",
-        "artista": "Emgé",
-        "duracionSegundos": 301,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1831090/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1831090"
+        "titulo": "nEUROTIC sIDE eFFECT",
+        "artista": "Caffeine Mit Cocaine",
+        "duracionSegundos": 322,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1188204/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=143007&width=300&trackid=1188204",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Ivo's rockin bassgitar ",
+        "artista": "Mischapex",
+        "duracionSegundos": 461,
+        "url": "https://prod-1.storage.jamendo.com/download/track/141800/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=20266&width=300&trackid=141800",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "OPTIMYSTIC",
+        "artista": "Alterlabel",
+        "duracionSegundos": 183,
+        "url": "https://prod-1.storage.jamendo.com/download/track/38658/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=4743&width=300&trackid=38658",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "10 Sieverts per Hour",
+        "artista": "Brain Resampler",
+        "duracionSegundos": 329,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1118327/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=133627&width=300&trackid=1118327",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Needle Rain",
+        "artista": "Brain Resampler",
+        "duracionSegundos": 249,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1118330/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=133627&width=300&trackid=1118330",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Orden relativo",
+        "artista": "Al Borde del Cinismo",
+        "duracionSegundos": 258,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1331413/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=157491&width=300&trackid=1331413",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "11-habitar",
+        "artista": "Noosfera",
+        "duracionSegundos": 258,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1776501/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=195023&width=300&trackid=1776501",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "The Great splashing",
+        "artista": "KATUSHKA",
+        "duracionSegundos": 207,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1713593/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=189995&width=300&trackid=1713593",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Milking Parlour",
+        "artista": "osaeris",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/24565/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=3385&width=300&trackid=24565",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/2.5/"
+      },
+      {
+        "titulo": "Mystic Waves",
+        "artista": "RR",
+        "duracionSegundos": 317,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1571418/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=306519&width=300&trackid=1571418",
+        "categoria": "psicodelico-experimental",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       }
     ]
   },
   {
     "categoria": "rock",
-    "cantidadDeseada": 32,
+    "cantidadDeseada": 88,
     "candidatos": [
-      {
-        "titulo": "Sin preguntas",
-        "artista": "SANDOKI",
-        "duracionSegundos": 196,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1224298/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1224298"
-      },
       {
         "titulo": "Sale el sol",
         "artista": "SANDOKI",
         "duracionSegundos": 187,
         "url": "https://prod-1.storage.jamendo.com/download/track/1224304/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1224304"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=146870&width=300&trackid=1224304",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Sin preguntas",
+        "artista": "SANDOKI",
+        "duracionSegundos": 196,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1224298/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=146870&width=300&trackid=1224298",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Escape a Antártica",
         "artista": "Chupe",
         "duracionSegundos": 233,
         "url": "https://prod-1.storage.jamendo.com/download/track/1026105/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/",
-        "paginaJamendo": "https://www.jamendo.com/track/1026105"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120638&width=300&trackid=1026105",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/"
       },
       {
         "titulo": "Porno Educazionale",
         "artista": "HARD QUALITY",
         "duracionSegundos": 316,
         "url": "https://prod-1.storage.jamendo.com/download/track/1503283/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1503283"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=363141&width=300&trackid=1503283",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "intersection",
         "artista": "Delenda",
         "duracionSegundos": 628,
         "url": "https://prod-1.storage.jamendo.com/download/track/1237933/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1237933"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=148388&width=300&trackid=1237933",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "VOICE ONE",
         "artista": "BAAL ANAMELECH",
         "duracionSegundos": 239,
         "url": "https://prod-1.storage.jamendo.com/download/track/1314087/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1314087"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=155973&width=300&trackid=1314087",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "yokels waive touch",
         "artista": "Giocol",
         "duracionSegundos": 212,
         "url": "https://prod-1.storage.jamendo.com/download/track/1429595/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1429595"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=403813&width=300&trackid=1429595",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Isla de un deseo",
         "artista": "Chupe",
         "duracionSegundos": 338,
         "url": "https://prod-1.storage.jamendo.com/download/track/1026106/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/",
-        "paginaJamendo": "https://www.jamendo.com/track/1026106"
-      },
-      {
-        "titulo": "Conspiración delirio",
-        "artista": "Chupe",
-        "duracionSegundos": 223,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1026107/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/",
-        "paginaJamendo": "https://www.jamendo.com/track/1026107"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120638&width=300&trackid=1026106",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/"
       },
       {
         "titulo": "Tras el muro",
         "artista": "Chupe",
         "duracionSegundos": 226,
         "url": "https://prod-1.storage.jamendo.com/download/track/1026108/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/",
-        "paginaJamendo": "https://www.jamendo.com/track/1026108"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120638&width=300&trackid=1026108",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/"
+      },
+      {
+        "titulo": "Conspiración delirio",
+        "artista": "Chupe",
+        "duracionSegundos": 223,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1026107/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120638&width=300&trackid=1026107",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/ar/"
       },
       {
         "titulo": "Uro",
         "artista": "konopka",
         "duracionSegundos": 311,
         "url": "https://prod-1.storage.jamendo.com/download/track/959074/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/959074"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=112779&width=300&trackid=959074",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Being Blunt",
         "artista": "Morning Side",
         "duracionSegundos": 294,
         "url": "https://prod-1.storage.jamendo.com/download/track/630865/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/630865"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=73005&width=300&trackid=630865",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "lost in the fog of feelings",
         "artista": "Giocol",
         "duracionSegundos": 229,
         "url": "https://prod-1.storage.jamendo.com/download/track/1350279/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1350279"
-      },
-      {
-        "titulo": "Наостанок - Жить",
-        "artista": "Наостанок",
-        "duracionSegundos": 265,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1471054/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1471054"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=386047&width=300&trackid=1350279",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Heatwave",
         "artista": "Whalers",
         "duracionSegundos": 265,
         "url": "https://prod-1.storage.jamendo.com/download/track/938918/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/938918"
-      },
-      {
-        "titulo": "Maan vaeltaja",
-        "artista": "Django de la Poppavati &amp; Melintus Pukstavilainen",
-        "duracionSegundos": 227,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1069436/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/1.0/fi/",
-        "paginaJamendo": "https://www.jamendo.com/track/1069436"
-      },
-      {
-        "titulo": "Non Essere Niente",
-        "artista": "Stereopinto",
-        "duracionSegundos": 297,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1477488/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1477488"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=110242&width=300&trackid=938918",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Наостанок Жить",
         "artista": "Наостанок",
         "duracionSegundos": 265,
         "url": "https://prod-1.storage.jamendo.com/download/track/1469925/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1469925"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=265501&width=300&trackid=1469925",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
-        "titulo": "Syöpynyt sydän",
+        "titulo": "Наостанок - Жить",
+        "artista": "Наостанок",
+        "duracionSegundos": 265,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1471054/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=170442&width=300&trackid=1471054",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Maan vaeltaja",
         "artista": "Django de la Poppavati &amp; Melintus Pukstavilainen",
-        "duracionSegundos": 258,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1069429/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/1.0/fi/",
-        "paginaJamendo": "https://www.jamendo.com/track/1069429"
+        "duracionSegundos": 227,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1069436/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=126469&width=300&trackid=1069436",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/1.0/fi/"
       },
       {
         "titulo": "Dirt",
         "artista": "Jahzzar",
         "duracionSegundos": 222,
         "url": "https://prod-1.storage.jamendo.com/download/track/493282/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/493282"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=57820&width=300&trackid=493282",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "form &quot;10&quot;",
-        "artista": "848-2",
-        "duracionSegundos": 190,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1485881/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1485881"
+        "titulo": "Syöpynyt sydän",
+        "artista": "Django de la Poppavati &amp; Melintus Pukstavilainen",
+        "duracionSegundos": 258,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1069429/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=126469&width=300&trackid=1069429",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/1.0/fi/"
       },
       {
         "titulo": "Direct Priming",
         "artista": "Figures in Motion",
         "duracionSegundos": 192,
         "url": "https://prod-1.storage.jamendo.com/download/track/1115148/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1115148"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=133245&width=300&trackid=1115148",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Non Essere Niente",
+        "artista": "Stereopinto",
+        "duracionSegundos": 297,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1477488/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=299605&width=300&trackid=1477488",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "We Don't Sleep on the Beach Anymore",
         "artista": "while they were sleeping",
         "duracionSegundos": 438,
         "url": "https://prod-1.storage.jamendo.com/download/track/221037/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/221037"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=32577&width=300&trackid=221037",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Awake",
         "artista": "Circa Vitae",
         "duracionSegundos": 318,
         "url": "https://prod-1.storage.jamendo.com/download/track/1013121/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1013121"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=119336&width=300&trackid=1013121",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "form &quot;10&quot;",
+        "artista": "848-2",
+        "duracionSegundos": 190,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1485881/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=171696&width=300&trackid=1485881",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Under My Red Carpet",
         "artista": "The Morning Light",
         "duracionSegundos": 220,
         "url": "https://prod-1.storage.jamendo.com/download/track/793728/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/793728"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93134&width=300&trackid=793728",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Интернет (инструментал с бэками)",
+        "artista": "Группа &quot;Группа&quot; НСК",
+        "duracionSegundos": 228,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1468104/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=170148&width=300&trackid=1468104",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "12-normalidad anormal",
         "artista": "Noosfera",
         "duracionSegundos": 319,
         "url": "https://prod-1.storage.jamendo.com/download/track/1793772/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1793772"
-      },
-      {
-        "titulo": "Échate Uno",
-        "artista": "DIESON",
-        "duracionSegundos": 252,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1781503/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1781503"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=196296&width=300&trackid=1793772",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "10-desorden social",
         "artista": "Noosfera",
         "duracionSegundos": 316,
         "url": "https://prod-1.storage.jamendo.com/download/track/1793773/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1793773"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=196296&width=300&trackid=1793773",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "07-interminable de mujeres asesinadas",
         "artista": "Noosfera",
         "duracionSegundos": 315,
         "url": "https://prod-1.storage.jamendo.com/download/track/1796341/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1796341"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=196528&width=300&trackid=1796341",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Icy Courtly Rift",
+        "artista": "Catatonic Disassembly",
+        "duracionSegundos": 269,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039985/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039985",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Kaikkeuden laulu",
+        "artista": "Django de la Poppavati &amp; Melintus Pukstavilainen",
+        "duracionSegundos": 255,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1069458/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=126469&width=300&trackid=1069458",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/1.0/fi/"
+      },
+      {
+        "titulo": "Échate Uno",
+        "artista": "DIESON",
+        "duracionSegundos": 252,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1781503/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=268740&width=300&trackid=1781503",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "California Lullabye (Instrumental Version)",
+        "artista": "Josh Woodward",
+        "duracionSegundos": 253,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1026955/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120747&width=300&trackid=1026955",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Solace",
+        "artista": "Catatonic Disassembly",
+        "duracionSegundos": 212,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039996/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039996",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Stars",
+        "artista": "Stormy Sundays",
+        "duracionSegundos": 228,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1259430/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=212349&width=300&trackid=1259430",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Loved You",
         "artista": "Lower Loveday",
         "duracionSegundos": 202,
         "url": "https://prod-1.storage.jamendo.com/download/track/1471172/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1471172"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=219807&width=300&trackid=1471172",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "K-19 - Дожди",
+        "artista": "K-19",
+        "duracionSegundos": 245,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039379/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122447&width=300&trackid=1039379",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Doom",
         "artista": "Catatonic Disassembly",
         "duracionSegundos": 429,
         "url": "https://prod-1.storage.jamendo.com/download/track/1039980/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1039980"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039980",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Genetic (re)Mix - StarfishStories.wordpress.com",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 403,
+        "url": "https://prod-1.storage.jamendo.com/download/track/288315/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=40044&width=300&trackid=288315",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Ulan Bataar Motel",
+        "artista": "Huxley Met Soda",
+        "duracionSegundos": 219,
+        "url": "https://prod-1.storage.jamendo.com/download/track/350116/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=45903&width=300&trackid=350116",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/2.0/fr/"
+      },
+      {
+        "titulo": "The Hill - StarfishStories.wordpress.com",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 403,
+        "url": "https://prod-1.storage.jamendo.com/download/track/288316/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=40044&width=300&trackid=288316",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Queen",
         "artista": "Catatonic Disassembly",
         "duracionSegundos": 329,
         "url": "https://prod-1.storage.jamendo.com/download/track/1039979/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1039979"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039979",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Hungry Worm",
+        "artista": "Catatonic Disassembly",
+        "duracionSegundos": 248,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039986/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039986",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Secluded",
+        "artista": "Altercode",
+        "duracionSegundos": 377,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1203749/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=144191&width=300&trackid=1203749",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "isolate",
+        "artista": "Circa Vitae",
+        "duracionSegundos": 254,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1013122/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=119336&width=300&trackid=1013122",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "One World - StarfishStories.wordpress.com",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 240,
+        "url": "https://prod-1.storage.jamendo.com/download/track/288265/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=40044&width=300&trackid=288265",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Scars",
+        "artista": "The Morning Light",
+        "duracionSegundos": 206,
+        "url": "https://prod-1.storage.jamendo.com/download/track/793748/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93134&width=300&trackid=793748",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Invisible Light",
+        "artista": "Josh Woodward",
+        "duracionSegundos": 250,
+        "url": "https://prod-1.storage.jamendo.com/download/track/959594/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=112820&width=300&trackid=959594",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "London Again",
+        "artista": "The League",
+        "duracionSegundos": 212,
+        "url": "https://prod-1.storage.jamendo.com/download/track/319980/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=43184&width=300&trackid=319980",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "simulacra",
+        "artista": "ieatpants",
+        "duracionSegundos": 189,
+        "url": "https://prod-1.storage.jamendo.com/download/track/305277/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=41513&width=300&trackid=305277",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Sea Anemone 2",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 273,
+        "url": "https://prod-1.storage.jamendo.com/download/track/258360/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37025&width=300&trackid=258360",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Topam",
+        "artista": "Twinheads",
+        "duracionSegundos": 272,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1373398/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161593&width=300&trackid=1373398",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Down, Down, Down",
+        "artista": "Bridge Underwater",
+        "duracionSegundos": 209,
+        "url": "https://prod-1.storage.jamendo.com/download/track/801672/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93836&width=300&trackid=801672",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "No Clue What`s Next",
+        "artista": "1st Contact",
+        "duracionSegundos": 599,
+        "url": "https://prod-1.storage.jamendo.com/download/track/2226715/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=590957&width=300&trackid=2226715",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Natural Gypsy",
+        "artista": "The fixer",
+        "duracionSegundos": 233,
+        "url": "https://prod-1.storage.jamendo.com/download/track/317115/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=42845&width=300&trackid=317115",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "4. TOYS &amp; HAMMERS - If you want",
+        "artista": "Toys&amp;Hammers",
+        "duracionSegundos": 256,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1459593/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=169395&width=300&trackid=1459593",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Pterodactyl",
+        "artista": "Circa Vitae",
+        "duracionSegundos": 232,
+        "url": "https://prod-1.storage.jamendo.com/download/track/248381/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=35849&width=300&trackid=248381",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "There's Not Enough Time",
+        "artista": "Bridge Underwater",
+        "duracionSegundos": 388,
+        "url": "https://prod-1.storage.jamendo.com/download/track/801677/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93836&width=300&trackid=801677",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "White Leather",
+        "artista": "Bridge Underwater",
+        "duracionSegundos": 212,
+        "url": "https://prod-1.storage.jamendo.com/download/track/801676/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93836&width=300&trackid=801676",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Don't Leave Me Alone",
+        "artista": "Bridge Underwater",
+        "duracionSegundos": 211,
+        "url": "https://prod-1.storage.jamendo.com/download/track/801670/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=93836&width=300&trackid=801670",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Stalkers",
+        "artista": "Huxley Met Soda",
+        "duracionSegundos": 254,
+        "url": "https://prod-1.storage.jamendo.com/download/track/350021/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=45903&width=300&trackid=350021",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/2.0/fr/"
+      },
+      {
+        "titulo": "Sell Out",
+        "artista": "Whalers",
+        "duracionSegundos": 275,
+        "url": "https://prod-1.storage.jamendo.com/download/track/938916/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=110242&width=300&trackid=938916",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Shine",
+        "artista": "Singleton",
+        "duracionSegundos": 205,
+        "url": "https://prod-1.storage.jamendo.com/download/track/942472/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=110729&width=300&trackid=942472",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "All Your Body Moving",
+        "artista": "Modern Pitch",
+        "duracionSegundos": 237,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1165006/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=140048&width=300&trackid=1165006",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Normal Pain",
+        "artista": "Catatonic Disassembly",
+        "duracionSegundos": 217,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039981/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039981",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "It's Not A Blue(s)",
+        "artista": "maestross",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/496691/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=58189&width=300&trackid=496691",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/bg/"
+      },
+      {
+        "titulo": "VOLARAS",
+        "artista": "La Fem",
+        "duracionSegundos": 352,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1028273/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=120902&width=300&trackid=1028273",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Eye Of The Storm",
+        "artista": "Modern Pitch",
+        "duracionSegundos": 294,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1165004/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=140048&width=300&trackid=1165004",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Never Fear The Quickening",
+        "artista": "Jake Waidelich",
+        "duracionSegundos": 223,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1138218/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136737&width=300&trackid=1138218",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Fallin'",
+        "artista": "Jahzzar",
+        "duracionSegundos": 279,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1135417/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136306&width=300&trackid=1135417",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Seabreeze 1",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 192,
+        "url": "https://prod-1.storage.jamendo.com/download/track/258389/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37025&width=300&trackid=258389",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Airplane Mode",
+        "artista": "Josh Woodward",
+        "duracionSegundos": 216,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1057411/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124697&width=300&trackid=1057411",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "City of Madness",
+        "artista": "A.Zhevlakov",
+        "duracionSegundos": 204,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1512057/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=173975&width=300&trackid=1512057",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Blessure Graves - catatonic_disassembly mix (feat Bhogavati)",
+        "artista": "Catatonic Disassembly",
+        "duracionSegundos": 324,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1039988/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=122524&width=300&trackid=1039988",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Once Upon A Star 1",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 222,
+        "url": "https://prod-1.storage.jamendo.com/download/track/258374/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37025&width=300&trackid=258374",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Sunsets Suck",
+        "artista": "Whalers",
+        "duracionSegundos": 329,
+        "url": "https://prod-1.storage.jamendo.com/download/track/938913/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=110242&width=300&trackid=938913",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Paulo Thiago Santa - 3002 - parte 2 - Estação Espacial (2002-11-13)",
+        "artista": "Paulo Thiago Santa",
+        "duracionSegundos": 424,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1781572/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=195422&width=300&trackid=1781572",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Dolphins Galaxia 1",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 260,
+        "url": "https://prod-1.storage.jamendo.com/download/track/258375/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=37025&width=300&trackid=258375",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "I am sorry",
+        "artista": "Circa Vitae",
+        "duracionSegundos": 302,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1013123/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=119336&width=300&trackid=1013123",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Rainy days 2.4 - StarfishStories.wordpress.com",
+        "artista": "Starfish Stories :: The Band",
+        "duracionSegundos": 220,
+        "url": "https://prod-1.storage.jamendo.com/download/track/288318/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=40044&width=300&trackid=288318",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Liar",
+        "artista": "Jahzzar",
+        "duracionSegundos": 197,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1135419/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136306&width=300&trackid=1135419",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "The Punters Club",
+        "artista": "Kinematic",
+        "duracionSegundos": 206,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1442037/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=167814&width=300&trackid=1442037",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Cold Silver Moon I",
+        "artista": "JGMillan",
+        "duracionSegundos": 352,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1768385/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=194308&width=300&trackid=1768385",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Patience",
+        "artista": "Jahzzar",
+        "duracionSegundos": 231,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1135418/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136306&width=300&trackid=1135418",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "11 Sans Titre (2006)",
+        "artista": "Mike Rain",
+        "duracionSegundos": 194,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1806299/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=197563&width=300&trackid=1806299",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Baa Elay Merahok (Come from far away)",
+        "artista": "Avi Rosenfeld",
+        "duracionSegundos": 193,
+        "url": "https://prod-1.storage.jamendo.com/download/track/966751/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=113712&width=300&trackid=966751",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Luxe",
+        "artista": "Jahzzar",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1135422/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136306&width=300&trackid=1135422",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Varanasi",
+        "artista": "konopka",
+        "duracionSegundos": 457,
+        "url": "https://prod-1.storage.jamendo.com/download/track/959076/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=112779&width=300&trackid=959076",
+        "categoria": "rock",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       }
     ]
   },
   {
     "categoria": "hip-hop-old-school",
-    "cantidadDeseada": 26,
+    "cantidadDeseada": 75,
     "candidatos": [
       {
         "titulo": "FREE Hip Hop Beat / Rap Instrumental | Chor Beat",
         "artista": "Adi Rambo",
         "duracionSegundos": 186,
         "url": "https://prod-1.storage.jamendo.com/download/track/1529100/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1529100"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=379860&width=300&trackid=1529100",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "02 - fuori quarantena",
         "artista": "Miguel Prod",
         "duracionSegundos": 278,
         "url": "https://prod-1.storage.jamendo.com/download/track/76726/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/76726"
-      },
-      {
-        "titulo": "01 - fuori quarantena intro",
-        "artista": "Miguel Prod",
-        "duracionSegundos": 198,
-        "url": "https://prod-1.storage.jamendo.com/download/track/76725/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/76725"
-      },
-      {
-        "titulo": "the New Sound",
-        "artista": "Hasenchat",
-        "duracionSegundos": 300,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1055112/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1055112"
-      },
-      {
-        "titulo": "9 - Slim Bwoy - Viraq ft Beppus",
-        "artista": "Slim Bwoy",
-        "duracionSegundos": 181,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1329329/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1329329"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=6901&width=300&trackid=76726",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Give me the Power",
         "artista": "Hasenchat",
         "duracionSegundos": 376,
         "url": "https://prod-1.storage.jamendo.com/download/track/1055133/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1055133"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055133",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "Arizona Hustler",
+        "titulo": "Let Me See It",
         "artista": "Macaholicz",
-        "duracionSegundos": 194,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1297498/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1297498"
-      },
-      {
-        "titulo": "Seres Inconformes",
-        "artista": "DesignioHipHop",
-        "duracionSegundos": 207,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1163141/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/co/",
-        "paginaJamendo": "https://www.jamendo.com/track/1163141"
-      },
-      {
-        "titulo": "Zoommanuel - Attirer l'attention",
-        "artista": "Zoommanuel",
-        "duracionSegundos": 233,
-        "url": "https://prod-1.storage.jamendo.com/download/track/333695/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/",
-        "paginaJamendo": "https://www.jamendo.com/track/333695"
-      },
-      {
-        "titulo": "Soy un Ciborg",
-        "artista": "Inhor",
-        "duracionSegundos": 192,
-        "url": "https://prod-1.storage.jamendo.com/download/track/365210/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/2.5/es/",
-        "paginaJamendo": "https://www.jamendo.com/track/365210"
-      },
-      {
-        "titulo": "Im All In - AhlonIsMusic",
-        "artista": "AhlonIsMusic",
-        "duracionSegundos": 274,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1276715/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1276715"
-      },
-      {
-        "titulo": "Богем - Крик Души",
-        "artista": "Богем",
-        "duracionSegundos": 181,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1316102/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1316102"
+        "duracionSegundos": 218,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1297488/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=154442&width=300&trackid=1297488",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
         "titulo": "Legendary Ft Zio",
         "artista": "Kidd Young",
         "duracionSegundos": 200,
         "url": "https://prod-1.storage.jamendo.com/download/track/1370797/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1370797"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=216411&width=300&trackid=1370797",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
-        "titulo": "Cold World",
-        "artista": "Macaholicz",
-        "duracionSegundos": 238,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1297501/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1297501"
+        "titulo": "Word Up!",
+        "artista": "Awlnight",
+        "duracionSegundos": 221,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1252006/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=149792&width=300&trackid=1252006",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "titulo": "Excusa tras excusa (con Shahtreng)",
-        "artista": "Nuerma Pópulis Chicla",
-        "duracionSegundos": 236,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1087934/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1087934"
+        "titulo": "Zombies (Featuring Michael John)",
+        "artista": "Kidd Young",
+        "duracionSegundos": 196,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1157600/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=138911&width=300&trackid=1157600",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "On Fly Men Feat JojoStyle, Sweezy",
+        "artista": "Tsutsumbie",
+        "duracionSegundos": 235,
+        "url": "https://prod-1.storage.jamendo.com/download/track/959131/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=112780&width=300&trackid=959131",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "1984",
+        "artista": "Xaviant Haze",
+        "duracionSegundos": 197,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1388164/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161896&width=300&trackid=1388164",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "TURBOLENZE",
+        "artista": "Siga",
+        "duracionSegundos": 208,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1257187/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=150343&width=300&trackid=1257187",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Play with Me",
+        "artista": "Hasenchat",
+        "duracionSegundos": 414,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055135/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055135",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "01 - fuori quarantena intro",
+        "artista": "Miguel Prod",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/76725/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=6901&width=300&trackid=76725",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
       },
       {
         "titulo": "Ruta oscura",
         "artista": "DesignioHipHop",
         "duracionSegundos": 220,
         "url": "https://prod-1.storage.jamendo.com/download/track/1163146/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/co/",
-        "paginaJamendo": "https://www.jamendo.com/track/1163146"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=139764&width=300&trackid=1163146",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/co/"
       },
       {
-        "titulo": "SENTI IL CRACK FEAT TWINS",
-        "artista": "UpsetBolzaRookies",
-        "duracionSegundos": 218,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1138318/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/it/",
-        "paginaJamendo": "https://www.jamendo.com/track/1138318"
-      },
-      {
-        "titulo": "Hip Hop Experimental",
-        "artista": "AZ Studio",
-        "duracionSegundos": 195,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1484500/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1484500"
-      },
-      {
-        "titulo": "1978",
-        "artista": "Xaviant Haze",
-        "duracionSegundos": 265,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1388174/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1388174"
-      },
-      {
-        "titulo": "Trap Instrumental #2",
-        "artista": "HEI",
-        "duracionSegundos": 298,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1325077/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1325077"
-      },
-      {
-        "titulo": "Rider",
-        "artista": "Hasenchat",
-        "duracionSegundos": 459,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1055132/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1055132"
-      },
-      {
-        "titulo": "Darkest Hour (Prod. by Anno Domini)",
-        "artista": "C-Magni",
-        "duracionSegundos": 276,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1429548/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1429548"
-      },
-      {
-        "titulo": "16 Push ( Saxophonic Rap Mix )",
-        "artista": "Hasenchat",
-        "duracionSegundos": 495,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1253542/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1253542"
-      },
-      {
-        "titulo": "Micro Climas - Instrumental Hip Hop 01 | 95.000ppm",
-        "artista": "José Rafael",
-        "duracionSegundos": 213,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1467160/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1467160"
-      },
-      {
-        "titulo": "Rap Hip Hop - Instrumental",
-        "artista": "Duglas",
-        "duracionSegundos": 231,
-        "url": "https://prod-1.storage.jamendo.com/?trackid=1879140&format=mp32&from=Nrs2lDYS3Jj56j1a2OnGyw%3D%3D%7CY%2FZRWDUo2PMH4CNX8Z1Fog%3D%3D",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1879140"
+        "titulo": "La peor enfermedad",
+        "artista": "Nuerma Pópulis Chicla",
+        "duracionSegundos": 256,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1087942/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=129709&width=300&trackid=1087942",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       },
       {
         "titulo": "Ma course - LERAC (2016)",
         "artista": "LERAC",
         "duracionSegundos": 245,
         "url": "https://prod-1.storage.jamendo.com/download/track/1399722/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1399722"
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=163841&width=300&trackid=1399722",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Demoni",
+        "artista": "Nio",
+        "duracionSegundos": 210,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1360376/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=256298&width=300&trackid=1360376",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Micro Climas - Instrumental Trap 01 | 140.000.bpm",
+        "artista": "José Rafael",
+        "duracionSegundos": 206,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1470581/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=277830&width=300&trackid=1470581",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Trap Instrumental #2",
+        "artista": "HEI",
+        "duracionSegundos": 298,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1325077/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=263885&width=300&trackid=1325077",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "AleksMix-_-Спикер-Молодость",
+        "artista": "AleksMix",
+        "duracionSegundos": 191,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1528412/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=221468&width=300&trackid=1528412",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Split Screen",
+        "artista": "Richard Shekari",
+        "duracionSegundos": 274,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1571216/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=283762&width=300&trackid=1571216",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "16 Push ( Saxophonic Rap Mix )",
+        "artista": "Hasenchat",
+        "duracionSegundos": 495,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1253542/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=149976&width=300&trackid=1253542",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Chipinkos - I Like",
+        "artista": "chipinkos",
+        "duracionSegundos": 245,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1148759/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=137741&width=300&trackid=1148759",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/2.0/at/"
+      },
+      {
+        "titulo": "22 Desire ( Female Hip Hop Mix )",
+        "artista": "Hasenchat",
+        "duracionSegundos": 538,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1253549/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=149976&width=300&trackid=1253549",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Arizona Hustler",
+        "artista": "Macaholicz",
+        "duracionSegundos": 194,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1297498/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=154442&width=300&trackid=1297498",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Micro Climas - Instrumental Hip Hop 01 | 95.000ppm",
+        "artista": "José Rafael",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1467160/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=219661&width=300&trackid=1467160",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Los estudiantes son currantes",
+        "artista": "Nuerma Pópulis Chicla",
+        "duracionSegundos": 232,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1087935/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=129709&width=300&trackid=1087935",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Remix leck",
+        "artista": "Na2s-Prototype",
+        "duracionSegundos": 223,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1086750/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=129580&width=300&trackid=1086750",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/"
+      },
+      {
+        "titulo": "Denk dran",
+        "artista": "Tricky-M",
+        "duracionSegundos": 246,
+        "url": "https://prod-1.storage.jamendo.com/download/track/547611/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=63762&width=300&trackid=547611",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "7. Drogowskaz (gość. Karina, muz. Steven)",
+        "artista": "Mospin",
+        "duracionSegundos": 211,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1451229/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168652&width=300&trackid=1451229",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "1977",
+        "artista": "Xaviant Haze",
+        "duracionSegundos": 202,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1388172/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161896&width=300&trackid=1388172",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Volver a empezar",
+        "artista": "La Ksa Producciones",
+        "duracionSegundos": 224,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1444790/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=168043&width=300&trackid=1444790",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Rooftops (Featuring Michael John)",
+        "artista": "Kidd Young",
+        "duracionSegundos": 188,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1157598/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=138911&width=300&trackid=1157598",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Excusa tras excusa (con Shahtreng)",
+        "artista": "Nuerma Pópulis Chicla",
+        "duracionSegundos": 236,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1087934/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=129709&width=300&trackid=1087934",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Old school",
+        "artista": "Frankie C",
+        "duracionSegundos": 254,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1220385/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=298318&width=300&trackid=1220385",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Dance with me to Hip Hop",
+        "artista": "Hasenchat",
+        "duracionSegundos": 398,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055125/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055125",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Let It Go (Featuring Michael John)",
+        "artista": "Kidd Young",
+        "duracionSegundos": 308,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1157601/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=138911&width=300&trackid=1157601",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "1978",
+        "artista": "Xaviant Haze",
+        "duracionSegundos": 265,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1388174/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161896&width=300&trackid=1388174",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Beat #27",
+        "artista": "DJ KayDeKay",
+        "duracionSegundos": 320,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1364754/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=234786&width=300&trackid=1364754",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Origami",
+        "artista": "Nio",
+        "duracionSegundos": 215,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1362425/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=282195&width=300&trackid=1362425",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Al que entrega todo",
+        "artista": "DesignioHipHop",
+        "duracionSegundos": 333,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1163144/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=139764&width=300&trackid=1163144",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/co/"
+      },
+      {
+        "titulo": "9 - Slim Bwoy - Viraq ft Beppus",
+        "artista": "Slim Bwoy",
+        "duracionSegundos": 181,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1329329/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=157319&width=300&trackid=1329329",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Paradise (Featuring Scolla)",
+        "artista": "Kidd Young",
+        "duracionSegundos": 229,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1157594/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=138911&width=300&trackid=1157594",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Exekose feat. Atius Tirawa",
+        "artista": "ANTI RAP MUSIC",
+        "duracionSegundos": 240,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1447181/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=257461&width=300&trackid=1447181",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Im All In - AhlonIsMusic",
+        "artista": "AhlonIsMusic",
+        "duracionSegundos": 274,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1276715/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=232893&width=300&trackid=1276715",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "CHI E' CHE SPACCA SOPRA IL GROOVE (BUM BUM BEM)",
+        "artista": "UpsetBolzaRookies",
+        "duracionSegundos": 253,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1138329/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136735&width=300&trackid=1138329",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/it/"
+      },
+      {
+        "titulo": "Di-man - Opastnyj Dzhoint ",
+        "artista": "Di-Man aka Smoked",
+        "duracionSegundos": 355,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1014932/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=119509&width=300&trackid=1014932",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "the New Sound",
+        "artista": "Hasenchat",
+        "duracionSegundos": 300,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055112/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055112",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Богем - Крик Души",
+        "artista": "Богем",
+        "duracionSegundos": 181,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1316102/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=214516&width=300&trackid=1316102",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Zoommanuel - Attirer l'attention",
+        "artista": "Zoommanuel",
+        "duracionSegundos": 233,
+        "url": "https://prod-1.storage.jamendo.com/download/track/333695/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=44497&width=300&trackid=333695",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.0/fr/"
+      },
+      {
+        "titulo": "Soy un Ciborg",
+        "artista": "Inhor",
+        "duracionSegundos": 192,
+        "url": "https://prod-1.storage.jamendo.com/download/track/365210/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=47162&width=300&trackid=365210",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/2.5/es/"
+      },
+      {
+        "titulo": "Hip Hop Experimental",
+        "artista": "AZ Studio",
+        "duracionSegundos": 195,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1484500/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=265682&width=300&trackid=1484500",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "\"We Hoodgrown\" by Donny Goines & Miles B",
+        "artista": "Cartel",
+        "duracionSegundos": 227,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1135530/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136324&width=300&trackid=1135530",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Champagne",
+        "artista": "PeshMyRapName",
+        "duracionSegundos": 193,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1244138/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=149081&width=300&trackid=1244138",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "SENTI IL CRACK FEAT TWINS",
+        "artista": "UpsetBolzaRookies",
+        "duracionSegundos": 218,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1138318/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136735&width=300&trackid=1138318",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/it/"
+      },
+      {
+        "titulo": "6-10 000 ans d'avance chapitre 5 (Force de l&#039;ordre)",
+        "artista": "b6k",
+        "duracionSegundos": 248,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1969837/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=494115&width=300&trackid=1969837",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "RAP5",
+        "artista": "Good kit",
+        "duracionSegundos": 184,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1063134/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=125551&width=300&trackid=1063134",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Darkest Hour (Prod. by Anno Domini)",
+        "artista": "C-Magni",
+        "duracionSegundos": 276,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1429548/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=166609&width=300&trackid=1429548",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Seres Inconformes",
+        "artista": "DesignioHipHop",
+        "duracionSegundos": 207,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1163141/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=139764&width=300&trackid=1163141",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/co/"
+      },
+      {
+        "titulo": "El Emperador Del Rap - Tigue Son (Prod.by Francis Beats)2015",
+        "artista": "Vaina Dura",
+        "duracionSegundos": 211,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1239718/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=148478&width=300&trackid=1239718",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Rap Hip Hop - Instrumental",
+        "artista": "Duglas",
+        "duracionSegundos": 231,
+        "url": "https://prod-1.storage.jamendo.com/?trackid=1879140&format=mp32&from=Otb%2BKxoF96UKuPZtTjMGTQ%3D%3D%7CQ1GbpXDv83ta1AmIlx5%2FaQ%3D%3D",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=452036&width=300&trackid=1879140",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Bang It",
+        "artista": "Cartel",
+        "duracionSegundos": 330,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1180588/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=142065&width=300&trackid=1180588",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "PRDT",
+        "artista": "Inhor",
+        "duracionSegundos": 219,
+        "url": "https://prod-1.storage.jamendo.com/download/track/365335/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=47162&width=300&trackid=365335",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/2.5/es/"
+      },
+      {
+        "titulo": "4-Transmission",
+        "artista": "b6k",
+        "duracionSegundos": 265,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1969835/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=494115&width=300&trackid=1969835",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Airline CA0173",
+        "artista": "Abiwo",
+        "duracionSegundos": 221,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1137672/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=136644&width=300&trackid=1137672",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "You Just",
+        "artista": "Hasenchat",
+        "duracionSegundos": 485,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055131/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055131",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "1980 IV",
+        "artista": "Xaviant Haze",
+        "duracionSegundos": 254,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1388165/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=161896&width=300&trackid=1388165",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "FTB",
+        "artista": "Cam Hutch",
+        "duracionSegundos": 217,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1542201/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=366659&width=300&trackid=1542201",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "06 - bonus instumental 2005",
+        "artista": "Miguel Prod",
+        "duracionSegundos": 198,
+        "url": "https://prod-1.storage.jamendo.com/download/track/76730/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=6901&width=300&trackid=76730",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Апологет - Побег (Sound by POINT)",
+        "artista": "Апологет",
+        "duracionSegundos": 187,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1553083/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=303309&width=300&trackid=1553083",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "Beg Me",
+        "artista": "Hasenchat",
+        "duracionSegundos": 421,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055124/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055124",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Tablero de ajedrez (con TRL)",
+        "artista": "Nuerma Pópulis Chicla",
+        "duracionSegundos": 290,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1087937/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=129709&width=300&trackid=1087937",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "titulo": "03 - Vers le bonheur",
+        "artista": "LERAC",
+        "duracionSegundos": 232,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1283896/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=153122&width=300&trackid=1283896",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/"
+      },
+      {
+        "titulo": "Chump Change x King David",
+        "artista": "King David",
+        "duracionSegundos": 180,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1054163/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124240&width=300&trackid=1054163",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Believe",
+        "artista": "Hasenchat",
+        "duracionSegundos": 407,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1055118/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=124389&width=300&trackid=1055118",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "titulo": "Free YG Type Beat | Free Hip Hop Beat",
+        "artista": "Adi Rambo",
+        "duracionSegundos": 213,
+        "url": "https://prod-1.storage.jamendo.com/download/track/1492117/mp32/",
+        "imagenAlbum": "https://usercontent.jamendo.com?type=album&id=370431&width=300&trackid=1492117",
+        "categoria": "hip-hop-old-school",
+        "licencia": "http://creativecommons.org/licenses/by/3.0/"
       }
     ]
   },
   {
     "categoria": "city-pop-andino",
-    "cantidadDeseada": 26,
-    "candidatos": [
-      {
-        "titulo": "alhambra - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 305,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035888/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035888"
-      },
-      {
-        "titulo": "The return of bulgarian voices",
-        "artista": "Noise Dream",
-        "duracionSegundos": 199,
-        "url": "https://prod-1.storage.jamendo.com/download/track/433174/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/433174"
-      },
-      {
-        "titulo": " Xeet' k'wel",
-        "artista": "BALAM",
-        "duracionSegundos": 208,
-        "url": "https://prod-1.storage.jamendo.com/?trackid=240998&format=mp32&from=CfxcTHtBfqUTm6UEkydJKA%3D%3D%7CQkaxqGv4H1lqVdYMpV0r8Q%3D%3D",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/240998"
-      },
-      {
-        "titulo": "siqiliah - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 287,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035891/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035891"
-      },
-      {
-        "titulo": "Homo Satori - Silent Leaves",
-        "artista": "Tunguska Electronic Music Society",
-        "duracionSegundos": 252,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1064014/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1064014"
-      },
-      {
-        "titulo": "BRAHMA ll",
-        "artista": "El Perez",
-        "duracionSegundos": 253,
-        "url": "https://prod-1.storage.jamendo.com/download/track/415259/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/415259"
-      },
-      {
-        "titulo": "D`um tempo feito de horas",
-        "artista": "João Pedro Moreira",
-        "duracionSegundos": 348,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1881372/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1881372"
-      },
-      {
-        "titulo": "l'acqua duci - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 304,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035887/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035887"
-      },
-      {
-        "titulo": "Côres de um sonho",
-        "artista": "João Pedro Moreira",
-        "duracionSegundos": 414,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1881368/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1881368"
-      },
-      {
-        "titulo": "tulin-nikolai@mail.ru 16",
-        "artista": "Tulin Nikolai",
-        "duracionSegundos": 283,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1418019/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1418019"
-      },
-      {
-        "titulo": "tulin-nikolai@mail 19",
-        "artista": "Tulin Nikolai",
-        "duracionSegundos": 250,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1418654/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1418654"
-      },
-      {
-        "titulo": "Magic of the Land",
-        "artista": "Olexa Kabanov",
-        "duracionSegundos": 622,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1156390/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1156390"
-      },
-      {
-        "titulo": "soffio d'oriente - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 284,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035884/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035884"
-      },
-      {
-        "titulo": "桃花開",
-        "artista": "Blaireko",
-        "duracionSegundos": 316,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1102520/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/2.5/tw/",
-        "paginaJamendo": "https://www.jamendo.com/track/1102520"
-      },
-      {
-        "titulo": "supra a me terra - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 186,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035890/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035890"
-      },
-      {
-        "titulo": "neutrino_rain",
-        "artista": "Circuit Monster",
-        "duracionSegundos": 291,
-        "url": "https://prod-1.storage.jamendo.com/download/track/912110/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/912110"
-      },
-      {
-        "titulo": "Voyage I - Waterfall",
-        "artista": "The Kyoto Connection",
-        "duracionSegundos": 264,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1036507/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1036507"
-      },
-      {
-        "titulo": "La danse des indiens",
-        "artista": "Bluemillenium",
-        "duracionSegundos": 281,
-        "url": "https://prod-1.storage.jamendo.com/download/track/782844/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/782844"
-      },
-      {
-        "titulo": "26 Erosion ( Japan Edit )",
-        "artista": "Hasenchat",
-        "duracionSegundos": 510,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1173969/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1173969"
-      },
-      {
-        "titulo": "21 Asia Delay ( Instrumental Mix )",
-        "artista": "Hasenchat",
-        "duracionSegundos": 555,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1173965/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1173965"
-      },
-      {
-        "titulo": "rockin wood",
-        "artista": "Yidakivoice / Djane Doña Barça",
-        "duracionSegundos": 249,
-        "url": "https://prod-1.storage.jamendo.com/download/track/664758/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/664758"
-      },
-      {
-        "titulo": "Outro - Totally Here and Now (feat. Alan Watts)",
-        "artista": "The Kyoto Connection",
-        "duracionSegundos": 242,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1036506/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1036506"
-      },
-      {
-        "titulo": "tulin-nikolai@mail.ru04",
-        "artista": "Tulin Nikolai",
-        "duracionSegundos": 198,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1418157/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1418157"
-      },
-      {
-        "titulo": "la saracena - siqiliah terra d'islam - milagro acustico",
-        "artista": "Milagro acustico medina sound",
-        "duracionSegundos": 256,
-        "url": "https://prod-1.storage.jamendo.com/download/track/1035883/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/1035883"
-      },
-      {
-        "titulo": "Terre intérieure",
-        "artista": "Laurent Danis",
-        "duracionSegundos": 211,
-        "url": "https://prod-1.storage.jamendo.com/download/track/889538/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/889538"
-      },
-      {
-        "titulo": "Il Pleut Comme Chien et Chatte",
-        "artista": "Ottilie",
-        "duracionSegundos": 180,
-        "url": "https://prod-1.storage.jamendo.com/download/track/365265/mp32/",
-        "licencia": "http://creativecommons.org/licenses/by-sa/3.0/",
-        "paginaJamendo": "https://www.jamendo.com/track/365265"
-      }
-    ]
+    "cantidadDeseada": 74,
+    "candidatos": []
   }
 ]

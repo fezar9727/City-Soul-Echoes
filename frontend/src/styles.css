@@ -1984,13 +1984,14 @@ Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
 .texto-truncado-movil {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 @media (max-width: 768px) {
   .texto-truncado-movil {
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
 
@@ -2056,4 +2057,74 @@ Utilidad reutilizable: trunca texto a N líneas en mobile, con "..."
 .efecto-fondo-contenedor {
   position: relative;
   isolation: isolate;
+}
+
+/* ============================================================
+   TOAST GLOBAL — reutilizable por cualquier componente del sitio
+   ============================================================ */
+.toast-contenedor-global {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast-item {
+  background: rgba(20, 20, 24, 0.95);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: 90vw;
+  text-align: center;
+}
+.toast-item--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast-item--advertencia {
+  border: 1px solid rgba(255, 180, 60, 0.4);
+  background: rgba(40, 28, 10, 0.95);
+}
+
+/* ============================================================
+   BOTONES METÁLICOS COMPARTIDOS — plateado/aluminio con relieve
+   3D real, usado por Soul Station y el reproductor local. Vive en
+   global porque el CSS de componente en Angular está encapsulado
+   por defecto (ViewEncapsulation.Emulated) — nunca se comparte
+   entre componentes distintos aunque reutilicen la misma clase en
+   el HTML; causa real confirmada de por qué se veían "opacos" en
+   el reproductor local (corrían sin ningún estilo real aplicado).
+   ============================================================ */
+.soul-controles-principales .btn {
+  background: linear-gradient(180deg, #e8eaed 0%, #b8bcc4 45%, #8a8f99 100%);
+  border: 1px solid #6b7280;
+  color: #1a1d23;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.25),
+    0 3px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.soul-controles-principales .btn:hover {
+  background: linear-gradient(180deg, #f5f6f8 0%, #c8ccd4 45%, #9aa0aa 100%);
+}
+.soul-controles-principales .btn:active,
+.soul-controles-principales .btn.btn-warning,
+.soul-controles-principales .btn.activo {
+  background: linear-gradient(180deg, #8a8f99 0%, #b8bcc4 55%, #e8eaed 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+}
+.soul-controles-principales .btn i {
+  filter:
+    drop-shadow(-0.5px -0.5px 0 rgba(255, 255, 255, 0.6))
+    drop-shadow(0.5px 0.5px 0.5px rgba(0, 0, 0, 0.5));
 }
