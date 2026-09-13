@@ -1,0 +1,1488 @@
+/* ============================================================
+   1. CONTROLES DE RANGO (sliders) — barra fina moderna, base
+      compartida por progreso y volumen
+   ============================================================ */
+.soul-progreso-wrapper,
+.soul-volumen-wrapper {
+  position: relative;
+}
+.soul-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  cursor: pointer;
+  transition: height 0.15s ease;
+}
+.soul-range:hover {
+  height: 6px;
+}
+.soul-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-gold, #fab60c);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+.soul-range:hover::-webkit-slider-thumb,
+.soul-range:active::-webkit-slider-thumb {
+  opacity: 1;
+}
+.soul-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-gold, #fab60c);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+.soul-range:hover::-moz-range-thumb,
+.soul-range:active::-moz-range-thumb {
+  opacity: 1;
+}
+.soul-icono-reserva {
+  visibility: hidden;
+}
+
+/* ============================================================
+   2. BARRA DE PROGRESO — relleno con gradiente + pill de tiempo
+   ============================================================ */
+.soul-range--progreso::-webkit-slider-runnable-track {
+  background: linear-gradient(
+    to right,
+    var(--accent-gold, #fab60c) 0%,
+    var(--accent-gold, #fab60c) var(--progreso-pct, 0%),
+    rgba(255, 255, 255, 0.15) var(--progreso-pct, 0%)
+  );
+  border-radius: 999px;
+}
+.soul-progreso-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.soul-progreso-fila .soul-range {
+  flex: 1;
+}
+.soul-tiempo-pill {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.soul-progreso-tiempos {
+  display: flex;
+  justify-content: space-between;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 255, 255, 0.6);
+}
+.soul-progreso-tiempos.visible {
+  max-height: 20px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   3. VOLUMEN — porcentaje revelado al interactuar
+   ============================================================ */
+.soul-volumen-valor {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 32px;
+  text-align: right;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.2s ease, opacity 0.2s ease;
+}
+.soul-volumen-valor.visible {
+  max-width: 40px;
+  opacity: 1;
+}
+
+/* ============================================================
+   4. VISUALIZADOR — panel tipo consola física con rejilla técnica,
+      barras LED reaccionando en vivo al audio real
+   ============================================================ */
+.soul-visualizador-panel {
+  position: relative;
+  overflow: hidden;
+  background-color: #0a0f16;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 6px 18px rgba(0, 0, 0, 0.5);
+  padding: 16px 12px 12px;
+  margin-bottom: 12px;
+}
+.soul-visualizador-panel::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+  animation: soul-glow-drift 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes soul-glow-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(15%, 10%); }
+}
+.soul-visualizador {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 56px;
+}
+.soul-columna-led {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1.5px;
+  width: 6px;
+}
+.soul-segmento-led {
+  width: 100%;
+  height: 3px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: background 0.06s ease-out;
+}
+.soul-segmento-led.encendido {
+  box-shadow: 0 0 3px currentColor;
+}
+
+/* ============================================================
+   5. ECUALIZADOR — consola de mezcla física: rayas de dB,
+      canales hundidos separados, frecuencia real por banda
+   ============================================================ */
+.soul-ecualizador {
+  position: relative;
+  background-color: #16110d;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(250, 182, 12, 0.05) 0px,
+    rgba(250, 182, 12, 0.05) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.65),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 6px 18px rgba(0, 0, 0, 0.5);
+  padding: 16px 14px;
+}
+/* box-sizing: border-box — causa real del desparejo: el padding
+   (10px + 10px) se sumaba al width fijo (46px -> 66px reales), ya
+   que content-box (default del navegador) no incluye el padding
+   dentro del ancho declarado. border-box fuerza que el padding
+   quede DENTRO de los 46px, igual que en el EQ inmersivo (que no
+   tenía este padding y por eso sí quedaba parejo). */
+.soul-eq-banda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 46px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 10px 10px 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.soul-eq-banda::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 0;
+}
+.soul-columna-eq {
+  width: 10px;
+  height: 64px;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}
+.soul-range-vertical {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 4px;
+  height: 40px;
+  -webkit-appearance: slider-vertical;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.soul-range-vertical::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #38bdf8 70%);
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.7);
+  cursor: pointer;
+}
+.soul-eq-etiqueta {
+  font-size: 0.6rem;
+  opacity: 0.6;
+  text-align: center;
+  line-height: 1;
+  font-family: 'Courier New', monospace;
+}
+.soul-eq-frecuencia {
+  font-size: 0.52rem;
+  opacity: 0.4;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.3px;
+}
+
+/* ============================================================
+   6. CARÁTULAS — tema actual, placeholder de nota musical 3D,
+      miniaturas en la lista de reproducción
+   ============================================================ */
+.soul-caratula-mini {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+  image-rendering: -webkit-optimize-contrast;
+}
+.soul-caratula-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1a1420, #2d1f3d);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  perspective: 400px;
+}
+.soul-caratula-placeholder i {
+  font-size: 2.4rem;
+  color: var(--accent-gold, #fab60c);
+  text-shadow: 0 0 12px rgba(250, 182, 12, 0.6);
+  animation: soul-nota-girar 4s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes soul-nota-girar {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+.soul-caratula-lista {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   7. CONTADOR "PISTA X DE Y" — texto en relieve 3D
+   ============================================================ */
+.soul-contador-pista {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.7),
+    1px -1px 0 rgba(0, 0, 0, 0.7),
+    -1px 1px 0 rgba(0, 0, 0, 0.7),
+    1px 1px 0 rgba(0, 0, 0, 0.7),
+    0 2px 0 rgba(0, 0, 0, 0.6),
+    0 4px 0 rgba(0, 0, 0, 0.5),
+    0 6px 8px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(250, 182, 12, 0.6);
+}
+
+/* ============================================================
+   8. REPRODUCCIÓN EN REVERSA — centrada bajo el play, angosta
+      (mismo ancho aprox. que su propio botón), color naranja
+      oscuro/quemado para diferenciarla de los controles normales
+      (dorado). El volumen de reversa solo existe en el DOM
+      mientras la reversa está activa/pausada (*ngIf en el HTML).
+   ============================================================ */
+.soul-columna-reversa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+/* Plateado oscuro (referencia real pedida) en vez de naranja —
+   sigue diferenciándose del resto por ser más oscuro/frío, no por
+   color de acento distinto. */
+/* Base = naranja oscuro/quemado, para el reproductor NORMAL (dorado
+   en el resto de botones) — más oscuro que el dorado para
+   diferenciarse, pero de la misma familia cálida. El gris metálico
+   queda reservado SOLO para el inmersivo, ver override más abajo. */
+.soul-btn-reversa {
+  background: linear-gradient(180deg, #d97a1e 0%, #b8560e 60%, #7a3a08 100%);
+  border: 1px solid #5c2c06;
+  color: #ffe8d0;
+  box-shadow: inset 0 1px 0 rgba(255, 200, 150, 0.3), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.soul-btn-reversa:hover {
+  background: linear-gradient(180deg, #e8891f 0%, #c8600f 60%, #8a4009 100%);
+}
+.soul-btn-reversa.activo {
+  background: linear-gradient(180deg, #7a3a08 0%, #b8560e 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+/* Override: dentro del panel inmersivo (PS1), el mismo botón pasa a
+   plateado/metálico — selector compuesto de mayor especificidad, no
+   duplica la regla base, solo la sobrescribe en ese contexto. */
+.soul-inmersivo-panel .soul-btn-reversa {
+  background: linear-gradient(180deg, #3f4450 0%, #262a33 60%, #14161c 100%);
+  border: 1px solid #1a1c22;
+  color: #c8cdd6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.soul-inmersivo-panel .soul-btn-reversa:hover {
+  background: linear-gradient(180deg, #4d525f 0%, #2e323c 60%, #1a1c22 100%);
+}
+.soul-inmersivo-panel .soul-btn-reversa.activo {
+  background: linear-gradient(180deg, #14161c 0%, #262a33 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+.soul-icono-play-invertido {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+/* Mismo patrón: naranja oscuro base (reproductor normal), override
+   gris metálico solo dentro del panel inmersivo. */
+.soul-volumen-reversa {
+  width: 92px;
+  font-size: 0.65rem;
+  color: #d98a4a;
+}
+.soul-range--reversa {
+  height: 3px;
+}
+.soul-range--reversa::-webkit-slider-thumb {
+  background: #d98a4a;
+}
+.soul-range--reversa::-moz-range-thumb {
+  background: #d98a4a;
+}
+.soul-inmersivo-panel .soul-volumen-reversa {
+  color: #9aa0aa;
+}
+.soul-inmersivo-panel .soul-range--reversa::-webkit-slider-thumb {
+  background: #c8cdd6;
+}
+.soul-inmersivo-panel .soul-range--reversa::-moz-range-thumb {
+  background: #c8cdd6;
+}
+.soul-reversa-activa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+}
+.soul-reversa-activa i {
+  font-size: 2rem;
+  color: #d98a4a;
+  text-shadow: 0 0 14px rgba(184, 86, 14, 0.6);
+  animation: soul-reversa-pulso 1.6s ease-in-out infinite;
+}
+@keyframes soul-reversa-pulso {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.85; }
+  50% { transform: rotate(-25deg) scale(1.1); opacity: 1; }
+}
+
+/* ============================================================
+   9. RESPONSIVE — un solo bloque unificado para pantallas chicas
+   ============================================================ */
+@media (max-width: 576px) {
+  .soul-eq-banda { min-width: 30px; padding: 8px 6px 5px; }
+  .soul-columna-eq { height: 46px; }
+  .soul-range-vertical { height: 30px; }
+  .soul-visualizador { height: 40px; }
+  .soul-visualizador-panel { padding: 10px 6px 8px; }
+  .soul-eq-frecuencia { font-size: 0.48rem; }
+  .soul-caratula-mini { width: 72px; height: 72px; }
+  .soul-caratula-placeholder { width: 72px; height: 72px; }
+  .soul-caratula-placeholder i { font-size: 1.8rem; }
+  .soul-caratula-flip { width: 140px; height: 140px; }
+  .soul-caratula-flip--ampliada { width: min(88vw, 320px); height: min(88vw, 320px); }
+  .soul-caratula-overlay-fondo .soul-caratula-flip { width: min(85vw, 85vh, 340px); height: min(85vw, 85vh, 340px); }
+  .soul-canvas-ps1 { height: 40px; }
+}
+
+/* ============================================================
+   10. CARÁTULA INTERACTIVA — flip 3D real (rotateY), spotlight
+       que sigue el mouse, reflejo diagonal periódico
+   ============================================================ */
+/* Tamaño real aumentado (96px -> 156px) para que el respaldo tenga
+   espacio suficiente para 4 líneas de info con íconos, sin sentirse
+   apretado ni forzar texto a desbordar. */
+/* Base agrandada de nuevo (156px -> 190px), para que se distinga con
+   claridad sin necesitar ampliar. El modificador --ampliada (usado
+   dentro del overlay) sube mucho más el tamaño para lectura cómoda
+   de todo el respaldo. */
+.soul-caratula-flip {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 12px;
+  perspective: 1000px;
+  cursor: pointer;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+}
+/* flex-shrink: 0 es la pieza real que faltaba — sin esto, dentro del
+   contenedor flex centrado del overlay, el navegador podía recalcular
+   el tamaño de forma inconsistente, generando el espacio vacío
+   enorme alrededor que se veía en pantalla en vez de una imagen
+   grande y ajustada. */
+/* Selector compuesto (.soul-caratula-overlay-fondo .soul-caratula-flip)
+   en vez de solo .soul-caratula-flip--ampliada — mayor especificidad
+   CSS real, así esta regla siempre gana sin importar el orden en que
+   quedaron las reglas en el archivo. Tope real subido: antes
+   min(60vw, 320px) daba SIEMPRE 320px fijos en cualquier pantalla de
+   escritorio normal (60vw ya supera 320px pasado los 533px de ancho),
+   por eso nunca se veía grande. Ahora usa también vh como límite, para
+   crecer de verdad sin desbordar verticalmente. */
+.soul-caratula-overlay-fondo .soul-caratula-flip {
+  width: min(70vw, 70vh, 480px);
+  height: min(70vw, 70vh, 480px);
+  margin: 0;
+  flex-shrink: 0;
+}
+/* Fondo oscurecido de pantalla completa, con blur — el resto de la
+   interfaz queda visualmente "de fondo, sin distinguirse", como se
+   pidió, mientras la carátula ampliada queda centrada y protagonista. */
+/* display:none por defecto (no *ngIf) — el nodo permanece siempre en
+   el DOM, ya movido a document.body, y .mostrar lo revela. Con esto
+   position:fixed ancla contra el viewport real, no contra ningún
+   ancestro con transform. */
+.soul-caratula-overlay-fondo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 8, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.soul-caratula-overlay-fondo.mostrar {
+  display: flex;
+  animation: soul-overlay-aparece 0.2s ease;
+}
+@keyframes soul-overlay-aparece {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Bloqueo de scroll global mientras el modal está abierto. */
+body.soul-scroll-bloqueado {
+  overflow: hidden;
+}
+
+/* Botón de expandir — esquina inferior derecha de la carátula chica,
+   siempre clickeable, sin depender de gestos ocultos. */
+.soul-btn-expandir {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(3px);
+}
+.soul-btn-expandir.tactil {
+  width: 32px;
+  height: 32px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+.soul-hint-ampliar {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.soul-caratula-flip-interior {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  /* Tilt 3D en vivo (sin flip) + rotación de 180° al voltear — ambas
+     rotaciones se combinan en la misma propiedad transform. */
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+.soul-caratula-flip.volteada .soul-caratula-flip-interior {
+  /* Al voltear, se suma 180° en Y al tilt actual, y se agranda un
+     poco (scale) para dar énfasis visual real de "esto es lo que
+     estás mirando ahora", como pediste. */
+  transform: rotateX(var(--tilt-x)) rotateY(calc(180deg + var(--tilt-y))) scale(1.08);
+}
+.soul-caratula-cara {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+.soul-caratula-frente {
+  position: relative;
+}
+.soul-caratula-frente img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Spotlight "hundido" que sigue el mouse — radial-gradient oscuro
+   posicionado en las coordenadas vivas del cursor (--mouse-x/-y). */
+.soul-caratula-frente::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 0, 0, 0.35) 0%,
+    transparent 45%
+  );
+  pointer-events: none;
+}
+.soul-caratula-placeholder-flip {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1a1420, #2d1f3d);
+}
+.soul-caratula-placeholder-flip i {
+  font-size: 2.4rem;
+  color: var(--accent-gold, #fab60c);
+  text-shadow: 0 0 12px rgba(250, 182, 12, 0.6);
+}
+/* Reflejo diagonal periódico — franja de brillo que cruza la
+   carátula cada 6s en loop, técnica real de "shine sweep". */
+.soul-caratula-brillo {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: soul-brillo-cruce 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes soul-brillo-cruce {
+  0%, 85%, 100% { left: -60%; }
+  92% { left: 130%; }
+}
+/* Fondo con textura (rejilla + radial glow), en vez del gradiente
+   liso genérico anterior, para que se sienta parte del mismo
+   lenguaje visual "consola" del resto del reproductor, no una
+   tarjeta de info plana. */
+.soul-caratula-respaldo {
+  background-color: #14100c;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(250, 182, 12, 0.08), transparent 55%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, 14px 14px, 14px 14px;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px;
+}
+.soul-respaldo-scroll {
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.soul-respaldo-scroll h6 {
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: 0.85rem;
+}
+/* Cada dato: ícono + título arriba centrado, valor justo debajo sin
+   salto de línea de por medio, y una línea separadora sutil entre
+   cada bloque (excepto el último, que no la lleva). */
+.soul-respaldo-dato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.soul-respaldo-dato--sin-borde {
+  border-bottom: none;
+}
+.soul-respaldo-dato i {
+  font-size: 0.9rem;
+  color: var(--accent-gold, #fab60c);
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+.soul-respaldo-etiqueta {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.55;
+  font-weight: 700;
+}
+.soul-respaldo-valor {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================================
+   11. VISUALIZADOR PS1 — geometría psicodélica reactiva al audio
+       real (círculos, espirales, partículas), arcoíris rotativo
+       vía HSL, interactivo con el mouse y el click
+   ============================================================ */
+.soul-canvas-ps1 {
+  width: 100%;
+  height: 56px;
+  display: block;
+  border-radius: 6px;
+  cursor: crosshair;
+  background: radial-gradient(circle at 50% 50%, rgba(20, 10, 30, 0.4), rgba(6, 4, 12, 0.6));
+}
+.soul-btn-modo-visualizador {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.soul-btn-modo-visualizador:hover {
+  color: var(--accent-gold, #fab60c);
+  border-color: var(--accent-gold, #fab60c);
+}
+
+/* ============================================================
+   12. MODO INMERSIVO — experiencia de pantalla completa estilo
+       SoundScope (PS1): fondo psicodélico a pantalla completa,
+       carátula-CD giratoria, EQ con paleta arcoíris, carrusel
+       horizontal de pistas
+   ============================================================ */
+.soul-btn-inmersivo {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.62rem;
+  cursor: pointer;
+}
+.soul-btn-inmersivo:hover {
+  color: var(--accent-gold, #fab60c);
+  border-color: var(--accent-gold, #fab60c);
+}
+
+.soul-inmersivo-fondo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  overflow: hidden;
+  background: #030208;
+}
+.soul-inmersivo-fondo.mostrar {
+  display: block;
+  animation: soul-overlay-aparece 0.3s ease;
+}
+/* Blur movido acá desde Canvas 2D (ctx.filter, muy costoso por
+   frame) — filter de CSS es acelerado por GPU, una sola pasada de
+   composición, causa real de la mejora de fluidez esperada. Subido
+   a 1.6px + saturate/contrast para mayor difuminado real y más
+   intensidad psicodélica, sin agregar ningún costo por Canvas 2D. */
+.soul-canvas-inmersivo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(2.2px) saturate(1.35) contrast(1.1);
+}
+.soul-btn-salir-inmersivo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.soul-inmersivo-contenido {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+}
+/* Panel real detrás de título+EQ+controles+carrusel — sin esto, el
+   canvas de fondo (rayos, cuñas) atraviesa directamente el texto y
+   los sliders, haciéndolos ilegibles (bug real confirmado en captura). */
+.soul-inmersivo-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(4, 3, 10, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px 28px;
+  max-width: min(92vw, 640px);
+}
+
+/* El diseño original del CD (esta sección) quedó reemplazado por el
+   flip-CD real de la sección 13 (.soul-cd-flip) — se eliminó código
+   muerto (clases que el HTML ya no usa) y 2 duplicados reales:
+   @keyframes soul-cd-girar y .soul-cd-agujero/.soul-cd-brillo estaban
+   definidos 2 veces (acá y en la sección 13), violando el punto 3 del
+   Prompt Maestro (nunca duplicar lógica/estilos). La versión que
+   queda viva es la de la sección 13. */
+
+/* EQ metálico: track con gradiente plateado real (varias paradas de
+   gris claro/oscuro simulando reflejo de aluminio cepillado), thumb
+   con brillo especular — referencia real de tus capturas del PS1
+   (paneles plateados/aluminio). */
+.soul-inmersivo-panel .soul-range-vertical {
+  background: linear-gradient(
+    to top,
+    #6b7280 0%, #d1d5db 15%, #9ca3af 30%, #f3f4f6 45%,
+    #9ca3af 60%, #d1d5db 75%, #6b7280 100%
+  );
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.6), 0 0 6px rgba(255, 255, 255, 0.15);
+}
+.soul-inmersivo-panel .soul-range-vertical::-webkit-slider-thumb {
+  background: radial-gradient(circle at 35% 30%, #ffffff, #c0c4cc 60%, #6b7280 100%);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+  width: 13px;
+  height: 13px;
+}
+/* word-break: break-word — causa real del desborde: "Presencia" es
+   una sola palabra sin espacios, el navegador nunca la parte sin
+   este permiso explícito, y se desbordaba invadiendo la columna
+   vecina en vez de continuar en el siguiente renglón. */
+.soul-inmersivo-panel .soul-eq-etiqueta {
+  color: #d1d5db;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.1;
+  min-height: 2.2em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.soul-inmersivo-titulo {
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+}
+.soul-inmersivo-artista {
+  opacity: 0.75;
+  font-size: 0.85rem;
+  margin: 0 0 6px;
+}
+
+/* EQ inmersivo real: reutiliza el MISMO sistema de LEDs del
+   ecualizador normal (soul-columna-led/soul-segmento-led/
+   segmentoEncendido() ya definidos en la sección 4/5), con
+   modificador rojo — coherente con el punto 3 del Prompt Maestro
+   (nunca duplicar lógica, solo restilizar). */
+/* Rayas VERTICALES reales (to right, no to bottom) — fondo oscuro
+   neutro (no café), rayas claras finas simulando canales de consola
+   física verticales, coherente con lo pedido. */
+.soul-eq-inmersivo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0d0d10;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.07) 0px,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 80, 40, 0.08);
+  border-radius: 12px;
+  padding: 10px 16px 12px;
+}
+/* Separador horizontal SOLO entre el título/Restaurar y las bandas
+   — no en todo el panel, como se pidió. */
+.soul-eq-inmersivo-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 6px;
+}
+.soul-eq-inmersivo-titulo {
+  font-size: 0.7rem;
+  color: rgba(255, 200, 200, 0.7);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.soul-btn-restaurar-inmersivo {
+  font-size: 0.6rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 100, 100, 0.4);
+  background: transparent;
+  color: rgba(255, 150, 150, 0.8);
+  cursor: pointer;
+}
+/* width fijo (no min-width) + flex-shrink:0 — antes "Med-Bajo" seguía
+   estirando su propia columna más que "Sub" porque min-width solo
+   pone un piso, no un ancho real igual para todas. */
+.soul-eq-inmersivo-banda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 34px;
+  flex-shrink: 0;
+}
+
+/* Fondo propio semitransparente para que el texto siempre gane
+   contraste sobre las rayas verticales del panel, sin taparlas del
+   todo (las rayas siguen visibles alrededor). */
+.soul-eq-inmersivo-db {
+  font-size: 0.55rem;
+  font-family: 'Courier New', monospace;
+  color: rgba(255, 150, 150, 0.85);
+  min-height: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+.soul-inmersivo-panel .soul-eq-frecuencia {
+  color: rgba(255, 180, 130, 0.6);
+}
+/* brightness/saturate sobre toda la columna — hace que el conjunto
+   de LEDs se vea notoriamente más "encendido" y potente, sin tocar
+   los colores base calculados en TS (los intensifica en pantalla). */
+.soul-columna-eq-inmersivo {
+  height: 70px;
+  width: 8px;
+  gap: 1.5px;
+  filter: brightness(1.35) saturate(1.4);
+}
+/* El color base ahora se define dinámicamente por colorSegmentoLlama()
+   vía [style.background] en el HTML — el glow real viene del
+   [style.box-shadow] inline (glowLlama), con mayor prioridad que
+   esta regla base. Flicker ahora aplica a TODOS los segmentos
+   encendidos (no solo la punta) — sensación real de llama viva en
+   toda la columna, con retraso distinto por posición para que no
+   titilen sincronizados. */
+.soul-segmento-led--llama.encendido {
+  animation: soul-llama-flicker 0.5s ease-in-out infinite alternate;
+}
+.soul-segmento-led--llama.encendido:nth-child(2n) { animation-delay: 0.1s; }
+.soul-segmento-led--llama.encendido:nth-child(3n) { animation-delay: 0.2s; }
+.soul-segmento-led--llama.encendido:nth-child(4n) { animation-delay: 0.3s; }
+.soul-segmento-led--llama.punta-activa {
+  animation: soul-llama-flicker-punta 0.35s ease-in-out infinite alternate;
+}
+@keyframes soul-llama-flicker {
+  from { opacity: 0.75; transform: scaleY(0.92); }
+  to { opacity: 1; transform: scaleY(1.03); }
+}
+@keyframes soul-llama-flicker-punta {
+  from { opacity: 0.8; transform: scaleY(0.9) scaleX(0.9); }
+  to { opacity: 1; transform: scaleY(1.15) scaleX(1.1); }
+}
+
+.soul-inmersivo-controles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Carrusel horizontal: scroll-snap real (API CSS estándar, MDN),
+   reemplaza la lista vertical larga por miniaturas navegables con
+   swipe/scroll, más inmersivo y compacto. */
+.soul-carrusel-horizontal {
+  display: flex;
+  gap: 8px;
+  max-width: min(90vw, 600px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 4px;
+}
+.soul-carrusel-item {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  overflow: hidden;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.soul-carrusel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+.soul-carrusel-item i {
+  color: var(--accent-gold, #fab60c);
+  font-size: 1rem;
+}
+.soul-carrusel-item.activo {
+  border-color: var(--accent-gold, #fab60c);
+  box-shadow: 0 0 10px rgba(250, 182, 12, 0.6);
+}
+
+@media (max-width: 576px) {
+  .soul-cd-wrapper { width: min(30vh, 190px); height: min(30vh, 190px); }
+  .soul-eq-inmersivo { gap: 6px; padding: 8px 10px; }
+}
+
+/* ============================================================
+   13. CD-FLIP INMERSIVO — disco que voltea, holográfico arcoíris
+       real, ampliable con click derecho, + CRT scanlines sobre
+       el fondo caleidoscopio
+   ============================================================ */
+.soul-cd-flip {
+  width: min(38vh, 260px);
+  height: min(38vh, 260px);
+  perspective: 1000px;
+  cursor: pointer;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.soul-cd-flip.ampliado {
+  width: min(60vh, 420px);
+  height: min(60vh, 420px);
+}
+.soul-cd-flip-interior {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.soul-cd-flip-interior.volteada {
+  transform: rotateY(180deg);
+}
+.soul-cd-cara {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+/* box-shadow separado en cada cara — antes estaba en .soul-cd-cara
+   compartida por AMBAS caras, y ese halo negro de 40px era el borde
+   real reportado, aunque ya se había "arreglado" el respaldo, el
+   original de esta clase base seguía aplicando a las dos. */
+.soul-cd-cara-frente {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.soul-cd-cara-frente img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+.soul-cd-cara-frente.girando {
+  animation: soul-cd-girar 26s linear infinite;
+}
+@keyframes soul-cd-girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* Anillo del agujero central afinado a un dorado oscuro sutil, en
+   vez de blanco frío — coherente con el disco dorado, en vez de
+   parecer un "borde" ajeno a la superficie del CD. */
+.soul-cd-agujero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14%;
+  height: 14%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #030208;
+  box-shadow: 0 0 0 2px rgba(196, 163, 82, 0.4);
+  z-index: 2;
+}
+/* Nota: esta clase (.soul-cd-brillo) es del CD FRENTE, no del
+   respaldo — se mantiene, no es la causa del borde. El problema
+   real estaba en .soul-cd-respaldo-disco (arriba), ya corregido. */
+.soul-cd-brillo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.25) 15deg, transparent 40deg, transparent 180deg, rgba(255, 255, 255, 0.15) 200deg, transparent 230deg);
+  pointer-events: none;
+}
+/* Override real del box-shadow negro heredado de .soul-cd-cara —
+   causa real del "borde" que no era dorado: esa sombra oscura
+   compartida con el frente tapaba el color en el perímetro del
+   disco. Acá pasa a un resplandor cálido dorado, coherente con la
+   superficie del disco. */
+/* Se quita el glow/halo agregado antes — era literalmente el "aro"
+   reportado. El disco convive con el fondo sin resplandor perimetral. */
+.soul-cd-cara-respaldo {
+  transform: rotateY(180deg);
+  background: #050308;
+}
+/* Disco holográfico real: gradiente cónico arcoíris completo
+   (referencia real: el reverso metalizado iridiscente de un CD-R
+   grabable), que gira sin parar — el "fondo sigue siendo el mismo
+   del CD" pedido, mientras la info se lee encima sin moverse. */
+/* Fiel a la foto real de referencia: estallido radial de espectro
+   completo (magenta/dorado/verde/cian) en franjas angostas tipo
+   rayo saliendo del centro, sobre fondo casi negro — no un anillo
+   concentrado en el borde. conic-gradient con muchas paradas de
+   color consecutivas simula esas franjas finas; repeating-conic-
+   gradient superpuesto agrega la textura de "rayos" individuales. */
+/* Simplificado a 1 sola capa de fondo (antes eran 3 superpuestas
+   compitiendo entre sí, causa real de que nunca se viera "limpio"
+   dorado). Base sólida dorada real + UN reflejo diagonal suave, sin
+   conic-gradients de franjas que generaban el efecto "anillo". */
+/* Arcoíris real recuperado vía mix-blend-mode: color-dodge (API
+   estándar CSS, MDN) — el espectro completo se proyecta como un
+   reflejo de luz REAL sobre la base dorada, en vez de franjas de
+   color planas tapando el dorado (ese era el problema anterior). */
+/* Causa real del "borde dorado": el radial-gradient anterior se
+   oscurecía del 80% al 100% del radio (#d9b968 -> #c4a352), esa
+   franja de sombra ES el aro reportado — ahora la base es uniforme
+   y brillante (sin oscurecimiento en el borde), fiel al brillo real
+   de un CD. */
+.soul-cd-respaldo-disco {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(circle, #fdf6e0 0%, #f3e4ae 60%, #eadb99 100%);
+}
+
+/* Sin mix-blend-mode: color-dodge sobre una base clara se satura a
+   blanco puro y el reflejo desaparece — comportamiento documentado
+   real de ese blend mode. Superposición normal (sin blend) muestra
+   el color siempre, sin importar cuán clara sea la base. */
+/* Banda base (grande/ampliado): igual que antes, sin cambios. */
+.soul-cd-respaldo-disco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    125deg,
+    transparent 30%,
+    rgba(255, 46, 196, 0.7) 40%,
+    rgba(255, 183, 0, 0.7) 45%,
+    rgba(122, 255, 61, 0.7) 50%,
+    rgba(0, 224, 200, 0.7) 55%,
+    rgba(46, 107, 255, 0.7) 60%,
+    transparent 70%
+  );
+}
+/* Solo en CD chico (no ampliado): banda mucho más angosta (10% del
+   ancho total, contra ~40% de la versión base) — en un disco de
+   260px la misma banda se veía proporcionalmente enorme comparada
+   con la versión grande de 420px+, causa real de que se viera "tan
+   grande". Se sobreescribe SOLO acá, la versión .ampliado no se toca. */
+.soul-cd-flip:not(.ampliado) .soul-cd-respaldo-disco::before {
+  background: linear-gradient(
+    125deg,
+    transparent 42%,
+    rgba(255, 46, 196, 0.65) 47%,
+    rgba(255, 183, 0, 0.65) 49%,
+    rgba(122, 255, 61, 0.65) 51%,
+    rgba(0, 224, 200, 0.65) 53%,
+    rgba(46, 107, 255, 0.65) 58%,
+    transparent 63%
+  );
+}
+.soul-cd-respaldo-disco.girando {
+  animation: soul-cd-girar 30s linear infinite;
+}
+/* Panel de texto: NO hereda el giro (es hermano del disco que gira,
+   no su hijo) — se queda fijo y centrado, con fondo oscuro
+   semitransparente detrás para contraste real y legible. */
+/* Con el fondo ahora dorado (claro), el texto oscuro contrasta mejor
+   que blanco puro — panel semitransparente oscuro se mantiene para
+   legibilidad, pero el color de texto pasa a un marrón oscuro cálido
+   en vez de blanco, coherente con la superficie dorada real. */
+/* inset 18% en chico (más margen real respecto al borde de color),
+   8% en ampliado (más espacio disponible en un disco grande). */
+/* Causa real del "borde": el inset alto (18%) dejaba un anillo ancho
+   del disco dorado/arcoíris visible alrededor del panel — cuanto más
+   grande el inset, más chico el panel y más ancho ese anillo. Bajado
+   a 4% (casi cubre todo el disco), compensado con las fuentes ya
+   reducidas (0.26rem-0.42rem) para que el texto siga sin tocar el
+   borde de color. */
+.soul-cd-respaldo-info {
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background: rgba(10, 7, 2, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6%;
+  color: #fff5e0;
+  z-index: 3;
+  overflow: hidden;
+}
+.soul-cd-flip.ampliado .soul-cd-respaldo-info {
+  inset: 8%;
+  padding: 10%;
+}
+/* Tamaño real distinto por contexto — antes era 1rem fijo sin
+   importar si el disco medía 260px o 420px+, causa real de que el
+   texto se viera desproporcionado/desbordado en el chico. */
+/* Tamaño chico bajado a 0.42rem — la versión anterior (0.62rem)
+   seguía cortándose en discos de 260px; la versión ampliada NO se
+   toca, se queda igual como pediste. */
+.soul-cd-respaldo-info h6 {
+  font-weight: 800;
+  font-size: 0.42rem;
+  line-height: 1.15;
+  margin-bottom: 2px;
+  text-shadow: 0 0 6px rgba(255, 200, 100, 0.6), 0 1px 2px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.soul-cd-flip.ampliado .soul-cd-respaldo-info h6 {
+  font-size: 1rem;
+  white-space: normal;
+}
+/* Separadores reales entre cada dato — antes eran <p> sueltos sin
+   ninguna división visual, se leían como un bloque de texto único. */
+.soul-cd-dato {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 0.34rem;
+  font-weight: 600;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 217, 138, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.soul-cd-flip.ampliado .soul-cd-dato {
+  font-size: 0.8rem;
+  padding: 5px 0;
+  white-space: normal;
+}
+.soul-cd-dato--sin-borde {
+  border-bottom: none;
+}
+.soul-cd-dato strong {
+  font-size: 0.26rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  opacity: 0.9;
+  color: #ffd98a;
+  text-shadow: 0 0 4px rgba(255, 200, 100, 0.5);
+}
+.soul-cd-flip.ampliado .soul-cd-dato strong {
+  font-size: 0.64rem;
+  letter-spacing: 0.5px;
+}
+
+/* CRT scanlines sobre todo el fondo inmersivo — referencia real:
+   el propio proyecto de recreación de SoundScope documentado
+   ("CRT shader by Timothy Lottes") usa este mismo tipo de efecto de
+   tubo de TV. Se aproxima con líneas horizontales repetidas + viñeta. */
+.soul-inmersivo-fondo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0px, rgba(0, 0, 0, 0.18) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+@media (max-width: 576px) {
+  .soul-cd-flip { width: min(30vh, 190px); height: min(30vh, 190px); }
+  .soul-cd-flip.ampliado { width: min(50vh, 300px); height: min(50vh, 300px); }
+}
+
+/* ============================================================
+   14. CONTROLES ADICIONALES DEL MODO INMERSIVO — reversa con su
+       volumen propio, volumen general, y selector de efecto de
+       fondo (ciclarEfectoFondo), agregados sobre el panel sólido
+       de la sección 12 para que no queden atravesados por el canvas
+   ============================================================ */
+.soul-inmersivo-columna-reversa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.soul-inmersivo-volumen {
+  width: min(50vw, 200px);
+}
+.soul-inmersivo-volumen .soul-range {
+  flex: 1;
+}
+/* z-index subido a 5 (por encima de .soul-inmersivo-contenido, que
+   está en 1) — garantiza que este botón NUNCA quede debajo de nada,
+   sea cual sea el estado de ocultamiento del panel (automático o
+   manual), ya que ambos ocultamientos solo afectan a
+   .soul-inmersivo-contenido, no a este botón. */
+.soul-btn-efecto-fondo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+
+.soul-oculto {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* ============================================================
+   16. PROGRESO SEMI-OCULTO DEL INMERSIVO — invisible por defecto,
+       se revela al pasar el mouse sobre el panel completo
+   ============================================================ */
+.soul-inmersivo-progreso-wrapper {
+  width: min(70vw, 320px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.12;
+  transition: opacity 0.25s ease;
+}
+.soul-inmersivo-panel:hover .soul-inmersivo-progreso-wrapper,
+.soul-inmersivo-progreso-wrapper:hover,
+.soul-inmersivo-progreso-wrapper:focus-within {
+  opacity: 1;
+}
+.soul-range--progreso-inmersivo {
+  flex: 1;
+}
+.soul-tiempo-pill--inmersivo {
+  font-size: 0.62rem;
+}
+
+.soul-cd-respaldo-artista {
+  font-size: 0.32rem;
+  opacity: 0.8;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.soul-cd-flip.ampliado .soul-cd-respaldo-artista {
+  font-size: 0.75rem;
+  white-space: normal;
+}
+
+/* ============================================================
+   17. BOTÓN OCULTAR/MOSTRAR MANUAL — esquina inferior izquierda,
+       casi invisible por defecto, se revela al pasar el mouse
+   ============================================================ */
+.soul-btn-ocultar-manual {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 5;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  opacity: 0.15;
+  transition: width 0.15s ease, height 0.15s ease, opacity 0.2s ease, background 0.2s ease;
+  pointer-events: auto;
+}
+/* Solo en la esquina inferior IZQUIERDA (donde vive este botón, no
+   la de salir a la derecha, que no se toca) — mientras todo está
+   oculto, la zona clickeable crece a un cuadrado grande e invisible
+   pegado a la esquina real de la pantalla, no solo al círculo chico
+   de 22px, mucho más fácil de encontrar sin ver el cursor. */
+/* Rectángulo ancho y bajo (220px x 70px) en vez de cuadrado grande
+   — más fácil de "barrer" con el mouse horizontalmente sin invadir
+   tanto espacio vertical de la pantalla. */
+.soul-btn-ocultar-manual--expandido {
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  height: 70px;
+  border-radius: 0;
+  background: transparent;
+  opacity: 0;
+}
+.soul-btn-ocultar-manual:hover {
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Cursor oculto (cursor: none, propiedad estándar CSS) en el mismo
+   estado que el resto de la UI — cumple lo pedido de que "todo"
+   desaparezca junto: panel, botones, y ahora también el puntero. */
+.soul-inmersivo-fondo.soul-cursor-oculto {
+  cursor: none;
+}
+
+/* ============================================================
+   18. ACCESO AL REPRODUCTOR LOCAL — botón de entrada a la página
+       separada de archivos locales del usuario
+   ============================================================ */
+.soul-btn-reproductor-local {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 255, 157, 0.12), rgba(195, 0, 255, 0.12));
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+.soul-btn-reproductor-local:hover {
+  border-color: var(--accent-green, #00ff9d);
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.25);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.soul-btn-reproductor-local i {
+  font-size: 1.2rem;
+  color: var(--accent-green, #00ff9d);
+}

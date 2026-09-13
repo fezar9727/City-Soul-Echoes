@@ -1,0 +1,234 @@
+<section class="rack-audio-seccion py-5">
+  <div class="container">
+    <div class="rack-audio-carcasa">
+
+      <div class="rack-lcd-fila">
+        <div class="rack-caratula" (click)="abrirCaratulaAmpliada()" [class.rack-caratula--clickeable]="pistaActual">
+          <img *ngIf="pistaActual?.caratulaUrl" [src]="pistaActual!.caratulaUrl!" [alt]="pistaActual!.titulo">
+          <i *ngIf="pistaActual && !pistaActual.caratulaUrl" class="bi bi-music-note-beamed"></i>
+          <i *ngIf="!pistaActual" class="bi bi-cassette"></i>
+        </div>
+
+        <!-- Overlay de carátula ampliada — diseño propio del rack,
+             NO reutiliza clases de Soul Station (dominio visual
+             separado). Flip 3D: frente = carátula grande, respaldo =
+             info + historia de MusicBrainz. -->
+        <div class="rack-caratula-overlay" [class.rack-caratula-overlay--visible]="caratulaAmpliada" (click)="cerrarCaratulaAmpliada()">
+          <div class="rack-caratula-flip" [class.rack-caratula-flip--volteada]="caratulaVolteada" (click)="$event.stopPropagation()">
+            <div class="rack-caratula-cara rack-caratula-cara--frente" (click)="toggleFlipCaratula()">
+              <img *ngIf="pistaActual?.caratulaUrl" [src]="pistaActual!.caratulaUrl!" [alt]="pistaActual!.titulo">
+              <i *ngIf="pistaActual && !pistaActual.caratulaUrl" class="bi bi-music-note-beamed"></i>
+            </div>
+            <div class="rack-caratula-cara rack-caratula-cara--respaldo" (click)="toggleFlipCaratula()">
+              <h6 class="rack-caratula-respaldo-titulo">{{ pistaActual?.titulo }}</h6>
+              <p class="rack-caratula-respaldo-artista">{{ pistaActual?.artista }}</p>
+              <div class="rack-caratula-dato" *ngIf="pistaActual?.album">
+                <strong>Álbum</strong>
+                <span>{{ pistaActual?.album }}</span>
+              </div>
+              <div class="rack-caratula-dato">
+                <strong>Duración</strong>
+                <span>{{ formatearDuracion(pistaActual?.duracionSegundos ?? 0) }}</span>
+              </div>
+              <div class="rack-caratula-historia">
+                <p *ngIf="cargandoHistoria" class="rack-caratula-historia-cargando">Buscando información...</p>
+                <p *ngIf="!cargandoHistoria && historiaCancion" class="rack-caratula-historia-texto">{{ historiaCancion }}</p>
+                <p *ngIf="!cargandoHistoria && !historiaCancion" class="rack-caratula-historia-vacio">Sin datos adicionales disponibles.</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="rack-btn-cerrar-caratula" (click)="cerrarCaratulaAmpliada()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="rack-lcd">
+          <div class="rack-lcd-pantalla">
+            <ng-container *ngIf="pistaActual; else lcdVacio">
+              <p class="rack-lcd-titulo">{{ pistaActual.titulo }}</p>
+              <p class="rack-lcd-artista">{{ pistaActual.artista }}<span *ngIf="pistaActual.album"> — {{ pistaActual.album }}</span></p>
+              <p class="rack-lcd-tiempo">{{ formatearDuracion(tiempoActualSegundos) }} / {{ formatearDuracion(pistaActual.duracionSegundos) }}</p>
+            </ng-container>
+            <ng-template #lcdVacio>
+              <p class="rack-lcd-titulo rack-lcd-titulo--vacio">SIN SEÑAL</p>
+              <p class="rack-lcd-artista">Cargá archivos de audio para empezar</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <audio
+        #audioLocal
+        (ended)="alTerminarPista()"
+        (loadedmetadata)="onMetadataCargada()"
+        (timeupdate)="onTiempoActualizado()"
+        class="d-none">
+      </audio>
+
+      <div
+        class="rack-bandeja-carga"
+        [class.rack-bandeja-carga--arrastrando]="arrastrandoArchivo"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave($event)"
+        (drop)="onDrop($event)">
+        <i class="bi bi-usb-symbol rack-bandeja-icono"></i>
+        <p class="rack-bandeja-texto">Arrastrá tus canciones acá, o</p>
+        <button *ngIf="soportaFileSystemAccess()" type="button" class="rack-btn-cargar" (click)="abrirSelectorModerno()">
+          Elegir archivos
+        </button>
+        <label *ngIf="!soportaFileSystemAccess()" class="rack-btn-cargar">
+          Elegir archivos
+          <input type="file" multiple accept="audio/*" (change)="alSeleccionarArchivos($event)" hidden>
+        </label>
+        <span *ngIf="cargandoArchivos" class="rack-bandeja-cargando">Leyendo metadata...</span>
+        <button
+          *ngIf="mostrarBibliotecaGuardada && !playlist.length"
+          type="button"
+          class="rack-btn-cargar mt-2"
+          (click)="abrirBibliotecaGuardada()">
+          Abrir mi biblioteca guardada
+        </button>
+      </div>
+
+      <div class="rack-controles soul-controles-principales">
+        <button type="button" class="btn btn-sm" [class.btn-warning]="aleatorio" title="Aleatorio" (click)="alternarAleatorio()">
+          <i class="bi bi-shuffle"></i>
+        </button>
+        <button type="button" class="btn btn-sm" title="Pista anterior" (click)="pistaAnterior()">
+          <i class="bi bi-skip-start-fill"></i>
+        </button>
+        <button type="button" class="btn btn-sm" title="Retroceder 10s" (click)="retroceder10s()">
+          <i class="bi bi-rewind-fill"></i>
+        </button>
+        <button type="button" class="btn" [title]="reproduciendo ? 'Pausar' : 'Reproducir'" (click)="togglePlayPause()">
+          <i class="bi" [class.bi-play-fill]="!reproduciendo" [class.bi-pause-fill]="reproduciendo"></i>
+        </button>
+        <button type="button" class="btn btn-sm" title="Adelantar 10s" (click)="avanzar10s()">
+          <i class="bi bi-fast-forward-fill"></i>
+        </button>
+        <button type="button" class="btn btn-sm" title="Siguiente pista" (click)="pistaSiguiente()">
+          <i class="bi bi-skip-end-fill"></i>
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm"
+          [class.btn-warning]="modoLoop !== 'ninguno'"
+          [title]="modoLoop === 'pista' ? 'Repetir esta pista' : (modoLoop === 'lista' ? 'Repetir lista' : 'Sin repetición')"
+          (click)="ciclarModoLoop()">
+          <i class="bi" [class.bi-repeat-1]="modoLoop === 'pista'" [class.bi-repeat]="modoLoop !== 'pista'"></i>
+        </button>
+      </div>
+
+      <div class="rack-progreso-fila">
+        <span class="rack-progreso-tiempo">{{ formatearDuracion(tiempoActualSegundos) }}</span>
+        <input
+          type="range"
+          class="rack-range rack-range--progreso"
+          min="0"
+          [max]="pistaActual?.duracionSegundos || 1"
+          step="0.1"
+          [value]="tiempoActualSegundos"
+          [style.--progreso-pct.%]="pistaActual?.duracionSegundos ? (tiempoActualSegundos / pistaActual!.duracionSegundos * 100) : 0"
+          (input)="buscarPosicion($event)"
+          aria-label="Avanzar o retroceder en la pista">
+        <span class="rack-progreso-tiempo">{{ formatearDuracion(pistaActual?.duracionSegundos ?? 0) }}</span>
+      </div>
+
+      <div class="rack-volumen-fila">
+        <i class="bi bi-soundwave"></i>
+        <input
+          type="range"
+          class="rack-range rack-range--volumen"
+          min="0" max="1" step="0.05"
+          [value]="volumen"
+          (input)="cambiarVolumen($event)"
+          aria-label="Volumen">
+        <span class="rack-volumen-valor">{{ (volumen * 100).toFixed(0) }}%</span>
+      </div>
+
+      <div class="rack-boost-wrapper">
+        <button type="button" class="rack-btn-boost-toggle" title="Potenciar volumen" (click)="mostrarBoost = !mostrarBoost">
+          <i class="bi bi-lightning-charge-fill"></i>
+        </button>
+        <div class="rack-boost-fila" [class.rack-boost-fila--visible]="mostrarBoost">
+          <input
+            type="range"
+            class="rack-range rack-range--boost"
+            min="1" max="2" step="0.05"
+            [value]="boostVolumen"
+            (input)="cambiarBoost($event)"
+            aria-label="Potenciar volumen">
+          <span class="rack-boost-valor">{{ (boostVolumen * 100).toFixed(0) }}%</span>
+        </div>
+      </div>
+
+      <div class="rack-listas-fila" *ngIf="playlist.length">
+        <button type="button" class="rack-chip" [class.rack-chip--activo]="!listaActivaId" (click)="listaActivaId = null">Todas</button>
+        <span
+          *ngFor="let lista of listas"
+          class="rack-chip rack-chip--con-borrar"
+          [class.rack-chip--activo]="listaActivaId === lista.id"
+          (click)="listaActivaId = lista.id">
+          {{ lista.nombre }}
+          <i class="bi bi-x-circle-fill rack-chip-borrar" title="Eliminar lista" (click)="eliminarLista(lista.id, $event)"></i>
+        </span>
+        <button type="button" class="rack-chip rack-chip--nueva" (click)="crearListaConPrompt()">
+          + Nueva lista
+        </button>
+      </div>
+
+      <div class="rack-lista" *ngIf="playlist.length">
+        <div
+          class="rack-lista-item"
+          *ngFor="let pista of pistasVisibles"
+          [class.rack-lista-item--activa]="pista === pistaActual"
+          (click)="seleccionarPista(playlist.indexOf(pista))">
+          <div class="rack-lista-caratula">
+            <img *ngIf="pista.caratulaUrl" [src]="pista.caratulaUrl" [alt]="pista.titulo">
+            <i *ngIf="!pista.caratulaUrl" class="bi bi-music-note-beamed"></i>
+          </div>
+          <div class="rack-lista-info">
+            <span class="rack-lista-titulo">{{ pista.titulo }}</span>
+            <span class="rack-lista-artista">{{ pista.artista }}</span>
+          </div>
+          <button
+            type="button"
+            class="rack-btn-favorito"
+            [class.rack-btn-favorito--activo]="esFavorito(pista.id)"
+            title="Favorito"
+            (click)="alternarFavorito(pista.id, $event)">
+            <i class="bi" [class.bi-heart-fill]="esFavorito(pista.id)" [class.bi-heart]="!esFavorito(pista.id)"></i>
+          </button>
+          <button
+            type="button"
+            class="rack-btn-agregar-lista"
+            title="Agregar a una lista"
+            (click)="toggleMenuListas(pista.id, $event)">
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menú flotante REAL: position:fixed fuera de .rack-lista
+           (que tiene overflow-y:auto y recortaba cualquier absolute
+           hijo), coordenadas calculadas del botón clickeado. -->
+      <div
+        class="rack-menu-listas"
+        *ngIf="menuListasAbiertoPara"
+        [style.top.px]="menuListasPos.top"
+        [style.left.px]="menuListasPos.left"
+        (click)="$event.stopPropagation()">
+        <button *ngIf="!listas.length" type="button" class="rack-menu-listas-crear" (click)="crearListaConPrompt()">
+          + Creá tu primera lista
+        </button>
+        <div
+          class="rack-menu-listas-item"
+          *ngFor="let lista of listas"
+          (click)="alternarPistaEnLista(lista.id, menuListasAbiertoPara)">
+          <input type="checkbox" [checked]="lista.pistaIds.includes(menuListasAbiertoPara)" readonly>
+          {{ lista.nombre }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

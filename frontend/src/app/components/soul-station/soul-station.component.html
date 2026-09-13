@@ -1,43 +1,276 @@
 <section class="py-5 reveal" id="soul-station" appReveal>
   <div class="container">
     <h2 class="section-title text-center mb-5 cyber-subtitle">SOUL STATION</h2>
-
     <div class="row g-4">
       <div class="col-lg-8">
         <div class="p-4 rounded transmission-box h-100 d-flex flex-column">
-          <h5 class="transmission-title mb-4">
+          <h5 class="transmission-title mb-2">
             <i class="bi bi-broadcast me-2 icon-pulse"></i>Soul Transmission
           </h5>
-
-          <div *ngIf="cargando" class="text-center opacity-50 py-5">
-            Cargando estación...
-          </div>
-
-          <div *ngIf="error" class="text-center opacity-50 py-5">
-            No se pudo cargar Soul Station. Intentalo más tarde.
-          </div>
+          <p class="small opacity-50 mb-4">
+            Música con licencia Creative Commons de uso comercial permitido, vía Jamendo. Uso recreativo mientras el sitio no genere ingresos.
+          </p>
+          <!-- Acceso al reproductor de archivos locales — dominio
+               separado (archivos del propio dispositivo del usuario),
+               por eso es una página aparte, no un modo más acá. -->
+          <a routerLink="/reproductor-local" class="soul-btn-reproductor-local mb-4">
+            <i class="bi bi-usb-symbol"></i>
+            <span>Reproducí tu propia música (USB / celular / PC)</span>
+          </a>
+          <div *ngIf="cargando" class="text-center opacity-50 py-5">Cargando estación...</div>
+          <div *ngIf="error" class="text-center opacity-50 py-5">No se pudo cargar Soul Station. Intentalo más tarde.</div>
 
           <ng-container *ngIf="!cargando && !error && pistaActual">
             <audio
               #audioPlayer
               (ended)="alTerminarPista()"
+              (timeupdate)="onTiempoActualizado()"
+              (loadedmetadata)="onMetadataCargada()"
               class="d-none">
             </audio>
 
             <div class="bg-dark p-4 border border-secondary rounded mb-3 text-center">
-              <p class="mb-1 fw-bold">{{ pistaActual.titulo }}</p>
-              <p class="mb-3 small opacity-75">{{ pistaActual.artista }}</p>
+              <ng-template #caratulaTpl>
+                <div class="soul-caratula-flip-interior">
+                  <div class="soul-caratula-cara soul-caratula-frente">
+                    <img
+                      *ngIf="pistaActual.imagenAlbum"
+                      [src]="pistaActual.imagenAlbum"
+                      [alt]="'Carátula de ' + pistaActual.titulo">
+                    <div *ngIf="!pistaActual.imagenAlbum" class="soul-caratula-placeholder-flip">
+                      <i class="bi bi-music-note-beamed"></i>
+                    </div>
+                    <span class="soul-caratula-brillo"></span>
+                  </div>
+                  <div class="soul-caratula-cara soul-caratula-respaldo">
+                    <div class="soul-respaldo-scroll">
+                      <h6 class="mb-2">{{ pistaActual.titulo }}</h6>
+                      <p class="small opacity-75 mb-3">{{ pistaActual.artista }}</p>
+                      <div class="soul-respaldo-dato">
+                        <i class="bi bi-music-note-list"></i>
+                        <span class="soul-respaldo-etiqueta">Género</span>
+                        <span class="soul-respaldo-valor">{{ generoLegible }}</span>
+                      </div>
+                      <div class="soul-respaldo-dato">
+                        <i class="bi bi-clock"></i>
+                        <span class="soul-respaldo-etiqueta">Duración</span>
+                        <span class="soul-respaldo-valor">{{ formatearDuracion(pistaActual.duracionSegundos) }}</span>
+                      </div>
+                      <div class="soul-respaldo-dato">
+                        <i class="bi bi-shield-check"></i>
+                        <span class="soul-respaldo-etiqueta">Licencia</span>
+                        <span class="soul-respaldo-valor">{{ licenciaExplicada }}</span>
+                      </div>
+                      <div class="soul-respaldo-dato soul-respaldo-dato--sin-borde">
+                        <i class="bi bi-hash"></i>
+                        <span class="soul-respaldo-etiqueta">Posición</span>
+                        <span class="soul-respaldo-valor">{{ posicionEnLista }} de {{ playlist.length }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
 
-              <div class="d-flex justify-content-center align-items-center gap-3">
-                <button type="button" class="btn btn-outline-warning btn-sm" (click)="pistaAnterior()">
-                  <i class="bi bi-skip-start-fill"></i>
+              <div
+                class="soul-caratula-flip"
+                [class.volteada]="caratulaVolteada"
+                (click)="toggleFlipCaratula()"
+                (contextmenu)="toggleAmpliarCaratula($event)"
+                (mousemove)="onMouseMoveCaratula($event)"
+                (mouseleave)="onMouseLeaveCaratula($event)"
+                title="Click: voltear">
+                <ng-container *ngTemplateOutlet="caratulaTpl"></ng-container>
+                <!-- Botón explícito de ampliar — siempre visible, más
+                     prominente en táctiles, porque el click derecho
+                     (contextmenu) no tiene un equivalente confiable ni
+                     descubrible en todos los navegadores móviles. -->
+                <button
+                  type="button"
+                  class="soul-btn-expandir"
+                  [class.tactil]="esDispositivoTactil"
+                  title="Ampliar carátula"
+                  (click)="toggleAmpliarCaratula($event); $event.stopPropagation()">
+                  <i class="bi bi-arrows-angle-expand"></i>
                 </button>
-                <button type="button" class="btn btn-warning" (click)="togglePlayPause()">
-                  <i class="bi" [class.bi-play-fill]="!reproduciendo" [class.bi-pause-fill]="reproduciendo"></i>
+                <span *ngIf="mostrarHintAmpliar" class="soul-hint-ampliar">Click para más info</span>
+              </div>
+
+              <!-- overlayCaratulaRef: el ViewChild lo mueve a document.body
+                   en ngAfterViewInit (ver .ts) — nunca depende de ancestros
+                   con transform (RevealDirective), causa real del bug de
+                   overlay descentrado. Queda siempre en el DOM, oculto por
+                   CSS (.mostrar controla display), en vez de *ngIf, porque
+                   ViewChild necesita el nodo estable para poder moverlo. -->
+              <div
+                #overlayCaratulaRef
+                class="soul-caratula-overlay-fondo"
+                [class.mostrar]="caratulaAmpliada"
+                (contextmenu)="toggleAmpliarCaratula($event)"
+                (click)="toggleAmpliarCaratula($event)">
+                <div
+                  class="soul-caratula-flip soul-caratula-flip--ampliada"
+                  [class.volteada]="caratulaVolteada"
+                  (click)="toggleFlipCaratula(); $event.stopPropagation()"
+                  (mousemove)="onMouseMoveCaratula($event)"
+                  (mouseleave)="onMouseLeaveCaratula($event)"
+                  title="Click: voltear · Click derecho: achicar">
+                  <ng-container *ngTemplateOutlet="caratulaTpl"></ng-container>
+                </div>
+              </div>
+
+              <p class="mb-1 fw-bold">{{ pistaActual.titulo }}</p>
+              <p class="mb-1 small opacity-75">{{ pistaActual.artista }}</p>
+              <p class="soul-contador-pista mb-3">Pista {{ posicionEnLista }} de {{ playlist.length }}</p>
+
+              <div class="soul-visualizador-panel">
+                <button
+                  type="button"
+                  class="soul-btn-modo-visualizador"
+                  [title]="modoVisualizador === 'barras' ? 'Cambiar a modo PS1' : 'Cambiar a modo Barras'"
+                  (click)="toggleModoVisualizador()">
+                  <i class="bi" [class.bi-stars]="modoVisualizador === 'barras'" [class.bi-bar-chart-fill]="modoVisualizador === 'ps1'"></i>
                 </button>
-                <button type="button" class="btn btn-outline-warning btn-sm" (click)="pistaSiguiente()">
-                  <i class="bi bi-skip-end-fill"></i>
+                <button
+                  type="button"
+                  class="soul-btn-inmersivo"
+                  title="Experiencia inmersiva de pantalla completa"
+                  (click)="toggleModoInmersivo()">
+                  <i class="bi bi-fullscreen"></i>
+                  <span>Modo inmersivo</span>
                 </button>
+
+                <div *ngIf="reproduciendoReversa || reversaPausada" class="soul-reversa-activa">
+                  <i class="bi bi-arrow-counterclockwise"></i>
+                </div>
+
+                <ng-container *ngIf="!reproduciendoReversa && !reversaPausada">
+                  <div *ngIf="modoVisualizador === 'barras'" class="soul-visualizador">
+                    <div class="soul-columna-led" *ngFor="let altura of barrasVisualizador">
+                      <div
+                        class="soul-segmento-led"
+                        *ngFor="let indice of indicesSegmentos"
+                        [class.encendido]="segmentoEncendido(altura, indice)"
+                        [style.background]="segmentoEncendido(altura, indice) ? colorSegmento(indice) : 'transparent'">
+                      </div>
+                    </div>
+                  </div>
+                  <canvas
+                    *ngIf="modoVisualizador === 'ps1'"
+                    #canvasPS1
+                    class="soul-canvas-ps1"
+                    (click)="onClickPS1()"
+                    title="Click para un pulso de energía">
+                  </canvas>
+                </ng-container>
+              </div>
+
+              <!-- Controles principales -->
+            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+              <button type="button" class="btn btn-sm" [class.btn-warning]="aleatorio" [class.btn-outline-warning]="!aleatorio" title="Reproducción aleatoria" (click)="alternarAleatorio()">
+                <i class="bi bi-shuffle"></i>
+              </button>
+              <button type="button" class="btn btn-outline-warning btn-sm" title="Pista anterior" (click)="pistaAnterior()">
+                <i class="bi bi-skip-start-fill"></i>
+              </button>
+              <button type="button" class="btn btn-warning" [title]="reproduciendo ? 'Pausar' : 'Reproducir'" (click)="togglePlayPause()">
+                <i class="bi" [class.bi-play-fill]="!reproduciendo" [class.bi-pause-fill]="reproduciendo"></i>
+              </button>
+              <button type="button" class="btn btn-outline-warning btn-sm" title="Siguiente pista" (click)="pistaSiguiente()">
+                <i class="bi bi-skip-end-fill"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-sm"
+                [class.btn-warning]="modoLoop !== 'ninguno'"
+                [class.btn-outline-warning]="modoLoop === 'ninguno'"
+                [title]="modoLoop === 'pista' ? 'Repetir esta pista' : (modoLoop === 'lista' ? 'Repetir toda la lista' : 'Sin repetición')"
+                (click)="ciclarModoLoop()">
+                <i class="bi" [class.bi-repeat-1]="modoLoop === 'pista'" [class.bi-repeat]="modoLoop !== 'pista'"></i>
+              </button>
+            </div>
+
+              <!-- Reversa: justo debajo del play, centrada, angosta -->
+              <div class="soul-columna-reversa mb-3">
+                <button
+                  type="button"
+                  class="btn btn-sm d-flex align-items-center justify-content-center gap-1 soul-btn-reversa"
+                  [class.activo]="reproduciendoReversa"
+                  [disabled]="cargandoReversa"
+                  [title]="reproduciendoReversa ? 'Pausar reversa' : (reversaPausada ? 'Reanudar reversa' : 'Reproducir en reversa')"
+                  (click)="alternarReversa()">
+                  <i *ngIf="!cargandoReversa && !reproduciendoReversa" class="bi bi-play-fill soul-icono-play-invertido"></i>
+                  <i *ngIf="!cargandoReversa && reproduciendoReversa" class="bi bi-pause-fill"></i>
+                  <span *ngIf="cargandoReversa" class="spinner-border spinner-border-sm"></span>
+                  <span>Reversa</span>
+                </button>
+                <div *ngIf="reproduciendoReversa || reversaPausada" class="soul-volumen-reversa d-flex align-items-center gap-1">
+                  <i class="bi bi-volume-down-fill"></i>
+                  <input
+                    type="range"
+                    class="soul-range soul-range--reversa"
+                    min="0" max="1" step="0.05"
+                    [value]="volumenReversa"
+                    (input)="cambiarVolumenReversa($event)"
+                    aria-label="Volumen de reversa">
+                </div>
+              </div>
+
+              <!-- Progreso: barra + pill "actual / total" siempre visible -->
+              <div class="soul-progreso-fila px-3 mb-2">
+                <input
+                  type="range"
+                  class="soul-range soul-range--progreso"
+                  min="0"
+                  [max]="duracionTotalSegundos || 1"
+                  step="0.1"
+                  [value]="tiempoActualSegundos"
+                  [style.--progreso-pct.%]="progresoPorcentaje"
+                  (input)="buscarPosicion($event)"
+                  aria-label="Avanzar o retroceder en la pista">
+                <span class="soul-tiempo-pill">
+                  {{ formatearDuracion(tiempoActualSegundos) }} / {{ formatearDuracion(duracionTotalSegundos) }}
+                </span>
+              </div>
+
+              <!-- Volumen general -->
+              <div
+                class="soul-volumen-wrapper px-3 d-flex align-items-center gap-2"
+                (mouseenter)="mostrandoVolumenExacto = true"
+                (mouseleave)="mostrandoVolumenExacto = false">
+                <i class="bi bi-volume-up-fill small opacity-50"></i>
+                <input
+                  type="range"
+                  class="soul-range soul-range--volumen"
+                  min="0" max="1" step="0.05"
+                  [value]="volumen"
+                  (input)="cambiarVolumen($event); mostrandoVolumenExacto = true"
+                  aria-label="Volumen">
+                <span class="soul-volumen-valor" [class.visible]="mostrandoVolumenExacto">
+                  {{ (volumen * 100).toFixed(0) }}%
+                </span>
+              </div>
+
+              <!-- Ecualizador -->
+              <div class="soul-ecualizador px-3 mt-3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small opacity-75">Ecualizador</span>
+                  <button type="button" class="btn btn-sm btn-outline-warning py-0 px-2" style="font-size: 0.7rem;" (click)="restaurarEcualizador()">Restaurar</button>
+                </div>
+                <div class="d-flex gap-2 justify-content-center flex-wrap">
+                  <div class="soul-eq-banda" *ngFor="let banda of bandas; let i = index">
+                    <div class="soul-columna-led soul-columna-eq">
+                      <div
+                        class="soul-segmento-led"
+                        *ngFor="let indice of indicesSegmentos"
+                        [class.encendido]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice)"
+                        [style.background]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice) ? colorSegmento(indice) : 'transparent'">
+                      </div>
+                    </div>
+                    <input type="range" class="soul-range-vertical" min="-15" max="15" step="1" [value]="banda.ganancia" (input)="cambiarBanda(i, $event)" [attr.aria-label]="banda.nombre">
+                    <span class="soul-eq-etiqueta">{{ banda.nombre }}</span>
+                    <span class="soul-eq-frecuencia">{{ banda.frecuenciaHz >= 1000 ? (banda.frecuenciaHz / 1000) + 'k' : banda.frecuenciaHz }}Hz</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -45,14 +278,200 @@
               <ul class="list-unstyled mb-0">
                 <li
                   *ngFor="let pista of playlist; let i = index"
-                  class="d-flex justify-content-between align-items-center px-3 py-2 rounded playlist-item"
+                  class="d-flex align-items-center gap-2 px-3 py-2 rounded playlist-item"
                   [class.bg-secondary]="i === indiceActual"
                   style="cursor: pointer;"
                   (click)="seleccionarPista(i)">
-                  <span class="small">{{ pista.titulo }} — {{ pista.artista }}</span>
-                  <span class="small opacity-50">{{ formatearDuracion(pista.duracionSegundos) }}</span>
+                  <img *ngIf="pista.imagenAlbum" [src]="pista.imagenAlbum" [alt]="'Carátula de ' + pista.titulo" class="soul-caratula-lista">
+                  <div class="flex-grow-1 d-flex justify-content-between align-items-center">
+                    <span class="small">{{ pista.titulo }} — {{ pista.artista }}</span>
+                    <span class="small opacity-50">{{ formatearDuracion(pista.duracionSegundos) }}</span>
+                  </div>
                 </li>
               </ul>
+            </div>
+
+            <div
+              #overlayInmersivoRef
+              class="soul-inmersivo-fondo"
+              [class.mostrar]="modoInmersivo"
+              [class.soul-cursor-oculto]="!uiInmersivaVisible || uiInmersivaOcultaManual"
+              (mousemove)="onMouseMoveInmersivo($event)"
+              (click)="onClickInmersivo()">
+              <canvas #canvasInmersivoRef class="soul-canvas-inmersivo"></canvas>
+              <button type="button" class="soul-btn-salir-inmersivo" [class.soul-oculto]="!uiInmersivaVisible || uiInmersivaOcultaManual" title="Salir del modo inmersivo" (click)="toggleModoInmersivo(); $event.stopPropagation()">
+                <i class="bi bi-x-lg"></i>
+              </button>
+              <button type="button" class="soul-btn-efecto-fondo" [class.soul-oculto]="!uiInmersivaVisible || uiInmersivaOcultaManual" [title]="'Efecto: ' + modoEfectoFondoActual" (click)="ciclarEfectoFondo(); $event.stopPropagation()">
+                <i class="bi bi-shuffle"></i>
+                <span>{{ modoEfectoFondoActual }}</span>
+              </button>
+              <button
+                type="button"
+                class="soul-btn-ocultar-manual"
+                [class.soul-btn-ocultar-manual--expandido]="!uiInmersivaVisible || uiInmersivaOcultaManual"
+                [title]="uiInmersivaOcultaManual ? 'Mostrar reproductor' : 'Ocultar reproductor'"
+                (click)="toggleOcultarManualUI($event)">
+              </button>
+              <div class="soul-inmersivo-contenido" [class.soul-oculto]="!uiInmersivaVisible || uiInmersivaOcultaManual" *ngIf="pistaActual" (click)="$event.stopPropagation()">             
+                <div class="soul-inmersivo-panel">
+                <div
+                  class="soul-cd-flip"
+                  [class.ampliado]="cdInmersivoAmpliado"
+                  (click)="toggleFlipCaratula()"
+                  (contextmenu)="toggleAmpliarCD($event)">
+                  <div class="soul-cd-flip-interior" [class.volteada]="caratulaVolteada">
+                    <!-- Frente: disco con la carátula real -->
+                    <div class="soul-cd-cara soul-cd-cara-frente" [class.girando]="reproduciendo">
+                      <img *ngIf="pistaActual.imagenAlbum" [src]="pistaActual.imagenAlbum" [alt]="'Carátula de ' + pistaActual.titulo">
+                      <div *ngIf="!pistaActual.imagenAlbum" class="soul-cd-placeholder">
+                        <i class="bi bi-music-note-beamed"></i>
+                      </div>
+                      <div class="soul-cd-agujero"></div>
+                      <div class="soul-cd-brillo"></div>
+                    </div>
+                    <!-- Respaldo: disco holográfico arcoíris girando de
+                         fondo, con la info superpuesta SIN girar, para
+                         que se pueda leer con buen contraste. -->
+                    <div class="soul-cd-cara soul-cd-cara-respaldo">
+                      <div class="soul-cd-respaldo-disco" [class.girando]="reproduciendo">
+                        <div class="soul-cd-agujero"></div>
+                      </div>
+                      <div class="soul-cd-respaldo-info">
+                        <h6 class="mb-1" style="font-size: inherit;">{{ pistaActual.titulo }}</h6>
+                        <p class="soul-cd-respaldo-artista mb-2">{{ pistaActual.artista }}</p>
+                        <div class="soul-cd-dato"><strong>Género</strong><span>{{ generoLegible }}</span></div>
+                        <div class="soul-cd-dato"><strong>Duración</strong><span>{{ formatearDuracion(pistaActual.duracionSegundos) }}</span></div>
+                        <div class="soul-cd-dato soul-cd-dato--sin-borde"><strong>Licencia</strong><span>{{ licenciaExplicada }}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="soul-inmersivo-titulo">{{ pistaActual.titulo }}</h5>
+                <p class="soul-inmersivo-artista">{{ pistaActual.artista }}</p>
+                <div class="soul-eq-inmersivo">
+                  <div class="d-flex justify-content-between align-items-center w-100 mb-2 soul-eq-inmersivo-header">
+                    <span class="soul-eq-inmersivo-titulo">Ecualizador</span>
+                    <button type="button" class="soul-btn-restaurar-inmersivo" (click)="restaurarEcualizador()">Restaurar</button>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-center">
+                    <div class="soul-eq-inmersivo-banda" *ngFor="let banda of bandas; let i = index">
+                      <span class="soul-eq-inmersivo-db">{{ banda.ganancia > 0 ? '+' : '' }}{{ banda.ganancia }}</span>
+                      <div class="soul-columna-led soul-columna-eq-inmersivo">
+                        <div
+                          class="soul-segmento-led soul-segmento-led--llama"
+                          *ngFor="let indice of indicesSegmentos"
+                          [class.encendido]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice)"
+                          [class.punta-activa]="esPuntaLlama(indice, banda.ganancia)"
+                          [style.background]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice) ? colorSegmentoLlama(i, indice, banda.ganancia) : 'transparent'"
+                          [style.color]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice) ? colorSegmentoLlama(i, indice, banda.ganancia) : 'transparent'"
+                          [style.box-shadow]="segmentoEncendido(((banda.ganancia + 15) / 30) * 100, indice) ? glowLlama(indice, banda.ganancia) : 'none'">
+                        </div>
+                      </div>
+                      <input type="range" class="soul-range-vertical" min="-15" max="15" step="1" [value]="banda.ganancia" (input)="cambiarBanda(i, $event)" [attr.aria-label]="banda.nombre">
+                      <span class="soul-eq-etiqueta">{{ banda.nombre }}</span>
+                      <span class="soul-eq-frecuencia">{{ banda.frecuenciaHz >= 1000 ? (banda.frecuenciaHz / 1000) + 'k' : banda.frecuenciaHz }}Hz</span>
+                    </div>
+                  </div>
+                </div>
+              <div class="soul-inmersivo-controles soul-controles-principales">
+                <button type="button" class="btn btn-sm" [class.btn-warning]="aleatorio" title="Reproducción aleatoria" (click)="alternarAleatorio()">
+                  <i class="bi bi-shuffle"></i>
+                </button>
+                <button type="button" class="btn btn-sm" title="Pista anterior" (click)="pistaAnterior()">
+                  <i class="bi bi-skip-start-fill"></i>
+                </button>
+                <button type="button" class="btn btn-sm" title="Retroceder 10 segundos" (click)="retroceder10s()">
+                  <i class="bi bi-rewind-fill"></i>
+                </button>
+                <button type="button" class="btn" [title]="reproduciendo ? 'Pausar' : 'Reproducir'" (click)="togglePlayPause()">
+                  <i class="bi" [class.bi-play-fill]="!reproduciendo" [class.bi-pause-fill]="reproduciendo"></i>
+                </button>
+                <button type="button" class="btn btn-sm" title="Adelantar 10 segundos" (click)="avanzar10s()">
+                  <i class="bi bi-fast-forward-fill"></i>
+                </button>
+                <button type="button" class="btn btn-sm" title="Siguiente pista" (click)="pistaSiguiente()">
+                  <i class="bi bi-skip-end-fill"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-sm"
+                  [class.btn-warning]="modoLoop !== 'ninguno'"
+                  [title]="modoLoop === 'pista' ? 'Repetir esta pista' : (modoLoop === 'lista' ? 'Repetir toda la lista' : 'Sin repetición')"
+                  (click)="ciclarModoLoop()">
+                  <i class="bi" [class.bi-repeat-1]="modoLoop === 'pista'" [class.bi-repeat]="modoLoop !== 'pista'"></i>
+                </button>
+              </div>
+
+                <div class="soul-inmersivo-columna-reversa">
+                  <button
+                    type="button"
+                    class="btn btn-sm d-flex align-items-center justify-content-center gap-1 soul-btn-reversa"
+                    [class.activo]="reproduciendoReversa"
+                    [disabled]="cargandoReversa"
+                    [title]="reproduciendoReversa ? 'Pausar reversa' : (reversaPausada ? 'Reanudar reversa' : 'Reproducir en reversa')"
+                    (click)="alternarReversa()">
+                    <i *ngIf="!cargandoReversa && !reproduciendoReversa" class="bi bi-play-fill soul-icono-play-invertido"></i>
+                    <i *ngIf="!cargandoReversa && reproduciendoReversa" class="bi bi-pause-fill"></i>
+                    <span *ngIf="cargandoReversa" class="spinner-border spinner-border-sm"></span>
+                    <span>Reversa</span>
+                  </button>
+                  <div *ngIf="reproduciendoReversa || reversaPausada" class="soul-volumen-reversa d-flex align-items-center gap-1">
+                    <i class="bi bi-volume-down-fill"></i>
+                    <input
+                      type="range"
+                      class="soul-range soul-range--reversa"
+                      min="0" max="1" step="0.05"
+                      [value]="volumenReversa"
+                      (input)="cambiarVolumenReversa($event)"
+                      aria-label="Volumen de reversa">
+                  </div>
+                </div>
+
+                <div class="soul-inmersivo-volumen d-flex align-items-center gap-2">
+                  <i class="bi bi-volume-up-fill"></i>
+                  <input
+                    type="range"
+                    class="soul-range soul-range--volumen"
+                    min="0" max="1" step="0.05"
+                    [value]="volumen"
+                    (input)="cambiarVolumen($event)"
+
+                    aria-label="Volumen general">
+                </div>
+                <!-- Barra de progreso semi-oculta: reutiliza buscarPosicion(),
+                     tiempoActualSegundos, duracionTotalSegundos ya existentes
+                     — se revela al pasar el mouse (misma técnica de opacidad
+                     ya usada en soul-volumen-valor/soul-hint-ampliar). -->
+                <div class="soul-inmersivo-progreso-wrapper">
+                  <input
+                    type="range"
+                    class="soul-range soul-range--progreso soul-range--progreso-inmersivo"
+                    min="0"
+                    [max]="duracionTotalSegundos || 1"
+                    step="0.1"
+                    [value]="tiempoActualSegundos"
+                    [style.--progreso-pct.%]="progresoPorcentaje"
+                    (input)="buscarPosicion($event)"
+                    aria-label="Avanzar o retroceder en la pista">
+                  <span class="soul-tiempo-pill soul-tiempo-pill--inmersivo">
+                    {{ formatearDuracion(tiempoActualSegundos) }} / {{ formatearDuracion(duracionTotalSegundos) }}
+                  </span>
+                </div>
+                </div>
+                <div class="soul-carrusel-horizontal">
+                  <button
+                    type="button"
+                    *ngFor="let pista of playlist; let i = index"
+                    class="soul-carrusel-item"
+                    [class.activo]="i === indiceActual"
+                    [title]="pista.titulo"
+                    (click)="seleccionarPista(i)">
+                    <img *ngIf="pista.imagenAlbum" [src]="pista.imagenAlbum" [alt]="pista.titulo">
+                    <i *ngIf="!pista.imagenAlbum" class="bi bi-music-note-beamed"></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </ng-container>
         </div>
