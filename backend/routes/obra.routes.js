@@ -4,6 +4,8 @@ const router = express.Router();
 const protegerRuta = require('../middlewares/auth.middleware');
 const verificarRol = require('../middlewares/role.middleware');
 const crearUploadMiddleware = require('../middlewares/upload.middleware');
+const manejarErroresValidacion = require('../middlewares/validate.middleware');
+const { validarCrearObra, validarActualizarObra } = require('../validators/obra.validator');
 const {
     crearObra,
     obtenerObras,
@@ -24,8 +26,8 @@ router.get('/', obtenerObras);
 router.get('/mis-obras', protegerRuta, obtenerObrasPropiasAdmin);
 router.get('/papelera', protegerRuta, verificarRol('admin'), obtenerPapelera);
 router.get('/:id', obtenerObra);
-router.post('/', protegerRuta, verificarRol('artista', 'admin'), uploadObra.single('imagenPortada'), crearObra);
-router.put('/:id', protegerRuta, verificarRol('artista', 'admin'), uploadObra.single('imagenPortada'), actualizarObra);
+router.post('/', protegerRuta, verificarRol('artista', 'admin'), uploadObra.single('imagenPortada'), validarCrearObra, manejarErroresValidacion, crearObra);
+router.put('/:id', protegerRuta, verificarRol('artista', 'admin'), uploadObra.single('imagenPortada'), validarActualizarObra, manejarErroresValidacion, actualizarObra);
 router.delete('/:id', protegerRuta, verificarRol('artista', 'admin'), eliminarObra);
 router.patch('/:id/restaurar', protegerRuta, verificarRol('admin'), restaurarObra);
 router.delete('/:id/definitivo', protegerRuta, verificarRol('admin'), eliminarDefinitivo);

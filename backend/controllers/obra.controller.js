@@ -47,7 +47,11 @@ const obtenerObras = async (req, res) => {
 
 const obtenerObra = async (req, res) => {
     try {
-        const obra = await Obra.findById(req.params.id)
+        // Bug real corregido: mismo patrón encontrado en curso — esta
+        // ruta pública devolvía cualquier obra por ID sin filtrar
+        // eliminada, permitiendo ver una obra en papelera con solo
+        // conocer/adivinar su ID.
+        const obra = await Obra.findOne({ _id: req.params.id, eliminada: false })
             .populate('autor', 'nombreCompleto perfilArtista.nombreArtistico');
 
         if (!obra) {
@@ -72,7 +76,21 @@ const actualizarObra = async (req, res) => {
             return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para editar esta obra' });
         }
 
-        const datosActualizados = { ...req.body };
+        // Bug real corregido: antes se pasaba req.body completo (spread)
+        // a findByIdAndUpdate — cualquier artista editando SU propia obra
+        // podía mandar { autor: "otroId" }, { eliminada: false } o
+        // { disponible: true } sin control. Ahora se whitelistea
+        // explícitamente qué campos son editables por el dueño.
+        const { titulo, tituloEn, descripcion, serie, precio, categoria, imagenes, enVenta } = req.body;
+        const datosActualizados = {};
+        if (titulo !== undefined) datosActualizados.titulo = titulo;
+        if (tituloEn !== undefined) datosActualizados.tituloEn = tituloEn;
+        if (descripcion !== undefined) datosActualizados.descripcion = descripcion;
+        if (serie !== undefined) datosActualizados.serie = serie;
+        if (precio !== undefined) datosActualizados.precio = precio;
+        if (categoria !== undefined) datosActualizados.categoria = categoria;
+        if (imagenes !== undefined) datosActualizados.imagenes = imagenes;
+        if (enVenta !== undefined) datosActualizados.enVenta = enVenta;
 
         if (req.file) {
             datosActualizados.imagenPortada = req.file.path;

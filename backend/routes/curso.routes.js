@@ -16,6 +16,9 @@ const {
     eliminarDefinitivo
 } = require('../controllers/curso.controller');
 
+const manejarErroresValidacion = require('../middlewares/validate.middleware');
+const { validarCrearCurso, validarActualizarCurso } = require('../validators/curso.validator');
+
 const uploadCurso = crearUploadMiddleware('cursos');
 
 router.get('/', obtenerCursos);
@@ -25,8 +28,8 @@ router.get('/', obtenerCursos);
 router.get('/admin', protegerRuta, verificarRol('admin'), obtenerCursosAdmin);
 router.get('/papelera', protegerRuta, verificarRol('admin'), obtenerPapelera);
 router.get('/:id', obtenerCurso);
-router.post('/', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), crearCurso);
-router.put('/:id', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), actualizarCurso);
+router.post('/', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), validarCrearCurso, manejarErroresValidacion, crearCurso);
+router.put('/:id', protegerRuta, verificarRol('admin'), uploadCurso.single('imagenPortada'), validarActualizarCurso, manejarErroresValidacion, actualizarCurso);
 router.patch('/:id/publicar', protegerRuta, verificarRol('admin'), publicarCurso);
 router.patch('/:id/restaurar', protegerRuta, verificarRol('admin'), restaurarCurso);
 router.delete('/:id', protegerRuta, verificarRol('admin'), eliminarCurso);
