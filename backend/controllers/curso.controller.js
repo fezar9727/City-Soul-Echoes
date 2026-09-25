@@ -62,7 +62,12 @@ const obtenerCursos = async (req, res) => {
 
 const obtenerCurso = async (req, res) => {
     try {
-        const curso = await Curso.findById(req.params.id)
+        // Bug real corregido: antes esta ruta pública devolvía CUALQUIER
+        // curso por ID, sin importar si estaba en la papelera (eliminada:
+        // true) — un curso "borrado" seguía siendo accesible con solo
+        // conocer/adivinar su ID, contradiciendo el propósito de la
+        // papelera.
+        const curso = await Curso.findOne({ _id: req.params.id, eliminada: false })
             .populate('docente', 'nombreCompleto correo perfilDocente.nombrePublico perfilDocente.especialidad perfilDocente.bio perfilDocente.metodoContacto perfilDocente.redes');
         if (!curso) {
             return res.status(404).json({ ok: false, mensaje: 'Curso no encontrado' });
@@ -82,10 +87,23 @@ const actualizarCurso = async (req, res) => {
         if (curso.docente.toString() !== req.usuario._id.toString() && req.usuario.rol !== 'admin') {
             return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para editar este curso' });
         }
-        const datosActualizados = { ...req.body };
-        if (datosActualizados.lecciones) {
-            datosActualizados.lecciones = JSON.parse(datosActualizados.lecciones);
+        // Bug real corregido: antes se pasaba req.body completo (spread)
+        // a findByIdAndUpdate — permitía mandar { publicado: true } sin
+        // pasar por publicarCurso(), { docente: "otroId" } para robar
+        // el curso, o { eliminada: false } para revivirlo sin pasar por
+        // restaurarCurso(). Ahora solo se aceptan campos de contenido.
+        const { titulo, descripcion, categoria, modalidad, precio, duracionHoras } = req.body;
+        const datosActualizados = {};
+        if (titulo !== undefined) datosActualizados.titulo = titulo;
+        if (descripcion !== undefined) datosActualizados.descripcion = descripcion;
+        if (categoria !== undefined) datosActualizados.categoria = categoria;
+        if (modalidad !== undefined) datosActualizados.modalidad = modalidad;
+        if (precio !== undefined) datosActualizados.precio = precio;
+        if (duracionHoras !== undefined) datosActualizados.duracionHoras = duracionHoras;
+        if (req.body.lecciones !== undefined) {
+            datosActualizados.lecciones = JSON.parse(req.body.lecciones);
         }
+
         if (req.file) {
             datosActualizados.imagenPortada = req.file.path;
             datosActualizados.imagenPortadaPublicId = req.file.filename;

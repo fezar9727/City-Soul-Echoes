@@ -1,6 +1,7 @@
 
 const crypto = require('crypto');
 const Pago = require('../models/Pago');
+const Producto = require('../models/Producto');
 const Suscripcion = require('../models/Suscripcion');
 const Usuario = require('../models/Usuario');
 const verificarFirmaWompi = require('../utils/verificarFirmaWompi');
@@ -8,7 +9,40 @@ const { enviarCorreoActualizacionPlan } = require('../services/email.service');
 const generarReferencia = require('../utils/generarReferenciaPago');
 const iniciarPago = async (req, res) => {
     try {
-        const { concepto, conceptoId, monto } = req.body;
+        const { concepto, conceptoId } = req.body;
+
+        // El monto NUNCA se acepta desde el cliente — se calcula acá,
+        // buscando el precio real en la base de datos. Aceptar un monto
+        // enviado por el navegador permitiría que cualquiera manipule la
+        // petición (con las DevTools o Postman) y pague, por ejemplo, $1
+        // por un producto de $50.000, ya que la firma de integridad de
+        // Wompi se generaría igual con ese monto falso.
+        let monto;
+        let conceptoModel;
+
+        if (concepto === 'producto') {
+            conceptoModel = 'Producto';
+            const producto = await Producto.findById(conceptoId);
+            if (!producto) {
+                return res.status(404).json({ ok: false, mensaje: 'Producto no encontrado' });
+            }
+            monto = producto.precio;
+        } else if (concepto === 'suscripcion' || concepto === 'actualizacion_plan') {
+            conceptoModel = 'Suscripcion';
+            const suscripcion = await Suscripcion.findById(conceptoId);
+            if (!suscripcion) {
+                return res.status(404).json({ ok: false, mensaje: 'Suscripción no encontrada' });
+            }
+            monto = concepto === 'actualizacion_plan'
+                ? suscripcion.precioPlanDestino
+                : suscripcion.precio;
+        } else {
+            return res.status(400).json({ ok: false, mensaje: 'Concepto no válido' });
+        }
+
+        if (!monto || monto <= 0) {
+            return res.status(400).json({ ok: false, mensaje: 'No se pudo determinar un monto válido para este pago' });
+        }
 
         const referencia = generarReferencia();
 
@@ -17,7 +51,7 @@ const iniciarPago = async (req, res) => {
             usuario: req.usuario._id,
             concepto,
             conceptoId,
-            conceptoModel: concepto === 'producto' ? 'Producto' : 'Suscripcion',
+            conceptoModel,
             monto
         });
 

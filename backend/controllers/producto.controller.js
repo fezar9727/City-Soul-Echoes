@@ -64,9 +64,25 @@ const actualizarProducto = async (req, res) => {
             return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para editar este producto' });
         }
 
+        // Bug real corregido: antes se pasaba req.body completo a
+        // findByIdAndUpdate — cualquiera con permiso para editar SU
+        // propio producto podía mandar { vendedor: "otroId" } y
+        // transferírselo a otra cuenta, o modificar cualquier campo
+        // no previsto. Ahora se whitelistea explícitamente qué
+        // campos son editables.
+        const { titulo, descripcion, precio, categoria, imagenes, stock, disponible } = req.body;
+        const camposPermitidos = {};
+        if (titulo !== undefined) camposPermitidos.titulo = titulo;
+        if (descripcion !== undefined) camposPermitidos.descripcion = descripcion;
+        if (precio !== undefined) camposPermitidos.precio = precio;
+        if (categoria !== undefined) camposPermitidos.categoria = categoria;
+        if (imagenes !== undefined) camposPermitidos.imagenes = imagenes;
+        if (stock !== undefined) camposPermitidos.stock = stock;
+        if (disponible !== undefined) camposPermitidos.disponible = disponible;
+
         const productoActualizado = await Producto.findByIdAndUpdate(
             req.params.id,
-            req.body,
+            camposPermitidos,
             { returnDocument: 'after', runValidators: true }
         );
 

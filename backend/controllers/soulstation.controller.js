@@ -43,9 +43,21 @@ const actualizarEstacion = async (req, res) => {
             return res.status(404).json({ ok: false, mensaje: 'Soul Station no encontrada' });
         }
 
+        // Bug real corregido: mismo patrón ya encontrado en obra, evento,
+        // curso y producto — pasar req.body completo permitía mandar
+        // { admin: "otroId" } para transferir la estación a otra cuenta,
+        // o { activo: false } rompiendo la regla de "solo una estación
+        // activa" sin pasar por ningún control. Solo se aceptan los
+        // campos realmente editables por este endpoint.
+        const { nombre, descripcion, playlist } = req.body;
+        const datosActualizados = {};
+        if (nombre !== undefined) datosActualizados.nombre = nombre;
+        if (descripcion !== undefined) datosActualizados.descripcion = descripcion;
+        if (playlist !== undefined) datosActualizados.playlist = playlist;
+
         const estacionActualizada = await SoulStation.findByIdAndUpdate(
             estacion._id,
-            req.body,
+            datosActualizados,
             { returnDocument: 'after', runValidators: true }
         );
 

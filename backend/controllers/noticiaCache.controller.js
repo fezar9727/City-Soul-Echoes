@@ -7,27 +7,33 @@ const DURACION_CACHE_MS = 2 * 60 * 60 * 1000;
 const NEWSDATA_BASE_URL = 'https://newsdata.io/api/1/news';
 
 // Configuración de cada categoría — su query específica para NewsData.io
-const CONFIG_CATEGORIAS = {
-    noticias: {
+// Map en vez de objeto plano — mismo bug ya corregido en
+// bienestar.controller.js: un objeto {} indexado con un valor de
+// query controlado por el usuario (?categoria=constructor) puede
+// resolver accidentalmente a una propiedad heredada del prototipo
+// (Object) en vez de undefined, saltándose la validación. Map es
+// inmune a esto por diseño.
+const CONFIG_CATEGORIAS = new Map([
+    ['noticias', {
         variantes: [
             { language: 'es', category: 'top' },
             { language: 'es', category: 'world' }
         ]
-    },
-    cultura: {
+    }],
+    ['cultura', {
         variantes: [
             { country: 'co', language: 'es', category: 'entertainment', q: 'arte OR cultura' },
             { language: 'es', category: 'entertainment', q: 'música OR cine OR literatura' }
         ]
-    },
-    videojuegos: {
+    }],
+    ['videojuegos', {
         variantes: [
             { language: 'es', category: 'technology', qInTitle: 'videojuego OR gaming OR "PlayStation" OR "Xbox" OR "Nintendo Switch"' },
             { language: 'es', category: 'technology', qInTitle: '"GTA 6" OR "Resident Evil" OR "Final Fantasy" OR "Call of Duty" OR esports' },
             { language: 'es', category: 'technology', qInTitle: '"Steam" OR "PC gaming" OR "juego indie" OR eSports' }
         ]
-    }
-};
+    }]
+]);
 
 // Normaliza la respuesta de NewsData.io hacia el formato de nuestro articuloSchema
 // Reduce un título a una forma "esqueleto" para comparar similitud real:
@@ -67,7 +73,7 @@ const normalizarArticulos = (resultados) => {
 
 // Golpea NewsData.io para una categoría específica y devuelve los artículos normalizados
 const consultarNewsData = async (categoria) => {
-    const config = CONFIG_CATEGORIAS[categoria];
+    const config = CONFIG_CATEGORIAS.get(categoria);
 
     // Ejecuta todas las variantes de consulta en paralelo. Si una falla
     // (por ejemplo, por límite de la API), se ignora esa sola llamada
@@ -91,7 +97,7 @@ const consultarNewsData = async (categoria) => {
 // distintas a la vez — por ejemplo, una noticia sobre Nintendo Switch
 // que ya salió en "videojuegos" no debería repetirse en "cultura".
 const filtrarRepetidosDeOtrasCategorias = async (categoriaActual, articulos) => {
-    const otrasCategorias = Object.keys(CONFIG_CATEGORIAS).filter((c) => c !== categoriaActual);
+    const otrasCategorias = [...CONFIG_CATEGORIAS.keys()].filter((c) => c !== categoriaActual);
     const cachesDeOtras = await NoticiaCache.find({ categoria: { $in: otrasCategorias } });
 
     const titulosEnOtrasCategorias = new Set();
@@ -135,7 +141,7 @@ const obtenerNoticias = async (req, res) => {
     try {
         const { categoria } = req.query;
 
-        if (!categoria || !CONFIG_CATEGORIAS[categoria]) {
+        if (!categoria || !CONFIG_CATEGORIAS.has(categoria)) {
             return res.status(400).json({
                 mensaje: 'La categoría debe ser: noticias, cultura o videojuegos'
             });

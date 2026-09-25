@@ -51,7 +51,11 @@ const obtenerEventos = async (req, res) => {
 
 const obtenerEvento = async (req, res) => {
     try {
-        const evento = await Evento.findById(req.params.id)
+        // Bug real corregido: mismo patrón encontrado en curso y obra —
+        // esta ruta pública devolvía cualquier evento por ID sin filtrar
+        // eliminada NI estadoModeracion, permitiendo ver un evento
+        // rechazado, pendiente o borrado con solo conocer su ID.
+        const evento = await Evento.findOne({ _id: req.params.id, eliminada: false, estadoModeracion: 'aprobado' })
             .populate('creador', 'nombreCompleto');
         if (!evento) {
             return res.status(404).json({ ok: false, mensaje: 'Evento no encontrado' });
@@ -71,7 +75,25 @@ const actualizarEvento = async (req, res) => {
         if (evento.creador.toString() !== req.usuario._id.toString() && req.usuario.rol !== 'admin') {
             return res.status(403).json({ ok: false, mensaje: 'No tienes permiso para editar este evento' });
         }
-        const datosActualizados = { ...req.body };
+        // Bug real corregido: antes se pasaba req.body completo (spread)
+        // a findByIdAndUpdate — permitía mandar { estadoModeracion:
+        // 'aprobado', esOficial: true } y saltarse por completo el flujo
+        // de moderación, publicando un evento como oficial sin revisión.
+        // También permitía reasignar { creador: "otroId" }. Ahora solo
+        // se aceptan los campos realmente editables; estadoModeracion y
+        // esOficial se cambian únicamente vía moderarEvento.
+        const { titulo, descripcion, tipo, fecha, hora, linkSala, accesoPúblico, cupos, activo } = req.body;
+        const datosActualizados = {};
+        if (titulo !== undefined) datosActualizados.titulo = titulo;
+        if (descripcion !== undefined) datosActualizados.descripcion = descripcion;
+        if (tipo !== undefined) datosActualizados.tipo = tipo;
+        if (fecha !== undefined) datosActualizados.fecha = fecha;
+        if (hora !== undefined) datosActualizados.hora = hora;
+        if (linkSala !== undefined) datosActualizados.linkSala = linkSala;
+        if (accesoPúblico !== undefined) datosActualizados.accesoPúblico = accesoPúblico;
+        if (cupos !== undefined) datosActualizados.cupos = cupos;
+        if (activo !== undefined) datosActualizados.activo = activo;
+
         if (req.file) {
             datosActualizados.imagenPortada = req.file.path;
             datosActualizados.imagenPortadaPublicId = req.file.filename;

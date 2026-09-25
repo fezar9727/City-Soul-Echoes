@@ -486,12 +486,23 @@ function obtenerRutaVegana() { return RUTA_VEGANA_CALI; }
 function obtenerModaInclusiva() { return PERFILES_MODA_INCLUSIVA; }
 function obtenerSaludMental() { return RECURSOS_SALUD_MENTAL; }
 
-const RESOLVERES_POR_CATEGORIA = { 'vegana': obtenerRutaVegana, 'salud-mental': obtenerSaludMental, 'moda-inclusiva': obtenerModaInclusiva };
+// Map en vez de objeto plano: un Map JavaScript real (API estándar,
+// distinto de un objeto {}) nunca tiene propiedades heredadas como
+// "constructor" o "__proto__" — es inmune por diseño a que una clave
+// controlada por el usuario (?categoria=constructor) resuelva
+// accidentalmente a algo del prototipo en vez de undefined. Bug real
+// corregido: antes RESOLVERES_POR_CATEGORIA['constructor'] devolvía
+// la función Object (heredada), pasando la validación por error.
+const RESOLVERES_POR_CATEGORIA = new Map([
+    ['vegana', obtenerRutaVegana],
+    ['salud-mental', obtenerSaludMental],
+    ['moda-inclusiva', obtenerModaInclusiva]
+]);
 
 const obtenerBienestarPorCategoria = async (req, res) => {
     try {
         const { categoria } = req.query;
-        if (!categoria || !RESOLVERES_POR_CATEGORIA[categoria]) {
+        if (!categoria || !RESOLVERES_POR_CATEGORIA.has(categoria)) {
             return res.status(400).json({ ok: false, mensaje: 'Categoría inválida. Usa: vegana, salud-mental o moda-inclusiva' });
         }
         const cacheExistente = await BienestarCache.findOne({ categoria });
@@ -500,7 +511,7 @@ const obtenerBienestarPorCategoria = async (req, res) => {
         if (cacheVigente) {
             return res.status(200).json({ ok: true, categoria, items: cacheExistente.items, fuente: 'cache' });
         }
-        const resolver = RESOLVERES_POR_CATEGORIA[categoria];
+        const resolver = RESOLVERES_POR_CATEGORIA.get(categoria);
         const items = await resolver();
         const actualizado = await BienestarCache.findOneAndUpdate(
             { categoria }, { items, fechaActualizacion: new Date() }, { returnDocument: 'after', upsert: true, runValidators: true }

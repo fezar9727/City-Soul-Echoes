@@ -67,30 +67,18 @@ const cambiarPassword = async (req, res) => {
     }
 };
 
+// PARCHE DE SEGURIDAD TEMPORAL — bug real corregido: esta función
+// permitía que cualquier usuario logueado se auto-asignara el rol
+// artista/docente sin pago ni aprobación de admin, saltándose por
+// completo el modelo de negocio real (cambio de rol = ajuste de
+// suscripción con prorrateo + aprobación manual, mismo patrón que
+// ya existe en solicitudVendedor.controller.js). Deshabilitada hasta
+// implementar SolicitudCambioRol con el mismo flujo de aprobación.
 const cambiarRol = async (req, res) => {
-    try {
-        const { nuevoRol, perfilArtista, perfilDocente } = req.body;
-        const rolesValidos = ['usuario', 'artista', 'docente'];
-
-        if (!rolesValidos.includes(nuevoRol)) {
-            return res.status(400).json({ ok: false, mensaje: 'Rol no válido. Debe ser: usuario, artista o docente' });
-        }
-
-        const usuario = await Usuario.findById(req.usuario._id);
-        usuario.rol = nuevoRol;
-
-        if (nuevoRol === 'artista' && perfilArtista) usuario.perfilArtista = perfilArtista;
-        if (nuevoRol === 'docente' && perfilDocente) usuario.perfilDocente = perfilDocente;
-
-        await usuario.save();
-
-        const obj = usuario.toObject();
-        delete obj.password;
-
-        res.status(200).json({ ok: true, mensaje: `Rol cambiado a ${nuevoRol} correctamente`, usuario: obj });
-    } catch (error) {
-        res.status(500).json({ ok: false, mensaje: 'Error al cambiar el rol', detalle: process.env.NODE_ENV === 'development' ? error.message : undefined });
-    }
+    return res.status(410).json({
+        ok: false,
+        mensaje: 'El cambio de rol ahora requiere una solicitud de aprobación. Usá el endpoint de solicitud de cambio de plan.'
+    });
 };
 
 const forgotPassword = async (req, res) => {
@@ -165,8 +153,12 @@ const verificarCorreo = async (req, res) => {
 // para mostrarse públicamente, nunca correo/telefono/password crudos.
 const obtenerPerfilPublico = async (req, res) => {
     try {
+        // Bug real corregido: el .select() anterior SÍ incluía "correo",
+        // contradiciendo el propio comentario de esta función ("nunca
+        // correo/telefono/password crudos") — exponía el email de
+        // artistas/docentes en un endpoint público sin autenticación.
         const usuario = await Usuario.findById(req.params.id)
-            .select('nombreCompleto rol ciudad perfilArtista perfilDocente correo createdAt');
+            .select('nombreCompleto rol ciudad perfilArtista perfilDocente createdAt');
         if (!usuario || (usuario.rol !== 'artista' && usuario.rol !== 'docente')) {
             return res.status(404).json({ ok: false, mensaje: 'Perfil no encontrado' });
         }

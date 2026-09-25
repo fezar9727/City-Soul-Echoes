@@ -3,6 +3,8 @@ const router = express.Router();
 
 const protegerRuta = require('../middlewares/auth.middleware');
 const verificarRol = require('../middlewares/role.middleware');
+const { validarIniciarPago } = require('../validators/pago.validator');
+const manejarErroresValidacion = require('../middlewares/validate.middleware');
 const {
     iniciarPago,
     webhookWompi,
@@ -12,7 +14,7 @@ const {
 } = require('../controllers/pago.controller');
 
 router.post('/webhook', webhookWompi);
-router.post('/iniciar', protegerRuta, iniciarPago);
+router.post('/iniciar', protegerRuta, validarIniciarPago, manejarErroresValidacion, iniciarPago);
 router.get('/mis-pagos', protegerRuta, obtenerMisPagos);
 router.get('/mi-suscripcion', protegerRuta, obtenerMiSuscripcion);
 router.get('/todos', protegerRuta, verificarRol('admin'), obtenerTodosLosPagos);
